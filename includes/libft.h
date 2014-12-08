@@ -13,6 +13,7 @@
 #ifndef LIBFT_H
 # define LIBFT_H
 # include <string.h>
+# define BUFF_SIZE 		100
 
 typedef unsigned char	t_char;
 typedef unsigned char	*t_pchar;
@@ -76,5 +77,6 @@ char	**ft_strsplit(char const *s, char c);
 char	*ft_strnstr(const char *s1, const char *s2, size_t n);
 size_t	ft_strlcat(char *dst, const char *src, size_t size);
 char	**ft_str_split(char const *s, char c);
+int		ft_gnl(int const fd, char **line);
 
 #endif
