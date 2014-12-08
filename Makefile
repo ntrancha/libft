@@ -39,7 +39,7 @@ FILE =	ft_memchr.c			ft_putnbr_fd.c \
 		ft_strdup.c			ft_strncpy.c \
 		ft_strstr.c			ft_strlcat.c \
 		ft_striter.c		ft_gnl.c \
-		ft_strplit.c
+		ft_strsplit.c		ft_putnbr_endl.c
 
 all: $(NAME)
 

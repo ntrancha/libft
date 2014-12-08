@@ -70,25 +70,24 @@ static char			*ft_strsplit_clean(char const *s, char c)
 	return (tmp);
 }
 
-char				**ft_strsplit_cut(char *clean, char c)
+static char			**ft_strsplit_cut(char *clean, char c, int mark)
 {
 	char			**ret;
 	int				count;
 	int				start;
 	int				end;
-	int				mark;
 
-	ret = malloc(sizeof(char*) * count + 1);
 	count = 0;
+	ret = malloc(sizeof(char*) * count + 1);
 	start = 0;
-	mark = 0;
 	end = 0;
 	while (clean[count])
 	{
 		if (clean[count] == c && clean[count + 1] != c)
 		{
 			ret[mark] = ft_strsub(clean, start, end - start);
-			ret[mark] = ft_strsplit_clean(ret[mark++], c);
+			ret[mark] = ft_strsplit_clean(ret[mark], c);
+			mark++;
 			start = end + 1;
 		}
 		end++;
@@ -104,7 +103,9 @@ char				**ft_strsplit(char const *s, char c)
 	char			*clean;
 	char			**ret;
 	int				count;
+	int				mark;
 
+	mark = 0;
 	count = ft_strsplit_test((char*)s, c);
 	if (!s || !s[0] || count)
 	{
@@ -117,7 +118,7 @@ char				**ft_strsplit(char const *s, char c)
 	if (s && s[0])
 	{
 		clean = ft_strsplit_clean(s, c);
-		ret = ft_strsplit_cut(clean, c);
+		ret = ft_strsplit_cut(clean, c, mark);
 		if (!ret)
 			return (NULL);
 	}
