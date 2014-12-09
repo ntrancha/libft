@@ -13,7 +13,7 @@
 #include <libft.h>
 #include <stdlib.h>
 
-void		*ft_strnrpl_trans(char **source, char *remplace, int start, int end)
+static void	*end(char **source, char *remplace, int start, int end)
 {
 	char	*p1;
 	char	*p2;
@@ -33,33 +33,34 @@ void		*ft_strnrpl_trans(char **source, char *remplace, int start, int end)
 	ft_strdel(&tmp);
 }
 
+static int	next(int *start, int c, int i, char *search, char **source)
+{
+	if (search[c] == (*source)[i])
+	{
+		if (*start == -1)
+			*start = i;
+		c++;
+		return (c);
+	}
+	*start = -1;
+	return (0);
+}
+
 int			ft_strnrpl(char **source, char *search, char *remplace, int n)
 {
 	int		index;
 	int		count;
 	int		start;
-	int		end;
 
 	index = 0;
 	count = 0;
 	start = -1;
-	end = 0;
 	while ((*source)[index] != '\0' && n > 0)
 	{
-		if (search[count] == (*source)[index])
-		{
-			if (start == -1)
-				start = index;
-			count++;
-		}
-		else
-		{
-			count = 0;
-		}
+		count = next(&start, count, index, search, source);
 		if (search[count] == '\0')
 		{
-			end = index + 1;
-			ft_strnrpl_trans(source, remplace, start, end);
+			ft_strnrpl_trans(source, remplace, start, index + 1);
 			n--;
 			return (ft_strnrpl(source, search, remplace, n));
 		}
