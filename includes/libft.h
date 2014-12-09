@@ -79,5 +79,6 @@ char	*ft_strnstr(const char *s1, const char *s2, size_t n);
 size_t	ft_strlcat(char *dst, const char *src, size_t size);
 char	**ft_str_split(char const *s, char c);
 int		ft_gnl(int const fd, char **line);
+int		ft_strnrpl(char **source, char *search, char *remplace, int n);
 
 #endif

@@ -10,10 +10,10 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libft.h>
+#include "includes/libft.h"
 #include <stdlib.h>
 
-static void	*end(char **source, char *remplace, int start, int end)
+static int	next2(char **source, char *remplace, int start, int end, int n)
 {
 	char	*p1;
 	char	*p2;
@@ -21,16 +21,19 @@ static void	*end(char **source, char *remplace, int start, int end)
 
 	p1 = ft_strsub(*source, 0, start);
 	if (p1 == NULL)
-		return (NULL);
+		return (0);
 	p2 = ft_strsub(*source, end, ft_strlen(*source) - end);
 	if (p2 == NULL)
-		return (NULL);
+		return (0);
 	tmp = ft_strjoin(p1, remplace);
 	if (tmp == NULL)
-		return (NULL);
+		return (0);
 	ft_strdel(source);
 	*source = ft_strjoin(tmp, p2);
 	ft_strdel(&tmp);
+	if (*source == NULL)
+		return (0);
+	return (n);
 }
 
 static int	next(int *start, int c, int i, char *search, char **source)
@@ -60,8 +63,7 @@ int			ft_strnrpl(char **source, char *search, char *remplace, int n)
 		count = next(&start, count, index, search, source);
 		if (search[count] == '\0')
 		{
-			ft_strnrpl_trans(source, remplace, start, index + 1);
-			n--;
+			n = next2(source, remplace, start, index + 1, n);
 			return (ft_strnrpl(source, search, remplace, n));
 		}
 		index++;
