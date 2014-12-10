@@ -40,7 +40,8 @@ FILE =	ft_memchr.c			ft_putnbr_fd.c \
 		ft_strstr.c			ft_strlcat.c \
 		ft_striter.c		ft_gnl.c \
 		ft_strsplit.c		ft_putnbr_endl.c \
-		ft_strnrpl.c
+		ft_strnrpl.c		ft_strmjoin.c \
+		ft_strmore.c		ft_strcchr.c
 
 all: $(NAME)
 
