@@ -47,12 +47,12 @@ char			*ft_itoa(int n)
 	int			tmp;
 	int			tmp2;
 
-	neg = 0;
 	if (n < 0)
 		neg = 1;
 	num = ft_itoa_next(n);
 	tmp2 = ((n < 0) ? -n : n);
-	ret = ft_strnew(num + 2);
+	ret = (char *)malloc(sizeof(char *) * num + 2);
+	ret[num] = 0;
 	if (!tmp2)
 		ret[0] = '0';
 	else if (neg)

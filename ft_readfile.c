@@ -1,22 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_readfile.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/11/04 14:29:14 by ntrancha          #+#    #+#             */
-/*   Updated: 2014/11/08 14:20:55 by ntrancha         ###   ########.fr       */
+/*   Created: 2014/12/11 11:32:26 by ntrancha          #+#    #+#             */
+/*   Updated: 2014/12/11 13:57:15 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/libft.h"
+#include <fcntl.h>
 
-void	ft_putstr(char *str)
+int			ft_readfile(int fd, char **str)
 {
-	while (*str != '\0')
+	int		ret;
+	char	*line;
+	char	*tmp;
+
+	ret = 1;
+	while (ret > 0)
 	{
-		ft_putchar(*str);
-		str++;
+		ret = ft_gnl(fd, &line);
+		if (ret != -1)
+		{
+			tmp = ft_strdup(*str);
+			ft_strdel(str);
+			*str = ft_strjoin(tmp, line);
+			ft_strdel(&tmp);
+		}
+		if (ret == 1)
+		{
+			tmp = ft_strdup(*str);
+			ft_strdel(str);
+			*str = ft_strjoin(tmp, "\n");
+			ft_strdel(&tmp);
+		}
 	}
+	return (ret);
 }

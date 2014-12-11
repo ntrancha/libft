@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/04 10:09:36 by ntrancha          #+#    #+#             */
-/*   Updated: 2014/11/27 08:15:24 by ntrancha         ###   ########.fr       */
+/*   Updated: 2014/12/11 13:56:58 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ char	*ft_strncpy(char *dst, const char *src, size_t n);
 char	*ft_strcat(char *s1, char const *s2);
 char	*ft_strncat(char *s1, char *s2, size_t n);
 char	*ft_strchr(const char *s, int c);
-int		*ft_strcchr(char *source, char *search);
+int		ft_strcchr(char *source, char *search);
 char	*ft_strrchr(const char *s, int c);
 char	*ft_strcasestr(const char *s1, const char *s2);
 char	*ft_strstr(const char *s1, const char *s2);
@@ -83,5 +83,6 @@ char	**ft_str_split(char const *s, char c);
 int		ft_gnl(int const fd, char **line);
 int		ft_strnrpl(char **source, char *search, char *remplace, int n);
 char	*ft_strmore(char *str, size_t n);
+int		ft_readfile(int fd, char **str);
 
 #endif

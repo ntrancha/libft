@@ -1,27 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   ft_gnl.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/29 11:00:50 by ntrancha          #+#    #+#             */
-/*   Updated: 2014/12/01 15:49:50 by ntrancha         ###   ########.fr       */
+/*   Updated: 2014/12/11 13:34:29 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/libft.h"
 #include <unistd.h>
-
-static int		get_next_line_return(char **str, int ret)
-{
-	if (ft_strcmp(*str, "FIN") != 0)
-	{
-		*str = ft_strdup("FIN");
-		return (ret);
-	}
-	return (-1);
-}
 
 static int		get_next_line_split(char *all, char **line)
 {
@@ -67,16 +57,16 @@ static int		get_next_line_read(int const fd, char **line, char **all)
 		ret = read(fd, *line, BUFF_SIZE);
 		if (ret == -1 || *line == NULL)
 			return (-1);
-		tmp = ft_strdup(*all);
+		tmp = ft_strnew(ft_strlen(*all) + BUFF_SIZE + 1);
+		ft_strcpy(tmp, *all);
 		ft_strdel(all);
 		tmp = ft_strncat(tmp, *line, ret);
-		*all = ft_strdup(tmp);
+		*all = ft_strnew(ft_strlen(tmp) + BUFF_SIZE + 2);
+		ft_strcpy(*all, tmp);
 		ft_strdel(&tmp);
 	}
-	if (ft_strlen(*line) == 0 && ft_strlen(*all) == 0)
-		return (-2);
 	ft_strdel(line);
-	if (ft_strlen(*all) == 0 || ft_strcmp(*all, "FIN") == 0)
+	if (ft_strlen(*all) == 0)
 		return (-1);
 	get_next_line_debug(all);
 	return (0);
@@ -84,28 +74,28 @@ static int		get_next_line_read(int const fd, char **line, char **all)
 
 int				ft_gnl(int const fd, char **line)
 {
-	static char	*all[100];
+	static char	*all[10];
 	char		*tmp;
 	int			ret;
 
-	*line = NULL;
 	if (!all[fd])
 	{
 		all[fd] = ft_strnew(BUFF_SIZE + 1);
-		ret = get_next_line_read(fd, line, &all[fd]);
-		if (ret == -1)
-			return (get_next_line_return(&all[fd], -1));
-		if (ret == -2)
-			return (get_next_line_return(&all[fd], 0));
+		if (get_next_line_read(fd, line, &all[fd]) == -1)
+			return (-1);
 	}
-	else if (ft_strlen(all[fd]) == 0 || ft_strcmp(all[fd], "FIN") == 0)
-		return (-1);
 	ret = get_next_line_split(all[fd], line);
+	if (ret == -1)
+		return (0);
 	tmp = ft_strsub(all[fd], ret + 1, ft_strlen(all[fd]));
 	ft_strdel(&all[fd]);
-	all[fd] = ft_strdup(tmp);
+	all[fd] = ft_strnew(ft_strlen(tmp) + 1);
+	ft_strcpy(all[fd], tmp);
 	ft_strdel(&tmp);
-	if (ft_strlen(all[fd]) == 0)
-		return (get_next_line_return(&all[fd], 0));
+	if (all[fd][0] == '\0')
+	{
+		ft_strdel(&all[fd]);
+		return (0);
+	}
 	return (1);
 }

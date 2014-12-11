@@ -6,7 +6,7 @@
 #    By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/11/08 10:45:53 by ntrancha          #+#    #+#              #
-#    Updated: 2014/12/01 13:22:39 by ntrancha         ###   ########.fr        #
+#    Updated: 2014/12/11 13:36:26 by ntrancha         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,9 +39,9 @@ FILE =	ft_memchr.c			ft_putnbr_fd.c \
 		ft_strdup.c			ft_strncpy.c \
 		ft_strstr.c			ft_strlcat.c \
 		ft_striter.c		ft_gnl.c \
-		ft_strsplit.c		ft_putnbr_endl.c \
 		ft_strnrpl.c		ft_strmjoin.c \
-		ft_strmore.c		ft_strcchr.c
+		ft_strmore.c		ft_strcchr.c \
+		ft_putnbr_endl.c \
 
 all: $(NAME)
 
