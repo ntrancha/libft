@@ -6,18 +6,14 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/05 13:17:39 by ntrancha          #+#    #+#             */
-/*   Updated: 2014/11/19 12:46:29 by ntrancha         ###   ########.fr       */
+/*   Updated: 2014/11/11 13:50:34 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 void	ft_striter(char *s, void (*f)(char *))
 {
-	if (s && (*f))
-	{
-		while (*s)
-		{
-			f(s);
-			s++;
-		}
-	}
+	if (*f && f)
+		if (*s && s)
+			while (*s && s)
+				f(s++);
 }

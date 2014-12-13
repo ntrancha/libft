@@ -41,7 +41,7 @@ FILE =	ft_memchr.c			ft_putnbr_fd.c \
 		ft_striter.c		ft_gnl.c \
 		ft_strnrpl.c		ft_strmjoin.c \
 		ft_strmore.c		ft_strcchr.c \
-		ft_putnbr_endl.c \
+		ft_putnbr_endl.c	ft_readfile.c
 
 all: $(NAME)
 
