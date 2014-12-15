@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/05 10:06:02 by ntrancha          #+#    #+#             */
-/*   Updated: 2014/11/13 10:49:35 by ntrancha         ###   ########.fr       */
+/*   Updated: 2014/11/19 12:39:49 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void				*ft_memchr(const void *s, int c, size_t n)
 	if (!n || !s)
 		return (NULL);
 	tmp = (unsigned char *)s;
-	while (tmp && *tmp && n--)
+	while (n--)
 	{
 		if (*tmp == (unsigned char)c)
 			return ((void *)tmp);

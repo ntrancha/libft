@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/05 09:28:42 by ntrancha          #+#    #+#             */
-/*   Updated: 2014/11/08 15:59:35 by ntrancha         ###   ########.fr       */
+/*   Updated: 2014/11/15 09:54:54 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,7 @@ void		*ft_memcpy(void *dst, const void *src, size_t n)
 
 	dst_tmp = (char *)dst;
 	src_tmp = (char *)src;
-	while (dst_tmp && src_tmp && n--)
-	{
+	while (n--)
 		*dst_tmp++ = *src_tmp++;
-	}
-	*dst_tmp = '\0';
 	return (dst);
 }

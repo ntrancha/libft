@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/04 11:14:08 by ntrancha          #+#    #+#             */
-/*   Updated: 2014/11/11 13:03:03 by ntrancha         ###   ########.fr       */
+/*   Updated: 2014/11/19 14:52:04 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,27 +15,20 @@
 char				*ft_strsub(char const *s, unsigned int start, size_t len)
 {
 	unsigned int	count;
-	unsigned int	count2;
-	int				taille;
 	char			*result;
 
-	taille = 0;
-	if (!s || !*s)
+	if (!s)
 		return (NULL);
-	while (s[taille] != '\0')
-		taille++;
-	result = ft_strnew(taille);
+	result = ft_strnew(len + 1);
+	if (!result)
+		return (NULL);
 	count = 0;
-	count2 = 0;
-	while (s[count] != '\0')
+	while (count < len)
 	{
-		if (count >= start && count2 < len)
-		{
-			result[count2] = s[count];
-			count2++;
-		}
+		result[count] = s[start];
 		count++;
+		start++;
 	}
-	result[count2] = '\0';
+	result[count] = '\0';
 	return (result);
 }

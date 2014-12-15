@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/05 13:28:47 by ntrancha          #+#    #+#             */
-/*   Updated: 2014/11/11 13:54:36 by ntrancha         ###   ########.fr       */
+/*   Updated: 2014/11/19 13:03:29 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,17 +19,18 @@ char		*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	char	*result;
 
 	index = 0;
-	if (*f && f)
-		if (*s && s)
+	if (s && f)
+	{
+		result = malloc(sizeof(char) * (ft_strlen((char *)s) + 1));
+		if (!result)
+			return (NULL);
+		while (s[index] != '\0')
 		{
-			result = malloc(sizeof(char) * (ft_strlen((char *)s) + 1));
-			while (s[index] != '\0')
-			{
-				result[index] = f(index, s[index]);
-				index++;
-			}
-			result[index] = '\0';
-			return (result);
+			result[index] = f(index, s[index]);
+			index++;
 		}
+		result[index] = '\0';
+		return (result);
+	}
 	return (NULL);
 }
