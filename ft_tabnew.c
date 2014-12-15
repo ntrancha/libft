@@ -13,19 +13,37 @@
 #include "includes/libft.h"
 #include <stdlib.h>
 
-int		**ft_tabnew(int line, int col)
+static int	**tabnew(int line, int col)
 {
-    int	**tab;
-    int	*tab2;
-    int	i;
+	int		**ptr;
+	int		i;
 
-    tab = (int **)malloc(sizeof(int*) * line);
-    tab2 = (int *)malloc(sizeof(int) * col * line);
-    i = 0;
-    while (i < line)
-    {
-        tab[i] = &tab2[i * col];
-        i++;
-    }
-    return (tab);
+	ptr = malloc(col * sizeof(*ptr));
+	if(ptr == NULL)
+		return (NULL);
+	i = 0;
+	while (i < col)
+	{
+		ptr[i] = malloc(line * sizeof(**ptr));
+     	if(ptr[i] == NULL)
+			return (NULL);
+		i++;
+	}
+	return (ptr);
+}
+
+t_tab		*ft_tabnew(int line, int col)
+{
+	t_tab	*tab;
+
+	if (line < 1 || col < 1)
+		return (NULL);
+	if ((tab = malloc(sizeof(t_tab))) == NULL)
+		return (NULL);
+	if ((tab->tab = tabnew(line, col)) == NULL)
+		return (NULL);
+	tab->col = col;
+	tab->line = line;
+	ft_tabclear(tab);
+	return (tab);
 }

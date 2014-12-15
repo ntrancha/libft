@@ -17,6 +17,12 @@
 
 typedef unsigned char	t_char;
 typedef unsigned char	*t_pchar;
+typedef struct 			s_tab
+{
+	int					**tab;
+	int					col;
+	int					line;
+}						t_tab;
 
 void	*ft_memalloc(size_t size);
 void	*ft_memset(void *b, int c, size_t len);
@@ -84,5 +90,12 @@ int		ft_strnrpl(char **source, char *search, char *remplace, int n);
 char	*ft_strmore(char *str, size_t n);
 int		ft_readfile(int fd, char **str);
 int		ft_gnl(int const fd, char **line);
+t_tab	*ft_tabnew(int line, int col);
+void	ft_straddchar(char **str, char c);
+int     ft_tabmin(t_tab *tab);
+int     ft_tabmax(t_tab *tab);
+int     ft_puttab(t_tab *tab);
+void    ft_tabclear(t_tab *tab);
+t_tab   *ft_tabdel(t_tab **tab);
 
 #endif

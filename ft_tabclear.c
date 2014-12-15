@@ -1,32 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_tabclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/11/04 15:27:47 by ntrancha          #+#    #+#             */
-/*   Updated: 2014/11/11 10:31:54 by ntrancha         ###   ########.fr       */
+/*   Created: 2014/12/15 12:21:06 by ntrancha          #+#    #+#             */
+/*   Updated: 2014/12/15 12:21:06 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int			ft_atoi(const char *str)
-{
-	int		ret;
-	int		signe;
+#include "includes/libft.h"
+#include <stdlib.h>
 
-	ret = 0;
-	if (!str)
-		return (ret);
-	signe = 1;
-	while (*str == ' ' || *str == '\n' || *str == '\t' || *str == '\f'
-			|| *str == '\r' || *str == '\v')
-		str++;
-	if (*str == '-')
-		signe = -1;
-	if (*str == '+' || *str == '-')
-		str++;
-	while (*str >= '0' && *str <= '9')
-		ret = ret * 10 + (*str++ - '0');
-	return (ret * signe);
+void    ft_tabclear(t_tab *tab)
+{
+    int line;
+    int col;
+
+    col = 0;
+    while (col < tab->col)
+    {
+        line = 0;
+        while (line < tab->line)
+        {
+            tab->tab[col][line] = 0;
+            line++;
+        }
+        col++;
+    }
 }

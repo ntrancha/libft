@@ -41,7 +41,11 @@ FILE =	ft_memchr.c			ft_putnbr_fd.c \
 		ft_striter.c		ft_gnl.c \
 		ft_strnrpl.c		ft_strmjoin.c \
 		ft_strmore.c		ft_strcchr.c \
-		ft_putnbr_endl.c	ft_readfile.c
+		ft_putnbr_endl.c	ft_readfile.c \
+		ft_tabnew.c			ft_straddchar.c \
+		ft_tabmin.c			ft_tabmax.c \
+		ft_puttab.c			ft_tabclear.c \
+		ft_tabdel.c
 
 all: $(NAME)
 
