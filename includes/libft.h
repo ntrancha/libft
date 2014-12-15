@@ -17,12 +17,22 @@
 
 typedef unsigned char	t_char;
 typedef unsigned char	*t_pchar;
+
 typedef struct 			s_tab
 {
 	int					**tab;
 	int					col;
 	int					line;
 }						t_tab;
+
+typedef struct  s_point
+{
+    int         x;
+    int         y;
+    int         z;
+    int         cx;
+    int         cy;
+}               t_point;
 
 void	*ft_memalloc(size_t size);
 void	*ft_memset(void *b, int c, size_t len);
@@ -95,7 +105,10 @@ void	ft_straddchar(char **str, char c);
 int     ft_tabmin(t_tab *tab);
 int     ft_tabmax(t_tab *tab);
 int     ft_puttab(t_tab *tab);
-void    ft_tabclear(t_tab *tab);
+void    ft_tabclear(t_tab **tab);
 t_tab   *ft_tabdel(t_tab **tab);
+t_point	*ft_pointnew(int x, int y, int z);
+t_point	*ft_pointcpy(t_point *p);
+void	ft_pointdel(t_point *point);
 
 #endif

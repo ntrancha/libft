@@ -1,29 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_tabclear.c                                      :+:      :+:    :+:   */
+/*   ft_pointcpy.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/12/15 12:21:06 by ntrancha          #+#    #+#             */
-/*   Updated: 2014/12/15 12:21:06 by ntrancha         ###   ########.fr       */
+/*   Created: 2014/12/15 14:07:04 by ntrancha          #+#    #+#             */
+/*   Updated: 2014/12/15 14:07:04 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/libft.h"
 #include <stdlib.h>
+#include "includes/libft.h"
 
-void    ft_tabclear(t_tab **tab)
+t_point     *ft_pointcpy(t_point *p)
 {
-    int line;
-    int col;
+    t_point *cpy;
 
-    col = 0;
-    while (col < (*tab)->col)
-    {
-        line = 0;
-        while (line < (*tab)->line)
-            (*tab)->tab[col][line++] = 0;
-        col++;
-    }
+    cpy = malloc(sizeof(t_point));
+    if (cpy == NULL)
+        return (NULL);
+    cpy->x = p->x;
+    cpy->y = p->y;
+    cpy->z = p->z;
+    cpy->cx = p->cx;
+    cpy->cy = p->cy;
+    return (cpy);
 }

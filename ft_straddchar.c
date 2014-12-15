@@ -25,7 +25,7 @@ void		ft_straddchar(char **str, char c)
 	else
 		tmp = ft_strdup("");
 	ft_strdel(str);
-	tmp2 = malloc(sizeof(char) * (ft_strlen(tmp) + 1));
+	tmp2 = malloc(sizeof(char) * (ft_strlen(tmp) + 2));
 	while (tmp[++index])
 		tmp2[index] = tmp[index];
 	tmp2[index] = c;

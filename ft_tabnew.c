@@ -44,6 +44,6 @@ t_tab		*ft_tabnew(int line, int col)
 		return (NULL);
 	tab->col = col;
 	tab->line = line;
-	ft_tabclear(tab);
+	ft_tabclear(&tab);
 	return (tab);
 }

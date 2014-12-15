@@ -28,12 +28,13 @@ static int	next2(char **source, char *remplace, int start, int end, int n)
 	tmp = ft_strjoin(p1, remplace);
 	if (tmp == NULL)
 		return (0);
-	ft_strdel(source);
+	if (source != NULL)
+		ft_strdel(source);
 	*source = ft_strjoin(tmp, p2);
 	ft_strdel(&tmp);
 	if (*source == NULL)
 		return (0);
-	return (n);
+	return (n - 1);
 }
 
 static int	next(int *start, int c, int i, char *search, char **source)
@@ -46,7 +47,7 @@ static int	next(int *start, int c, int i, char *search, char **source)
 		return (c);
 	}
 	*start = -1;
-	return (0);
+	return (-1);
 }
 
 int			ft_strnrpl(char **source, char *search, char *remplace, int n)
@@ -58,14 +59,16 @@ int			ft_strnrpl(char **source, char *search, char *remplace, int n)
 	index = 0;
 	count = 0;
 	start = -1;
-	while ((*source)[index] != '\0' && n > 0)
+	while ((*source)[index] != '\0' && n != 0)
 	{
 		count = next(&start, count, index, search, source);
-		if (search[count] == '\0')
+		if (search[count] == '\0' && count != -1)
 		{
 			n = next2(source, remplace, start, index + 1, n);
 			return (ft_strnrpl(source, search, remplace, n));
 		}
+		if (count == -1)
+			count = 0;
 		index++;
 	}
 	return (n);
