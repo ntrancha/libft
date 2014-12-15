@@ -47,7 +47,7 @@ FILE =	ft_memchr.c			ft_putnbr_fd.c \
 		ft_puttab.c			ft_tabclear.c \
 		ft_tabdel.c			ft_pointnew.c \
 		ft_pointcpy.c		ft_pointdel.c \
-		ft_nbrlen.c
+		ft_nbrlen.c			ft_ctos.c
 
 all: $(NAME)
 

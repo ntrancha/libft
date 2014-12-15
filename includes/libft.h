@@ -55,6 +55,7 @@ void	ft_putstr_fd(char const *s, int fd);
 void	ft_putendl_fd(char const *s, int fd);
 char	**ft_strsplit(char const *s, char c);
 int		ft_atoi(const char *str);
+char	*ft_ctos(char c);
 int		ft_isdigit(int c);
 int		ft_isalpha(int c);
 int		ft_isalnum(int c);
