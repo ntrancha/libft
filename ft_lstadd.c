@@ -1,28 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_lstadd.c									:+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/11/05 09:28:42 by ntrancha          #+#    #+#             */
-/*   Updated: 2014/11/08 15:59:35 by ntrancha         ###   ########.fr       */
+/*   Created: 2014/11/16 10:14:13 by ntrancha          #+#    #+#             */
+/*   Updated: 2014/11/16 10:14:13 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/libft.h"
 
-void		*ft_memcpy(void *dst, const void *src, size_t n)
+void		ft_lstadd(t_list **alst, t_list *new)
 {
-	char	*dst_tmp;
-	char	*src_tmp;
-
-	dst_tmp = (char *)dst;
-	src_tmp = (char *)src;
-	while (dst_tmp && src_tmp && n--)
-	{
-		*dst_tmp++ = *src_tmp++;
-	}
-	*dst_tmp = '\0';
-	return (dst);
+	t_list	*prev;
+	
+	prev = *alst;
+	prev->next = *alst;
+	*alst = new;
 }
