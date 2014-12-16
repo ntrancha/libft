@@ -111,5 +111,11 @@ t_tab   *ft_tabdel(t_tab **tab);
 t_point	*ft_pointnew(int x, int y, int z);
 t_point	*ft_pointcpy(t_point *p);
 void	ft_pointdel(t_point *point);
+void	ft_tabup(t_tab *tab, int up);
+int		ft_power(int nbr, int power);
+int     ft_neg(int nbr);
+int     ft_dectobin(int dec);
+int		ft_bintodec(int bin);
+int     ft_rgb(int red, int green, int blue);
 
 #endif

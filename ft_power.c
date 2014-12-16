@@ -1,36 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_tabmin.c                                        :+:      :+:    :+:   */
+/*   ft_power.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/12/15 12:17:21 by ntrancha          #+#    #+#             */
-/*   Updated: 2014/12/15 12:17:21 by ntrancha         ###   ########.fr       */
+/*   Created: 2014/12/16 11:15:45 by ntrancha          #+#    #+#             */
+/*   Updated: 2014/12/16 11:15:45 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/libft.h"
-#include <stdlib.h>
 
-int     ft_tabmin(t_tab *tab)
+int     ft_power(int nbr, int power)
 {
-    int min;
-    int i;
-    int j;
+    int ret;
 
-    i = 0;
-    min = tab->tab[0][0];
-    while (i < tab->col)
+    ret = 1;
+    if (power == 0 || nbr == 0)
+        return (0);
+    if (power == 1)
+        return (nbr);
+    while (power-- > 0)
     {
-        j = 0;
-        while (j < tab->line)
-        {
-            if (tab->tab[i][j] < min)
-                min = tab->tab[i][j];
-            j++;
-        }
-        i++;
+        ret *= nbr;
     }
-    return (min);
+    return (ret);
 }

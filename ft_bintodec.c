@@ -1,36 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_tabmin.c                                        :+:      :+:    :+:   */
+/*   ft_bintodec.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/12/15 12:17:21 by ntrancha          #+#    #+#             */
-/*   Updated: 2014/12/15 12:17:21 by ntrancha         ###   ########.fr       */
+/*   Created: 2014/12/16 11:47:17 by ntrancha          #+#    #+#             */
+/*   Updated: 2014/12/16 11:47:17 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/libft.h"
-#include <stdlib.h>
 
-int     ft_tabmin(t_tab *tab)
+int			ft_bintodec(int bin)
 {
-    int min;
-    int i;
-    int j;
+	int		res;
+	int		len;
+	char	*str;
+	int		size;
 
-    i = 0;
-    min = tab->tab[0][0];
-    while (i < tab->col)
-    {
-        j = 0;
-        while (j < tab->line)
-        {
-            if (tab->tab[i][j] < min)
-                min = tab->tab[i][j];
-            j++;
-        }
-        i++;
-    }
-    return (min);
+	if (bin < 0)
+		return (ft_neg(ft_bintodec(ft_neg(bin))));
+	str = ft_itoa(bin);
+	len = ft_strlen(str);
+	size = len - 1;
+	res = 0;
+	while (--len >= 0)
+		if (str[len] - 48 == 1)
+			res += ft_power(2, size - len);
+	if (str[size] == '1')
+		res++;
+	ft_strdel(&str);
+	return (res);
 }
