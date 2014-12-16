@@ -25,5 +25,6 @@ t_point     *ft_pointcpy(t_point *p)
     cpy->z = p->z;
     cpy->cx = p->cx;
     cpy->cy = p->cy;
+    cpy->cz = p->cz;
     return (cpy);
 }

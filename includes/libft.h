@@ -32,6 +32,7 @@ typedef struct  s_point
     int         z;
     int         cx;
     int         cy;
+    int         cz;
 }               t_point;
 
 void	*ft_memalloc(size_t size);
@@ -117,5 +118,6 @@ int     ft_neg(int nbr);
 int     ft_dectobin(int dec);
 int		ft_bintodec(int bin);
 int     ft_rgb(int red, int green, int blue);
+int     ft_abs(int n);
 
 #endif

@@ -23,5 +23,8 @@ t_point     *ft_pointnew(int x, int y, int z)
     p->x = x;
     p->y = y;
     p->z = z;
+    p->cx = x;
+    p->cy = y;
+    p->cz = z;
     return (p);
 }

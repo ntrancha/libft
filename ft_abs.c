@@ -1,22 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdel.c                                        :+:      :+:    :+:   */
+/*   ft_abs.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/11/04 10:51:56 by ntrancha          #+#    #+#             */
-/*   Updated: 2014/11/11 11:33:32 by ntrancha         ###   ########.fr       */
+/*   Created: 2014/12/16 13:57:49 by ntrancha          #+#    #+#             */
+/*   Updated: 2014/12/16 13:57:49 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/libft.h"
-
-void	ft_strdel(char **as)
+int		ft_abs(int n)
 {
-	if (as)
-	{
-		ft_memdel((void **)as);
-		*as = NULL;
-	}
+	if (n < 0)
+		return (n * -1);
+	return (n);
 }
