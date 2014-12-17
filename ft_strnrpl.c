@@ -32,6 +32,8 @@ static int	next2(char **source, char *remplace, int start, int end, int n)
 		ft_strdel(source);
 	*source = ft_strjoin(tmp, p2);
 	ft_strdel(&tmp);
+	ft_strdel(&p1);
+	ft_strdel(&p2);
 	if (*source == NULL)
 		return (0);
 	return (n - 1);

@@ -13,7 +13,7 @@
 #ifndef LIBFT_H
 # define LIBFT_H
 # include <string.h>
-# define BUFF_SIZE 		100
+# define BUFF_SIZE 		1
 
 typedef unsigned char	t_char;
 typedef unsigned char	*t_pchar;
