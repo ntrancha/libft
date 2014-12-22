@@ -18,7 +18,7 @@ char		*ft_ctos(char c)
 	char	*ret;
 
 	ret = ft_strnew(1);
-	if (ret != NULL)
+	if (ret == NULL)
 		return (NULL);
 	ret[0] = c;
 	ret[1] = '\0';
