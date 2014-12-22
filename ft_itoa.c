@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/libft.h"
 #include <stdlib.h>
+#include "includes/libft.h"
 
 char	*ft_itoa(int n)
 {
@@ -21,7 +21,7 @@ char	*ft_itoa(int n)
 	if (n == -2147483648)
 		return (ft_strdup("-2147483648"));
 	if (n == 0)
-		return(ft_strdup("0"));
+		return (ft_strdup("0"));
 	len = ft_nbrlen(n);
 	if (!(s = (char *) malloc((len + 1) * sizeof(*s))))
 		return (NULL);

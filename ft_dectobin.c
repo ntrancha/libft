@@ -17,7 +17,7 @@ static int	findpower(int nbr)
 	int		ret;
 
 	ret = 0;
-	while ((ft_power(2,ret) * 2) <= nbr)
+	while ((ft_power(2, ret) * 2) <= nbr)
         ret++;
 	return (ret);
 }

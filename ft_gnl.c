@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/libft.h"
 #include <unistd.h>
+#include "includes/libft.h"
 
 static int		get_next_line_split(char *all, char **line)
 {

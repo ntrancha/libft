@@ -16,7 +16,15 @@
 # define BUFF_SIZE 		1
 
 typedef unsigned char	t_char;
-typedef unsigned char	*t_pchar;
+
+typedef struct 			s_doublestr
+{
+	char				**str;
+	char				*str2;
+	char				*str3;
+	int					*start;
+	int					*count;
+}						t_doublestr;
 
 typedef struct 			s_tab
 {

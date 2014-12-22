@@ -15,5 +15,5 @@
 void	ft_putnbr_endl(int nbr)
 {
 	ft_putnbr(nbr);
-	ft_putchar('\n');;
+	ft_putchar('\n');
 }

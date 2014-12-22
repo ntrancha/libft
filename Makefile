@@ -57,6 +57,7 @@ all: $(NAME)
 
 $(NAME): $(OBJS)
 		@ar rc $@ $^
+		@ranlib $(NAME)
 
 %.o: %.c
 		@gcc $(FLAG) -c -o $@ $^
@@ -68,3 +69,6 @@ fclean: clean
 		@rm -rf $(NAME)
 
 re: fclean all
+
+install: re
+		@rm -rf $(OBJS)

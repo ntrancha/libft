@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/libft.h"
 #include <stdlib.h>
+#include "includes/libft.h"
 
 int     ft_puttab(t_tab *tab)
 {
