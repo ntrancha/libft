@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/libft.h"
 #include <stdlib.h>
+#include "includes/libft.h"
 
 static int	**tabnew(int line, int col)
 {
@@ -19,13 +19,13 @@ static int	**tabnew(int line, int col)
 	int		i;
 
 	ptr = malloc(col * sizeof(*ptr));
-	if(ptr == NULL)
+	if (ptr == NULL)
 		return (NULL);
 	i = 0;
 	while (i < col)
 	{
 		ptr[i] = malloc(line * sizeof(**ptr));
-     	if(ptr[i] == NULL)
+     	if (ptr[i] == NULL)
 			return (NULL);
 		i++;
 	}
