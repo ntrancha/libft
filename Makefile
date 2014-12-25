@@ -45,13 +45,12 @@ FILE =	ft_memchr.c			ft_putnbr_fd.c \
 		ft_tabnew.c			ft_straddchar.c \
 		ft_tabmin.c			ft_tabmax.c \
 		ft_puttab.c			ft_tabclear.c \
-		ft_tabdel.c			ft_pointnew.c \
-		ft_pointcpy.c		ft_pointdel.c \
+		ft_tabdel.c			ft_abs.c \
 		ft_nbrlen.c			ft_ctos.c \
 		ft_tabup.c			ft_power.c \
 		ft_neg.c			ft_dectobin.c \
 		ft_bintodec.c		ft_rgb.c \
-		ft_abs.c
+		ft_strsplit.c		ft_tabstrdel.c
 
 all: $(NAME)
 

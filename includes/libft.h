@@ -17,14 +17,14 @@
 
 typedef unsigned char	t_char;
 
-typedef struct 			s_doublestr
+typedef struct 			s_strnrpl
 {
 	char				**str;
 	char				*str2;
 	char				*str3;
 	int					*start;
 	int					*count;
-}						t_doublestr;
+}						t_strnrpl;
 
 typedef struct 			s_tab
 {
@@ -32,16 +32,6 @@ typedef struct 			s_tab
 	int					col;
 	int					line;
 }						t_tab;
-
-typedef struct  s_point
-{
-    int         x;
-    int         y;
-    int         z;
-    int         cx;
-    int         cy;
-    int         cz;
-}               t_point;
 
 void	*ft_memalloc(size_t size);
 void	*ft_memset(void *b, int c, size_t len);
@@ -117,9 +107,6 @@ int     ft_tabmax(t_tab *tab);
 int     ft_puttab(t_tab *tab);
 void    ft_tabclear(t_tab **tab);
 t_tab   *ft_tabdel(t_tab **tab);
-t_point	*ft_pointnew(int x, int y, int z);
-t_point	*ft_pointcpy(t_point *p);
-void	ft_pointdel(t_point *point);
 void	ft_tabup(t_tab *tab, int up);
 int		ft_power(int nbr, int power);
 int     ft_neg(int nbr);
@@ -127,5 +114,7 @@ int     ft_dectobin(int dec);
 int		ft_bintodec(int bin);
 int     ft_rgb(int red, int green, int blue);
 int     ft_abs(int n);
+char	**ft_strsplit(char const *s, char c);
+void	ft_tabstrdel(char **str);
 
 #endif

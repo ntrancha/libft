@@ -13,7 +13,7 @@
 #include <stdlib.h>
 #include "includes/libft.h"
 
-static int	next2(t_doublestr *str, int start, int end, int n)
+static int	next2(t_strnrpl *str, int start, int end, int n)
 {
 	char	*p1;
 	char	*p2;
@@ -39,7 +39,7 @@ static int	next2(t_doublestr *str, int start, int end, int n)
 	return (n - 1);
 }
 
-static int	next(int *start, int c, int i, t_doublestr *str)
+static int	next(int *start, int c, int i, t_strnrpl *str)
 {
 	if (str->str2[c] == (*str->str)[i])
 	{
@@ -52,7 +52,7 @@ static int	next(int *start, int c, int i, t_doublestr *str)
 	return (-1);
 }
 
-static int	foreach(t_doublestr *str, int *n, int *index)
+static int	foreach(t_strnrpl *str, int *n, int *index)
 {
 	*(str->count) = next(str->start, *(str->count), *index, str);
 	if (str->str2[*(str->count)] == '\0' && *(str->count) != -1)
@@ -72,22 +72,22 @@ int			ft_strnrpl(char **source, char *search, char *remplace, int n)
 	int			index;
 	int			count;
 	int			start;
-	t_doublestr	*doublestr;
+	t_strnrpl	*strnrpl;
 
 	index = 0;
 	count = 0;
 	start = -1;
-	doublestr = malloc(sizeof(t_doublestr));
-	doublestr->str = source;
-	doublestr->str2 = search;
-	doublestr->str3 = remplace;
-	doublestr->start = &start;
-	doublestr->count = &count;
-	while ((*(doublestr->str))[index] != '\0' && n != 0)
+	strnrpl = malloc(sizeof(t_strnrpl));
+	strnrpl->str = source;
+	strnrpl->str2 = search;
+	strnrpl->str3 = remplace;
+	strnrpl->start = &start;
+	strnrpl->count = &count;
+	while ((*(strnrpl->str))[index] != '\0' && n != 0)
 	{
-		if (foreach(doublestr, &n, &index) == -1)
+		if (foreach(strnrpl, &n, &index) == -1)
 			n = 0;
 	}
-	free(doublestr);
+	free(strnrpl);
 	return (n);
 }

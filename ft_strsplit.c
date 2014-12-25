@@ -13,115 +13,75 @@
 #include <stdlib.h>
 #include "includes/libft.h"
 
-static int			ft_strsplit_count(char *s, char c)
-{
-	int				count;
-
-	count = 1;
-	while (*s)
-	{
-		if (*s == c && *s + 1 != c)
-			count++;
-		s++;
-	}
-	return (count);
-}
-
-static	int			ft_strsplit_test(char *s, char c)
-{
-	int				count;
-
-	count = 0;
-	while (s[count])
-	{
-		if (s[count] != c)
-			return (0);
-		count++;
-	}
-	return (1 + count);
-}
-
-static char			*ft_strsplit_clean(char const *s, char c)
-{
-	char			*tmp;
-	int				size;
-	int				start;
-	int				end;
-
-	tmp = ft_strdup((char*)s);
-	start = 0;
-	end = -1;
-	size = 0;
-	while (tmp[size])
-	{
-		if (end == -1 && tmp[size] == c)
-			start++;
-		else if (end == -1)
-			end = 0;
-		size++;
-	}
-	while (size)
-		if (tmp[--size] == c)
-			end++;
-		else
-			size = 0;
-	size = ft_strlen(tmp);
-	tmp = ft_strsub(tmp, start, size - end - start);
-	return (tmp);
-}
-
-char				**ft_strsplit_cut(char *clean, char c)
+static char			**strsplit(char *s, char c, int nbr)
 {
 	char			**ret;
-	int				count;
+	int				index;
 	int				start;
-	int				end;
-	int				mark;
+	int				count;
 
-	ret = malloc(sizeof(char*) * count + 1);
-	count = 0;
 	start = 0;
-	mark = 0;
-	end = 0;
-	while (clean[count])
+	index = 0;
+	count = 0;
+	if (!(ret = malloc(sizeof(char*) * nbr * 2)))
+		return (NULL);
+	while (s[index])
 	{
-		if (clean[count] == c && clean[count + 1] != c)
+		if (s[index] == c)
 		{
-			ret[mark] = ft_strsub(clean, start, end - start);
-			ret[mark] = ft_strsplit_clean(ret[mark++], c);
-			start = end + 1;
+			if (!(ret[count] = ft_strsub(s, start, index - start)))
+				return (NULL);
+			count++;
+			start = index + 1;
 		}
-		end++;
-		count++;
+		index++;
 	}
-	ret[mark++] = ft_strsub(clean, start, end - start);
-	ret[mark] = 0;
+	ret[count] = ft_strsub(s, start, index - start);
+	ret[count + 1] = NULL;
+	return (ret);
+}
+
+static char			*cleanstr(char const *s, char c)
+{
+	char			*str;
+	int				index;
+	int				end;
+
+	index = 0;
+	while (s[index] == c)
+		index++;
+	end = ft_strlen((char*)s) - 1;
+	while (s[end] == c)
+		end--;
+	str = ft_strsub(s, index, end - index + 1);
+	return (str);
+}
+
+static int			countchar(char *str, char c)
+{
+	int 			ret;
+	int				index;
+
+	ret = 1;
+	index = 0;
+	while (str[index])
+	{
+		if (str[index] == c)
+			ret++;
+		index++;
+	}
 	return (ret);
 }
 
 char				**ft_strsplit(char const *s, char c)
 {
-	char			*clean;
+	char			*str;
 	char			**ret;
-	int				count;
+	int				nbr;
 
-	count = ft_strsplit_test((char*)s, c);
-	if (!s || !s[0] || count)
-	{
-		ret = malloc(sizeof(char *) * 2);
-		ret[0] = (char*)s;
-		ret[1] = 0;
-		return (ret);
-	}
-	count = ft_strsplit_count((char*)s, c);
-	if (s && s[0])
-	{
-		clean = ft_strsplit_clean(s, c);
-		ret = ft_strsplit_cut(clean, c);
-		if (!ret)
-			return (NULL);
-	}
-	else
-		return (NULL);
+	str = cleanstr(s, c);
+	nbr = countchar((char*)s,c);
+	ret = strsplit((char*)str, c, nbr);
+	ft_strdel(&str);
 	return (ret);
 }
