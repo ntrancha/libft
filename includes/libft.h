@@ -116,5 +116,7 @@ char	**ft_strsplit(char const *s, char c);
 void	ft_tabstrdel(char **str);
 char        *ft_strrvs(char *str);
 int         ft_cinstr(char *str, char c);
+char        *ft_strralloc(char **str, int len);
+int         ft_sqrt(int nbr);
 
 #endif

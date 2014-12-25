@@ -51,7 +51,8 @@ FILE =	ft_memchr.c			ft_putnbr_fd.c \
 		ft_neg.c			ft_dectobin.c \
 		ft_bintodec.c		ft_rgb.c \
 		ft_strsplit.c		ft_tabstrdel.c \
-		ft_strrvs.c			ft_cinstr.c
+		ft_strrvs.c			ft_cinstr.c \
+		ft_strralloc.c		ft_sqrt.c
 
 all: $(NAME)
 
