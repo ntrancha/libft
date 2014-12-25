@@ -50,7 +50,8 @@ FILE =	ft_memchr.c			ft_putnbr_fd.c \
 		ft_tabup.c			ft_power.c \
 		ft_neg.c			ft_dectobin.c \
 		ft_bintodec.c		ft_rgb.c \
-		ft_strsplit.c		ft_tabstrdel.c
+		ft_strsplit.c		ft_tabstrdel.c \
+		ft_strrvs.c			ft_cinstr.c
 
 all: $(NAME)
 

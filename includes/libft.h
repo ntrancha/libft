@@ -52,7 +52,6 @@ void	ft_putnbr_endl(int n);
 void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char const *s, int fd);
 void	ft_putendl_fd(char const *s, int fd);
-char	**ft_strsplit(char const *s, char c);
 int		ft_atoi(const char *str);
 char	*ft_ctos(char c);
 int		ft_isdigit(int c);
@@ -74,7 +73,6 @@ char	*ft_strncat(char *s1, char *s2, size_t n);
 char	*ft_strchr(const char *s, int c);
 int		ft_strcchr(char *source, char *search);
 char	*ft_strrchr(const char *s, int c);
-char	*ft_strcasestr(const char *s1, const char *s2);
 char	*ft_strstr(const char *s1, const char *s2);
 char	*ft_strnstr(const char *s1, const char *s2, size_t n);
 char	*ft_strcasestr(const char *s1, const char *s2);
@@ -116,5 +114,7 @@ int     ft_rgb(int red, int green, int blue);
 int     ft_abs(int n);
 char	**ft_strsplit(char const *s, char c);
 void	ft_tabstrdel(char **str);
+char        *ft_strrvs(char *str);
+int         ft_cinstr(char *str, char c);
 
 #endif
