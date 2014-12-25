@@ -119,5 +119,6 @@ int         ft_cinstr(char *str, char c);
 char        *ft_strralloc(char **str, int len);
 int         ft_sqrt(int nbr);
 int             ft_is_prime(int nbr);
+int         ft_find_next_prime(int nb);
 
 #endif
