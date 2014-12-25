@@ -122,5 +122,6 @@ int             ft_is_prime(int nbr);
 int         ft_find_next_prime(int nb);
 char        *ft_strcleanback(char *str, char c);
 char        *ft_strcleanfront(char *str, char c);
+int     ft_nbrcat(int nbr, int nbr2);
 
 #endif

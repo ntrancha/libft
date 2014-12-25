@@ -54,7 +54,8 @@ FILE =	ft_memchr.c			ft_putnbr_fd.c \
 		ft_strrvs.c			ft_cinstr.c \
 		ft_strralloc.c		ft_sqrt.c \
 		ft_is_prime.c		ft_find_next_prime.c \
-		ft_strcleanback.c	ft_strcleanfront.c
+		ft_strcleanback.c	ft_strcleanfront.c \
+		ft_nbrcat.c
 
 all: $(NAME)
 
