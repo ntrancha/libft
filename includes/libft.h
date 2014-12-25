@@ -118,5 +118,6 @@ char        *ft_strrvs(char *str);
 int         ft_cinstr(char *str, char c);
 char        *ft_strralloc(char **str, int len);
 int         ft_sqrt(int nbr);
+int             ft_is_prime(int nbr);
 
 #endif
