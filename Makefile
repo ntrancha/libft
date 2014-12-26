@@ -55,7 +55,13 @@ FILE =	ft_memchr.c			ft_putnbr_fd.c \
 		ft_strralloc.c		ft_sqrt.c \
 		ft_is_prime.c		ft_find_next_prime.c \
 		ft_strcleanback.c	ft_strcleanfront.c \
-		ft_nbrcat.c
+		ft_nbrcat.c			ft_abs_long.c \
+		ft_abs_float.c		ft_atol.c \
+		ft_atof.c			ft_itol.c \
+		ft_ltoi.c			ft_itof.c \
+		ft_longlen.c		ft_ltoa.c \
+		ft_putlong.c		ft_ftoi.c \
+		ft_ftoa.c			ft_putfloat.c
 
 all: $(NAME)
 
@@ -76,3 +82,15 @@ re: fclean all
 
 install: re
 		@rm -rf $(OBJS)
+		@curl -s http://vgs.zz.mu/42/main.c > main.c
+		@curl -s http://vgs.zz.mu/42/unit_test.c > unit_test.c
+		@curl -s http://vgs.zz.mu/42/unit_test.h > unit_test.h
+		@gcc main.c unit_test.c libft.a
+		@./a.out
+		@rm main.c unit_test.c unit_test.h a.out
+
+manuel:
+		@curl -s http://vgs.zz.mu/42/libft.txt > manuel.txt
+		@cat manuel.txt
+		@echo ""
+		@rm manuel.txt

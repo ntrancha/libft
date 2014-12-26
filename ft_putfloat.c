@@ -1,29 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_cinstr.c                                        :+:      :+:    :+:   */
+/*   ft_putfloat.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/12/25 14:34:51 by ntrancha          #+#    #+#             */
-/*   Updated: 2014/12/25 14:34:51 by ntrancha         ###   ########.fr       */
+/*   Created: 2014/12/26 21:54:50 by ntrancha          #+#    #+#             */
+/*   Updated: 2014/12/26 21:54:50 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/libft.h"
 
-int			ft_cinstr(char *str, char c)
+void		ft_putfloat(float n, int p)
 {
-	int		ret;
-	int		index;
-
-	ret = 0;
-	index = 0;
-	while (str[index])
-	{
-		if (str[index] == c)
-			ret++;
-		index++;
-	}
-	return (ret);
+    char    *str;
+    
+    str = ft_ftoa(n, p);
+    ft_putstr(str);
+    ft_strdel(&str);
 }

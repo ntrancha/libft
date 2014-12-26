@@ -1,29 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_cinstr.c                                        :+:      :+:    :+:   */
+/*   ft_abs_float.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/12/25 14:34:51 by ntrancha          #+#    #+#             */
-/*   Updated: 2014/12/25 14:34:51 by ntrancha         ###   ########.fr       */
+/*   Created: 2014/12/26 20:11:14 by ntrancha          #+#    #+#             */
+/*   Updated: 2014/12/26 20:11:14 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/libft.h"
-
-int			ft_cinstr(char *str, char c)
+float		ft_abs_float(float n)
 {
-	int		ret;
-	int		index;
-
-	ret = 0;
-	index = 0;
-	while (str[index])
-	{
-		if (str[index] == c)
-			ret++;
-		index++;
-	}
-	return (ret);
+	if (n < 0)
+		return (n * -1);
+	return (n);
 }

@@ -1,29 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_cinstr.c                                        :+:      :+:    :+:   */
+/*   ft_atol.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/12/25 14:34:51 by ntrancha          #+#    #+#             */
-/*   Updated: 2014/12/25 14:34:51 by ntrancha         ###   ########.fr       */
+/*   Created: 2014/12/26 20:12:39 by ntrancha          #+#    #+#             */
+/*   Updated: 2014/12/26 20:12:39 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/libft.h"
-
-int			ft_cinstr(char *str, char c)
+long		ft_atol(const char *str)
 {
-	int		ret;
-	int		index;
+	long	ret;
+	int		signe;
 
 	ret = 0;
-	index = 0;
-	while (str[index])
-	{
-		if (str[index] == c)
-			ret++;
-		index++;
-	}
-	return (ret);
+	if (!str)
+		return (ret);
+	signe = 1;
+	while (*str == ' ' || *str == '\n' || *str == '\t' || *str == '\f'
+			|| *str == '\r' || *str == '\v' || *str == '0')
+		str++;
+	if (*str == '-')
+		signe = -1;
+	if (*str == '+' || *str == '-')
+		str++;
+	while (*str >= '0' && *str <= '9')
+		ret = ret * 10 + (*str++ - '0');
+	return (ret * signe);
 }

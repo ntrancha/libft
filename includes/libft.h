@@ -123,5 +123,18 @@ int         ft_find_next_prime(int nb);
 char        *ft_strcleanback(char *str, char c);
 char        *ft_strcleanfront(char *str, char c);
 int     ft_nbrcat(int nbr, int nbr2);
+long    ft_abs_long(long n);
+float       ft_abs_float(float n);
+long        ft_atol(const char *str);
+float       ft_atof(const char *str);
+long        ft_itol(int n);
+int     ft_ltoi(long n);
+float       ft_itof(int n);
+size_t      ft_longlen(long nbr);
+char    *ft_ltoa(long n);
+char    *ft_ftoa(float n, int p);
+void ft_putlong(long n);
+int     ft_ftoi(float n);
+void        ft_putfloat(float n, int p);
 
 #endif
