@@ -17,6 +17,11 @@
 # define MAX_DTOA		10000000
 # define MAX_FTOA		10000000
 # define ENDL			ft_putchar('\n')
+# define POWER			ft_power
+# define FACTO			ft_facto
+# define SIN			ft_sin
+# define COS			ft_cos
+# define TAN			ft_tan
 # define EXIT_SUCCES	1
 # define EXIT_NULL		0
 # define EXIT_FAIL		-1
@@ -48,10 +53,15 @@ int		ft_find_next_prime(int nb);
 int		ft_neg(int nbr);
 int		ft_power(int nbr, int power);
 int		ft_sqrt(int nbr);
+int		ft_facto(int nb);
 long	ft_abs_long(long n);
 long	ft_neg_long(long nbr);
 float	ft_abs_float(float n);
 float	ft_neg_float(float nbr);
+float	ft_rsqrt(float nb);
+float	ft_cos(float angle);
+float	ft_sin(float angle);
+float	ft_tan(float angle);
 double	ft_abs_double(double n);
 double	ft_neg_double(int nbr);
 

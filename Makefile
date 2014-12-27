@@ -68,7 +68,10 @@ FILE =	ft_memchr.c				ft_putnbr_fd.c \
 		ft_doublelendouble.c	ft_dtoi.c \
 		ft_dtoa.c				ft_itod.c \
 		ft_putdouble.c			ft_neg_long.c \
-		ft_strtoupper.c			ft_strtolower.c
+		ft_strtoupper.c			ft_strtolower.c \
+		ft_facto.c				ft_rsqrt.c \
+		ft_cos.c				ft_sin.c \
+		ft_tan.c
 
 all: $(NAME)
 
