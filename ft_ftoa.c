@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include <stdlib.h>
+#include <stdio.h>
 #include "includes/libft.h"
 #define	MAX_FTOA	10000000
 
@@ -41,12 +42,10 @@ static char		*ft_ftoa_next(float n, char *s)
 	int		f;
 	int		p;
 	char	*str;
-	float	fl;
 	char	*tmp;
 
 	ft_straddchar(&s, '.');
-	fl = (n - ft_ftoi(n)) * MAX_FTOA;
-	p = ft_ftoi(fl);
+	p = ft_ftoi((n - ft_ftoi(n)) * MAX_FTOA);
 	if (p == 0)
 		return (ft_ftoa_cut(n, s));
 	f = ft_nbrlen(p);
@@ -64,9 +63,6 @@ static char		*ft_ftoa_next(float n, char *s)
 char   			*ft_ftoa(float n)
 {   
     char    	*s;
-    size_t  	len;
-	int			i;
-	int			in;
 
     if (n == 0)
         return (ft_strdup("0"));

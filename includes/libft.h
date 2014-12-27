@@ -139,5 +139,12 @@ void        ft_putfloat(float n);
 size_t      ft_floatlenfloat(float n);
 size_t      ft_floatlen(float n);
 float       ft_fround(float n, int p);
+double  ft_abs_double(double n);
+double       ft_atod(const char *str);
+size_t      ft_doublelen(double n);
+size_t      ft_doublelendouble(double n);
+int     ft_dtoi(double n);
+char            *ft_dtoa(double n);
+double       ft_itod(int n);
 
 #endif
