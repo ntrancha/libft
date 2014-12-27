@@ -15,15 +15,15 @@
 int			ft_facto(int nb)
 {
 	int		i;
-	int		result;
+	int		ret;
 
 	i = 0;
-	result = nb;
+	ret = nb;
 	if (nb == 1 || nb == 0)
 		return (EXIT_SUCCES);
 	if (nb >= 13 || nb < 0)
 		return (EXIT_FAIL);
 	while (++i < nb)
-		result *= (nb - i);
-	return (result);
+		ret *= (nb - i);
+	return (ret);
 }
