@@ -92,6 +92,8 @@ re: fclean all
 
 install: re
 		@rm -rf $(OBJS)
+
+test: install
 		@curl -s http://vgs.zz.mu/42/main.c > main.c
 		@curl -s http://vgs.zz.mu/42/unit_test.c > unit_test.c
 		@curl -s http://vgs.zz.mu/42/unit_test.h > unit_test.h
