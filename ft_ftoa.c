@@ -11,96 +11,81 @@
 /* ************************************************************************** */
 
 #include <stdlib.h>
+#include <stdio.h>
 #include "includes/libft.h"
-#define	MAX_FTOA	1000000
+#define	MAX_FTOA	10000000
 
-
-static char     *ft_ftoa_down(float r, char *s)
+static char		*ft_ftoa_down(float n, char *s)
 {
-	int		test;
-
-	test = 0;
-	while (ft_atof(s) > r && test++ < 100)
-		if (s[ft_strlen(s) - 1] == '0')
-		{
-			s[ft_strlen(s) - 1] = '9';
-			if (s[ft_strlen(s) - 2] == '0')
-			{
-				s[ft_strlen(s) - 2] = '9';
-				s[ft_strlen(s) - 3] -= 1;			
-			}
-			else
-				s[ft_strlen(s) - 2] -= 1;
-		}
-		else
-			s[ft_strlen(s) - 1] -= 1;
-	return (s);
-}
-
-static char     *ft_ftoa_up(float r, char *s)
-{
-	int		test;
-
-	test = 0;
-	if (ft_atof(s) > r)
-		return (ft_ftoa_down(r, s));
-	while (ft_atof(s) < r && test++ < 100)
-		if (s[ft_strlen(s) - 1] == '9')
-		{
-			s[ft_strlen(s) - 1] = '0';
-			if (s[ft_strlen(s) - 2] == '9')
-			{
-				s[ft_strlen(s) - 2] = '0';
-				s[ft_strlen(s) - 3] += 1;			
-			}
-			else
-				s[ft_strlen(s) - 2] += 1;
-		}
-		else
-			s[ft_strlen(s) - 1] = s[ft_strlen(s) - 1] + 1;
-	return (s);
-}
-
-static char		*ft_ftoa_zero(char *s)
-{
-	char		*tmp;
-	char		*tmp2;
-
-	tmp = ft_strdup(".000000");
-	tmp2 = ft_strjoin(s, tmp);
-	ft_strdel(&s);
-	s = ft_strdup(tmp2);
-	ft_strdel(&tmp);
-	ft_strdel(&tmp2);
-	return (s);
-}
-
-static char		*ft_ftoa_next(float n, int i, char *s)
-{
-	float	index;
-	float	f;
-	float	r;
-	int		p;
-
-	index = MAX_FTOA;
-	r = n;
-	p = ft_ftoi(n);
-	f = (n * MAX_FTOA * 10) - (i * MAX_FTOA* 10);
-	if (ft_ftoi(f) > 0)
+	while (n < ft_atof(s))
 	{
-		ft_straddchar(&s, '.');
-		while (index > 1)
-		{
-			n = f / index;
-			p = ft_ftoi(n);
-			f = f - (p * index);
-			ft_straddchar(&s, (p + '0'));
-			index /= 10;
-		}
+		s[ft_strlen(s) - 1] -= 1;
 	}
-	else
-		return (ft_ftoa_zero(s));	
-	return (ft_ftoa_up(r, s));
+	return (s);
+}
+
+static char		*ft_ftoa_up(float n, char *s)
+{
+	while (n > ft_atof(s))
+	{
+		s[ft_strlen(s) - 1] += 1;
+	}
+	return (s);
+}
+
+static char		*ft_ftoa_cut(float n, char *s)
+{
+	int			index;
+	int			i;
+
+	if (ft_strlen(s) - ft_nbrlen(ft_ftoi(n)) > 6)
+		s[ft_strlen(s) - 1] = '\0';
+	index = 0;
+	while (s[index] && s[index] != '.')
+		index++;
+	i = 0;
+	while (s[i + index])
+		i++;
+	while (i++ <= 6)
+	    ft_straddchar(&s, '0');
+	while (n > ft_atof(s))
+		ft_ftoa_up(n, s);
+	while (n < ft_atof(s))
+		ft_ftoa_down(n, s);
+	index = 0;
+	while (s[index] && s[index] != '.')
+		index++;
+	i = 0;
+	while (s[i + index])
+		i++;
+	while (i++ <= 6)
+	    ft_straddchar(&s, '0');
+	return (s);
+}
+
+static char		*ft_ftoa_next(float n, char *s)
+{
+	int		f;
+	int		p;
+	char	*str;
+	float	fl;
+	char	*tmp;
+
+	ft_straddchar(&s, '.');
+	fl = (n - ft_ftoi(n)) * MAX_FTOA;
+	p = ft_ftoi(fl);
+	if (p == 0)
+		return (ft_ftoa_cut(n, s));
+	f = ft_nbrlen(p);
+	while (f++ < 7)
+        ft_straddchar(&s, '0');
+	str = ft_itoa(p);
+	tmp = ft_strjoin(s, str);
+	ft_strdel(&s);
+	s = ft_strdup(tmp);
+	ft_strdel(&str);
+	ft_strdel(&tmp);
+	return (ft_ftoa_cut(n, s));
 }
 
 char   			*ft_ftoa(float n)
@@ -109,22 +94,13 @@ char   			*ft_ftoa(float n)
     size_t  	len;
 	int			i;
 	int			in;
-    
+
     if (n == 0)
         return (ft_strdup("0"));
-	i = ft_ftoi(n);
-	in = i;
-    len = ft_nbrlen(i);
-    if (i < 1)
-		return (ft_ftoa_next(n, in, "0"));
-    if (!(s = (char *) malloc((len + 1) * sizeof(*s))))
-        return (NULL);
-    s[len] = '\0';
-    while (i >= 10)
-    {
-        s[len-- - 1] = i % 10 + '0';
-        i = i / 10;
-    }
-    s[len - 1] = i + '0';
-    return (ft_ftoa_next(n, in, s));
+    if (n < 1)
+		return (ft_ftoa_next(n, ft_strdup("0")));
+	s = ft_itoa(ft_ftoi(n));
+	if (s == NULL)
+		return (NULL);
+	return (ft_ftoa_next(n, s));
 }
