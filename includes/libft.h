@@ -14,7 +14,7 @@
 # define LIBFT_H
 # include <string.h>
 # define BUFF_SIZE		1
-# define MAX_DTOA		10000000
+# define MAX_DTOA		10000000000000
 # define MAX_FTOA		10000000
 # define ENDL			ft_putchar('\n')
 # define POWER			ft_power
@@ -22,6 +22,8 @@
 # define SIN			ft_sin
 # define COS			ft_cos
 # define TAN			ft_tan
+# define ABS			ft_abs
+# define NEG			ft_neg
 # define EXIT_SUCCES	1
 # define EXIT_NULL		0
 # define EXIT_FAIL		-1
