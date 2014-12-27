@@ -1,32 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcmp.c                                        :+:      :+:    :+:   */
+/*   ft_strtolower.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/11/05 10:12:29 by ntrancha          #+#    #+#             */
-/*   Updated: 2014/11/19 13:28:52 by ntrancha         ###   ########.fr       */
+/*   Created: 2014/12/27 22:43:45 by ntrancha          #+#    #+#             */
+/*   Updated: 2014/12/27 22:43:45 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/libft.h"
 
-int					ft_memcmp(const void *s1, const void *s2, size_t n)
+void	ft_strtolower(char *str)
 {
-	const unsigned char	*s1_tmp;
-	const unsigned char	*s2_tmp;
+	int	index;
 
-	s1_tmp = (const unsigned char *)s1;
-	s2_tmp = (const unsigned char *)s2;
-	if (!s1 || !s2)
-		return (EXIT_NULL);
-	while (n--)
+	index = 0;
+	while (str[index])
 	{
-		if (*s1_tmp != *s2_tmp)
-			return ((unsigned char)*s1_tmp - (unsigned char)*s2_tmp);
-		s1_tmp++;
-		s2_tmp++;
+		str[index] = ft_tolower(str[index]);
+		index++;
 	}
-	return (EXIT_NULL);
 }

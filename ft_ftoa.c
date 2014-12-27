@@ -11,9 +11,7 @@
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include <stdio.h>
 #include "includes/libft.h"
-#define	MAX_FTOA	10000000
 
 static char		*ft_ftoa_cut(float n, char *s)
 {

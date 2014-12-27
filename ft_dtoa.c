@@ -11,9 +11,7 @@
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include <stdio.h>
 #include "includes/libft.h"
-#define MAX_DTOA    10000000
 
 static char     *ft_dtoa_cut(double n, char *s)
 {

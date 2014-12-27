@@ -13,9 +13,19 @@
 #ifndef LIBFT_H
 # define LIBFT_H
 # include <string.h>
-# define BUFF_SIZE 		1
+# define BUFF_SIZE		1
+# define MAX_DTOA		10000000
+# define MAX_FTOA		10000000
+# define ENDL			ft_putchar('\n')
+# define EXIT_SUCCES	1
+# define EXIT_NULL		0
+# define EXIT_FAIL		-1
+# define EXIT_ERROR		-2
 
-typedef unsigned char	t_char;
+typedef unsigned char	t_uchar;
+typedef unsigned int	t_uint;
+typedef signed char		t_schar;
+typedef signed int		t_sint;
 
 typedef struct 			s_strnrpl
 {
@@ -34,16 +44,16 @@ typedef struct 			s_tab
 }						t_tab;
 
 int		ft_abs(int n);
-long	ft_abs_long(long n);
-float	ft_abs_float(float n);
-double	ft_abs_double(double n);
 int		ft_find_next_prime(int nb);
 int		ft_neg(int nbr);
-double	ft_neg_double(int nbr);
-float	ft_neg_float(float nbr);
-long	ft_neg_long(long nbr);
 int		ft_power(int nbr, int power);
 int		ft_sqrt(int nbr);
+long	ft_abs_long(long n);
+long	ft_neg_long(long nbr);
+float	ft_abs_float(float n);
+float	ft_neg_float(float nbr);
+double	ft_abs_double(double n);
+double	ft_neg_double(int nbr);
 
 char	*ft_itoa(int n);
 char	*ft_ltoa(long n);
@@ -95,8 +105,8 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char *));
 char	*ft_strmap(char const *s, char (*f)(char));
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 
-char	*ft_strchr(const char *s, int c);
 int		ft_strcchr(char *source, char *search);
+char	*ft_strchr(const char *s, int c);
 char	*ft_strrchr(const char *s, int c);
 char	*ft_strstr(const char *s1, const char *s2);
 char	*ft_strnstr(const char *s1, const char *s2, size_t n);
@@ -111,9 +121,9 @@ void	*ft_memcpy(void *dst, const void *src, size_t n);
 void	*ft_memccpy(void *dst, const void *src, int c, size_t n);
 
 int		ft_nbrcat(int nbr, int nbr2);
+size_t	ft_strlcat(char *dst, const char *src, size_t size);
 char	*ft_strcat(char *s1, char const *s2);
 char	*ft_strncat(char *s1, char *s2, size_t n);
-size_t	ft_strlcat(char *dst, const char *src, size_t size);
 char	*ft_strjoin(char const *s1, char const *s2);
 char	*ft_strmjoin(char const *s1, char const *s2, char const *s3);
 void	ft_straddchar(char **str, char c);
@@ -132,6 +142,8 @@ char	*ft_strcleanback(char *str, char c);
 char	*ft_strcleanfront(char *str, char c);
 
 void	ft_strclr(char *s);
+void	ft_strtoupper(char *str);
+void	ft_strtolower(char *str);
 int		ft_toupper(int c);
 int		ft_tolower(int c);
 int		ft_strnrpl(char **source, char *search, char *remplace, int n);
@@ -163,9 +175,9 @@ void	ft_putstr(char *str);
 void	ft_putendl(char const *s);
 void	ft_putnbr(int n);
 void	ft_putnbr_endl(int n);
-int		ft_puttab(t_tab *tab);
 void	ft_putfloat(float n);
 void	ft_putlong(long n);
 void	ft_putdouble(double n);
+int		ft_puttab(t_tab *tab);
 
 #endif

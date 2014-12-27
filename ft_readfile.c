@@ -30,7 +30,7 @@ int             ft_readfile(int const fd, char **all)
         ft_strdel(&line);
         line = ft_strnew(BUFF_SIZE + 2);
         if ((ret = read(fd, line, BUFF_SIZE)) == -1 || line == NULL)
-            return (-1);
+            return (EXIT_FAIL);
         tmp = ft_strnew(ft_strlen(*all) + BUFF_SIZE + 2);
         ft_strcpy(tmp, *all);
         ft_strdel(all);
@@ -40,5 +40,5 @@ int             ft_readfile(int const fd, char **all)
         ft_strdel(&tmp);
     }
     ft_strdel(&line);
-    return (0);
+    return (EXIT_NULL);
 }

@@ -67,7 +67,8 @@ FILE =	ft_memchr.c				ft_putnbr_fd.c \
 		ft_atod.c				ft_doublelen.c \
 		ft_doublelendouble.c	ft_dtoi.c \
 		ft_dtoa.c				ft_itod.c \
-		ft_putdouble.c			ft_neg_long.c
+		ft_putdouble.c			ft_neg_long.c \
+		ft_strtoupper.c			ft_strtolower.c
 
 all: $(NAME)
 
@@ -100,3 +101,7 @@ manuel:
 		@cat manuel.txt
 		@echo ""
 		@rm manuel.txt
+
+proto:
+		@grep "^[a-z]" *.c | cut -d ":" -f 2
+		@echo "total: `ls *.c | wc -l` fonction(s)"
