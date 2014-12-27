@@ -14,20 +14,22 @@
 # define LIBFT_H
 # include <string.h>
 # define BUFF_SIZE		1
+# define TRUE			1
+# define FALSE			0
 # define MAX_DTOA		10000000000000
 # define MAX_FTOA		10000000
 # define PI				3.141593
 # define PHI			1.618032
-# define RACINE2		1.414213
+# define SQUARE2		1.414213
 # define EXIT_SUCCES	1
 # define EXIT_NULL		0
 # define EXIT_FAIL		-1
 # define EXIT_ERROR		-2
-# define ENDL			ft_putchar('\n')
+# define PUT_ENDL		ft_putchar('\n')
 # define POWER			ft_power
 # define FACTO			ft_facto
-# define CARRE			ft_sqrt
-# define RACINE			ft_rsqrt
+# define SQUARE			ft_sqrt
+# define ROOT			ft_rsqrt
 # define SIN			ft_sin
 # define COS			ft_cos
 # define TAN			ft_tan
