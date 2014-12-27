@@ -138,5 +138,6 @@ int     ft_ftoi(float n);
 void        ft_putfloat(float n);
 size_t      ft_floatlenfloat(float n);
 size_t      ft_floatlen(float n);
+float       ft_fround(float n, int p);
 
 #endif

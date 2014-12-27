@@ -15,21 +15,13 @@
 size_t      ft_floatlenfloat(float n)
 {
     size_t  size;
-    int     p;
-    int     index;
+    size_t  size2;
+	int		i;
 
-    if (n < 0)
-        return (ft_floatlenfloat(n * -1));
-    p = ft_ftoi(n);
-    size = 0;
-    index = 10;
-    n = n - p;
-    while (index < 100000 && n > 0)
-    {
-        p = (n * index) + 0.001;
-        n = (((n * index) - p) / index);
-        index *= 10;
-        size++;
-    }
+	i = ft_ftoi(n);
+	size2 = ft_nbrlen(i) + 1;
+	size = ft_floatlen(n) - size2;
+	if (size < 1)
+		return (0);
     return (size);
 }

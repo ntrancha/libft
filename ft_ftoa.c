@@ -116,10 +116,7 @@ char   			*ft_ftoa(float n)
 	in = i;
     len = ft_nbrlen(i);
     if (i < 1)
-		if (!(s = ft_strdup("0")))
-			return (NULL);
-		else
-	        return (ft_ftoa_next(n, in, s));
+		return (ft_ftoa_next(n, in, "0"));
     if (!(s = (char *) malloc((len + 1) * sizeof(*s))))
         return (NULL);
     s[len] = '\0';
