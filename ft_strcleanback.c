@@ -18,7 +18,7 @@ char        *ft_strcleanback(char *str, char c)
     int     index;
 
     index = ft_strlen(str) - 1;
-    while (str[index] == c)
+    while (str[index] && str[index] == c)
         index--;
     if (!(tmp = ft_strsub(str, 0, index + 1)))
         return (NULL);

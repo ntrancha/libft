@@ -11,27 +11,8 @@
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include <stdio.h>
 #include "includes/libft.h"
 #define	MAX_FTOA	10000000
-
-static char		*ft_ftoa_down(float n, char *s)
-{
-	while (n < ft_atof(s))
-	{
-		s[ft_strlen(s) - 1] -= 1;
-	}
-	return (s);
-}
-
-static char		*ft_ftoa_up(float n, char *s)
-{
-	while (n > ft_atof(s))
-	{
-		s[ft_strlen(s) - 1] += 1;
-	}
-	return (s);
-}
 
 static char		*ft_ftoa_cut(float n, char *s)
 {
@@ -40,18 +21,10 @@ static char		*ft_ftoa_cut(float n, char *s)
 
 	if (ft_strlen(s) - ft_nbrlen(ft_ftoi(n)) > 6)
 		s[ft_strlen(s) - 1] = '\0';
-	index = 0;
-	while (s[index] && s[index] != '.')
-		index++;
-	i = 0;
-	while (s[i + index])
-		i++;
-	while (i++ <= 6)
-	    ft_straddchar(&s, '0');
 	while (n > ft_atof(s))
-		ft_ftoa_up(n, s);
+		s[ft_strlen(s) - 1] += 1;
 	while (n < ft_atof(s))
-		ft_ftoa_down(n, s);
+		s[ft_strlen(s) - 1] -= 1;
 	index = 0;
 	while (s[index] && s[index] != '.')
 		index++;

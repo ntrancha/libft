@@ -17,6 +17,8 @@ size_t		ft_nbrlen(int nbr)
     int		ret;
 
     ret = 0;
+	if (nbr == 0)
+		return (1);
     if (nbr < 0)
     {
         nbr *= -1;
