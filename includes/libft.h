@@ -12,10 +12,15 @@
 
 #ifndef LIBFT_H
 # define LIBFT_H
+
 # include <string.h>
+
 # define BUFF_SIZE		1
 # define TRUE			1
 # define FALSE			0
+# define STDIN			0
+# define STDOUT			1
+# define STDERR			2
 # define MAX_DTOA		10000000000000
 # define MAX_FTOA		10000000
 # define PI				3.141593
