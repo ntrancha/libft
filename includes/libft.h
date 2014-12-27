@@ -33,118 +33,139 @@ typedef struct 			s_tab
 	int					line;
 }						t_tab;
 
-void	*ft_memalloc(size_t size);
-void	*ft_memset(void *b, int c, size_t len);
-void	ft_memdel(void **ap);
-char	*ft_strnew(size_t size);
-void	ft_strdel(char **as);
-void	ft_strclr(char *s);
-int		ft_strequ(char const *s1, char const *s2);
-int		ft_strnequ(char const *s1, char const *s2, size_t n);
-char	*ft_strsub(char const *s, unsigned int start, size_t len);
+int		ft_abs(int n);
+long	ft_abs_long(long n);
+float	ft_abs_float(float n);
+double	ft_abs_double(double n);
+int		ft_find_next_prime(int nb);
+int		ft_neg(int nbr);
+double	ft_neg_double(int nbr);
+float	ft_neg_float(float nbr);
+long	ft_neg_long(long nbr);
+int		ft_power(int nbr, int power);
+int		ft_sqrt(int nbr);
+
 char	*ft_itoa(int n);
-void	ft_putnbr_fd(int n, int fd);
-void	ft_putchar(char c);
-void	ft_putstr(char *str);
-void	ft_putendl(char const *s);
-void	ft_putnbr(int n);
-void	ft_putnbr_endl(int n);
-void	ft_putchar_fd(char c, int fd);
-void	ft_putstr_fd(char const *s, int fd);
-void	ft_putendl_fd(char const *s, int fd);
-int		ft_atoi(const char *str);
+char	*ft_ltoa(long n);
+char	*ft_ftoa(float n);
+char	*ft_dtoa(double n);
 char	*ft_ctos(char c);
+int		ft_atoi(const char *str);
+int		ft_ltoi(long n);
+int		ft_ftoi(float n);
+int		ft_dtoi(double n);
+int		ft_dectobin(int dec);
+int		ft_bintodec(int bin);
+long	ft_atol(const char *str);
+long	ft_itol(int n);
+float	ft_atof(const char *str);
+float	ft_itof(int n);
+float	ft_fround(float n, int p);
+double	ft_atod(const char *str);
+double	ft_itod(int n);
+
 int		ft_isdigit(int c);
 int		ft_isalpha(int c);
 int		ft_isalnum(int c);
-void	ft_bzero(void *s, size_t n);
-void	*ft_memcpy(void *dst, const void *src, size_t n);
-void	*ft_memccpy(void *dst, const void *src, int c, size_t n);
-void	*ft_memmove(void *dst, const void *src, size_t len);
-void	*ft_memchr(const void *s, int c, size_t n);
+int		ft_isascii(int c);
+int		ft_isprint(int c);
+int		ft_is_prime(int nbr);
+int		ft_strequ(char const *s1, char const *s2);
+int		ft_strnequ(char const *s1, char const *s2, size_t n);
+
 int		ft_memcmp(const void *s1, const void *s2, size_t n);
-size_t	ft_strlen(char *str);
-size_t	ft_nbrlen(int nbr);
-char	*ft_strdup(char *str);
-char	*ft_strcpy(char *dst, const char *src);
-char	*ft_strncpy(char *dst, const char *src, size_t n);
-char	*ft_strcat(char *s1, char const *s2);
-char	*ft_strncat(char *s1, char *s2, size_t n);
+int		ft_strcmp(const char *s1, const char *s2);
+int		ft_strncmp(const char *s1, const char *s2, size_t n);
+
+void	ft_memdel(void **ap);
+void	ft_strdel(char **as);
+void	ft_tabstrdel(char **str);
+t_tab	*ft_tabdel(t_tab **tab);
+
+void	*ft_memset(void *b, int c, size_t len);
+void	ft_bzero(void *s, size_t n);
+void	ft_tabclear(t_tab **tab);
+
+void	*ft_memalloc(size_t size);
+char	*ft_strnew(size_t size);
+t_tab	*ft_tabnew(int line, int col);
+
+void	ft_striter(char *s, void (*f)(char *));
+void	ft_striteri(char *s, void (*f)(unsigned int, char *));
+char	*ft_strmap(char const *s, char (*f)(char));
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
+
 char	*ft_strchr(const char *s, int c);
 int		ft_strcchr(char *source, char *search);
 char	*ft_strrchr(const char *s, int c);
 char	*ft_strstr(const char *s1, const char *s2);
 char	*ft_strnstr(const char *s1, const char *s2, size_t n);
 char	*ft_strcasestr(const char *s1, const char *s2);
-int		ft_strcmp(const char *s1, const char *s2);
-int		ft_strncmp(const char *s1, const char *s2, size_t n);
-int		ft_isascii(int c);
-int		ft_isprint(int c);
-int		ft_toupper(int c);
-int		ft_tolower(int c);
-void	ft_striter(char *s, void (*f)(char *));
-void	ft_striteri(char *s, void (*f)(unsigned int, char *));
-char	*ft_strmap(char const *s, char (*f)(char));
-char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
-char	*ft_strnstr(const char *s1, const char *s2, size_t n);
+void	*ft_memchr(const void *s, int c, size_t n);
+
+char	*ft_strdup(char *str);
+char	*ft_strcpy(char *dst, const char *src);
+char	*ft_strncpy(char *dst, const char *src, size_t n);
+char	*ft_strmore(char *str, size_t n);
+void	*ft_memcpy(void *dst, const void *src, size_t n);
+void	*ft_memccpy(void *dst, const void *src, int c, size_t n);
+
+int		ft_nbrcat(int nbr, int nbr2);
+char	*ft_strcat(char *s1, char const *s2);
+char	*ft_strncat(char *s1, char *s2, size_t n);
+size_t	ft_strlcat(char *dst, const char *src, size_t size);
 char	*ft_strjoin(char const *s1, char const *s2);
 char	*ft_strmjoin(char const *s1, char const *s2, char const *s3);
-char	*ft_strtrim(char const *s);
-char	**ft_strsplit(char const *s, char c);
-char	*ft_strnstr(const char *s1, const char *s2, size_t n);
-size_t	ft_strlcat(char *dst, const char *src, size_t size);
-char	**ft_str_split(char const *s, char c);
-int		ft_strnrpl(char **source, char *search, char *remplace, int n);
-char	*ft_strmore(char *str, size_t n);
-int		ft_readfile(int fd, char **str);
-int		ft_gnl(int const fd, char **line);
-t_tab	*ft_tabnew(int line, int col);
 void	ft_straddchar(char **str, char c);
-int     ft_tabmin(t_tab *tab);
-int     ft_tabmax(t_tab *tab);
-int     ft_puttab(t_tab *tab);
-void    ft_tabclear(t_tab **tab);
-t_tab   *ft_tabdel(t_tab **tab);
-void	ft_tabup(t_tab *tab, int up);
-int		ft_power(int nbr, int power);
-int     ft_neg(int nbr);
-int     ft_dectobin(int dec);
-int		ft_bintodec(int bin);
-int     ft_rgb(int red, int green, int blue);
-int     ft_abs(int n);
+
+size_t	ft_strlen(char *str);
+size_t	ft_nbrlen(int nbr);
+size_t	ft_floatlenfloat(float n);
+size_t	ft_floatlen(float n);
+size_t	ft_longlen(long nbr);
+size_t	ft_doublelen(double n);
+size_t	ft_doublelendouble(double n);
+int		ft_cinstr(char *str, char c);
+
+char	*ft_strtrim(char const *s);
+char	*ft_strcleanback(char *str, char c);
+char	*ft_strcleanfront(char *str, char c);
+
+void	ft_strclr(char *s);
+int		ft_toupper(int c);
+int		ft_tolower(int c);
+int		ft_strnrpl(char **source, char *search, char *remplace, int n);
+
+char	*ft_strralloc(char **str, int len);
+void	*ft_memmove(void *dst, const void *src, size_t len);
+
+int		ft_gnl(int const fd, char **line);
+int		ft_readfile(int fd, char **str);
+
+int		ft_rgb(int red, int green, int blue);
+
 char	**ft_strsplit(char const *s, char c);
-void	ft_tabstrdel(char **str);
-char        *ft_strrvs(char *str);
-int         ft_cinstr(char *str, char c);
-char        *ft_strralloc(char **str, int len);
-int         ft_sqrt(int nbr);
-int             ft_is_prime(int nbr);
-int         ft_find_next_prime(int nb);
-char        *ft_strcleanback(char *str, char c);
-char        *ft_strcleanfront(char *str, char c);
-int     ft_nbrcat(int nbr, int nbr2);
-long    ft_abs_long(long n);
-float       ft_abs_float(float n);
-long        ft_atol(const char *str);
-float       ft_atof(const char *str);
-long        ft_itol(int n);
-int     ft_ltoi(long n);
-float       ft_itof(int n);
-size_t      ft_longlen(long nbr);
-char    *ft_ltoa(long n);
-char    *ft_ftoa(float n);
-void ft_putlong(long n);
-int     ft_ftoi(float n);
-void        ft_putfloat(float n);
-size_t      ft_floatlenfloat(float n);
-size_t      ft_floatlen(float n);
-float       ft_fround(float n, int p);
-double  ft_abs_double(double n);
-double       ft_atod(const char *str);
-size_t      ft_doublelen(double n);
-size_t      ft_doublelendouble(double n);
-int     ft_dtoi(double n);
-char            *ft_dtoa(double n);
-double       ft_itod(int n);
+char	*ft_strsub(char const *s, unsigned int start, size_t len);
+
+char	*ft_strrvs(char *str);
+
+int		ft_tabmin(t_tab *tab);
+int		ft_tabmax(t_tab *tab);
+void	ft_tabup(t_tab *tab, int up);
+
+void	ft_putnbr_fd(int n, int fd);
+void	ft_putchar_fd(char c, int fd);
+void	ft_putstr_fd(char const *s, int fd);
+void	ft_putendl_fd(char const *s, int fd);
+
+void	ft_putchar(char c);
+void	ft_putstr(char *str);
+void	ft_putendl(char const *s);
+void	ft_putnbr(int n);
+void	ft_putnbr_endl(int n);
+int		ft_puttab(t_tab *tab);
+void	ft_putfloat(float n);
+void	ft_putlong(long n);
+void	ft_putdouble(double n);
 
 #endif
