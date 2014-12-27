@@ -1,22 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putfloat.c                                      :+:      :+:    :+:   */
+/*   ft_floatlen.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/12/26 21:54:50 by ntrancha          #+#    #+#             */
-/*   Updated: 2014/12/26 21:54:50 by ntrancha         ###   ########.fr       */
+/*   Created: 2014/12/26 22:50:27 by ntrancha          #+#    #+#             */
+/*   Updated: 2014/12/26 22:50:27 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/libft.h"
 
-void		ft_putfloat(float n)
+size_t		ft_floatlen(float n)
 {
-    char    *str;
-    
-    str = ft_ftoa(n);
-    ft_putstr(str);
-    ft_strdel(&str);
+	size_t	size;
+	int		p;
+	int		index;
+
+	if (n < 0)
+		return (ft_floatlen(n * -1) + 1);
+	p = ft_ftoi(n);
+	size = ft_nbrlen(p);
+	index = 10;
+	n = n - p;
+	while (index < 100000 && n > 0)
+	{
+		p = (n * index) + 0.001;
+		n = (((n * index) - p) / index);
+		index *= 10;
+		size++;
+		if (n <= 0)
+			size++;
+	}
+	return (size);
 }

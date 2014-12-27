@@ -61,7 +61,8 @@ FILE =	ft_memchr.c			ft_putnbr_fd.c \
 		ft_ltoi.c			ft_itof.c \
 		ft_longlen.c		ft_ltoa.c \
 		ft_putlong.c		ft_ftoi.c \
-		ft_ftoa.c			ft_putfloat.c
+		ft_ftoa.c			ft_putfloat.c \
+		ft_floatlenfloat.c	ft_floatlen.c
 
 all: $(NAME)
 
