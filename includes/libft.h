@@ -15,7 +15,7 @@
 
 # include <string.h>
 
-# define BUFF_SIZE		10
+# define BUFF_SIZE		1
 # define TRUE			1
 # define FALSE			0
 # define STDIN			0
