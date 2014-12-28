@@ -74,7 +74,7 @@ FILE =	ft_memchr.c				ft_putnbr_fd.c			\
 		ft_strtoupper.c			ft_strtolower.c			\
 		ft_facto.c				ft_rsqrt.c				\
 		ft_cos.c				ft_sin.c				\
-		ft_tan.c
+		ft_tan.c				ft_strfusion.c
 
 all: $(NAME)
 

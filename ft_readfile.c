@@ -31,13 +31,12 @@ int             ft_readfile(int const fd, char **all)
         line = ft_strnew(BUFF_SIZE + 2);
         if ((ret = read(fd, line, BUFF_SIZE)) == -1 || line == NULL)
             return (EXIT_FAIL);
-        tmp = ft_strnew(ft_strlen(*all) + BUFF_SIZE + 2);
-        ft_strcpy(tmp, *all);
-        ft_strdel(all);
+		while ((int)ft_strlen(line) != ret)
+			line[ft_strlen(line)] = '\a';
+		ft_strfusion(&tmp, all);
+		*all = ft_strnew(0);
         tmp = ft_strncat(tmp, line, ret);
-        *all = ft_strnew(ft_strlen(tmp) + BUFF_SIZE + 2);
-        ft_strcpy(*all, tmp);
-        ft_strdel(&tmp);
+		ft_strfusion(all, &tmp);
     }
     ft_strdel(&line);
     return (EXIT_NULL);

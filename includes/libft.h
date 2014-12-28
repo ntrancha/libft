@@ -15,7 +15,7 @@
 
 # include <string.h>
 
-# define BUFF_SIZE		1
+# define BUFF_SIZE		10
 # define TRUE			1
 # define FALSE			0
 # define STDIN			0
@@ -151,6 +151,7 @@ char	*ft_strncat(char *s1, char *s2, size_t n);
 char	*ft_strjoin(char const *s1, char const *s2);
 char	*ft_strmjoin(char const *s1, char const *s2, char const *s3);
 void	ft_straddchar(char **str, char c);
+void	ft_strfusion(char **dst, char **src);
 
 size_t	ft_strlen(char *str);
 size_t	ft_nbrlen(int nbr);

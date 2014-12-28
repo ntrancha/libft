@@ -12,7 +12,7 @@
 
 #include "includes/libft.h"
 
-float		ft_check_angle(float angle)
+static float	ft_check_angle(float angle)
 {
 	while (angle > 360 || angle < -360)
 	{
@@ -28,11 +28,11 @@ float		ft_check_angle(float angle)
 	return (angle);
 }
 
-float		ft_cos(float angle)
+float			ft_cos(float angle)
 {
-	float	ret;
-	int		n;
-	float	angle2;
+	float		ret;
+	int			n;
+	float		angle2;
 
 	angle = ft_check_angle(angle);
 	angle2 = angle * 3.14 / 180;

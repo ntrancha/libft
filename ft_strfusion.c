@@ -1,21 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strclr.c                                        :+:      :+:    :+:   */
+/*   ft_strfusion.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/11/04 10:56:58 by ntrancha          #+#    #+#             */
-/*   Updated: 2014/11/11 11:37:55 by ntrancha         ###   ########.fr       */
+/*   Created: 2014/12/28 10:31:51 by ntrancha          #+#    #+#             */
+/*   Updated: 2014/12/28 10:31:51 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_strclr(char *s)
-{
-	int index;
+#include "includes/libft.h"
 
-	index = 0;
-	if (s && *s)
-		while (s[index] != '\0')
-			s[index++] = '\0';
+void		ft_strfusion(char **dst, char **src)
+{
+	int		size;
+
+	size = BUFF_SIZE + 2;
+	if (!(*src))
+		*src = ft_strdup("");;
+	if (!(*dst))
+		*dst = ft_strdup("");
+	size += ft_strlen(*src);
+	size += ft_strlen(*dst);
+	*dst = ft_strralloc(dst, size);
+	ft_putstr(*dst);
+	ft_strcpy(*dst, *src);
+	ft_strdel(src);
 }
