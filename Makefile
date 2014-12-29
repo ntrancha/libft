@@ -79,7 +79,13 @@ FILE =	ft_memchr.c				ft_putnbr_fd.c			\
 		ft_lstdel.c				ft_lstdelone.c			\
 		ft_lstiter.c			ft_lstmap.c				\
 		ft_abs_longlong.c		ft_isspace.c			\
-		ft_istolower.c			ft_istoupper.c
+		ft_istolower.c			ft_istoupper.c			\
+		ft_itoll.c				ft_ltoll.c				\
+		ft_ltod.c				ft_ltof.c				\
+		ft_dtol.c				ft_dtoll.c				\
+		ft_dtof.c				ft_ftol.c				\
+		ft_ftoll.c				ft_ftod.c				\
+		ft_atoll.c
 
 all: $(NAME)
 
