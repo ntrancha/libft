@@ -1,18 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_abs_double.c                                    :+:      :+:    :+:   */
+/*   ft_lstadd.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/12/27 19:59:17 by ntrancha          #+#    #+#             */
-/*   Updated: 2014/12/27 19:59:17 by ntrancha         ###   ########.fr       */
+/*   Created: 2014/12/29 07:04:43 by ntrancha          #+#    #+#             */
+/*   Updated: 2014/12/29 07:04:43 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-double	ft_abs_double(double n)
+#include "includes/libft.h"
+
+void		ft_lstadd(t_list **alst, t_list *new)
 {
-    if (n < 0.)
-        return (-n);
-    return (n);
+	t_list	*list;
+
+	list = *alst;
+	*alst = new;
+	new->next = list;
 }

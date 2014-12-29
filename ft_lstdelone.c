@@ -1,18 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_abs_double.c                                    :+:      :+:    :+:   */
+/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/12/27 19:59:17 by ntrancha          #+#    #+#             */
-/*   Updated: 2014/12/27 19:59:17 by ntrancha         ###   ########.fr       */
+/*   Created: 2014/12/29 07:09:50 by ntrancha          #+#    #+#             */
+/*   Updated: 2014/12/29 07:09:50 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-double	ft_abs_double(double n)
+#include "includes/libft.h"
+
+void		ft_lstdelone(t_list **alst, void (*del)(void *, size_t))
 {
-    if (n < 0.)
-        return (-n);
-    return (n);
+	del((*alst)->content, (*alst)->content_size);
+	(*alst)->content = NULL;
+	ft_memdel((void**)alst);
 }

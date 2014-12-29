@@ -45,6 +45,7 @@ typedef unsigned char	t_uchar;
 typedef unsigned int	t_uint;
 typedef signed char		t_schar;
 typedef signed int		t_sint;
+typedef long long		t_ll;
 
 typedef struct 			s_strnrpl
 {
@@ -62,6 +63,21 @@ typedef struct 			s_tab
 	int					line;
 }						t_tab;
 
+typedef struct			s_dlist
+{
+	void				*content;
+	size_t				content_size;
+	struct s_dlist		*next;
+	struct s_dlist		*previous;
+}						t_dlist;
+
+typedef struct			s_list
+{
+	void				*content;
+	size_t				content_size;
+	struct s_list		*next;
+}						t_list;
+
 int		ft_abs(int n);
 int		ft_find_next_prime(int nb);
 int		ft_neg(int nbr);
@@ -70,6 +86,7 @@ int		ft_sqrt(int nbr);
 int		ft_facto(int nb);
 long	ft_abs_long(long n);
 long	ft_neg_long(long nbr);
+t_ll	ft_abs_longlong(long long n);
 float	ft_abs_float(float n);
 float	ft_neg_float(float nbr);
 float	ft_rsqrt(float nb);
@@ -204,5 +221,12 @@ void	ft_putfloat(float n);
 void	ft_putlong(long n);
 void	ft_putdouble(double n);
 int		ft_puttab(t_tab *tab);
+
+void	ft_lstadd(t_list **alst, t_list *new);
+void	ft_lstdel(t_list **alst, void (*del)(void *, size_t));
+void	ft_lstdelone(t_list **alst, void (*del)(void *, size_t));
+void	ft_lstiter(t_list *lst, void (*f)(t_list *elem));
+t_list	*ft_lstnew(void const *content, size_t content_size);
+t_list	*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 
 #endif

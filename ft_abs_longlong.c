@@ -1,18 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_abs_double.c                                    :+:      :+:    :+:   */
+/*   ft_abs_longlong.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/12/27 19:59:17 by ntrancha          #+#    #+#             */
-/*   Updated: 2014/12/27 19:59:17 by ntrancha         ###   ########.fr       */
+/*   Created: 2014/12/29 07:30:52 by ntrancha          #+#    #+#             */
+/*   Updated: 2014/12/29 07:30:52 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-double	ft_abs_double(double n)
+long long	ft_abs_longlong(long long n)
 {
-    if (n < 0.)
-        return (-n);
-    return (n);
+	if (n < 0)
+		return (-n);
+	else
+		return (n);
 }

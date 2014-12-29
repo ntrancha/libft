@@ -1,18 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_abs_double.c                                    :+:      :+:    :+:   */
+/*   ft_lstdel.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/12/27 19:59:17 by ntrancha          #+#    #+#             */
-/*   Updated: 2014/12/27 19:59:17 by ntrancha         ###   ########.fr       */
+/*   Created: 2014/12/29 07:07:53 by ntrancha          #+#    #+#             */
+/*   Updated: 2014/12/29 07:07:53 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-double	ft_abs_double(double n)
+#include "includes/libft.h"
+
+void		ft_lstdel(t_list **alst, void (*del)(void *, size_t))
 {
-    if (n < 0.)
-        return (-n);
-    return (n);
+	t_list	*next_elem;
+
+	while (*alst)
+	{
+		next_elem = (*alst)->next;
+		ft_lstdelone(alst, del);
+		*alst = next_elem;
+	}
+	*alst = NULL;
 }

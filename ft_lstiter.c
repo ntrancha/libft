@@ -1,18 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_abs_double.c                                    :+:      :+:    :+:   */
+/*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/12/27 19:59:17 by ntrancha          #+#    #+#             */
-/*   Updated: 2014/12/27 19:59:17 by ntrancha         ###   ########.fr       */
+/*   Created: 2014/12/29 07:15:30 by ntrancha          #+#    #+#             */
+/*   Updated: 2014/12/29 07:15:30 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-double	ft_abs_double(double n)
+#include "includes/libft.h"
+
+void		ft_lstiter(t_list *lst, void (*f)(t_list *elem))
 {
-    if (n < 0.)
-        return (-n);
-    return (n);
+	while (lst)
+	{
+		f(lst);
+		lst = lst->next;
+	}
 }

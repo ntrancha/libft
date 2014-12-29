@@ -74,7 +74,11 @@ FILE =	ft_memchr.c				ft_putnbr_fd.c			\
 		ft_strtoupper.c			ft_strtolower.c			\
 		ft_facto.c				ft_rsqrt.c				\
 		ft_cos.c				ft_sin.c				\
-		ft_tan.c				ft_strfusion.c
+		ft_tan.c				ft_strfusion.c			\
+		ft_lstnew.c				ft_lstadd.c				\
+		ft_lstdel.c				ft_lstdelone.c			\
+		ft_lstiter.c			ft_lstmap.c				\
+		ft_abs_longlong.c
 
 all: $(NAME)
 
