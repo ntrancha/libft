@@ -78,7 +78,8 @@ FILE =	ft_memchr.c				ft_putnbr_fd.c			\
 		ft_lstnew.c				ft_lstadd.c				\
 		ft_lstdel.c				ft_lstdelone.c			\
 		ft_lstiter.c			ft_lstmap.c				\
-		ft_abs_longlong.c
+		ft_abs_longlong.c		ft_isspace.c			\
+		ft_istolower.c			ft_istoupper.c
 
 all: $(NAME)
 

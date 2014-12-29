@@ -63,14 +63,6 @@ typedef struct 			s_tab
 	int					line;
 }						t_tab;
 
-typedef struct			s_dlist
-{
-	void				*content;
-	size_t				content_size;
-	struct s_dlist		*next;
-	struct s_dlist		*previous;
-}						t_dlist;
-
 typedef struct			s_list
 {
 	void				*content;
@@ -120,6 +112,9 @@ int		ft_isalpha(int c);
 int		ft_isalnum(int c);
 int		ft_isascii(int c);
 int		ft_isprint(int c);
+int     ft_istolower(int c);
+int     ft_istoupper(int c);
+int		ft_isspace(char c);
 int		ft_is_prime(int nbr);
 int		ft_strequ(char const *s1, char const *s2);
 int		ft_strnequ(char const *s1, char const *s2, size_t n);
