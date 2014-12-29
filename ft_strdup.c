@@ -13,7 +13,7 @@
 #include <stdlib.h>
 #include "includes/libft.h"
 
-char		*ft_strdup(char *str)
+char		*ft_strdup(const char *str)
 {
 	char	*new;
 	int		count;

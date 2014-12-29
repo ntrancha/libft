@@ -85,7 +85,8 @@ FILE =	ft_memchr.c				ft_putnbr_fd.c			\
 		ft_dtol.c				ft_dtoll.c				\
 		ft_dtof.c				ft_ftol.c				\
 		ft_ftoll.c				ft_ftod.c				\
-		ft_atoll.c				ft_ralloc.c
+		ft_atoll.c				ft_ralloc.c				\
+		ft_match.c
 
 ifeq ($(OS),Windows_NT)
 	OS = WIN32

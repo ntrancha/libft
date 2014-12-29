@@ -1,25 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_match.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/11/03 15:23:52 by ntrancha          #+#    #+#             */
-/*   Updated: 2014/11/10 12:43:42 by ntrancha         ###   ########.fr       */
+/*   Created: 2014/12/29 16:21:51 by ntrancha          #+#    #+#             */
+/*   Updated: 2014/12/29 16:21:51 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/libft.h"
 
-size_t		ft_strlen(const char *str)
+int			ft_match(char const *str, char const *match)
 {
-	size_t	count;
+	char	*tmp;
 
-	count = 0;
-	while (str[count] != '\0')
+	while (*str && *match)
 	{
-		count++;
+		if (*match == '*')
+		{
+			match++;
+			if (*match)
+				return (EXIT_SUCCES);
+			tmp = ft_strchr(str, *match);
+			if (tmp == NULL)
+				return (EXIT_NULL);
+			else
+				str = tmp;
+		}
+		else if (*str == *match)
+		{
+			str++;
+			match++;
+		}
+		else
+			return (EXIT_NULL);
 	}
-	return (count);
+	return (*str && *match);
 }

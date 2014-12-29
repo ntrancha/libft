@@ -159,6 +159,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 t_list	*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 
 int		ft_strcchr(char *source, char *search);
+int		ft_match(char const *str, char const *match);
 char	*ft_strchr(const char *s, int c);
 char	*ft_strrchr(const char *s, int c);
 char	*ft_strstr(const char *s1, const char *s2);
@@ -166,7 +167,7 @@ char	*ft_strnstr(const char *s1, const char *s2, size_t n);
 char	*ft_strcasestr(const char *s1, const char *s2);
 void	*ft_memchr(const void *s, int c, size_t n);
 
-char	*ft_strdup(char *str);
+char	*ft_strdup(const char *str);
 char	*ft_strcpy(char *dst, const char *src);
 char	*ft_strncpy(char *dst, const char *src, size_t n);
 char	*ft_strmore(char *str, size_t n);
@@ -182,7 +183,7 @@ char	*ft_strmjoin(char const *s1, char const *s2, char const *s3);
 void	ft_straddchar(char **str, char c);
 void	ft_strfusion(char **dst, char **src);
 
-size_t	ft_strlen(char *str);
+size_t	ft_strlen(const char *str);
 size_t	ft_nbrlen(int nbr);
 size_t	ft_floatlenfloat(float n);
 size_t	ft_floatlen(float n);
