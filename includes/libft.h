@@ -204,6 +204,7 @@ int		ft_strnrpl(char **source, char *search, char *remplace, int n);
 
 char	*ft_strralloc(char **str, int len);
 void	*ft_memmove(void *dst, const void *src, size_t len);
+void    *ft_ralloc(void *ptr, size_t size_of, size_t new_size);
 
 int		ft_gnl(int const fd, char **line);
 int		ft_readfile(int fd, char **str);

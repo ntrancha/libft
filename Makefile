@@ -85,7 +85,35 @@ FILE =	ft_memchr.c				ft_putnbr_fd.c			\
 		ft_dtol.c				ft_dtoll.c				\
 		ft_dtof.c				ft_ftol.c				\
 		ft_ftoll.c				ft_ftod.c				\
-		ft_atoll.c
+		ft_atoll.c				ft_ralloc.c
+
+ifeq ($(OS),Windows_NT)
+	OS = WIN32
+    ifeq ($(PROCESSOR_ARCHITECTURE),AMD64)
+        SYS = AMD64
+    endif
+    ifeq ($(PROCESSOR_ARCHITECTURE),x86)
+        SYS = IA32
+    endif
+else
+    UNAME_S := $(shell uname -s)
+    ifeq ($(UNAME_S),Linux)
+        OS = LINUX
+    endif
+    ifeq ($(UNAME_S),Darwin)
+        OS = OSX
+    endif
+    UNAME_P := $(shell uname -p)
+    ifeq ($(UNAME_P),x86_64)
+        SYS = AMD64
+    endif
+    ifneq ($(filter %86,$(UNAME_P)),)
+        SYS = IA32
+    endif
+    ifneq ($(filter arm%,$(UNAME_P)),)
+        SYS = ARM
+    endif
+endif
 
 all: $(NAME)
 
