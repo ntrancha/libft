@@ -130,8 +130,12 @@ $(NAME): $(OBJS)
 		fi
 
 quiet: $(OBJS)
-		@ar rc $(NAME) $^
-		@ranlib $(NAME)
+		@if [ -f '$(NAME)' ]; then \
+			echo "$(NAME) exists"; \
+		else \
+			ar rc $(NAME) $^; \
+			ranlib $(NAME); \
+		fi
 
 %.o: %.c
 		@if [ -f '$(NAME)' ]; then \
