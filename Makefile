@@ -172,5 +172,5 @@ binaire:
 		@if [ -f '$(NAME)' ]; then \
     	    echo "$(NAME) exists"; \
 		else \
-			echo "Source files (flags: $(FLAG)) on $(OS) $(SYS)"; \
+			echo "$(shell echo $(OBJS) | wc -w) source files (Flags: $(FLAG)) on $(OS) $(SYS)"; \
 		fi
