@@ -119,13 +119,25 @@ endif
 all: binaire $(NAME)
 
 $(NAME): $(OBJS)
-		@echo "Compilation de la librairie $(NAME)"
-		@ar rc $@ $^
+		@if [ -f '$(NAME)' ]; then \
+			error=1; \
+			else \
+			echo "Compilation [$(NAME)]"; \
+			ar rc $@ $^; \
+			ranlib $(NAME); \
+			echo "Done"; \
+		fi
+
+quiet: $(OBJS)
+		@ar rc $(NAME) $^
 		@ranlib $(NAME)
-		@echo "Compilation terminée"
 
 %.o: %.c
-		@gcc $(FLAG) -c -o $@ $^
+		@if [ -f '$(NAME)' ]; then \
+			error=1; \
+		else \
+			gcc $(FLAG) -c -o $@ $^; \
+		fi
 
 clean:
 		@rm -rf $(OBJS)
@@ -157,4 +169,8 @@ proto:
 		@echo "total: `ls *.c | wc -l` fonction(s)"
 
 binaire:
-		@echo "Création des binaires (avec $(FLAG))"
+		@if [ -f '$(NAME)' ]; then \
+    	    echo "$(NAME) exists"; \
+		else \
+			echo "Source files (flags: $(FLAG)) on $(OS) $(SYS)"; \
+		fi
