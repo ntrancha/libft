@@ -86,7 +86,8 @@ FILE =	ft_memchr.c				ft_putnbr_fd.c			\
 		ft_dtof.c				ft_ftol.c				\
 		ft_ftoll.c				ft_ftod.c				\
 		ft_atoll.c				ft_ralloc.c				\
-		ft_match.c
+		ft_match.c				ft_neg_double.c			\
+		ft_neg_float.c
 
 ifeq ($(OS),Windows_NT)
 	OS = WIN32
@@ -149,20 +150,6 @@ re: fclean all
 
 install: re
 		@rm -rf $(OBJS)
-
-test: install
-		@curl -s http://vgs.zz.mu/42/main.c > main.c
-		@curl -s http://vgs.zz.mu/42/unit_test.c > unit_test.c
-		@curl -s http://vgs.zz.mu/42/unit_test.h > unit_test.h
-		@gcc main.c unit_test.c libft.a
-		@./a.out
-		@rm main.c unit_test.c unit_test.h a.out
-
-manuel:
-		@curl -s http://vgs.zz.mu/42/libft.txt > manuel.txt
-		@cat manuel.txt
-		@echo ""
-		@rm manuel.txt
 
 proto:
 		@grep "^[a-z]" *.c | cut -d ":" -f 2
