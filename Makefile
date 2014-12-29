@@ -116,11 +116,13 @@ else
     endif
 endif
 
-all: $(NAME)
+all: binaire $(NAME)
 
 $(NAME): $(OBJS)
+		@echo "Compilation de la librairie $(NAME)"
 		@ar rc $@ $^
 		@ranlib $(NAME)
+		@echo "Compilation terminée"
 
 %.o: %.c
 		@gcc $(FLAG) -c -o $@ $^
@@ -153,3 +155,6 @@ manuel:
 proto:
 		@grep "^[a-z]" *.c | cut -d ":" -f 2
 		@echo "total: `ls *.c | wc -l` fonction(s)"
+
+binaire:
+		@echo "Création des binaires (avec $(FLAG))"
