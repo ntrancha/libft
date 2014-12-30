@@ -39,6 +39,8 @@
 # define USER_SYS		SYS_UNKNOW
 # define SYS_UNKNOW
 # define PUT_ENDL		ft_putchar('\n')
+# define PUT_ERROR(x)	ft_putstr_fd(x, STDERR)
+# define PUT_ERROR_L(x)	ft_putendl_fd(x, STDERR)
 # define STR(x)			ft_strdup(#x)
 # define CONTENT		ft_listcontent
 # define POWER(x, y)	ft_power(x, y)
