@@ -26,6 +26,10 @@
 # define PI				3.141593
 # define PHI			1.618032
 # define SQUARE2		1.414213
+# define RETURN_SUCCES	return (EXIT_SUCCES);
+# define RETURN_NULL	return (EXIT_NULL);
+# define RETURN_FAIL	return (EXIT_FAIL);
+# define RETURN_ERROR	return (EXIT_ERROR);
 # define EXIT_SUCCES	1
 # define EXIT_NULL		0
 # define EXIT_FAIL		-1
@@ -35,15 +39,15 @@
 # define PUT_ENDL		ft_putchar('\n')
 # define STR(x)			ft_strdup(#x)
 # define CONTENT		ft_listcontent
-# define POWER			ft_power
-# define FACTO			ft_facto
-# define SQUARE			ft_sqrt
-# define ROOT			ft_rsqrt
-# define SIN			ft_sin
-# define COS			ft_cos
-# define TAN			ft_tan
-# define ABS			ft_abs
-# define NEG			ft_neg
+# define POWER(x)		ft_power(x)
+# define FACTO(x)		ft_facto(x)
+# define SQUARE(x)		ft_sqrt(x)
+# define ROOT(x)		ft_rsqrt(x)
+# define SIN(x)			ft_sin(x)
+# define COS(x)			ft_cos(x)
+# define TAN(x)			ft_tan(x)
+# define ABS(x)			ft_abs(x)
+# define NEG(x)			ft_neg(x)
 
 typedef unsigned char	t_uchar;
 typedef unsigned int	t_uint;
