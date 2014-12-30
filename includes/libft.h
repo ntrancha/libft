@@ -35,7 +35,9 @@
 # define EXIT_FAIL		-1
 # define EXIT_ERROR		-2
 # define USER_OS		OS_UNKNOW
+# define OS_UNKNOW
 # define USER_SYS		SYS_UNKNOW
+# define SYS_UNKNOW
 # define PUT_ENDL		ft_putchar('\n')
 # define STR(x)			ft_strdup(#x)
 # define CONTENT		ft_listcontent

@@ -17,7 +17,7 @@ int			ft_sqrt(int nbr)
 	int		index;
 
 	if (nbr <= 1)
-		return (0);
+		RETURN_NULL;
 	index = nbr;
 	while (index > 1)
 	{
@@ -25,5 +25,5 @@ int			ft_sqrt(int nbr)
 			return (index);
 		index--;
 	}
-	return (0);
+	RETURN_NULL;
 }

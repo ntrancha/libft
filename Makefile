@@ -123,7 +123,7 @@ else
     endif
 endif
 
-all: binaire $(NAME)
+all: reset binaire $(NAME)
 
 $(NAME): $(OBJS)
 		@if [ -f '$(NAME)' ]; then \
