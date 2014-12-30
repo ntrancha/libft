@@ -19,6 +19,8 @@ t_list		*ft_listadd(t_list *list, void *content)
 	if (!list)
 		list = ft_listcreate();
 	node = ft_memalloc(sizeof(t_node));
+	if (!node)
+		return (NULL);
 	if (!content)
 		node->content = NULL;
 	else

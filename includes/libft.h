@@ -182,6 +182,7 @@ t_tab	*ft_tabnew(int line, int col);
 t_lst	*ft_lstnew(void const *content, size_t content_size);
 t_list	*ft_listadd(t_list *list, void *content);
 t_list	*ft_listaddfirst(t_list *list, void *content);
+t_list	*ft_listaddafter(t_list *list, t_node *prev, void *content);
 t_list	*ft_listcreate(void);
 
 void	ft_striter(char *s, void (*f)(char *));

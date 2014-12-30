@@ -94,7 +94,7 @@ FILE =	ft_memchr.c				ft_putnbr_fd.c			\
 		ft_listdel.c			ft_listdelnode.c		\
 		ft_listswap.c			ft_listputstr.c			\
 		ft_listlen.c			ft_listcontent.c		\
-		ft_listaddfirst.c
+		ft_listaddfirst.c		ft_listaddafter.c
 
 ifeq ($(OS),Windows_NT)
 	OS = WIN32
@@ -143,7 +143,7 @@ $(NAME): $(OBJS)
 			gcc $(FLAG) -c -o $@ $^; \
 		fi
 
-.PHONY: verbose quiet clean fclean re install proto reset binaire fichier
+.PHONY: verbose quiet clean fclean re install proto reset binaire fichier test
 
 verbose: binaire fichier $(OBJS)
 		@if [ -f '$(NAME)' ]; then \
@@ -211,3 +211,8 @@ fichier:
 			cat ls.nk; \
 			rm ls.nk; \
 		fi
+
+test: fclean quiet fclean
+		@echo "No error"
+		@rm -rf $(OBJS)
+		@rm -rf $(NAME)
