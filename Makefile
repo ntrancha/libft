@@ -87,7 +87,10 @@ FILE =	ft_memchr.c				ft_putnbr_fd.c			\
 		ft_ftoll.c				ft_ftod.c				\
 		ft_atoll.c				ft_ralloc.c				\
 		ft_match.c				ft_neg_double.c			\
-		ft_neg_float.c
+		ft_neg_float.c			ft_tabdup.c				\
+		ft_listadd.c			ft_listcreate.c			\
+		ft_listdel.c			ft_listdelnode.c		\
+		ft_listswap.c
 
 ifeq ($(OS),Windows_NT)
 	OS = WIN32

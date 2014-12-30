@@ -1,35 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   ft_listdelnode.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/12/29 06:59:44 by ntrancha          #+#    #+#             */
-/*   Updated: 2014/12/29 06:59:44 by ntrancha         ###   ########.fr       */
+/*   Created: 2014/12/30 06:09:07 by ntrancha          #+#    #+#             */
+/*   Updated: 2014/12/30 06:09:07 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "includes/libft.h"
 
-t_lst		*ft_lstnew(void const *content, size_t content_size)
+void		ft_listdelnode(t_list *list, t_node *node, void (del)(void **))
 {
-	t_lst	*new;
-
-	if (!(new = (t_lst*)malloc(sizeof(t_lst))))
-		return (NULL);
-	if (!content)
+	if (list && node && ft_listcontent(list, node))
 	{
-		new->content = NULL;
-		new->content_size = 0;
+		if (node->previous)
+			node->previous->next = node->next;
+		if (node->next)
+			node->next->previous = node->previous;
+		if (list->end == node)
+			list->end = node->previous;
+		if (list->start == node)
+			list->start = node->next;
+		if (node->content)
+			del(&(node->content));
+		list->size--;
+		ft_memdel((void**)&node);
 	}
-	else
-	{
-		if (!(new->content = (void*)malloc(content_size)))
-			return (NULL);
-		ft_memcpy(new->content, content, content_size);
-	}
-	new->next = NULL;
-	return (new);
 }

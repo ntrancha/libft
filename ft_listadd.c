@@ -1,22 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd.c                                        :+:      :+:    :+:   */
+/*   ft_listadd.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/12/29 07:04:43 by ntrancha          #+#    #+#             */
-/*   Updated: 2014/12/29 07:04:43 by ntrancha         ###   ########.fr       */
+/*   Created: 2014/12/30 05:46:30 by ntrancha          #+#    #+#             */
+/*   Updated: 2014/12/30 05:46:30 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/libft.h"
 
-void		ft_lstadd(t_lst **alst, t_lst *new)
+t_list		*ft_listadd(t_list *list, void *content)
 {
-	t_lst	*list;
+	t_node	*node;
 
-	list = *alst;
-	*alst = new;
-	new->next = list;
+	if (!list)
+		list = ft_listcreate();
+	node = ft_memalloc(sizeof(t_node));
+	if (!content)
+		node->content = NULL;
+	else
+		node->content = content;
+	node->next = NULL;
+	node->previous = list->end;
+	if (!list->end)
+		list->start = node;
+	else
+		list->end->next = node;
+	list->end = node;
+	list->size++;
+	return (list);
 }

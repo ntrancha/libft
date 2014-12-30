@@ -1,22 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd.c                                        :+:      :+:    :+:   */
+/*   ft_listcontent.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/12/29 07:04:43 by ntrancha          #+#    #+#             */
-/*   Updated: 2014/12/29 07:04:43 by ntrancha         ###   ########.fr       */
+/*   Created: 2014/12/30 06:49:51 by ntrancha          #+#    #+#             */
+/*   Updated: 2014/12/30 06:49:51 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/libft.h"
 
-void		ft_lstadd(t_lst **alst, t_lst *new)
+int			ft_listcontent(t_list *list, t_node *node)
 {
-	t_lst	*list;
+	t_node  *tmp;
 
-	list = *alst;
-	*alst = new;
-	new->next = list;
+	tmp = list->start;
+	while (tmp)
+	{
+		if (tmp == node)
+			return (1);
+		tmp = tmp->next;
+	}       
+	return (0);
 }

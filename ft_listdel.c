@@ -1,22 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd.c                                        :+:      :+:    :+:   */
+/*   ft_listdel.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/12/29 07:04:43 by ntrancha          #+#    #+#             */
-/*   Updated: 2014/12/29 07:04:43 by ntrancha         ###   ########.fr       */
+/*   Created: 2014/12/30 06:42:43 by ntrancha          #+#    #+#             */
+/*   Updated: 2014/12/30 06:42:43 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/libft.h"
 
-void		ft_lstadd(t_lst **alst, t_lst *new)
+void		ft_listdel(t_list *list, void (del)(void **))
 {
-	t_lst	*list;
+	t_node	*node;
+	t_node	*tmp;
 
-	list = *alst;
-	*alst = new;
-	new->next = list;
+	if (list)
+	{
+		node = list->start;
+		while (node)
+		{
+			tmp = node->next;
+			ft_listdelnode(list, node, del);
+			node = tmp;
+		}
+	}
+	ft_memdel((void**)&list);
 }
