@@ -14,6 +14,8 @@ NAME =	libft.a
 
 FLAG =	-Wall -Wextra -Werror
 
+HEADER = includes/libft.h
+
 OBJS =	$(FILE:.c=.o)
 
 FILE =	ft_memchr.c				ft_putnbr_fd.c			\
@@ -90,7 +92,8 @@ FILE =	ft_memchr.c				ft_putnbr_fd.c			\
 		ft_neg_float.c			ft_tabdup.c				\
 		ft_listadd.c			ft_listcreate.c			\
 		ft_listdel.c			ft_listdelnode.c		\
-		ft_listswap.c			ft_listputstr.c
+		ft_listswap.c			ft_listputstr.c			\
+		ft_listlen.c
 
 ifeq ($(OS),Windows_NT)
 	OS = WIN32
@@ -132,6 +135,16 @@ $(NAME): $(OBJS)
 			echo "Done"; \
 		fi
 
+verbose: binaire fichier $(OBJS)
+		@if [ -f '$(NAME)' ]; then \
+			error=1; \
+			else \
+			echo "Compilation [$(NAME)]"; \
+			ar rc $(NAME) $(OBJS); \
+			ranlib $(NAME); \
+			echo "Done"; \
+		fi
+
 quiet: $(OBJS)
 		@if [ -f '$(NAME)' ]; then \
 			echo "$(NAME) exists"; \
@@ -150,7 +163,7 @@ quiet: $(OBJS)
 clean:
 		@rm -rf $(OBJS)
 
-fclean: clean
+fclean: clean reset
 		@rm -rf $(NAME)
 
 re: fclean all
@@ -167,4 +180,31 @@ binaire:
     	    echo "$(NAME) exists"; \
 		else \
 			echo "$(shell echo $(OBJS) | wc -w) source files (Flags: $(FLAG)) on $(OS) $(SYS)"; \
+			cat $(HEADER) | sed -e "s/OS_UNKNOW/$(OS)/g" > $(HEADER).nk; \
+			mv $(HEADER).nk $(HEADER); \
+			cat $(HEADER) | sed -e "s/SYS_UNKNOW/$(SYS)/g" > $(HEADER).nk; \
+			mv $(HEADER).nk $(HEADER); \
+		fi
+
+reset:
+		@cat $(HEADER) | sed -e "s/WIN32/OS_UNKNOW/g" > $(HEADER).nk; \
+            mv $(HEADER).nk $(HEADER); \
+            cat $(HEADER) | sed -e "s/OSX/OS_UNKNOW/g" > $(HEADER).nk; \
+            mv $(HEADER).nk $(HEADER); \
+            cat $(HEADER) | sed -e "s/LINUX/OS_UNKNOW/g" > $(HEADER).nk; \
+            mv $(HEADER).nk $(HEADER);
+		@cat $(HEADER) | sed -e "s/IA32/SYS_UNKNOW/g" > $(HEADER).nk; \
+            mv $(HEADER).nk $(HEADER); \
+            cat $(HEADER) | sed -e "s/AMD64/SYS_UNKNOW/g" > $(HEADER).nk; \
+            mv $(HEADER).nk $(HEADER); \
+            cat $(HEADER) | sed -e "s/ARM/SYS_UNKNOW/g" > $(HEADER).nk; \
+            mv $(HEADER).nk $(HEADER);
+
+fichier:
+		@if [ -f '$(NAME)' ]; then \
+            error=1 ;\
+        else \
+			ls -1 *.c > ls.nk; \
+			cat ls.nk; \
+			rm ls.nk; \
 		fi

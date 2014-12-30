@@ -30,7 +30,10 @@
 # define EXIT_NULL		0
 # define EXIT_FAIL		-1
 # define EXIT_ERROR		-2
+# define USER_OS		OS_UNKNOW
+# define USER_SYS		SYS_UNKNOW
 # define PUT_ENDL		ft_putchar('\n')
+# define STR(x)			ft_strdup(#x)
 # define CONTENT		ft_listcontent
 # define POWER			ft_power
 # define FACTO			ft_facto
@@ -207,6 +210,7 @@ void	ft_strfusion(char **dst, char **src);
 
 size_t	ft_strlen(const char *str);
 size_t	ft_nbrlen(int nbr);
+size_t	ft_listlen(t_list *list);
 size_t	ft_floatlenfloat(float n);
 size_t	ft_floatlen(float n);
 size_t	ft_longlen(long nbr);
