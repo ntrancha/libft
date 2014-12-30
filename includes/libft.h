@@ -253,6 +253,7 @@ char	**ft_strsplit(char const *s, char c);
 char	*ft_strsub(char const *s, unsigned int start, size_t len);
 
 char	*ft_strrvs(char *str);
+t_list	*ft_listreverse(t_list *list);
 
 int		ft_tabmin(t_tab *tab);
 int		ft_tabmax(t_tab *tab);
