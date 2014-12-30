@@ -257,6 +257,7 @@ void	ft_putnbr_endl(int n);
 void	ft_putfloat(float n);
 void	ft_putlong(long n);
 void	ft_putdouble(double n);
+void	ft_listputstr(t_list * list, void (put)(char const *));
 int		ft_puttab(t_tab *tab);
 
 #endif

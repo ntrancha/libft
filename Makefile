@@ -90,7 +90,7 @@ FILE =	ft_memchr.c				ft_putnbr_fd.c			\
 		ft_neg_float.c			ft_tabdup.c				\
 		ft_listadd.c			ft_listcreate.c			\
 		ft_listdel.c			ft_listdelnode.c		\
-		ft_listswap.c
+		ft_listswap.c			ft_listputstr.c
 
 ifeq ($(OS),Windows_NT)
 	OS = WIN32
