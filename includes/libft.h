@@ -39,7 +39,7 @@
 # define PUT_ENDL		ft_putchar('\n')
 # define STR(x)			ft_strdup(#x)
 # define CONTENT		ft_listcontent
-# define POWER(x)		ft_power(x)
+# define POWER(x, y)	ft_power(x, y)
 # define FACTO(x)		ft_facto(x)
 # define SQUARE(x)		ft_sqrt(x)
 # define ROOT(x)		ft_rsqrt(x)

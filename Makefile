@@ -135,6 +135,15 @@ $(NAME): $(OBJS)
 			echo "Done"; \
 		fi
 
+%.o: %.c
+		@if [ -f '$(NAME)' ]; then \
+			error=1; \
+		else \
+			gcc $(FLAG) -c -o $@ $^; \
+		fi
+
+.PHONY: verbose quiet clean fclean re install proto reset binaire fichier
+
 verbose: binaire fichier $(OBJS)
 		@if [ -f '$(NAME)' ]; then \
 			error=1; \
@@ -151,13 +160,6 @@ quiet: $(OBJS)
 		else \
 			ar rc $(NAME) $^; \
 			ranlib $(NAME); \
-		fi
-
-%.o: %.c
-		@if [ -f '$(NAME)' ]; then \
-			error=1; \
-		else \
-			gcc $(FLAG) -c -o $@ $^; \
 		fi
 
 clean:
