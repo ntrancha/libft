@@ -15,6 +15,7 @@
 # include <string.h>
 # include "macros.h"
 # include "math.h"
+# include "put.h"
 
 typedef unsigned char	t_uchar;
 typedef unsigned int	t_uint;
@@ -211,21 +212,5 @@ t_list	*ft_listreverse(t_list *list);
 int		ft_tabmin(t_tab *tab);
 int		ft_tabmax(t_tab *tab);
 void	ft_tabup(t_tab *tab, int up);
-
-void	ft_putnbr_fd(int n, int fd);
-void	ft_putchar_fd(char c, int fd);
-void	ft_putstr_fd(char const *s, int fd);
-void	ft_putendl_fd(char const *s, int fd);
-
-void	ft_putchar(char c);
-void	ft_putstr(char const *str);
-void	ft_putendl(char const *s);
-void	ft_putnbr(int n);
-void	ft_putnbr_endl(int n);
-void	ft_putfloat(float n);
-void	ft_putlong(long n);
-void	ft_putdouble(double n);
-void	ft_listputstr(t_list *list, void (put)(char const *));
-int		ft_puttab(t_tab *tab);
 
 #endif
