@@ -16,6 +16,8 @@ FLAG =	-Wall -Wextra -Werror
 
 HEADER = includes/libft.h
 
+SCRIPT = https://github.com/ntrancha/Script.git 
+
 OBJS =	$(FILE:.c=.o)
 
 FILE =	ft_memchr.c				ft_putnbr_fd.c			\
@@ -220,3 +222,8 @@ test: fclean quiet fclean
 		@echo "No error"
 		@rm -rf $(OBJS)
 		@rm -rf $(NAME)
+		@git clone $(SCRIPT) script > /dev/null 2> /dev/null
+		@python script/norme.py $(FILE)
+		@script/./test_header.sh $(FILE)
+		@script/./test_file_makefile.sh
+		@rm -rf script
