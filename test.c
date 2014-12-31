@@ -60,11 +60,20 @@ int		main(void)
 	node = list->start;
 	size = count_next(list);
 	str = ft_strnew(size);
-	while (node)
+	size = 1;
+	while (node && size)
 	{
-		/*if (ft_cinstr(node->content, '\n') != 0)
+		//ft_strfusion(&str, (char **)&(node->content));
+		if (ft_cinstr(node->content, '\n') != 0)
 		{
-			// decoupe
+			tmp = ft_strdup(str);
+			while (*tmp && *tmp == '\n')
+				if (*++tmp == '\n')
+				{
+					*tmp = '\0';
+					size = 0;
+				}
+			ft_strfusiondel(&str, &tmp);
 		}
 		else if (ft_cinstr(node->content, '\0') != 0)
 		{
@@ -72,13 +81,13 @@ int		main(void)
 		}
 		else
 		{
-			//ft_strfusion(&str, (char **)&(node->content));
-		}*/
+			ft_strfusion(&str, (char **)&(node->content));
+		}
 		node = node->next;
 	}
-	//ft_listputstr(list, put);
+	ft_listputstr(list, put);
 	PUT_ENDL;
-	ft_straddchar(&str, '\0');
+	ft_putendl("\n=====");
 	ft_putendl(str);
 	ft_listdel(list, del);
 	ft_strdel(&str);
