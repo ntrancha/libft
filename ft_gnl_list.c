@@ -65,10 +65,12 @@ int					ft_gnl_list(int const fd, char **line)
 		all[fd] = ft_listcreate();
 		if ((ret = ft_readfilelist(fd, all[fd])) == -1)
 			return (EXIT_FAIL);
+		if (all[fd]->size == 0)
+			return (-1);
 		all[fd] = ft_listsplit(all[fd], '\n');
 	}
 	if (all[fd]->size == 0)
-		return (0);
+		return (-1);
 	ft_strdel(line);
 	del = ft_memdel;
 	if (all[fd] && all[fd]->start->content)

@@ -253,6 +253,8 @@ int		ft_gnl(int const fd, char **line);
 int     ft_gnl_list(int const fd, char **line);
 int		ft_readfile(int const fd, char **str);
 int		ft_readfilelist(int const fd, t_list *list);
+int		ft_catfile_list(const int fd);
+int		ft_catfile(const int fd);
 
 int		ft_rgb(int red, int green, int blue);
 
@@ -279,7 +281,7 @@ void	ft_putnbr_endl(int n);
 void	ft_putfloat(float n);
 void	ft_putlong(long n);
 void	ft_putdouble(double n);
-void	ft_listputstr(t_list * list, void (put)(char const *));
+void	ft_listputstr(t_list *list, void (put)(char const *));
 int		ft_puttab(t_tab *tab);
 
 #endif
