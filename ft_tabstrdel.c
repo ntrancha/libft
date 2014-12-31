@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/libft.h"
 #include <stdlib.h>
+#include "includes/libft.h"
 
 void		ft_tabstrdel(char **str)
 {
@@ -19,9 +19,9 @@ void		ft_tabstrdel(char **str)
 
 	index = 0;
 	while (str[index])
-    {
-        ft_strdel(&str[index]);
-        index++;
-    }
+	{
+		ft_strdel(&str[index]);
+		index++;
+	}
 	ft_memdel((void*)&str);
 }

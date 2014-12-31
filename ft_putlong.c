@@ -12,11 +12,11 @@
 
 #include "includes/libft.h"
 
-void ft_putlong(long n)
+void		ft_putlong(long n)
 {
-    char    *str;
-    
-    str = ft_ltoa(n);
-    ft_putstr(str);
-    ft_strdel(&str);
-}   
+	char	*str;
+
+	str = ft_ltoa(n);
+	ft_putstr(str);
+	ft_strdel(&str);
+}

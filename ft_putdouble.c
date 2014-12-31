@@ -11,12 +11,12 @@
 /* ************************************************************************** */
 
 #include "includes/libft.h"
-        
-void        ft_putdouble(double n)
+
+void		ft_putdouble(double n)
 {
-    char    *str;
-    
-    str = ft_dtoa(n);
-    ft_putstr(str);
-    ft_strdel(&str);
+	char	*str;
+
+	str = ft_dtoa(n);
+	ft_putstr(str);
+	ft_strdel(&str);
 }

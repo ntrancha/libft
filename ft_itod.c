@@ -10,7 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-double       ft_itod(int n)
-{   
-    return ((double)n); 
+#include "includes/libft.h"
+
+double		ft_itod(int n)
+{
+	return ((double)n);
 }

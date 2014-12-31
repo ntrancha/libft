@@ -31,7 +31,7 @@ static char		*ft_ftoa_cut(float n, char *s)
 	while (s[i + index])
 		i++;
 	while (i++ <= 6)
-	    ft_straddchar(&s, '0');
+		ft_straddchar(&s, '0');
 	return (s);
 }
 
@@ -48,7 +48,7 @@ static char		*ft_ftoa_next(float n, char *s)
 		return (ft_ftoa_cut(n, s));
 	f = ft_nbrlen(p);
 	while (f++ < 7)
-        ft_straddchar(&s, '0');
+		ft_straddchar(&s, '0');
 	str = ft_itoa(p);
 	tmp = ft_strjoin(s, str);
 	ft_strdel(&s);
@@ -58,13 +58,13 @@ static char		*ft_ftoa_next(float n, char *s)
 	return (ft_ftoa_cut(n, s));
 }
 
-char   			*ft_ftoa(float n)
-{   
-    char    	*s;
+char			*ft_ftoa(float n)
+{
+	char		*s;
 
-    if (n == 0)
-        return (ft_strdup("0"));
-    if (n < 1)
+	if (n == 0)
+		return (ft_strdup("0"));
+	if (n < 1)
 		return (ft_ftoa_next(n, ft_strdup("0")));
 	s = ft_itoa(ft_ftoi(n));
 	if (s == NULL)

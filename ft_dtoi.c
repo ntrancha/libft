@@ -10,7 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-int     ft_dtoi(double n)
-{     
-    return ((int)(n));
+#include "includes/libft.h"
+
+int		ft_dtoi(double n)
+{
+	return ((int)(n));
 }

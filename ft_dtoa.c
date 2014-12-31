@@ -13,62 +13,61 @@
 #include <stdlib.h>
 #include "includes/libft.h"
 
-static char     *ft_dtoa_cut(double n, char *s)
+static char		*ft_dtoa_cut(double n, char *s)
 {
-    int         index;
-    int         i;
+	int			index;
+	int			i;
 
-    if (ft_strlen(s) - ft_nbrlen(ft_dtoi(n)) > 6)
-        s[ft_strlen(s) - 1] = '\0';
-    while (n > ft_atod(s))
-        s[ft_strlen(s) - 1] += 1;
-    while (n < ft_atod(s))
-        s[ft_strlen(s) - 1] -= 1;
-    index = 0;
-    while (s[index] && s[index] != '.')
-        index++;
-    i = 0;
-    while (s[i + index])
-        i++;
-    while (i++ <= 6)
-        ft_straddchar(&s, '0');
-    return (s);
+	if (ft_strlen(s) - ft_nbrlen(ft_dtoi(n)) > 6)
+		s[ft_strlen(s) - 1] = '\0';
+	while (n > ft_atod(s))
+		s[ft_strlen(s) - 1] += 1;
+	while (n < ft_atod(s))
+		s[ft_strlen(s) - 1] -= 1;
+	index = 0;
+	while (s[index] && s[index] != '.')
+		index++;
+	i = 0;
+	while (s[i + index])
+		i++;
+	while (i++ <= 6)
+		ft_straddchar(&s, '0');
+	return (s);
 }
 
-static char     *ft_dtoa_next(double n, char *s)
+static char		*ft_dtoa_next(double n, char *s)
 {
-    int     f;
-    int     p;
-    char    *str;
-    char    *tmp;
+	int			f;
+	int			p;
+	char		*str;
+	char		*tmp;
 
-    ft_straddchar(&s, '.');
-    p = ft_dtoi((n - ft_dtoi(n)) * MAX_DTOA);
-    if (p == 0)
-        return (ft_dtoa_cut(n, s));
-    f = ft_nbrlen(p);
-    while (f++ < 7)
-        ft_straddchar(&s, '0');
-    str = ft_itoa(p);
-    tmp = ft_strjoin(s, str);
-    ft_strdel(&s);
-    s = ft_strdup(tmp);
-    ft_strdel(&str);
-    ft_strdel(&tmp);
-    return (ft_dtoa_cut(n, s));
+	ft_straddchar(&s, '.');
+	p = ft_dtoi((n - ft_dtoi(n)) * MAX_DTOA);
+	if (p == 0)
+		return (ft_dtoa_cut(n, s));
+	f = ft_nbrlen(p);
+	while (f++ < 7)
+		ft_straddchar(&s, '0');
+	str = ft_itoa(p);
+	tmp = ft_strjoin(s, str);
+	ft_strdel(&s);
+	s = ft_strdup(tmp);
+	ft_strdel(&str);
+	ft_strdel(&tmp);
+	return (ft_dtoa_cut(n, s));
 }
 
-
-char            *ft_dtoa(double n)
+char			*ft_dtoa(double n)
 {
-    char        *s;
+	char		*s;
 
-    if (n == 0)
-        return (ft_strdup("0"));
-    if (n < 1)
-        return (ft_dtoa_next(n, ft_strdup("0")));
-    s = ft_itoa(ft_dtoi(n));
-    if (s == NULL)
-        return (NULL);
-    return (ft_dtoa_next(n, s));
+	if (n == 0)
+		return (ft_strdup("0"));
+	if (n < 1)
+		return (ft_dtoa_next(n, ft_strdup("0")));
+	s = ft_itoa(ft_dtoi(n));
+	if (s == NULL)
+		return (NULL);
+	return (ft_dtoa_next(n, s));
 }

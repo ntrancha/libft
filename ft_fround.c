@@ -13,7 +13,6 @@
 #include <stdio.h>
 #include "includes/libft.h"
 
-
 float		ft_fround(float n, int p)
 {
 	int		count1;
@@ -33,7 +32,6 @@ float		ft_fround(float n, int p)
 		tmp1 += 0.000001;
 	while (ft_ftoi(ft_floatlenfloat(tmp2)) > p && count2++)
 		tmp2 -= 0.000001;
-	printf("(%d) %f : (%d) %f\n", (int)ft_nbrlen(count1), tmp1, (int)ft_nbrlen(count2), tmp2);
 	if (count1 < count2)
 		return (tmp1);
 	return (tmp2);

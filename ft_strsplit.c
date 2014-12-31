@@ -80,7 +80,7 @@ char				**ft_strsplit(char const *s, char c)
 	int				nbr;
 
 	str = cleanstr(s, c);
-	nbr = countchar((char*)s,c);
+	nbr = countchar((char*)s, c);
 	ret = strsplit((char*)str, c, nbr);
 	ft_strdel(&str);
 	return (ret);

@@ -22,6 +22,6 @@ int			ft_listcontent(t_list *list, t_node *node)
 		if (tmp == node)
 			return (1);
 		tmp = tmp->next;
-	}       
+	}
 	return (0);
 }

@@ -26,6 +26,6 @@ int				ft_is_prime(int nbr)
 		if (!(nbr % index))
 			return (0);
 		index--;
-	}	
+	}
 	return (1);
 }

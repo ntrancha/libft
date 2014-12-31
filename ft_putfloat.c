@@ -14,9 +14,9 @@
 
 void		ft_putfloat(float n)
 {
-    char    *str;
-    
-    str = ft_ftoa(n);
-    ft_putstr(str);
-    ft_strdel(&str);
+	char	*str;
+
+	str = ft_ftoa(n);
+	ft_putstr(str);
+	ft_strdel(&str);
 }

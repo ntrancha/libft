@@ -28,7 +28,7 @@ t_list		*ft_listreverse(t_list *list)
 			return (NULL);
 		tmp = node->next;
 		ft_memdel((void**)&node);
-		node = tmp;;
+		node = tmp;
 	}
 	return (list);
 }

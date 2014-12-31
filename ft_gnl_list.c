@@ -12,7 +12,7 @@
 
 #include "includes/libft.h"
 
-static void			ft_listsplitnext(t_list *ret, char *str, char **tmp, char c)
+static void			splitnext(t_list *ret, char *str, char **tmp, char c)
 {
 	int				index;
 
@@ -46,7 +46,7 @@ static t_list		*ft_listsplit(t_list *list, char c)
 	del = ft_memdel;
 	while (node)
 	{
-		ft_listsplitnext(ret, node->content, &tmp, c);
+		splitnext(ret, node->content, &tmp, c);
 		node = node->next;
 	}
 	ret = ft_listadd(ret, tmp);

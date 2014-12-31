@@ -27,26 +27,26 @@ static void	list_swap(t_list *list, t_node *node, t_node *node2)
 static void	listswapnode2(t_list *list, t_node *node)
 {
 	t_node	*prev2;
-    t_node	*next3;
-    t_node	*tmp3;
-        
-    if (list && node && node->next)
-    {       
-        tmp3 = node->next;
-        prev2 = node->previous;
-        next3 = tmp3->next;
-        if (node->previous)
-            node->previous->next = tmp3;
-        else
-            list->start = tmp3;
-        if (tmp3->next)
-            tmp3->next->previous = node;
-        else
-            list->end = node;
-        node->previous = tmp3;
-        tmp3->next = node;
-        tmp3->previous = prev2;
-        node->next = next3;
+	t_node	*next3;
+	t_node	*tmp3;
+
+	if (list && node && node->next)
+	{
+		tmp3 = node->next;
+		prev2 = node->previous;
+		next3 = tmp3->next;
+		if (node->previous)
+			node->previous->next = tmp3;
+		else
+			list->start = tmp3;
+		if (tmp3->next)
+			tmp3->next->previous = node;
+		else
+			list->end = node;
+		node->previous = tmp3;
+		tmp3->next = node;
+		tmp3->previous = prev2;
+		node->next = next3;
 	}
 }
 
