@@ -169,9 +169,10 @@ void	ft_strdel(char **as);
 void	ft_tabstrdel(char **str);
 void	ft_lstdel(t_lst **alst, void (*del)(void *, size_t));
 void	ft_lstdelone(t_lst **alst, void (*del)(void *, size_t));
-t_tab	*ft_tabdel(t_tab **tab);
 void	ft_listdelnode(t_list *list, t_node *node, void (del)(void **));
 void	ft_listdel(t_list *list, void (del)(void **));
+t_tab	*ft_tabdel(t_tab **tab);
+t_node	*ft_listdelnodenext(t_list *list, t_node *node, void (del)(void **));
 
 void	*ft_memset(void *b, int c, size_t len);
 void	ft_bzero(void *s, size_t n);
