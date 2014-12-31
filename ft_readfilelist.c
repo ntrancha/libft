@@ -28,6 +28,7 @@ int				ft_readfilelist(int const fd, t_list *list)
 		line = ft_strnew(BUFF_SIZE + 2);
 		if ((ret = read(fd, line, BUFF_SIZE)) == -1 || line == NULL)
 			return (EXIT_FAIL);
+		line[ret] = '\0';
 		while ((int)ft_strlen(line) != ret)
 			line[ft_strlen(line)] = '\a';
 		list = ft_listadd(list, line);

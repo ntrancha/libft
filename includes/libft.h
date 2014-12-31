@@ -250,6 +250,7 @@ void    *ft_ralloc(void *ptr, size_t size_of, size_t new_size);
 void	ft_listswap(t_list *list, t_node *node, t_node *node2);
 
 int		ft_gnl(int const fd, char **line);
+int     ft_gnl_list(int const fd, char **line);
 int		ft_readfile(int const fd, char **str);
 int		ft_readfilelist(int const fd, t_list *list);
 

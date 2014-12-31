@@ -14,16 +14,9 @@
 
 void		ft_strfusion(char **dst, char **src)
 {
-	int		size;
+	char	*tmp;
 
-	size = BUFF_SIZE + 2;
-	if (!(*src))
-		*src = ft_strdup("");;
-	if (!(*dst))
-		*dst = ft_strdup("");
-	size += ft_strlen(*src);
-	size += ft_strlen(*dst);
-	*dst = ft_strralloc(dst, size);
-	ft_putstr(*dst);
-	ft_strcpy(*dst, *src);
+	tmp = ft_strjoin(*dst, *src);
+	ft_strdel(dst);
+	*dst = tmp;
 }
