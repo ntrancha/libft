@@ -16,6 +16,7 @@
 # include "macros.h"
 # include "math.h"
 # include "put.h"
+# include "file.h"
 
 typedef unsigned char	t_uchar;
 typedef unsigned int	t_uint;

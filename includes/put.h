@@ -12,6 +12,7 @@
 
 #ifndef PUT_H
 # define PUT_H
+# include "libft.h"
 
 void    ft_putnbr_fd(int n, int fd);
 void    ft_putchar_fd(char c, int fd);
