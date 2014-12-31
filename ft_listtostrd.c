@@ -1,34 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_listreverse.c                                   :+:      :+:    :+:   */
+/*   ft_listtostrd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/12/30 17:41:50 by ntrancha          #+#    #+#             */
-/*   Updated: 2014/12/30 17:41:50 by ntrancha         ###   ########.fr       */
+/*   Created: 2014/12/30 19:49:57 by ntrancha          #+#    #+#             */
+/*   Updated: 2014/12/30 19:49:57 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/libft.h"
 
-t_list		*ft_listreverse(t_list *list)
+char		*ft_listtostrd(t_list *list, char *del)
 {
-	t_node	*end;
 	t_node	*node;
-	t_node	*tmp;
+	int		count;
+	int		index;
+	char	*str;
+	char	*tmp;
 
+	if (!list)
+		return (NULL);
+	count = ft_strlen(del) * list->size;
+	if (!(str = ft_strnew(ft_liststrlen(list) + count + 1)))
+		return (NULL);
+	count = 0;
 	node = list->start;
-	end = list->end;
-	while (node && node != end)
+	while (node)
 	{
-		node->next->previous = NULL;
-		list->start = node->next;
-		if (!ft_listaddafter(list, end, node->content))
-			return (NULL);
-		tmp = node->next;
-		ft_memdel((void**)&node);
-		node = tmp;;
+		index = 0;
+		tmp = (char*)node->content;
+		while (tmp[index])
+			str[count++] = tmp[index++];
+		index = 0;
+		while (del[index])
+			str[count++] = del[index++];
+		node = node->next;
 	}
-	return (list);
+	return (str);
 }

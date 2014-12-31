@@ -1,34 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_listreverse.c                                   :+:      :+:    :+:   */
+/*   ft_liststrlen.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/12/30 17:41:50 by ntrancha          #+#    #+#             */
-/*   Updated: 2014/12/30 17:41:50 by ntrancha         ###   ########.fr       */
+/*   Created: 2014/12/30 19:45:30 by ntrancha          #+#    #+#             */
+/*   Updated: 2014/12/30 19:45:30 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/libft.h"
 
-t_list		*ft_listreverse(t_list *list)
+size_t		ft_liststrlen(t_list *list)
 {
-	t_node	*end;
+	size_t	size;
 	t_node	*node;
-	t_node	*tmp;
 
+	size = 0;
+	if (!list)
+		return (0);
 	node = list->start;
-	end = list->end;
-	while (node && node != end)
+	while (node)
 	{
-		node->next->previous = NULL;
-		list->start = node->next;
-		if (!ft_listaddafter(list, end, node->content))
-			return (NULL);
-		tmp = node->next;
-		ft_memdel((void**)&node);
-		node = tmp;;
+		size += (int)ft_strlen((char *)node->content);
+		node = node->next;
 	}
-	return (list);
+	return (size);
 }

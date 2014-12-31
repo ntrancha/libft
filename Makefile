@@ -95,7 +95,9 @@ FILE =	ft_memchr.c				ft_putnbr_fd.c			\
 		ft_listswap.c			ft_listputstr.c			\
 		ft_listlen.c			ft_listcontent.c		\
 		ft_listaddfirst.c		ft_listaddafter.c		\
-		ft_listreverse.c
+		ft_listreverse.c		ft_listtostr.c			\
+		ft_liststrlen.c			ft_listtostrd.c			\
+		ft_readfilelist.c
 
 ifeq ($(OS),Windows_NT)
 	OS = WIN32

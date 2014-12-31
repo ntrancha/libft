@@ -15,7 +15,7 @@
 
 # include <string.h>
 
-# define BUFF_SIZE		1
+# define BUFF_SIZE		10
 # define TRUE			1
 # define FALSE			0
 # define STDIN			0
@@ -120,6 +120,8 @@ char	*ft_ltoa(long n);
 char	*ft_ftoa(float n);
 char	*ft_dtoa(double n);
 char	*ft_ctos(char c);
+char	*ft_listtostr(t_list *list);
+char	*ft_listtostrd(t_list *list, char *del);
 int		ft_atoi(const char *str);
 int		ft_ltoi(long n);
 int		ft_ftoi(float n);
@@ -221,6 +223,7 @@ void	ft_strfusion(char **dst, char **src);
 size_t	ft_strlen(const char *str);
 size_t	ft_nbrlen(int nbr);
 size_t	ft_listlen(t_list *list);
+size_t	ft_liststrlen(t_list *list);
 size_t	ft_floatlenfloat(float n);
 size_t	ft_floatlen(float n);
 size_t	ft_longlen(long nbr);
@@ -245,7 +248,8 @@ void    *ft_ralloc(void *ptr, size_t size_of, size_t new_size);
 void	ft_listswap(t_list *list, t_node *node, t_node *node2);
 
 int		ft_gnl(int const fd, char **line);
-int		ft_readfile(int fd, char **str);
+int		ft_readfile(int const fd, char **str);
+int		ft_readfilelist(int const fd, t_list *list);
 
 int		ft_rgb(int red, int green, int blue);
 
@@ -265,7 +269,7 @@ void	ft_putstr_fd(char const *s, int fd);
 void	ft_putendl_fd(char const *s, int fd);
 
 void	ft_putchar(char c);
-void	ft_putstr(char *str);
+void	ft_putstr(char const *str);
 void	ft_putendl(char const *s);
 void	ft_putnbr(int n);
 void	ft_putnbr_endl(int n);
