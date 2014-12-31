@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strfusion.c                                     :+:      :+:    :+:   */
+/*   ft_strfusiondel.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,7 +12,7 @@
 
 #include "includes/libft.h"
 
-void		ft_strfusion(char **dst, char **src)
+void		ft_strfusiondel(char **dst, char **src)
 {
 	int		size;
 
@@ -26,4 +26,5 @@ void		ft_strfusion(char **dst, char **src)
 	*dst = ft_strralloc(dst, size);
 	ft_putstr(*dst);
 	ft_strcpy(*dst, *src);
+	ft_strdel(src);
 }

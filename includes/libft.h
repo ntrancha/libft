@@ -220,6 +220,7 @@ char	*ft_strjoin(char const *s1, char const *s2);
 char	*ft_strmjoin(char const *s1, char const *s2, char const *s3);
 void	ft_straddchar(char **str, char c);
 void	ft_strfusion(char **dst, char **src);
+void	ft_strfusiondel(char **dst, char **src);
 
 size_t	ft_strlen(const char *str);
 size_t	ft_nbrlen(int nbr);
