@@ -15,9 +15,17 @@
 size_t		ft_listlen(t_list *list)
 {
 	size_t	n;
+	t_node	*node;
 
 	n = 0;
 	if (list)
-		n = (size_t)list->size;
+	{
+		node = list->start;
+		while (node)
+		{
+			n++;
+			node = node->next;
+		}
+	}
 	return (n);
 }
