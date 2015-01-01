@@ -16,6 +16,8 @@
 # include <string.h>
 
 # define BUFF_SIZE		10
+# define GNL_ILLIMITY	1
+# define GNL_FD_MAX		100
 # define TRUE			1
 # define FALSE			0
 # define STDIN			0
