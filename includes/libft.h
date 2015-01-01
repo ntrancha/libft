@@ -16,7 +16,7 @@
 # include <string.h>
 
 # define BUFF_SIZE		10
-# define GNL_ILLIMITY	1
+# define GNL_ILLIMITY	0
 # define GNL_FD_MAX		100
 # define TRUE			1
 # define FALSE			0
@@ -40,6 +40,7 @@
 # define OS_UNKNOW
 # define USER_SYS		SYS_UNKNOW
 # define SYS_UNKNOW
+# define STR_EMPTY		ft_strdup("")
 # define PUT_ENDL		ft_putchar('\n')
 # define PUT_ERROR(x)	ft_putstr_fd(x, STDERR)
 # define PUT_ERROR_L(x)	ft_putendl_fd(x, STDERR)

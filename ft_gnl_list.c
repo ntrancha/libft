@@ -12,6 +12,13 @@
 
 #include "includes/libft.h"
 
+static int			ft_gnl_return_fail(char **line)
+{
+	ft_strdel(line);
+	*line = STR_EMPTY;
+	RETURN_FAIL
+}
+
 static int			ft_gnl_cut(int const fd, char **line, t_list **all)
 {
 	void			(*del)(void **);
@@ -49,7 +56,7 @@ static void			splitnext(t_list *ret, char *str, char **tmp, char c)
 			if (str[index] == c)
 			{
 				ret = ft_listadd(ret, *tmp);
-				*tmp = ft_strnew(0);
+				*tmp = STR_EMPTY;
 			}
 			else
 				ft_straddchar(tmp, str[index]);
@@ -66,7 +73,7 @@ static t_list		*ft_listsplit(t_list *list, char c)
 
 	ret = ft_listcreate();
 	node = list->start;
-	tmp = ft_strnew(0);
+	tmp = STR_EMPTY;
 	del = ft_memdel;
 	while (node)
 	{
@@ -87,50 +94,12 @@ int					ft_gnl_list(int const fd, char **line)
 	{
 		all[fd] = ft_listcreate();
 		if ((ret = ft_readfilelist(fd, all[fd])) == -1)
-			RETURN_FAIL
+			return (ft_gnl_return_fail(line));
 		if (all[fd]->size == 0)
-			RETURN_FAIL
+			return (ft_gnl_return_fail(line));
 		all[fd] = ft_listsplit(all[fd], '\n');
 	}
 	if (all[fd]->size == 0)
-	{
-		*line = ft_strdup("");
-		RETURN_FAIL
-	}
+		return (ft_gnl_return_fail(line));
 	return (ft_gnl_cut(fd, line, all));
-}
-
-int	main(void)
-{
-	char	*str;
-	int		ret;
-
-	str = NULL;
-	ret = 42;
-	while ((ret = ft_gnl_list(0, &str)) == 1)
-	{
-		ft_putnbr(ret);
-		ft_putstr(" : ");
-		ft_putendl(str);
-	}
-	ft_putnbr(ret);
-	ft_putstr(" := ");
-	if (ret != -1)
-		ft_putstr(str);
-	else
-		ft_putstr("NULL");
-	PUT_ENDL;
-	ret = 42;
-	while ((ret = ft_gnl_list(0, &str)) == 1)
-	{
-		ft_putnbr(ret);
-		ft_putstr(" : ");
-		ft_putendl(str);
-	}
-	ft_putnbr(ret);
-	ft_putstr(" =: ");
-	if (ret != -1)
-		ft_putstr(str);
-	else
-		ft_putstr("NULL");
 }
