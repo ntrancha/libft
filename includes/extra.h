@@ -12,8 +12,8 @@
 
 #ifndef EXTRA_H
 # define EXTRA_H
-#include "libft.h"
+# include "libft.h"
 
-int     ft_rgb(int red, int green, int blue);
+int	ft_rgb(int red, int green, int blue);
 
 #endif
