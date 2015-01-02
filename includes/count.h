@@ -1,21 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   file.h                                             :+:      :+:    :+:   */
+/*   count.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/01/02 17:47:17 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/01/02 17:47:17 by ntrancha         ###   ########.fr       */
+/*   Created: 2015/01/02 17:39:58 by ntrancha          #+#    #+#             */
+/*   Updated: 2015/01/02 17:39:58 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FILE_H
-# define FILE_H
-# include "libft.h"
+#ifndef COUNT_H
+# define COUNT_H
+#include "libft.h"
 
-int     ft_gnl(int const fd, char **line);
-int     ft_readfile(int const fd, char **str);
-int     ft_catfile(const int fd);
+size_t  ft_strlen(const char *str);
+size_t  ft_nbrlen(int nbr);
+size_t  ft_floatlenfloat(float n);
+size_t  ft_floatlen(float n);
+size_t  ft_longlen(long nbr);
+size_t  ft_doublelen(double n);
+size_t  ft_doublelendouble(double n);
+int     ft_cinstr(char *str, char c);
 
 #endif

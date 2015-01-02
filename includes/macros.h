@@ -5,15 +5,18 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/12/31 23:48:03 by ntrancha          #+#    #+#             */
-/*   Updated: 2014/12/31 23:48:03 by ntrancha         ###   ########.fr       */
+/*   Created: 2015/01/02 17:45:36 by ntrancha          #+#    #+#             */
+/*   Updated: 2015/01/02 17:45:36 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MACROS_H
 # define MACROS_H
+# include "libft.h"
 
 # define BUFF_SIZE      10
+# define GNL_ILLIMITY   FALSE
+# define GNL_FD_MAX     100
 # define TRUE           1
 # define FALSE          0
 # define STDIN          0
@@ -36,6 +39,7 @@
 # define OS_UNKNOW
 # define USER_SYS       SYS_UNKNOW
 # define SYS_UNKNOW
+# define STR_EMPTY      ft_strdup("")
 # define PUT_ENDL       ft_putchar('\n')
 # define PUT_ERROR(x)   ft_putstr_fd(x, STDERR)
 # define PUT_ERROR_L(x) ft_putendl_fd(x, STDERR)

@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/12/31 23:52:47 by ntrancha          #+#    #+#             */
-/*   Updated: 2014/12/31 23:52:47 by ntrancha         ###   ########.fr       */
+/*   Created: 2015/01/02 17:32:13 by ntrancha          #+#    #+#             */
+/*   Updated: 2015/01/02 17:32:13 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,5 @@ void    ft_putnbr_endl(int n);
 void    ft_putfloat(float n);
 void    ft_putlong(long n);
 void    ft_putdouble(double n);
-void    ft_listputstr(t_list *list, void (put)(char const *));
-int     ft_puttab(t_tab *tab);
 
 #endif
