@@ -12,7 +12,7 @@
 
 #ifndef COUNT_H
 # define COUNT_H
-#include "libft.h"
+# include "libft.h"
 
 size_t  ft_strlen(const char *str);
 size_t  ft_nbrlen(int nbr);
