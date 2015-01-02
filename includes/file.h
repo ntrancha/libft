@@ -14,8 +14,8 @@
 # define FILE_H
 # include "libft.h"
 
-int     ft_gnl(int const fd, char **line);
-int     ft_readfile(int const fd, char **str);
-int     ft_catfile(const int fd);
+int	ft_gnl(int const fd, char **line);
+int	ft_readfile(int const fd, char **str);
+int	ft_catfile(const int fd);
 
 #endif
