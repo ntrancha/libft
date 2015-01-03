@@ -14,7 +14,7 @@
 # define MACROS_H
 # include "libft.h"
 
-# define BUFF_SIZE		10
+# define BUFF_SIZE		100
 # define GNL_ILLIMITY	FALSE
 # define GNL_FD_MAX		100
 # define TRUE			1
@@ -35,10 +35,10 @@
 # define EXIT_NULL		0
 # define EXIT_FAIL		-1
 # define EXIT_ERROR		-2
-# define USER_OS		LINUX
-# define LINUX
-# define USER_SYS		AMD64
-# define AMD64
+# define USER_OS		OS_UNKNOW
+# define OS_UNKNOW
+# define USER_SYS		SYS_UNKNOW
+# define SYS_UNKNOW
 # define STR_EMPTY		ft_strdup("")
 # define PUT_ENDL		ft_putchar('\n')
 # define PUT_ERROR(x)	ft_putstr_fd(x, STDERR)

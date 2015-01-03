@@ -100,8 +100,7 @@ FILE =	ft_memchr.c				ft_putnbr_fd.c			\
 		ft_listreverse.c		ft_listtostr.c			\
 		ft_liststrlen.c			ft_listtostrd.c			\
 		ft_strfusiondel.c		ft_gnl_list.c			\
-		ft_catfile_list.c		ft_catfile.c			\
-		ft_listdelnext.c
+		ft_catfile.c			ft_listdelnext.c		\
 
 ifeq ($(OS),Windows_NT)
 	OS = WIN32

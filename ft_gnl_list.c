@@ -10,6 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <unistd.h>
 #include "includes/libft.h"
 
 static int			readfile(int const fd, t_list *list)
