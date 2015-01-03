@@ -14,7 +14,7 @@ NAME =	libft.a
 
 FLAG =	-Wall -Wextra -Werror
 
-HEADER = includes/libft.h
+HEADER = includes/macros.h
 
 SCRIPT = https://github.com/ntrancha/Script.git 
 
@@ -99,9 +99,9 @@ FILE =	ft_memchr.c				ft_putnbr_fd.c			\
 		ft_listaddfirst.c		ft_listaddafter.c		\
 		ft_listreverse.c		ft_listtostr.c			\
 		ft_liststrlen.c			ft_listtostrd.c			\
-		ft_readfilelist.c		ft_listdelnext.c		\
 		ft_strfusiondel.c		ft_gnl_list.c			\
-		ft_catfile_list.c		ft_catfile.c
+		ft_catfile_list.c		ft_catfile.c			\
+		ft_listdelnext.c
 
 ifeq ($(OS),Windows_NT)
 	OS = WIN32

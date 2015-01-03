@@ -25,7 +25,7 @@ int			ft_catfile_list(const int fd)
 		ft_strdel(&str);
 	}
 	if (ret != -1)
-		ft_putendl(str);
+		ft_putstr(str);
 	ft_strdel(&str);
 	return (ret);
 }
