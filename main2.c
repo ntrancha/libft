@@ -6,7 +6,7 @@
 /*   By: darresti <darresti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/04 19:30:29 by darresti          #+#    #+#             */
-/*   Updated: 2015/01/13 12:47:34 by ntrancha         ###   ########.fr       */
+/*   Updated: 2015/01/13 12:53:13 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -1452,11 +1452,6 @@ static void	test_strsplit(void)
 	ctrl_tab[2] = strdup("function");
 	ctrl_tab[3] = NULL;
 	tab = ft_strsplit(" test my  function ", ' ');
-	ft_putendl(tab[0]);
-	ft_putendl(tab[1]);
-	ft_putendl(tab[2]);
-	if (tab[5] == NULL)
-		ft_putendl("coucou");
 	test[4] = tabcmp(tab, ctrl_tab);
 	free_tab(tab);
 	free_ctrl_tab(ctrl_tab);
@@ -1466,6 +1461,8 @@ static void	test_strsplit(void)
 	ctrl_tab[3] = NULL;
 	tab = ft_strsplit("*test\377my\377function   ", '\377');
 	test[5] = tabcmp(tab, ctrl_tab);
+	ft_putstr(tab[2]);
+	ft_putstr(".\n");
 	free_tab(tab);
 	free_ctrl_tab(ctrl_tab);
 	ctrl_tab[0] = NULL;

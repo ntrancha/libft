@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/04 15:27:47 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/01/13 10:09:25 by ntrancha         ###   ########.fr       */
+/*   Updated: 2015/01/13 13:09:40 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,13 @@ int			ft_atoi(const char *str)
 	while (*str == ' ' || *str == '\n' || *str == '\t' || *str == '\f'
 			|| *str == '\r' || *str == '\v' || *str == '0')
 		str++;
+	if (*str == '-')
+	{
+		signe = -1;
+		str++;
+	}
+	if (ft_strlen(str) > 10)
+		return (-signe);
 	while (*str >= '0' && *str <= '9')
 		ret = ret * 10 + (*str++ - '0');
 	return (ret * signe);
