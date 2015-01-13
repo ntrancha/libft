@@ -6,11 +6,12 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/04 11:00:33 by ntrancha          #+#    #+#             */
-/*   Updated: 2014/11/11 13:27:51 by ntrancha         ###   ########.fr       */
+/*   Updated: 2015/01/12 09:41:21 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/libft.h"
+#include "includes/macros.h"
 
 int		ft_strequ(char const *s1, char const *s2)
 {

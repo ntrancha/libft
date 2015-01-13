@@ -1,29 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncat.c                                       :+:      :+:    :+:   */
+/*   test.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/11/08 15:44:18 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/01/12 09:43:54 by ntrancha         ###   ########.fr       */
+/*   Created: 2015/01/12 10:08:43 by ntrancha          #+#    #+#             */
+/*   Updated: 2015/01/12 10:12:28 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/libft.h"
 
-char				*ft_strncat(char *s1, const char *s2, size_t n)
+int		main(void)
 {
-	int				count;
-	unsigned int	count2;
+	char	**ret;
 
-	count = ft_strlen(s1);
-	count2 = 0;
-	while (s2[count2] != '\0' && n > count2)
-	{
-		s1[count + count2] = s2[count2];
-		count2++;
-	}
-	s1[count + count2] = '\0';
-	return (s1);
+	ret = ft_strsplit(STR(*****coucou*les*enfants***), '*');
+	ft_putendl(ret[0]);
+	ft_putendl(ret[1]);
+	ft_putendl(ret[2]);
+	return (0);
 }

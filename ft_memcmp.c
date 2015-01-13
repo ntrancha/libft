@@ -6,11 +6,12 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/05 10:12:29 by ntrancha          #+#    #+#             */
-/*   Updated: 2014/11/19 13:28:52 by ntrancha         ###   ########.fr       */
+/*   Updated: 2015/01/12 09:41:46 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/libft.h"
+#include "includes/macros.h"
 
 int					ft_memcmp(const void *s1, const void *s2, size_t n)
 {

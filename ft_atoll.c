@@ -6,14 +6,14 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/29 15:37:04 by ntrancha          #+#    #+#             */
-/*   Updated: 2014/12/29 15:37:04 by ntrancha         ###   ########.fr       */
+/*   Updated: 2015/01/13 09:29:22 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-long long	ft_atoll(const char *str)
+long long		ft_atoll(const char *str)
 {
-	long	ret;
-	int		signe;
+	long long	ret;
+	int			signe;
 
 	ret = 0;
 	if (!str)

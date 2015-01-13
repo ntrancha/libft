@@ -6,7 +6,7 @@
 #    By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/11/08 10:45:53 by ntrancha          #+#    #+#              #
-#    Updated: 2014/12/11 13:36:26 by ntrancha         ###   ########.fr        #
+#    Updated: 2015/01/13 10:43:28 by ntrancha         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -101,6 +101,8 @@ FILE =	ft_memchr.c				ft_putnbr_fd.c			\
 		ft_liststrlen.c			ft_listtostrd.c			\
 		ft_strfusiondel.c		ft_gnl_list.c			\
 		ft_catfile.c			ft_listdelnext.c		\
+		ft_strdoublon.c			ft_listdelnodenext.c	\
+		ft_catfile_list.c
 
 ifeq ($(OS),Windows_NT)
 	OS = WIN32

@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/02 17:45:36 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/01/02 17:45:36 by ntrancha         ###   ########.fr       */
+/*   Updated: 2015/01/13 09:12:32 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@
 # define STDERR			2
 # define MAX_DTOA		10000000000000
 # define MAX_FTOA		10000000
+# define MAX_INT		2147483648
+# define MIN_INT		-2147483647
 # define PI				3.141593
 # define PHI			1.618032
 # define SQUARE2		1.414213
@@ -35,10 +37,10 @@
 # define EXIT_NULL		0
 # define EXIT_FAIL		-1
 # define EXIT_ERROR		-2
-# define USER_OS		OS_UNKNOW
-# define OS_UNKNOW
-# define USER_SYS		SYS_UNKNOW
-# define SYS_UNKNOW
+# define USER_OS		OSX
+# define OSX
+# define USER_SYS		IA32
+# define IA32
 # define STR_EMPTY		ft_strdup("")
 # define PUT_ENDL		ft_putchar('\n')
 # define PUT_ERROR(x)	ft_putstr_fd(x, STDERR)

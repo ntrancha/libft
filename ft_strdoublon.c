@@ -1,29 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncat.c                                       :+:      :+:    :+:   */
+/*   ft_strdoublon.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/11/08 15:44:18 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/01/12 09:43:54 by ntrancha         ###   ########.fr       */
+/*   Created: 2015/01/13 10:38:49 by ntrancha          #+#    #+#             */
+/*   Updated: 2015/01/13 11:05:12 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/libft.h"
 
-char				*ft_strncat(char *s1, const char *s2, size_t n)
+void		ft_strdoublon(char **str, char del)
 {
-	int				count;
-	unsigned int	count2;
+	char	*swap;
+	char	*remplace;
 
-	count = ft_strlen(s1);
-	count2 = 0;
-	while (s2[count2] != '\0' && n > count2)
+	if (*str)
 	{
-		s1[count + count2] = s2[count2];
-		count2++;
+		swap = ft_strnew(3);
+		remplace = ft_strnew(3);
+		swap[0] = del;
+		remplace[0] = del;
+		swap[1] = del;
+		remplace[1] = '\0';
+		swap[2] = '\0';
+		ft_strnrpl(str, swap, remplace, -1);
+		ft_strdel(&swap);
+		ft_strdel(&remplace);
 	}
-	s1[count + count2] = '\0';
-	return (s1);
 }

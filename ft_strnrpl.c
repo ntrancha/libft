@@ -6,12 +6,13 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/09 12:31:34 by ntrancha          #+#    #+#             */
-/*   Updated: 2014/12/09 12:31:34 by ntrancha         ###   ########.fr       */
+/*   Updated: 2015/01/12 09:45:01 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "includes/libft.h"
+#include "includes/macros.h"
 
 static int	next2(t_strnrpl *str, int start, int end, int n)
 {

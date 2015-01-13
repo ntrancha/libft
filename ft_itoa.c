@@ -6,12 +6,13 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/04 11:40:56 by ntrancha          #+#    #+#             */
-/*   Updated: 2014/11/11 11:30:18 by ntrancha         ###   ########.fr       */
+/*   Updated: 2015/01/12 11:02:37 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "includes/libft.h"
+#include "includes/count.h"
 
 char	*ft_itoa(int n)
 {
