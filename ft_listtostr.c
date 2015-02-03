@@ -25,6 +25,7 @@ char		*ft_listtostr(t_list *list)
 	if (!(str = ft_strnew(ft_liststrlen(list) + 1)))
 		return (NULL);
 	count = 0;
+	node = list->start;
 	while (node)
 	{
 		index = 0;

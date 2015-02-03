@@ -18,7 +18,6 @@ typedef unsigned char	t_uchar;
 typedef unsigned int	t_uint;
 typedef signed char		t_schar;
 typedef signed int		t_sint;
-typedef long long		t_ll;
 
 int		ft_abs(int n);
 int		ft_find_next_prime(int nb);
