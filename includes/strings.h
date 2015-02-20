@@ -67,5 +67,6 @@ char	**ft_strsplit(char const *s, char c);
 char	*ft_strsub(char const *s, unsigned int start, size_t len);
 char	*ft_strrvs(char *str);
 void	ft_strdoublon(char **str, char del);
+int		ft_strisnum(const char *str);
 
 #endif
