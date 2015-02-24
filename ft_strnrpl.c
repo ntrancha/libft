@@ -14,7 +14,7 @@
 #include "includes/libft.h"
 #include "includes/macros.h"
 
-int			find_first(char *str, char *search)
+static int	find_first(char *str, char *search)
 {
 	int		ret;
 	int		index;
@@ -66,5 +66,5 @@ int			ft_strnrpl(char **str, char *search, char *remplace, int max)
 	}
 	else
 		return (0);
-	return (ft_strrpl(str, search, remplace, max));
+	return (ft_strnrpl(str, search, remplace, max));
 }
