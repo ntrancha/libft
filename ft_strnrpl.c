@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnrpl.c	    								:+:      :+:    :+:   */
+/*   ft_strnrpl.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/12/09 12:31:34 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/01/12 09:45:01 by ntrancha         ###   ########.fr       */
+/*   Created: 2015/02/24 11:21:59 by ntrancha          #+#    #+#             */
+/*   Updated: 2015/02/24 11:21:59 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,79 +14,57 @@
 #include "includes/libft.h"
 #include "includes/macros.h"
 
-static int	next2(t_strnrpl *str, int start, int end, int n)
+int			find_first(char *str, char *search)
 {
-	char	*p1;
-	char	*p2;
+	int		ret;
+	int		index;
+	char	c_str;
+	char	c_search;
+
+	ret = 0;
+	while (str[ret])
+	{
+		index = 0;
+		c_str = str[ret + index];
+		c_search = search[index];
+		while (c_str && c_search && c_str == c_search)
+		{
+			c_str = str[ret + index];
+			c_search = search[index++];
+		}
+		if (c_search == '\0')
+			return (ret);
+		ret++;
+	}
+	return (0);
+}
+
+int			ft_strnrpl(char **str, char *search, char *remplace, int max)
+{
 	char	*tmp;
+	char	*part_one;
+	char	*part_two;
+	int		start;
+	int		size;
 
-	p1 = ft_strsub(*(str->str), 0, start);
-	if (p1 == NULL)
-		RETURN_NULL;
-	p2 = ft_strsub(*(str->str), end, ft_strlen(*(str->str)) - end);
-	if (p2 == NULL)
-		RETURN_NULL;
-	tmp = ft_strjoin(p1, str->str3);
-	if (tmp == NULL)
-		RETURN_NULL;
-	if (str->str != NULL)
-		ft_strdel(str->str);
-	*(str->str) = ft_strjoin(tmp, p2);
-	ft_strdel(&tmp);
-	ft_strdel(&p1);
-	ft_strdel(&p2);
-	if (*(str->str) == NULL)
-		RETURN_NULL;
-	return (n - 1);
-}
-
-static int	next(int *start, int c, int i, t_strnrpl *str)
-{
-	if (str->str2[c] == (*str->str)[i])
+	if (!str || !(*str) || !search || !remplace || max-- == 0)
+		return (0);
+	start = find_first(*str, search);
+	if (start != 0)
 	{
-		if (*start == -1)
-			*start = i;
-		c++;
-		return (c);
+		part_one = ft_strsub(*str, 0, start);
+		size = start + ft_strlen(search);
+		part_two = ft_strsub(*str, size, ft_strlen(*str) - size);
+		tmp = ft_strjoin(part_one, remplace);
+		ft_strdel(&part_one);
+		part_one = ft_strjoin(tmp, part_two);
+		ft_strdel(&part_two);
+		ft_strdel(&tmp);
+		ft_strdel(str);
+		*str = ft_strdup(part_one);
+		ft_strdel(&part_one);
 	}
-	*start = -1;
-	RETURN_FAIL;
-}
-
-static int	foreach(t_strnrpl *str, int *n, int *index)
-{
-	*(str->count) = next(str->start, *(str->count), *index, str);
-	if (str->str2[*(str->count)] == '\0' && *(str->count) != -1)
-	{
-		*n = next2(str, *(str->start), *index + 1, *n);
-		ft_strnrpl(str->str, str->str2, str->str3, *n);
-		RETURN_FAIL;
-	}
-	if (*(str->count) == -1)
-		*(str->count) = 0;
-	(*index)++;
-	RETURN_SUCCES;
-}
-
-int			ft_strnrpl(char **source, char *search, char *remplace, int n)
-{
-	int			index;
-	int			count;
-	int			start;
-	t_strnrpl	*strnrpl;
-
-	index = 0;
-	count = 0;
-	start = -1;
-	strnrpl = malloc(sizeof(t_strnrpl));
-	strnrpl->str = source;
-	strnrpl->str2 = search;
-	strnrpl->str3 = remplace;
-	strnrpl->start = &start;
-	strnrpl->count = &count;
-	while ((*(strnrpl->str))[index] != '\0' && n != 0)
-		if (foreach(strnrpl, &n, &index) == -1)
-			n = 0;
-	free(strnrpl);
-	return (n);
+	else
+		return (0);
+	return (ft_strrpl(str, search, remplace, max));
 }
