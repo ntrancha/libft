@@ -6,13 +6,13 @@
 #    By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/11/08 10:45:53 by ntrancha          #+#    #+#              #
-#    Updated: 2015/01/13 10:43:28 by ntrancha         ###   ########.fr        #
+#    Updated: 2015/07/27 17:18:41 by ntrancha         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME =	libft.a
 
-FLAG =	-Wall -Wextra -Werror
+FLAG =-Wall -Wextra -Werror
 
 HEADER = includes/macros.h
 
@@ -151,7 +151,10 @@ $(NAME): $(OBJS)
 			gcc $(FLAG) -c -o $@ $^; \
 		fi
 
-.PHONY: verbose quiet clean fclean re install proto reset binaire fichier test
+timestamp:
+		@echo `/bin/date "+%s"` > t.nk
+
+.PHONY: verbose quiet clean fclean re install proto reset binaire fichier timestamp test
 
 verbose: binaire fichier $(OBJS)
 		@if [ -f '$(NAME)' ]; then \
@@ -179,8 +182,11 @@ fclean: clean reset
 
 re: fclean all
 
-install: re
+install: timestamp re
 		@rm -rf $(OBJS)
+		@echo "`/bin/date "+%s"` - `cat t.nk`" > t.nk
+		@echo "en `cat t.nk | bc`s"
+		@rm -rf t.nk
 
 proto:
 		@grep "^[a-z]" *.c | cut -d ":" -f 2
