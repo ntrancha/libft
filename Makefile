@@ -6,7 +6,7 @@
 #    By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/11/08 10:45:53 by ntrancha          #+#    #+#              #
-#    Updated: 2015/07/28 02:39:49 by ntrancha         ###   ########.fr        #
+#    Updated: 2015/07/28 05:57:19 by ntrancha         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -106,7 +106,10 @@ FILE =	ft_memchr.c				ft_putnbr_fd.c			\
 		ft_socket_write.c		ft_socket_read.c		\
 		ft_socket_init.c		ft_socket_end.c			\
 		ft_socket_end_co.c		ft_socket_init_client.c	\
-		ft_socket_init_server.c	
+		ft_socket_init_server.c	ft_bag_create.c			\
+		ft_bag_addvar.c			ft_bag_delvar.c			\
+		ft_bag_delnode.c		ft_bag_del.c			\
+		ft_bag_content.c
 
 ifeq ($(OS),Windows_NT)
 	OS = WIN32

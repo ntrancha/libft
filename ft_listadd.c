@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/30 05:46:30 by ntrancha          #+#    #+#             */
-/*   Updated: 2014/12/30 05:46:30 by ntrancha         ###   ########.fr       */
+/*   Updated: 2015/07/28 05:03:28 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ t_list		*ft_listadd(t_list *list, void *content)
 	if (!list)
 		list = ft_listcreate();
 	node = ft_memalloc(sizeof(t_node));
-	if (!node)
+	if (!node || !list)
 		return (NULL);
 	if (!content)
 		node->content = NULL;
