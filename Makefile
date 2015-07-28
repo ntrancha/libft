@@ -6,7 +6,7 @@
 #    By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/11/08 10:45:53 by ntrancha          #+#    #+#              #
-#    Updated: 2015/07/28 07:35:48 by ntrancha         ###   ########.fr        #
+#    Updated: 2015/07/28 18:01:48 by ntrancha         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -109,7 +109,8 @@ FILE =	ft_memchr.c				ft_putnbr_fd.c			\
 		ft_socket_init_server.c	ft_bag_create.c			\
 		ft_bag_addvar.c			ft_bag_delvar.c			\
 		ft_bag_delnode.c		ft_bag_del.c			\
-		ft_bag_content.c		ft_get_file.c
+		ft_bag_content.c		ft_get_file.c			\
+		ft_strgetline.c
 
 ifeq ($(OS),Windows_NT)
 	OS = WIN32
@@ -192,7 +193,7 @@ re: fclean all
 install: timestamp re
 		@rm -rf $(OBJS)
 		@echo "`/bin/date "+%s"` - `cat t.nk`" > t.nk
-		@echo "en `cat t.nk | bc`s"
+		@echo "in `cat t.nk | bc`s"
 		@rm -rf t.nk
 
 proto:
@@ -203,7 +204,7 @@ binaire:
 		@if [ -f '$(NAME)' ]; then \
     	    echo "$(NAME) exists"; \
 		else \
-			echo "$(shell echo $(OBJS) | wc -w) source files (Flags: $(FLAG)) on $(OS) $(SYS)"; \
+			echo "$(shell echo $(OBJS) | wc -w) files (Flags: $(FLAG)) on $(OS) $(SYS)"; \
 			cat $(HEADER) | sed -e "s/OS_UNKNOW/$(OS)/g" > $(HEADER).nk; \
 			mv $(HEADER).nk $(HEADER); \
 			cat $(HEADER) | sed -e "s/SYS_UNKNOW/$(SYS)/g" > $(HEADER).nk; \
