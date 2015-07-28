@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/07/28 01:21:50 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/07/28 01:37:04 by ntrancha         ###   ########.fr       */
+/*   Updated: 2015/07/28 02:44:10 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ SOCKET  ft_socket_init_client(const char *address, const char *port)
     SOCKADDR_IN     sin = { 0 };
 
     sock = socket(AF_INET, SOCK_STREAM, 0);
-    if(sock == INVALID_SOCKET)
+    if (sock == INVALID_SOCKET)
         return (-1);
     hostinfo = gethostbyname(address);
     if (hostinfo == NULL)
@@ -27,7 +27,7 @@ SOCKET  ft_socket_init_client(const char *address, const char *port)
     sin.sin_addr = *(IN_ADDR *) hostinfo->h_addr;
     sin.sin_port = htons(ft_atoi(port));
     sin.sin_family = AF_INET;
-    if(connect(sock,(SOCKADDR *) &sin, sizeof(SOCKADDR)) == SOCKET_ERROR)
+    if (connect(sock, (SOCKADDR *) &sin, sizeof(SOCKADDR)) == SOCKET_ERROR)
         return (-1);
     return sock;
 }
