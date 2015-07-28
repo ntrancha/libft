@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/07/28 05:50:44 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/07/28 05:51:22 by ntrancha         ###   ########.fr       */
+/*   Updated: 2015/07/28 05:58:46 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 t_bag        *ft_bag_addvar(t_bag *bag, void *content, char *var)
 {
     t_var   *node;
-    
+
     if (!bag)
         bag = ft_bag_create();
     node = ft_memalloc(sizeof(t_var));
