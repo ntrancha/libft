@@ -1,31 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_socket_read.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/11/04 10:09:36 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/07/28 00:54:37 by ntrancha         ###   ########.fr       */
+/*   Created: 2015/07/28 00:55:10 by ntrancha          #+#    #+#             */
+/*   Updated: 2015/07/28 01:04:17 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#include "includes/libft.h"
 
-# include <string.h>
-# include "convert.h"
-# include "count.h"
-# include "extra.h"
-# include "file.h"
-# include "list.h"
-# include "macros.h"
-# include "math.h"
-# include "memory.h"
-# include "put.h"
-# include "strings.h"
-# include "tab.h"
-# include "test.h"
-# include "socket.h"
+int ft_socket_read(SOCKET sock, char *buffer)
+{
+    int n = 0;
 
-#endif
+    if((n = recv(sock, buffer, BUF_SIZE - 1, 0)) < 0)
+        return (-1);
+    buffer[n] = 0;
+    return (n);
+}

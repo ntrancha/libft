@@ -1,31 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_socket_init.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/11/04 10:09:36 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/07/28 00:54:37 by ntrancha         ###   ########.fr       */
+/*   Created: 2015/07/28 01:04:28 by ntrancha          #+#    #+#             */
+/*   Updated: 2015/07/28 01:08:41 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#include "includes/libft.h"
 
-# include <string.h>
-# include "convert.h"
-# include "count.h"
-# include "extra.h"
-# include "file.h"
-# include "list.h"
-# include "macros.h"
-# include "math.h"
-# include "memory.h"
-# include "put.h"
-# include "strings.h"
-# include "tab.h"
-# include "test.h"
-# include "socket.h"
-
-#endif
+int ft_socket_init(void)
+{
+    #ifdef WIN32
+        WSADATA wsa;
+        return (WSAStartup(MAKEWORD(2, 2), &wsa));
+    #endif
+    return (1);
+}

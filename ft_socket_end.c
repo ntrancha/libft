@@ -1,31 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_socket_end.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/11/04 10:09:36 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/07/28 00:54:37 by ntrancha         ###   ########.fr       */
+/*   Created: 2015/07/28 01:08:45 by ntrancha          #+#    #+#             */
+/*   Updated: 2015/07/28 01:10:53 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#include "includes/libft.h"
 
-# include <string.h>
-# include "convert.h"
-# include "count.h"
-# include "extra.h"
-# include "file.h"
-# include "list.h"
-# include "macros.h"
-# include "math.h"
-# include "memory.h"
-# include "put.h"
-# include "strings.h"
-# include "tab.h"
-# include "test.h"
-# include "socket.h"
+void    ft_socket_end(void)
+{
+    #ifdef WIN32
+         WSACleanup();
+    #endif
+}
 
-#endif

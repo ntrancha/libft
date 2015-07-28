@@ -6,13 +6,13 @@
 #    By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/11/08 10:45:53 by ntrancha          #+#    #+#              #
-#    Updated: 2015/07/27 17:18:41 by ntrancha         ###   ########.fr        #
+#    Updated: 2015/07/28 01:40:26 by ntrancha         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME =	libft.a
 
-FLAG =-Wall -Wextra -Werror
+FLAG =	-Wall -Wextra -Werror
 
 HEADER = includes/macros.h
 
@@ -102,7 +102,11 @@ FILE =	ft_memchr.c				ft_putnbr_fd.c			\
 		ft_strfusiondel.c		ft_gnl_list.c			\
 		ft_catfile.c			ft_listdelnext.c		\
 		ft_strdoublon.c			ft_listdelnodenext.c	\
-		ft_catfile_list.c		ft_strisnum.c
+		ft_catfile_list.c		ft_strisnum.c			\
+		ft_socket_write.c		ft_socket_read.c		\
+		ft_socket_init.c		ft_socket_end.c			\
+		ft_socket_end_co.c		ft_socket_init_client.c	\
+		ft_socket_init_server.c	
 
 ifeq ($(OS),Windows_NT)
 	OS = WIN32
