@@ -6,7 +6,7 @@
 #    By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/11/08 10:45:53 by ntrancha          #+#    #+#              #
-#    Updated: 2015/07/28 01:40:26 by ntrancha         ###   ########.fr        #
+#    Updated: 2015/07/28 02:39:49 by ntrancha         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -101,7 +101,7 @@ FILE =	ft_memchr.c				ft_putnbr_fd.c			\
 		ft_liststrlen.c			ft_listtostrd.c			\
 		ft_strfusiondel.c		ft_gnl_list.c			\
 		ft_catfile.c			ft_listdelnext.c		\
-		ft_strdoublon.c			ft_listdelnodenext.c	\
+		ft_strdoublon.c			ft_listdelnoden.c		\
 		ft_catfile_list.c		ft_strisnum.c			\
 		ft_socket_write.c		ft_socket_read.c		\
 		ft_socket_init.c		ft_socket_end.c			\
