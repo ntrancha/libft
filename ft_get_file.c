@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/07/28 06:41:02 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/07/28 07:34:01 by ntrancha         ###   ########.fr       */
+/*   Updated: 2015/07/28 22:36:11 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,13 +56,13 @@ static int  readfile_list(const int fd, char **str)
     return (1);
 }
 
-char    *ft_get_file(const char *pathname, int flags)
+char    *ft_get_file(const char *pathname)
 {
     int     fd;
     char    *str;
 
     str = NULL;
-    fd = open(pathname, flags);
+    fd = open(pathname, O_RDONLY);
     if (fd < 1)
         return (EXIT_NULL);
     if (readfile_list(fd, &str) != 1)

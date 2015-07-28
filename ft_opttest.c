@@ -1,25 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   file.h                                             :+:      :+:    :+:   */
+/*   ft_opttest.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/01/02 17:47:17 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/07/28 22:51:11 by ntrancha         ###   ########.fr       */
+/*   Created: 2015/07/28 21:06:26 by ntrancha          #+#    #+#             */
+/*   Updated: 2015/07/28 21:06:53 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FILE_H
-# define FILE_H
-# include "libft.h"
+#include "includes/libft.h"
 
-int 	ft_gnl(int const fd, char **line);
-int 	ft_gnl_list(int const fd, char **line);
-int 	ft_readfile(int const fd, char **str);
-int	    ft_catfile(const int fd);
-char    *ft_get_file(const char *pathname);
-int     ft_write_file(const char *pathname, char *content);
-int     ft_write_file_end(const char *pathname, char *content);
+int         ft_opttest(t_opt *options, char *opt)
+{
+    t_node  *node;
 
-#endif
+    if (!opt || !options)
+        return (-1);
+    node = options->start;
+    while (node)
+        if (ft_strcmp((char*)node->content, opt) == 0)
+            return (ft_isopt((char *)node->content));
+        else
+            node = node->next;
+    return (0);
+}

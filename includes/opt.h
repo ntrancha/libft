@@ -1,25 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   file.h                                             :+:      :+:    :+:   */
+/*   opt.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/01/02 17:47:17 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/07/28 22:51:11 by ntrancha         ###   ########.fr       */
+/*   Created: 2015/07/28 21:01:30 by ntrancha          #+#    #+#             */
+/*   Updated: 2015/07/28 21:10:58 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FILE_H
-# define FILE_H
-# include "libft.h"
+#ifndef OPT_H
+# define OPT_H
 
-int 	ft_gnl(int const fd, char **line);
-int 	ft_gnl_list(int const fd, char **line);
-int 	ft_readfile(int const fd, char **str);
-int	    ft_catfile(const int fd);
-char    *ft_get_file(const char *pathname);
-int     ft_write_file(const char *pathname, char *content);
-int     ft_write_file_end(const char *pathname, char *content);
+typedef t_list  t_opt;
+
+t_opt      *ft_optget(int argc, char **argv);
+int         ft_isopt(char *option);
+void        ft_optdel(t_opt *options);
+int         ft_opttest(t_opt *options, char *opt);
+char        *ft_optgetopt_simple(t_opt *options, char *opt);
+char        *ft_optgetopt_double(t_opt *options, char *opt);
+char        *ft_optgetopt_next(t_opt *options);
 
 #endif

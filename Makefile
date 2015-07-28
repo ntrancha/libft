@@ -6,13 +6,13 @@
 #    By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/11/08 10:45:53 by ntrancha          #+#    #+#              #
-#    Updated: 2015/07/28 18:01:48 by ntrancha         ###   ########.fr        #
+#    Updated: 2015/07/28 22:52:51 by ntrancha         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME =	libft.a
 
-FLAG =	-Wall -Wextra -Werror
+FLAG =	-Wall -Wextra -Werror -g
 
 HEADER = includes/macros.h
 
@@ -110,7 +110,11 @@ FILE =	ft_memchr.c				ft_putnbr_fd.c			\
 		ft_bag_addvar.c			ft_bag_delvar.c			\
 		ft_bag_delnode.c		ft_bag_del.c			\
 		ft_bag_content.c		ft_get_file.c			\
-		ft_strgetline.c
+		ft_strgetline.c			ft_isopt.c				\
+		ft_optdel.c				ft_optget.c				\
+		ft_optgetopt_double.c	ft_optgetopt_next.c		\
+		ft_optgetopt_simple.c	ft_opttest.c			\
+		ft_write_file.c			ft_write_file_end.c
 
 ifeq ($(OS),Windows_NT)
 	OS = WIN32

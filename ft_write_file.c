@@ -1,25 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   file.h                                             :+:      :+:    :+:   */
+/*   ft_write_file.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/01/02 17:47:17 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/07/28 22:51:11 by ntrancha         ###   ########.fr       */
+/*   Created: 2015/07/28 22:40:05 by ntrancha          #+#    #+#             */
+/*   Updated: 2015/07/28 22:51:42 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FILE_H
-# define FILE_H
-# include "libft.h"
+#include <unistd.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <fcntl.h>
+#include "includes/libft.h"
 
-int 	ft_gnl(int const fd, char **line);
-int 	ft_gnl_list(int const fd, char **line);
-int 	ft_readfile(int const fd, char **str);
-int	    ft_catfile(const int fd);
-char    *ft_get_file(const char *pathname);
-int     ft_write_file(const char *pathname, char *content);
-int     ft_write_file_end(const char *pathname, char *content);
+int     ft_write_file(const char *pathname, char *content)
+{
+    int fd;
 
-#endif
+    if (!pathname || !content)
+        return (-1);
+    fd = open(pathname, O_WRONLY | O_CREAT, S_IRUSR | S_IWUSR);
+    if (fd < 0)
+        return (-1);
+    ft_putstr_fd(content, fd);
+    return (close(fd));
+}

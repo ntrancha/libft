@@ -1,25 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   file.h                                             :+:      :+:    :+:   */
+/*   ft_optget.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/01/02 17:47:17 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/07/28 22:51:11 by ntrancha         ###   ########.fr       */
+/*   Created: 2015/07/28 21:03:10 by ntrancha          #+#    #+#             */
+/*   Updated: 2015/07/28 21:03:33 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FILE_H
-# define FILE_H
-# include "libft.h"
+#include "includes/libft.h"
 
-int 	ft_gnl(int const fd, char **line);
-int 	ft_gnl_list(int const fd, char **line);
-int 	ft_readfile(int const fd, char **str);
-int	    ft_catfile(const int fd);
-char    *ft_get_file(const char *pathname);
-int     ft_write_file(const char *pathname, char *content);
-int     ft_write_file_end(const char *pathname, char *content);
+t_opt      *ft_optget(int argc, char **argv)
+{
+    t_list  *list;
+    int     index;
 
-#endif
+    list= ft_listcreate();
+    if (!list)
+        return (NULL);
+    index = 0;
+    while (++index < argc)
+        if (ft_opttest(list, argv[index]) != 1)
+            if (!ft_listadd(list, (void *)ft_strdup(argv[index])))
+                return (NULL);
+    return ((t_opt *)list);
+}
