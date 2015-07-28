@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/24 11:21:59 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/02/24 11:21:59 by ntrancha         ###   ########.fr       */
+/*   Updated: 2015/07/28 02:32:17 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,21 +50,18 @@ int			ft_strnrpl(char **str, char *search, char *remplace, int max)
 	if (!str || !(*str) || !search || !remplace || max-- == 0)
 		return (0);
 	start = find_first(*str, search);
-	if (start != 0)
-	{
-		part_one = ft_strsub(*str, 0, start);
-		size = start + ft_strlen(search);
-		part_two = ft_strsub(*str, size, ft_strlen(*str) - size);
-		tmp = ft_strjoin(part_one, remplace);
-		ft_strdel(&part_one);
-		part_one = ft_strjoin(tmp, part_two);
-		ft_strdel(&part_two);
-		ft_strdel(&tmp);
-		ft_strdel(str);
-		*str = ft_strdup(part_one);
-		ft_strdel(&part_one);
-	}
-	else
+	if (start == 0)
 		return (0);
+    part_one = ft_strsub(*str, 0, start);
+    size = start + ft_strlen(search);
+    part_two = ft_strsub(*str, size, ft_strlen(*str) - size);
+    tmp = ft_strjoin(part_one, remplace);
+    ft_strdel(&part_one);
+    part_one = ft_strjoin(tmp, part_two);
+    ft_strdel(&part_two);
+    ft_strdel(&tmp);
+    ft_strdel(str);
+    *str = ft_strdup(part_one);
+    ft_strdel(&part_one);
 	return (ft_strnrpl(str, search, remplace, max));
 }
