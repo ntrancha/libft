@@ -1,21 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   extra.h                                            :+:      :+:    :+:   */
+/*   ft_getcol.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/01/02 17:48:19 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/07/29 04:01:53 by ntrancha         ###   ########.fr       */
+/*   Created: 2015/07/29 03:57:59 by ntrancha          #+#    #+#             */
+/*   Updated: 2015/07/29 04:01:04 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef EXTRA_H
-# define EXTRA_H
-# include "libft.h"
+#include <sys/ioctl.h>
 
-int	ft_rgb(int red, int green, int blue);
-int ft_getcol(void);
-int ft_getrow(void);
+int                 ft_getcol(void)
+{
+    struct winsize  w;
 
-#endif
+    ioctl(0, TIOCGWINSZ, &w);
+    return (w.ws_col);
+}

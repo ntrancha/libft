@@ -6,7 +6,7 @@
 #    By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/11/08 10:45:53 by ntrancha          #+#    #+#              #
-#    Updated: 2015/07/28 22:52:51 by ntrancha         ###   ########.fr        #
+#    Updated: 2015/07/29 04:02:21 by ntrancha         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -114,7 +114,9 @@ FILE =	ft_memchr.c				ft_putnbr_fd.c			\
 		ft_optdel.c				ft_optget.c				\
 		ft_optgetopt_double.c	ft_optgetopt_next.c		\
 		ft_optgetopt_simple.c	ft_opttest.c			\
-		ft_write_file.c			ft_write_file_end.c
+		ft_write_file.c			ft_write_file_end.c		\
+		ft_readfile_list.c		ft_readstdin.c			\
+		ft_getcol.c				ft_getrow.c
 
 ifeq ($(OS),Windows_NT)
 	OS = WIN32
