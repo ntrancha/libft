@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/07/30 05:02:43 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/07/30 07:41:28 by ntrancha         ###   ########.fr       */
+/*   Updated: 2015/07/30 20:20:13 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,10 @@ typedef struct      s_screen
 {
     int             row;
     int             col;
-    int             offset;
-    int             size;
-    t_case          *buffer;
+    int             offset;             // Position du curseur dans le buffer
+    int             size;               // Taile de la chaine originale
+    t_case          *buffer;            // Chaine traitee
+    t_case          *original;          // Chaine a afficher
 }                   t_screen;
 
 t_case              *ft_casescreate(void);
@@ -42,6 +43,7 @@ int                 ft_screenget_col(void);
 int                 ft_screenget_offset(void);
 int                 ft_screenget_size(void);
 t_case              *ft_screenget_buffer(void);
+t_case              *ft_screenget_original(void);
 int                 ft_screenset_offset(int offset);
 int                 ft_screenset_size(int size);
 int                 ft_screenwrite_char(char c, char *spec);

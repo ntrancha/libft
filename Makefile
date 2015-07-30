@@ -6,7 +6,7 @@
 #    By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/11/08 10:45:53 by ntrancha          #+#    #+#              #
-#    Updated: 2015/07/30 06:56:26 by ntrancha         ###   ########.fr        #
+#    Updated: 2015/07/30 20:21:09 by ntrancha         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -125,7 +125,7 @@ FILE =	ft_memchr.c				ft_putnbr_fd.c			\
 		ft_screenget_offset.c	ft_screenget_buffer.c	\
 		ft_screenset_offset.c	ft_screenset_size.c		\
 		ft_screenprint.c		ft_screenwrite_char.c	\
-		ft_screenwrite_str.c
+		ft_screenwrite_str.c	ft_screenget_original.c
 
 ifeq ($(OS),Windows_NT)
 	OS = WIN32

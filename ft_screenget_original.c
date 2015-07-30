@@ -1,32 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_screeninit.c                                    :+:      :+:    :+:   */
+/*   ft_screenget_original.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/07/30 05:47:08 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/07/30 20:19:34 by ntrancha         ###   ########.fr       */
+/*   Created: 2015/07/30 06:12:35 by ntrancha          #+#    #+#             */
+/*   Updated: 2015/07/30 20:20:50 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/libft.h"
 
-t_screen            *ft_screeninit(void)
+t_case          *ft_screenget_original(void)
 {
-    static t_screen *screen;
+    t_screen    *screen;
 
+    screen = ft_screeninit();
     if (!screen)
-    {
-        screen = ft_memalloc(sizeof(t_screen));
-        if (!screen)
-            return (NULL);
-        screen->row = ft_getrow();
-        screen->col = ft_getcol();
-        screen->offset = 0;
-        screen->size = 0;
-        screen->buffer = NULL;
-        screen->original = NULL;
-    }
-    return (screen);
+        return (NULL);
+    return (screen->original);
 }
