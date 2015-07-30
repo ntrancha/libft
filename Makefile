@@ -6,7 +6,7 @@
 #    By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/11/08 10:45:53 by ntrancha          #+#    #+#              #
-#    Updated: 2015/07/29 04:02:21 by ntrancha         ###   ########.fr        #
+#    Updated: 2015/07/30 06:56:26 by ntrancha         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -116,7 +116,16 @@ FILE =	ft_memchr.c				ft_putnbr_fd.c			\
 		ft_optgetopt_simple.c	ft_opttest.c			\
 		ft_write_file.c			ft_write_file_end.c		\
 		ft_readfile_list.c		ft_readstdin.c			\
-		ft_getcol.c				ft_getrow.c
+		ft_getcol.c				ft_getrow.c				\
+		ft_casescreate.c		ft_caseadd.c			\
+		ft_casendel.c			ft_casedel.c			\
+		ft_casedelete.c			ft_casesdel.c			\
+		ft_screeninit.c			ft_screenget_row.c		\
+		ft_screenget_col.c		ft_screenget_size.c		\
+		ft_screenget_offset.c	ft_screenget_buffer.c	\
+		ft_screenset_offset.c	ft_screenset_size.c		\
+		ft_screenprint.c		ft_screenwrite_char.c	\
+		ft_screenwrite_str.c
 
 ifeq ($(OS),Windows_NT)
 	OS = WIN32

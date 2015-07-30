@@ -1,34 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_screenwrite_str.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/11/04 10:09:36 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/07/30 05:16:15 by ntrancha         ###   ########.fr       */
+/*   Created: 2015/07/30 06:50:42 by ntrancha          #+#    #+#             */
+/*   Updated: 2015/07/30 06:55:35 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#include "includes/libft.h"
 
-# include <string.h>
-# include "convert.h"
-# include "count.h"
-# include "extra.h"
-# include "file.h"
-# include "list.h"
-# include "macros.h"
-# include "math.h"
-# include "memory.h"
-# include "put.h"
-# include "strings.h"
-# include "tab.h"
-# include "test.h"
-# include "socket.h"
-# include "bag.h"
-# include "opt.h"
-# include "screen.h"
+int             ft_screenwrite_str(char *str, char *spec)
+{
+    int         count;
+    int         index;
 
-#endif
+    count = 0;
+    index = 0;
+    if (!str)
+        return (count);
+    while (str[index])
+    {
+        count += ft_screenwrite_char(str[index], spec);
+        index++;
+    }
+    return (count);
+}
