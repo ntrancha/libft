@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/07/30 05:02:43 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/07/30 21:55:03 by ntrancha         ###   ########.fr       */
+/*   Updated: 2015/07/30 22:08:40 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ t_case              *ft_casescreate(void);
 t_case              *ft_caseadd(t_case *cases, char *str, char *spec);
 t_case              *ft_casendel(t_case *cases, int num);
 t_case              *ft_casedel(t_case *cases, t_case *t_casedel);
+t_case              *ft_casedelend(t_case *cases);
 void                ft_casedelete(t_case *cases);
 void                ft_casesdel(t_case *cases);
 

@@ -126,7 +126,8 @@ FILE =	ft_memchr.c				ft_putnbr_fd.c			\
 		ft_screenset_offset.c	ft_screenset_size.c		\
 		ft_screenprint.c		ft_screenwrite_char.c	\
 		ft_screenwrite_str.c	ft_screenget_original.c	\
-		ft_screenbuffering.c	ft_screenfree.c
+		ft_screenbuffering.c	ft_screenfree.c			\
+		ft_casedelend.c
 
 ifeq ($(OS),Windows_NT)
 	OS = WIN32
