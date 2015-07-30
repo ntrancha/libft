@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/07/28 01:21:50 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/07/28 02:44:10 by ntrancha         ###   ########.fr       */
+/*   Updated: 2015/07/30 15:36:30 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ SOCKET  ft_socket_init_client(const char *address, const char *port)
 {
     struct hostent  *hostinfo;
     SOCKET          sock;
-    SOCKADDR_IN     sin = { 0 };
+    SOCKADDR_IN     sin;
 
     sock = socket(AF_INET, SOCK_STREAM, 0);
     if (sock == INVALID_SOCKET)
