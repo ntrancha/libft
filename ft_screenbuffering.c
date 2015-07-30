@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/07/30 20:33:40 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/07/30 21:05:00 by ntrancha         ###   ########.fr       */
+/*   Updated: 2015/07/30 22:04:17 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,28 @@ static void     newl(void)
     screen->line++;
 }
 
-static void     endl(t_screen *screen, int col, char *spec)
+static void     endl(int col, char *spec)
 {
+    t_screen    *screen;
+
+    screen = ft_screeninit();
     while (screen->offset++ < col)
         screen->buffer = ft_caseadd(screen->buffer, " ", spec);
     newl();
+}
+
+static void	supression(int col)
+{
+    t_screen    *screen;
+
+    screen = ft_screeninit();
+    screen->buffer = ft_caseadd(screen->buffer, "\b", NULL);
+	if (screen->offset == 0)
+		if (screen->line > 1)
+		{
+			screen->line--;
+			screen->offset = col - 1;
+		}
 }
 
 void            ft_screenbuffering(void)
@@ -47,7 +64,9 @@ void            ft_screenbuffering(void)
         while (jump)
         {
             if (jump->str[0] == '\n')
-                endl(screen, col, jump->spec);
+                endl(col, jump->spec);
+			else if (jump->str[0] == '\b')
+				supression(col);
             else
             {
                 screen->buffer = ft_caseadd(screen->buffer, jump->str, jump->spec);
