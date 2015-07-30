@@ -1,33 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_screeninit.c                                    :+:      :+:    :+:   */
+/*   ft_screenfree.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/07/30 05:47:08 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/07/30 21:15:11 by ntrancha         ###   ########.fr       */
+/*   Created: 2015/07/30 21:09:03 by ntrancha          #+#    #+#             */
+/*   Updated: 2015/07/30 21:14:32 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/libft.h"
+#include <stdlib.h>
 
-t_screen            *ft_screeninit(void)
+void            ft_screenfree(void)
 {
-    static t_screen *screen;
+    t_screen    *screen;
 
-    if (!screen)
+    screen = ft_screeninit();
+    if (screen != NULL)
     {
-        screen = ft_memalloc(sizeof(t_screen));
-        if (!screen)
-            return (NULL);
-        screen->row = ft_getrow();
-        screen->col = ft_getcol();
-        screen->offset = 0;
-        screen->size = 0;
-        screen->line = 1;
-        screen->buffer = NULL;
-        screen->original = NULL;
+        if (screen->buffer != NULL)
+            ft_casesdel(screen->buffer);
+        if (screen->original != NULL)
+            ft_casesdel(screen->original);
+        free(screen);
     }
-    return (screen);
 }
