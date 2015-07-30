@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/07/30 20:33:40 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/07/30 22:05:49 by ntrancha         ###   ########.fr       */
+/*   Updated: 2015/07/30 22:15:56 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ static void	supression(int col)
     t_screen    *screen;
 
     screen = ft_screeninit();
-    screen->buffer = ft_caseadd(screen->buffer, "\b", NULL);
+    screen->buffer = ft_casedelend(screen->buffer);
 	if (screen->offset == 0)
 		if (screen->line > 1)
 		{
