@@ -6,12 +6,14 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/07/30 05:02:43 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/07/30 21:10:57 by ntrancha         ###   ########.fr       */
+/*   Updated: 2015/07/30 21:55:03 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SCREEN_H
 # define SCREEN_H
+# define TAB		4
+# define SPACE		" "
 
 typedef struct      s_case
 {
