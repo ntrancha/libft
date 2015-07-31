@@ -6,7 +6,7 @@
 #    By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/11/08 10:45:53 by ntrancha          #+#    #+#              #
-#    Updated: 2015/07/30 21:11:14 by ntrancha         ###   ########.fr        #
+#    Updated: 2015/07/31 09:25:26 by ntrancha         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -127,7 +127,7 @@ FILE =	ft_memchr.c				ft_putnbr_fd.c			\
 		ft_screenprint.c		ft_screenwrite_char.c	\
 		ft_screenwrite_str.c	ft_screenget_original.c	\
 		ft_screenbuffering.c	ft_screenfree.c			\
-		ft_casedelend.c
+		ft_casedelend.c			ft_getpid.c
 
 ifeq ($(OS),Windows_NT)
 	OS = WIN32
