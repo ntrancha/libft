@@ -6,7 +6,7 @@
 #    By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/11/08 10:45:53 by ntrancha          #+#    #+#              #
-#    Updated: 2015/07/31 11:58:39 by ntrancha         ###   ########.fr        #
+#    Updated: 2015/07/31 22:04:03 by ntrancha         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ FLAG =	-Wall -Wextra -Werror -g
 HEADER = includes/macros.h
 
 SCRIPT = https://github.com/ntrancha/Script.git 
-
+	
 OBJS =	$(FILE:.c=.o)
 
 FILE =	ft_memchr.c				ft_putnbr_fd.c			\
@@ -174,13 +174,21 @@ $(NAME): $(OBJS)
 		@if [ -f '$(NAME)' ]; then \
 			error=1; \
 		else \
-			gcc $(FLAG) -c -o $@ $^; \
+			gcc $(FLAG) -c -o $@ $^ -fPIC; \
 		fi
 
 timestamp:
 		@echo `/bin/date "+%s"` > t.nk
 
-.PHONY: verbose quiet clean fclean re install proto reset binaire fichier timestamp test
+.PHONY: verbose quiet clean fclean re install proto reset binaire fichier timestamp test dynamique
+
+dynamique: fclean reset binaire $(OBJS) libso
+
+libso:
+	@echo "Compilation [libft.so]";
+	@gcc -o libft.so -shared $(OBJS)
+	@echo "Done;"
+	@rm -rf $(OBJS)
 
 verbose: binaire fichier $(OBJS)
 		@if [ -f '$(NAME)' ]; then \
