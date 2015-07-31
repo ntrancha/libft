@@ -6,7 +6,7 @@
 #    By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/11/08 10:45:53 by ntrancha          #+#    #+#              #
-#    Updated: 2015/08/01 01:02:11 by ntrancha         ###   ########.fr        #
+#    Updated: 2015/08/01 01:33:24 by ntrancha         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -129,7 +129,9 @@ FILE =	ft_memchr.c				ft_putnbr_fd.c			\
 		ft_screenbuffering.c	ft_screenfree.c			\
 		ft_casedelend.c			ft_getpid.c				\
 		ft_signalsend.c			ft_signalread.c			\
-		ft_caseset.c			ft_screenset_cursor.c
+		ft_caseset.c			ft_screenset_cursor.c	\
+		ft_screenget_cursor.c	ft_screenclear.c		\
+		ft_screenclean.c
 
 ifeq ($(OS),Windows_NT)
 	OS = WIN32

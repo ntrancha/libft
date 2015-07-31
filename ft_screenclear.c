@@ -1,32 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_screenprint.c                                   :+:      :+:    :+:   */
+/*   ft_screenclear.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/07/30 06:40:08 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/08/01 01:25:27 by ntrancha         ###   ########.fr       */
+/*   Created: 2015/08/01 01:20:10 by ntrancha          #+#    #+#             */
+/*   Updated: 2015/08/01 01:29:13 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/libft.h"
 
-void            ft_screenprint(void)
+void            ft_screenclear(void)
 {
-    t_case      *jump;
     t_screen    *screen;
 
-    ft_screenbuffering();
     screen = ft_screeninit();
-    jump = screen->buffer;
-    while (jump)
-    {
-        if (jump->spec != NULL)
-            ft_putstr(jump->spec);
-        ft_putstr(jump->str);
-        jump = jump->next;
-    }
-    ft_casesdel(screen->buffer);
+    screen->cursor = 0;
+    screen->size = 0;
+    if (screen->buffer != NULL)
+        ft_casesdel(screen->buffer);
     screen->buffer = NULL;
+    if (screen->original != NULL)
+        ft_casesdel(screen->original);
+    screen->original = NULL;
 }
