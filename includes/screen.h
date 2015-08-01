@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/07/30 05:02:43 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/08/01 02:05:37 by ntrancha         ###   ########.fr       */
+/*   Updated: 2015/08/01 02:21:26 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,27 @@
 # define SCREEN_H
 # define TAB		4
 # define SPACE		" "
+# define C_NULL    "\033[0m"
+# define C_BLACK    "\033[30m"
+# define C_RED      "\033[31m"
+# define C_GREEN    "\033[32m"
+# define C_YELLOW   "\033[33m"
+# define C_BLUE     "\033[34m"
+# define C_MAGENTA  "\033[35m"
+# define C_CYAN     "\033[36m"
+# define C_GRAY     "\033[37m"
+# define C_WHITE    "\033[39m"
+# define B_NULL    "\033[49m"
+# define B_BLACK    "\033[40m"
+# define B_RED      "\033[41m"
+# define B_GREEN    "\033[42m"
+# define B_YELLOW   "\033[43m"
+# define B_BLUE     "\033[44m"
+# define B_MAGENTA  "\033[45m"
+# define B_CYAN     "\033[46m"
+# define B_GRAY     "\033[47m"
+# define B_WHITE    "\033[39m"
+
 
 typedef struct      s_case
 {
