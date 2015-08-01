@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/07/29 03:12:11 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/08/01 02:25:09 by ntrancha         ###   ########.fr       */
+/*   Updated: 2015/08/01 02:41:22 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int main(void)
     ft_screenprint();
     ft_screenreset();
     ft_screenfull('.', "\033[31m");
-    ft_screenset_cursor(0);
+    ft_screenset_lcursor(2,3);
     ft_screenwrite_str("ABC", C_WHITE);
     ft_screenprint();
     ft_screenfree();

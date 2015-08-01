@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/07/30 05:02:43 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/08/01 02:21:26 by ntrancha         ###   ########.fr       */
+/*   Updated: 2015/08/01 02:41:02 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,7 @@ t_case              *ft_screenget_buffer(void);
 t_case              *ft_screenget_original(void);
 int                 ft_screenset_offset(int offset);
 int                 ft_screenset_cursor(int offset);
+int                 ft_screenset_lcursor(int col, int row);
 int                 ft_screenset_size(int size);
 int                 ft_screenwrite_char(char c, char *spec);
 int                 ft_screenwrite_str(char *str, char *spec);
