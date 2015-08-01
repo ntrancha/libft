@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/07/30 21:09:03 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/07/30 21:14:32 by ntrancha         ###   ########.fr       */
+/*   Updated: 2015/08/01 02:29:26 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,4 +26,5 @@ void            ft_screenfree(void)
             ft_casesdel(screen->original);
         free(screen);
     }
+    write(1, C_NULL, 4);
 }
