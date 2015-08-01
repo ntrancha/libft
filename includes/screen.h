@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/07/30 05:02:43 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/08/01 01:33:12 by ntrancha         ###   ########.fr       */
+/*   Updated: 2015/08/01 01:58:00 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,5 +61,7 @@ void                ft_screenbuffering(void);
 void                ft_screenfree(void);
 void                ft_screenclear(void);
 void                ft_screenclean(void);
+void                ft_screenreset(void);
+void                ft_screenfull(char c, char *spec);
 
 #endif
