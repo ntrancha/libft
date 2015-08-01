@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/07/29 03:12:11 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/08/01 04:05:11 by ntrancha         ###   ########.fr       */
+/*   Updated: 2015/08/01 14:44:54 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,25 +19,13 @@
 
 int main(void)
 {
-    ft_screenwrite_str("ABC", NULL);
-    ft_screenset_cursor(0);
-    ft_screenwrite_str("x", NULL);
-    ft_screenset_cursor(2);
-    ft_screenwrite_str("x", NULL);
-    ft_screenset_cursor(4);
-    ft_screenwrite_str("x", NULL);
+    ft_screenwrite_charl(1, 'X', C_GREEN);
+    ft_screenwrite_str("bABC", NULL);
     ft_screenprint();
-    //ft_putstr("\033[2J\033[H");
-    ft_putstr("\033[0K");
-    ft_screenreset();
-    ft_screenfull('.', "\033[31m");
-    ft_screenprint();
-    ft_putstr("\033[0K");
-    ft_screenset_lcursor(108,21);
-    //ft_putstr("\033[2J\033[H");
-    ft_screenclean();
-    ft_screenwrite_charl(1, ' ', C_WHITE);
-    ft_screenprint();
+    //write(1, "\033[20;1H\b", 7);
+    write(1, "\033[H\033[2J", 7);
+    //ft_screenclean();
+    //ft_screenreset();
     ft_screenfree();
     //while (1) ;
     return (1);
