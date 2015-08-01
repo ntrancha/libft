@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/07/30 05:02:43 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/08/01 02:41:02 by ntrancha         ###   ########.fr       */
+/*   Updated: 2015/08/01 03:50:57 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,8 +76,11 @@ int                 ft_screenset_offset(int offset);
 int                 ft_screenset_cursor(int offset);
 int                 ft_screenset_lcursor(int col, int row);
 int                 ft_screenset_size(int size);
+int                 ft_screenwrite_charl(int line, char c, char *spec);
 int                 ft_screenwrite_char(char c, char *spec);
 int                 ft_screenwrite_str(char *str, char *spec);
+int                 ft_screenwrite_charf(char c, char *spec);
+int                 ft_screenwrite_strf(char *str, char *spec);
 void                ft_screenprint(void);
 void                ft_screenbuffering(void);
 void                ft_screenfree(void);

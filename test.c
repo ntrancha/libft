@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/07/29 03:12:11 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/08/01 02:41:22 by ntrancha         ###   ########.fr       */
+/*   Updated: 2015/08/01 04:05:11 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,16 @@ int main(void)
     ft_screenset_cursor(4);
     ft_screenwrite_str("x", NULL);
     ft_screenprint();
+    //ft_putstr("\033[2J\033[H");
+    ft_putstr("\033[0K");
     ft_screenreset();
     ft_screenfull('.', "\033[31m");
-    ft_screenset_lcursor(2,3);
-    ft_screenwrite_str("ABC", C_WHITE);
+    ft_screenprint();
+    ft_putstr("\033[0K");
+    ft_screenset_lcursor(108,21);
+    //ft_putstr("\033[2J\033[H");
+    ft_screenclean();
+    ft_screenwrite_charl(1, ' ', C_WHITE);
     ft_screenprint();
     ft_screenfree();
     //while (1) ;
