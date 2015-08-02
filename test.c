@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/07/29 03:12:11 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/08/01 14:44:54 by ntrancha         ###   ########.fr       */
+/*   Updated: 2015/08/02 06:32:39 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 
 int main(void)
 {
-    ft_screenwrite_charl(1, 'X', C_GREEN);
+    //ft_screenwrite_charl(1, 'X', C_GREEN);
     ft_screenwrite_str("bABC", NULL);
     ft_screenprint();
     //write(1, "\033[20;1H\b", 7);
