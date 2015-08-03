@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/07/28 06:41:02 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/07/28 22:36:11 by ntrancha         ###   ########.fr       */
+/*   Updated: 2015/08/03 17:27:50 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,14 +29,14 @@ static int  readfile_next(const int fd, char **str, t_list *list)
         if ( line == NULL || (ret = read(fd, line, BUFF_SIZE)) == -1 )
             return (EXIT_FAIL);
         line[ret] = '\0';
-        while ((int)ft_strlen(line) != ret)
-            line[ft_strlen(line)] = '\a';
-        *str = ft_ctos('\a');
-        ft_strnrpl(&line, *str, "", -1);
-        ft_strdel(str);
+        //while ((int)ft_strlen(line) != ret)
+        //    line[ft_strlen(line)] = '\a';
+        //*str = ft_ctos('\a');
+        //ft_strnrpl(&line, *str, "", -1);
+        if (str != NULL)
+            ft_strdel(str);
         list = ft_listadd(list, line);
     }
-    ft_strdel(&line);
     *str = ft_listtostr(list);
     return (1);
 }
