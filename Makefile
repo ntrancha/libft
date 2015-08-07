@@ -137,7 +137,8 @@ FILE =	ft_memchr.c				ft_putnbr_fd.c			\
 		ft_screenwrite_strf.c	ft_screenwrite_charl.c	\
 		ft_liststrlenmax.c		ft_date_mins.c			\
 		ft_date_hins.c			ft_date_dins.c			\
-		ft_date_modiftime.c		ft_date_modifdate.c
+		ft_date_modiftime.c		ft_date_modifdate.c		\
+		ft_date_diny.c
 
 ifeq ($(OS),Windows_NT)
 	OS = WIN32
