@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/04 10:09:36 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/07/30 05:16:15 by ntrancha         ###   ########.fr       */
+/*   Updated: 2015/08/07 14:06:13 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@
 # include "socket.h"
 # include "bag.h"
 # include "opt.h"
+# include "date.h"
 # include "screen.h"
 
 #endif

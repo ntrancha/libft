@@ -6,7 +6,7 @@
 #    By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/11/08 10:45:53 by ntrancha          #+#    #+#              #
-#    Updated: 2015/08/03 19:43:46 by ntrancha         ###   ########.fr        #
+#    Updated: 2015/08/07 14:06:49 by ntrancha         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -135,7 +135,8 @@ FILE =	ft_memchr.c				ft_putnbr_fd.c			\
 		ft_screenfull.c			ft_screenis_full.c		\
 		ft_screenset_lcursor.c	ft_screenwrite_charf.c	\
 		ft_screenwrite_strf.c	ft_screenwrite_charl.c	\
-		ft_liststrlenmax.c
+		ft_liststrlenmax.c		ft_date_mins.c			\
+		ft_date_hins.c			ft_date_dins.c
 
 ifeq ($(OS),Windows_NT)
 	OS = WIN32
