@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/08/07 02:26:14 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/08/07 14:08:57 by ntrancha         ###   ########.fr       */
+/*   Updated: 2015/08/07 14:23:50 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,5 @@ int     ft_date_dins(int day);
 t_date  *ft_date_modiftime(t_date *date, int sec, int minute, int hour);
 t_date  *ft_date_modifdate(t_date *date, int day, int month, int year);
 int     ft_date_timestamp(t_date *date);
-void    ft_date_free(t_date *date);
 
 #endif
