@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/08/07 02:26:14 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/08/07 14:25:04 by ntrancha         ###   ########.fr       */
+/*   Updated: 2015/08/07 14:40:58 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,9 +42,9 @@ typedef struct  s_date
     int         year;
 }               t_date;
 
-int     ft_date_mins(int minute);
-int     ft_date_hins(int hour);
-int     ft_date_dins(int day);
+int     ft_date_mtos(int minute);
+int     ft_date_htos(int hour);
+int     ft_date_dtos(int day);
 int     ft_date_diny(int year);
 t_date  *ft_date_modiftime(t_date *date, int sec, int minute, int hour);
 t_date  *ft_date_modifdate(t_date *date, int day, int month, int year);

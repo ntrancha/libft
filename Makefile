@@ -135,8 +135,8 @@ FILE =	ft_memchr.c				ft_putnbr_fd.c			\
 		ft_screenfull.c			ft_screenis_full.c		\
 		ft_screenset_lcursor.c	ft_screenwrite_charf.c	\
 		ft_screenwrite_strf.c	ft_screenwrite_charl.c	\
-		ft_liststrlenmax.c		ft_date_mins.c			\
-		ft_date_hins.c			ft_date_dins.c			\
+		ft_liststrlenmax.c		ft_date_mtos.c			\
+		ft_date_htos.c			ft_date_dtos.c			\
 		ft_date_modiftime.c		ft_date_modifdate.c		\
 		ft_date_diny.c
 
