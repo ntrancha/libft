@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/08/07 14:46:21 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/08/09 10:06:26 by ntrancha         ###   ########.fr       */
+/*   Updated: 2015/08/09 17:24:31 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,23 +60,9 @@ int			ft_date_timestamp(t_date *date)
 
 int main(int argc, char **argv)
 {
-    int s;
-    int i;
-    int h;
-    int d;
-    int m;
-    int y;
+    t_date  *date;
 
-    /*if (argc != 7)
-        return (0);
-    y = ft_atoi(argv[1]);
-    d = ft_atoi(argv[2]);
-    m = ft_atoi(argv[3]);
-    h = ft_atoi(argv[4]);
-    i = ft_atoi(argv[5]);
-    s = ft_atoi(argv[6]);
-	ft_putnbr_endl(TIME(h, i, s, d, m, y));
-    */
-    ft_date_convert("14:42:24 8/8/1985");
+    date = ft_date_convert("14:42:24 8/9/2015");
+    ft_putnbr_endl(ft_date_timestamp(date));
 	return (1);
 }
