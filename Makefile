@@ -6,7 +6,7 @@
 #    By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/11/08 10:45:53 by ntrancha          #+#    #+#              #
-#    Updated: 2015/08/09 10:07:28 by ntrancha         ###   ########.fr        #
+#    Updated: 2015/08/10 01:57:01 by ntrancha         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -138,7 +138,8 @@ FILE =	ft_memchr.c				ft_putnbr_fd.c			\
 		ft_liststrlenmax.c		ft_date_mtos.c			\
 		ft_date_htos.c			ft_date_dtos.c			\
 		ft_date_modiftime.c		ft_date_modifdate.c		\
-		ft_date_diny.c			ft_date_convert.c
+		ft_date_diny.c			ft_date_convert.c		\
+		ft_date_summertime.c
 
 ifeq ($(OS),Windows_NT)
 	OS = WIN32

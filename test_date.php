@@ -33,18 +33,24 @@ function test_date($h, $i, $s, $m, $d, $y)
 }
 
 $y = 1970;
-while ($y < 2055)
+while ($y < 2037)
 {
-    $m = 3;
-    while ($m < 11)
+    $m = 1;
+    while ($m < 13)
     {
         $d = 1;
-        while ($d < 27)
+        if ($m == 3 OR $m == 10)
+            $max = 32;
+        elseif ($m == 9)
+            $max = 31;
+        else
+            $max = 29;
+        while ($d < $max)
         {
             $h = 0;
-            while ($h < 23)
+            while ($h < 24)
                 {
-                    test_date($h, 2, 50, $m, $d, $y);
+                    test_date($h, 1, 1, $m, $d, $y);
                     $h++;
                 }
             $d++;

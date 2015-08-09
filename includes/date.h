@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/08/07 02:26:14 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/08/09 10:07:05 by ntrancha         ###   ########.fr       */
+/*   Updated: 2015/08/10 01:45:36 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@
 # define OCTOBRE                10
 # define NOVEMBRE               11
 # define DECEMBRE               12
+# define YEAR                   date->year ==
 # define D_TIME                 ft_date_modiftime
 # define D_DATE                 ft_date_modifdate
 # define D_TS                   ft_date_timestamp
@@ -54,5 +55,6 @@ t_date  *ft_date_convert(char *str);
 t_date  *ft_date_modiftime(t_date *date, int sec, int minute, int hour);
 t_date  *ft_date_modifdate(t_date *date, int day, int month, int year);
 int     ft_date_timestamp(t_date *date);
+int     ft_date_summertime(t_date *date);
 
 #endif
