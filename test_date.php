@@ -14,33 +14,44 @@
 function test_date($h, $i, $s, $m, $d, $y)
 {
     $timestamp = mktime($h, $i, $s, $m, $d, $y);
-    $commandes = './a.out '.$y.' '.$d.' '.$m.' '.$h.' '.$i.' '.$s;
+    $commandes = './a.out "'.$h.":".$i.":".$s." ".$d."/".$m."/".$y.'"';
     $prog = exec($commandes);
     if ($prog != $timestamp)
     {
-        echo $prog." ".$timestamp." : ";
+        echo $prog." ".$timestamp;
+        if ($prog > $timestamp)
+            echo " > ";
+        else
+            echo " < ";
+                    echo "$y $m $d a $h heure\n";
+        exit;
         return 0;
     }
-    echo $prog."           :";
+    /*echo $prog."           :";
+    echo "$y $m $d a $h heure\n";*/
     return 1;
 }
 
 $y = 1970;
-while ($y < 1995)
+while ($y < 2055)
 {
-    $m = 1;
-    while ($m < 13)
+    $m = 3;
+    while ($m < 11)
     {
         $d = 1;
         while ($d < 27)
         {
-            test_date(11, 2, 50, $m, $d++, $y);
-                echo "$y $m $d\n";
-            //else
-              //  echo mktime(11, 2, 50, $m, $d, $y)."\n";
+            $h = 0;
+            while ($h < 23)
+                {
+                    test_date($h, 2, 50, $m, $d, $y);
+                    $h++;
+                }
+            $d++;
         }
         $m++;
     }
+    echo "$y OK\n";
     $y++;
 }
 ?>
