@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/21 09:18:06 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/01/13 12:51:31 by ntrancha         ###   ########.fr       */
+/*   Updated: 2015/08/09 09:48:34 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,12 +85,11 @@ char				**ft_strsplit(char const *s, char c)
 		ret[0] = NULL;
 		return (ret);
 	}
-	str = ft_strdup(s);
-	str = cleanstr(str, c);
+	str = cleanstr(s, c);
 	ft_strdoublon(&str, c);
 	if (!str)
 	{
-		ret = malloc(sizeof(char *) * 2);
+		ret = malloc(sizeof(char) * 2);
 		ret[0] = NULL;
 		return (ret);
 	}
