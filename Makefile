@@ -6,7 +6,7 @@
 #    By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/11/08 10:45:53 by ntrancha          #+#    #+#              #
-#    Updated: 2015/08/11 06:03:19 by ntrancha         ###   ########.fr        #
+#    Updated: 2015/08/11 20:56:28 by ntrancha         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -169,6 +169,9 @@ else
         SYS = ARM
     endif
 endif
+
+update:
+	 @git pull
 
 all: reset binaire $(NAME)
 
