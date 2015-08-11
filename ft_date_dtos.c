@@ -6,13 +6,13 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/08/07 02:47:56 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/08/07 14:43:24 by ntrancha         ###   ########.fr       */
+/*   Updated: 2015/08/11 05:53:23 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/date.h"
 
-int     ft_date_dtos(int day)
+long    ft_date_dtos(int day)
 {
     return (ft_date_htos(day * 24));
 }

@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/08/07 14:46:21 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/08/10 01:56:58 by ntrancha         ###   ########.fr       */
+/*   Updated: 2015/08/11 06:03:40 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 #include <stdlib.h>
 #define YEAR    date->year ==
 
-int			days_since_year(t_date *date)
+long		days_since_year(t_date *date)
 {
-	int		ret;
+	long	ret;
 	int		year;
 
 	ret = 0;
@@ -26,7 +26,7 @@ int			days_since_year(t_date *date)
 	return (ret);
 }
 
-int			days_since_month(t_date *date)
+int 		days_since_month(t_date *date)
 {
 	int		month;
 	int		ret;
@@ -43,33 +43,20 @@ int			days_since_month(t_date *date)
 	return (ret);
 }
 
-int			ft_date_timestamp(t_date *date)
+long		ft_date_timestamp(t_date *date)
 {
-	int		days;
-	int		ret;
+	long	days;
+	long	ret;
     int     summer;
 
-	days = date->day - 1;
+	days = (long)date->day - 1;
     summer = ft_date_summertime(date);
-	days += days_since_year(date) + days_since_month(date);
-	ret = date->seconde + ft_date_mtos(date->minute);
-	ret += ft_date_htos(date->hour - 1) + ft_date_dtos(days);
+	days += (long)days_since_year(date) + (long)days_since_month(date);
+	ret = (long)date->seconde + (long)ft_date_mtos(date->minute);
+	ret += (long)ft_date_htos(date->hour - 1) + (long)ft_date_dtos(days);
     if (summer == 1)
-        ret -= 60 * 60;
+        ret -= (long)60 * 60;
     if (summer == 2)
-        ret += 60 * 60;
-    free(date);
+        ret += (long)60 * 60;
 	return (ret);
-}
-
-int main(int argc, char **argv)
-{
-    t_date  *date;
-
-    if (argc == 2)
-    {
-        date = ft_date_convert(argv[1]);
-        ft_putnbr_endl(ft_date_timestamp(date));
-    }
-	return (1);
 }

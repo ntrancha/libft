@@ -6,11 +6,11 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/08/07 02:44:21 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/08/07 14:42:41 by ntrancha         ###   ########.fr       */
+/*   Updated: 2015/08/11 05:54:09 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int     ft_date_mtos(int minute)
+long     ft_date_mtos(int minute)
 {
-    return (minute * 60);
+    return ((long)minute * 60);
 }

@@ -1,32 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test.c                                             :+:      :+:    :+:   */
+/*   ft_timestamp.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/07/29 03:12:11 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/08/02 06:32:39 by ntrancha         ###   ########.fr       */
+/*   Created: 2015/08/11 05:57:47 by ntrancha          #+#    #+#             */
+/*   Updated: 2015/08/11 06:01:23 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/libft.h"
-
-#include <stdio.h>
 #include <stdlib.h>
-#include <unistd.h>
-#include <signal.h>
 
-int main(void)
+long        ft_timestamp(char *str)
 {
-    //ft_screenwrite_charl(1, 'X', C_GREEN);
-    ft_screenwrite_str("bABC", NULL);
-    ft_screenprint();
-    //write(1, "\033[20;1H\b", 7);
-    write(1, "\033[H\033[2J", 7);
-    //ft_screenclean();
-    //ft_screenreset();
-    ft_screenfree();
-    //while (1) ;
-    return (1);
+    t_date  *date;
+    long    ret;
+
+    date = ft_date_convert(str);
+    ret = ft_date_timestamp(date);
+    free(date);
+    return (ret);
 }
