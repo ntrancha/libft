@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/08/10 01:41:11 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/08/11 04:41:17 by ntrancha         ###   ########.fr       */
+/*   Updated: 2015/08/11 04:52:53 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ static int  date_before(t_date *date, int month, int day, int hour)
 
 static int  date_summertime3(t_date *date)
 {
-    if (YEAR 2029 || YEAR 2030)
+    if (YEAR 2030)
         return (BETWEEN(31, 27));
     if (YEAR 2031 || YEAR 2036)
         return (BETWEEN(30, 26));
@@ -53,6 +53,8 @@ static int  date_summertime3(t_date *date)
 
 static int  date_summertime2(t_date *date)
 {
+    if (date->year > 2029)
+        return (date_summertime3(date));
     if (YEAR 2000 || YEAR 2006 || YEAR 2017 || YEAR 2023 || YEAR 2028)
         return (BETWEEN(26, 29));
     if (YEAR 2001 || YEAR 2007 || YEAR 2012 || YEAR 2018 || YEAR 2029)
@@ -67,11 +69,13 @@ static int  date_summertime2(t_date *date)
         return (BETWEEN(27, 30));
     if (YEAR 2009 || YEAR 2015 || YEAR 1998 || YEAR 2020 || YEAR 2026)
         return (BETWEEN(29, 25));
-    return (date_summertime3(date));
+    return (0); 
 }
 
 int     ft_date_summertime(t_date *date)
 {
+    if (date->year > 1995)
+        return (date_summertime2(date));
     if (YEAR 1980)
         return (date_after(date, 4, 6, 3) && date_before(date, 9, 28, 2));
     if (YEAR 1981 || YEAR 1987 || YEAR 1992)
@@ -88,5 +92,5 @@ int     ft_date_summertime(t_date *date)
         return (BETWEEN(30, 28));
     if (YEAR 1989 || YEAR 1995)
         return (BETWEEN(26, 24));
-    return (date_summertime2(date));
+    return (0); 
 }
