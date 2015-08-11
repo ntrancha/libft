@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/08/07 02:26:14 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/08/10 01:45:36 by ntrancha         ###   ########.fr       */
+/*   Updated: 2015/08/11 04:41:15 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,9 @@
 # define NOVEMBRE               11
 # define DECEMBRE               12
 # define YEAR                   date->year ==
+# define AFTER(d)               date_after(date, 3, d, 3)
+# define BEFORE(d)              date_before(date, 10, d, 2)
+# define BETWEEN(d, f)          AFTER(d) && BEFORE(f)
 # define D_TIME                 ft_date_modiftime
 # define D_DATE                 ft_date_modifdate
 # define D_TS                   ft_date_timestamp
