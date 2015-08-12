@@ -6,7 +6,7 @@
 #    By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/11/08 10:45:53 by ntrancha          #+#    #+#              #
-#    Updated: 2015/08/12 17:53:03 by ntrancha         ###   ########.fr        #
+#    Updated: 2015/08/12 17:53:54 by ntrancha         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -179,7 +179,7 @@ else
 endif
 
 update:
-	@git clone $(DEPOT) tmp 2> /dev/null
+	@git clone $(DEPOT) tmp > /dev/null 2> /dev/null
 	@cd tmp/; cp -R * ..; cd ..; rm -rf tmp/
 
 all: reset binaire $(NAME)
