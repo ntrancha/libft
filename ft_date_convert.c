@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/08/09 09:50:56 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/08/09 17:13:15 by ntrancha         ###   ########.fr       */
+/*   Updated: 2015/08/12 21:24:16 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ t_date      *ft_date_convert(char *str)
 {
     char    **ret;
     t_date  *date;
-    
+
     ret = ft_strsplit(str, ' ');
     if (count_char(str, ' ') != 1)
         return (NULL);

@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/07/28 21:08:18 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/08/03 21:03:22 by ntrancha         ###   ########.fr       */
+/*   Updated: 2015/08/12 21:18:28 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ char        *ft_optgetopt_double(t_opt *options, char *opt)
     char    *tmp;
     t_node  *node;
     t_node  *option;
-
 
     tmp = NULL;
     if (ft_opttest(options, opt) < 1)
@@ -30,7 +29,7 @@ char        *ft_optgetopt_double(t_opt *options, char *opt)
             if (!option)
                 tmp = ft_strdup((char *)node->content);
             ft_listdelnode((t_list *)options, node, ft_memdel);
-            if (!option) // || ft_opttest(options, option->content) < 1)
+            if (!option)
                 return (tmp);
             tmp = ft_strdup((char *)option->content);
             ft_listdelnode((t_list *)options, option, ft_memdel);

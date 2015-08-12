@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/07/30 06:33:01 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/08/01 03:40:32 by ntrancha         ###   ########.fr       */
+/*   Updated: 2015/08/12 21:23:30 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,7 @@ int             ft_screenwrite_charf(char c, char *spec)
     screen = ft_screeninit();
     if (!screen)
         return (-1);
-    str = ft_strnew(2);
-    if (!str)
+    if (!(str = ft_strnew(2)))
         return (-1);
     str[0] = c;
     str[1] = '\0';

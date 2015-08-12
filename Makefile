@@ -6,7 +6,7 @@
 #    By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/11/08 10:45:53 by ntrancha          #+#    #+#              #
-#    Updated: 2015/08/12 17:55:03 by ntrancha         ###   ########.fr        #
+#    Updated: 2015/08/12 21:26:02 by ntrancha         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -148,7 +148,8 @@ FILE =	ft_memchr.c				ft_putnbr_fd.c			\
 		ft_date_modiftime.c		ft_date_modifdate.c		\
 		ft_date_diny.c			ft_date_convert.c		\
 		ft_date_summertime.c	ft_timestamp.c			\
-		ft_date_timestamp.c
+		ft_date_timestamp.c		ft_listdelnodenext.c	\
+		ft_getopt.c
 
 ifeq ($(OS),Windows_NT)
 	OS = WIN32

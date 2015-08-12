@@ -6,12 +6,12 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/08/11 05:57:47 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/08/11 06:01:23 by ntrancha         ###   ########.fr       */
+/*   Updated: 2015/08/12 21:24:51 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/libft.h"
 #include <stdlib.h>
+#include "includes/libft.h"
 
 long        ft_timestamp(char *str)
 {

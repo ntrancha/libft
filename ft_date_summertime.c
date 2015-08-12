@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/08/10 01:41:11 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/08/11 05:43:52 by ntrancha         ###   ########.fr       */
+/*   Updated: 2015/08/12 21:24:41 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ static int  date_summertime2(t_date *date)
         return (BETWEEN(27, 30));
     if (YEAR 2009 || YEAR 2015 || YEAR 1998 || YEAR 2020 || YEAR 2026)
         return (BETWEEN(29, 25));
-    return (0); 
+    return (0);
 }
 
 int     ft_date_summertime(t_date *date)
@@ -92,5 +92,5 @@ int     ft_date_summertime(t_date *date)
         return (BETWEEN0(30, 28));
     if (YEAR 1989 || YEAR 1995)
         return (BETWEEN0(26, 24));
-    return (0); 
+    return (0);
 }

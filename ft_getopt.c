@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/07/28 19:17:24 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/07/28 21:08:09 by ntrancha         ###   ########.fr       */
+/*   Updated: 2015/08/12 21:27:24 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ char        *ft_optgetopt_double(t_opt *options, char *opt)
     char    *tmp;
     t_node  *node;
     t_node  *option;
-
 
     tmp = NULL;
     if (ft_opttest(options, opt) < 1)

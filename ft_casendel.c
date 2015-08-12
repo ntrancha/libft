@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/07/30 05:27:13 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/07/30 06:07:40 by ntrancha         ###   ########.fr       */
+/*   Updated: 2015/08/12 21:18:50 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ t_case      *ft_casendel(t_case *cases, int num)
             ft_casedelete(jump);
             return (cases);
         }
-        prev = jump;    
+        prev = jump;
         jump = prev->next;
     }
     return (cases);

@@ -6,12 +6,12 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/08/07 14:46:21 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/08/11 06:03:40 by ntrancha         ###   ########.fr       */
+/*   Updated: 2015/08/12 21:25:17 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/libft.h"
 #include <stdlib.h>
+#include "includes/libft.h"
 #define YEAR    date->year ==
 
 long		days_since_year(t_date *date)
@@ -35,11 +35,11 @@ int 		days_since_month(t_date *date)
 	ret = 0;
 	while (--month > 0)
 		if (month == 11 || month == 9 || month == 6 || month == 4)
-			ret += 30; 
+			ret += 30;
 		else if (month == 2)
 			ret += (ft_date_diny(date->year) == 365) ? 28 : 29;
 		else
-			ret += 31; 
+			ret += 31;
 	return (ret);
 }
 
