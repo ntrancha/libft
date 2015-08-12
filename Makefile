@@ -6,17 +6,25 @@
 #    By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/11/08 10:45:53 by ntrancha          #+#    #+#              #
-#    Updated: 2015/08/12 17:44:39 by ntrancha         ###   ########.fr        #
+#    Updated: 2015/08/12 17:51:03 by ntrancha         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME =	libft.a
+AUTEUR = ntrancha
+
+PROJECT = libft
+
+NAME =	$(PROJECT).a
 
 FLAG =	-Wall -Wextra -Werror -g
 
 HEADER = includes/macros.h
 
-SCRIPT = https://github.com/ntrancha/Script.git 
+GIT =  https://github.com/$(AUTEUR)/
+
+SCRIPT = $(GIT)Script.git 
+
+DEPOT = $(GIT)$(PROJECT).git
 	
 OBJS =	$(FILE:.c=.o)
 
@@ -171,7 +179,7 @@ else
 endif
 
 update:
-	@git clone https://github.com/ntrancha/libft.git tmp
+	@git clone $(DEPOT) tmp
 	@cd tmp/; cp -R * ..; cd ..; rm -rf tmp/
 
 all: reset binaire $(NAME)
