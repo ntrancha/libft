@@ -6,7 +6,7 @@
 #    By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/11/08 10:45:53 by ntrancha          #+#    #+#              #
-#    Updated: 2015/08/11 20:56:28 by ntrancha         ###   ########.fr        #
+#    Updated: 2015/08/12 17:44:39 by ntrancha         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -171,7 +171,8 @@ else
 endif
 
 update:
-	 @git pull
+	@git clone https://github.com/ntrancha/libft.git tmp
+	@cd tmp/; cp -R * ..; cd ..; rm -rf tmp/
 
 all: reset binaire $(NAME)
 
