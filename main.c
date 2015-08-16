@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/08/16 00:13:28 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/08/16 12:09:45 by ntrancha         ###   ########.fr       */
+/*   Updated: 2015/08/16 12:14:07 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,32 +16,6 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #include "includes/libft.h"
-
-t_dir               *ft_newdir()
-{
-    t_dir           *dir;
-
-    dir = ft_memalloc(sizeof(t_dir));
-    if (dir == NULL)
-        return (NULL);
-    dir->path = NULL;
-    dir->size = 0;
-    dir->next = NULL;
-    dir->prev = NULL;
-    return (dir);
-}
-
-t_files             *ft_newfiles(void)
-{
-    t_files         *files;
-
-    files = ft_memalloc(sizeof(t_files));
-    if (files == NULL)
-        return (NULL);
-    files->file = NULL;
-    files->next = NULL;
-    files->prev = NULL;
-}
 
 void                ft_tfile_del(t_file *file)
 {
@@ -91,11 +65,14 @@ t_list              *ft_getdir(char *path)
         else
             test = 0;
     }
-    ft_list_del(dir);
     ft_closedir(rep);
+    return (dir);
 }
 
 int     main(void)
 {
-    ft_getdir(".");
+    t_list          *dir;
+
+    dir = ft_getdir(".");
+    ft_list_del(dir);
 }
