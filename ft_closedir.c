@@ -1,27 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memalloc.c                                      :+:      :+:    :+:   */
+/*   ft_closedir.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/11/04 10:07:30 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/08/13 14:08:22 by ntrancha         ###   ########.fr       */
+/*   Created: 2015/08/16 00:07:03 by ntrancha          #+#    #+#             */
+/*   Updated: 2015/08/16 00:09:03 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include "includes/libft.h"
 
-void		*ft_memalloc(size_t size)
+#include <dirent.h>
+#include <sys/types.h>
+
+int ft_closedir(DIR *rep)
 {
-	void	*ptr;
-
-	if (size == 0)
-		return (NULL);
-	ptr = malloc(sizeof(char) * size);
-	if (!ptr)
-		return (NULL);
-	ptr = ft_memset(ptr, '\0', size);
-	return (ptr);
+    return (closedir(rep));
 }

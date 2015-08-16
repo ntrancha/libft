@@ -1,27 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memalloc.c                                      :+:      :+:    :+:   */
+/*   ft_opendir.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/11/04 10:07:30 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/08/13 14:08:22 by ntrancha         ###   ########.fr       */
+/*   Created: 2015/08/16 00:01:25 by ntrancha          #+#    #+#             */
+/*   Updated: 2015/08/16 00:09:06 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include "includes/libft.h"
 
-void		*ft_memalloc(size_t size)
+#include <dirent.h>
+#include <sys/types.h>
+
+DIR     *ft_opendir(char *path)
 {
-	void	*ptr;
+    DIR *rep;
 
-	if (size == 0)
-		return (NULL);
-	ptr = malloc(sizeof(char) * size);
-	if (!ptr)
-		return (NULL);
-	ptr = ft_memset(ptr, '\0', size);
-	return (ptr);
+    if (!path)
+        return (0);
+    rep = opendir(path);
+    if (rep == 0)
+        return (0);
+    return (rep);
 }
