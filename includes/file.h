@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/02 17:47:17 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/08/16 20:32:29 by ntrancha         ###   ########.fr       */
+/*   Updated: 2015/08/16 20:42:25 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 # include <sys/types.h>
 # include <dirent.h> 
 # include "list.h"
+
+typedef t_list          t_dos;
 
 typedef struct          s_dir
 {
@@ -53,7 +55,7 @@ int     ft_write_file_end(const char *pathname, char *content);
 DIR     *ft_opendir(char *path);
 int     ft_closedir(DIR *rep);
 t_file  *ft_fileinfo(char *file);
-t_list  *ft_getdir(t_list *list, char *path);
+t_list  *ft_getdir(t_dos *list, char *path);
 void    ft_deldir(t_list *list);
 
 #endif

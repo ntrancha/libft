@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/08/16 20:24:49 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/08/16 20:34:10 by ntrancha         ###   ########.fr       */
+/*   Updated: 2015/08/16 20:40:00 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include <sys/stat.h>
 #include "includes/libft.h"
 
-t_list              *ft_getdir(t_list *list, char *path)
+t_list              *ft_getdir(t_dos *list, char *path)
 {
     t_list          *dir;
     struct dirent   *file;

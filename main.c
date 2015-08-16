@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/08/16 00:13:28 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/08/16 20:35:17 by ntrancha         ###   ########.fr       */
+/*   Updated: 2015/08/16 20:40:08 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void                ft_dirdisplay(t_list *list)
 
 int     main(void)
 {
-    t_list          *list;
+    t_dos          *list;
 
     list = ft_listcreate();
     list = ft_getdir(list, ".");
