@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/08/16 00:13:28 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/08/16 20:40:08 by ntrancha         ###   ########.fr       */
+/*   Updated: 2015/08/16 20:50:38 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,15 @@
 #include <sys/stat.h>
 #include "includes/libft.h"
 
-static t_file       *fileinfo_get(t_node *node)
+static t_file   *fileinfo_get(t_node *node)
 {
     return (node->content);
 }
 
-void                ft_dirdisplay(t_list *list)
+void            ft_dirdisplay(t_list *list)
 {
-    t_node          *node;
-    t_file          *file;
+    t_node      *node;
+    t_file      *file;
 
     if (list)
     {
@@ -38,9 +38,9 @@ void                ft_dirdisplay(t_list *list)
     }
 }   
 
-int     main(void)
+int             main(void)
 {
-    t_dos          *list;
+    t_dos       *list;
 
     list = ft_listcreate();
     list = ft_getdir(list, ".");
