@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/08/16 00:13:28 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/08/16 20:50:38 by ntrancha         ###   ########.fr       */
+/*   Updated: 2015/08/16 20:52:40 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 #include <sys/stat.h>
 #include "includes/libft.h"
 
-static t_file   *fileinfo_get(t_node *node)
+static t_file       *fileinfo_get(t_node *node)
 {
     return (node->content);
 }
