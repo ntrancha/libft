@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/08/16 00:13:28 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/08/16 23:19:54 by ntrancha         ###   ########.fr       */
+/*   Updated: 2015/08/16 23:32:49 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int             main(void)
 {
     t_fdos       *list;
 
-    list = ft_getdir("toto");
+    list = ft_getdir("toto", NULL);
     //ft_dirdisplay(list);
     ft_fdos_del(list);
 }
