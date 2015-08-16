@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/02 17:47:17 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/08/16 20:42:25 by ntrancha         ###   ########.fr       */
+/*   Updated: 2015/08/16 20:42:49 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include "list.h"
 
 typedef t_list          t_dos;
+typedef t_list          t_fdos;
 
 typedef struct          s_dir
 {
