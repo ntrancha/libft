@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/08/16 00:13:28 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/08/16 20:52:40 by ntrancha         ###   ########.fr       */
+/*   Updated: 2015/08/16 22:58:27 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static t_file       *fileinfo_get(t_node *node)
     return (node->content);
 }
 
-void            ft_dirdisplay(t_list *list)
+void            ft_dirdisplay(t_fdos *list)
 {
     t_node      *node;
     t_file      *file;
@@ -40,10 +40,9 @@ void            ft_dirdisplay(t_list *list)
 
 int             main(void)
 {
-    t_dos       *list;
+    t_fdos       *list;
 
-    list = ft_listcreate();
-    list = ft_getdir(list, ".");
-    ft_dirdisplay(list->start->content);
-    ft_deldir(list);
+    list = ft_getdir(".");
+    ft_dirdisplay(list);
+    ft_dir_del(list);
 }

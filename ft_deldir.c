@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/08/16 20:24:49 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/08/16 20:31:40 by ntrancha         ###   ########.fr       */
+/*   Updated: 2015/08/16 22:56:34 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static void     tfile_del(t_file *file)
     free(file);
 }
 
-static void     dir_del(t_list *list)
+void     ft_dir_del(t_list *list)
 {
     t_node      *node;
     t_node      *tmp;
@@ -53,7 +53,7 @@ void            ft_deldir(t_list *list)
         while (node)
         {
             tmp = node->next;
-            dir_del(node->content);
+            ft_dir_del(node->content);
             ft_memdel((void**)&node);
             node = tmp;
         }
