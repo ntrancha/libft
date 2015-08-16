@@ -6,7 +6,7 @@
 #    By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/11/08 10:45:53 by ntrancha          #+#    #+#              #
-#    Updated: 2015/08/16 23:11:18 by ntrancha         ###   ########.fr        #
+#    Updated: 2015/08/17 00:28:54 by ntrancha         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -152,7 +152,8 @@ FILE =	ft_memchr.c				ft_putnbr_fd.c			\
 		ft_getopt.c				ft_opendir.c			\
 		ft_closedir.c			ft_fileinfo.c			\
 		ft_getdir.c				ft_dos_del.c			\
-		ft_fdos_del.c
+		ft_fdos_del.c			ft_fileget_rights.c		\
+		ft_fdos_displaycol.c
 
 ifeq ($(OS),Windows_NT)
 	OS = WIN32

@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/08/16 00:13:28 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/08/16 23:32:49 by ntrancha         ###   ########.fr       */
+/*   Updated: 2015/08/17 00:29:58 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,7 @@ void            ft_dirdisplay(t_fdos *list)
         node = list->start;
         while (node)
         {
-            if (strcmp(fileinfo_get(node)->name, "Makefile") == 0)
-                ft_putendl(fileinfo_get(node)->name);
+            ft_putendl(fileinfo_get(node)->name);
             node = node->next;
         }
     }
@@ -43,7 +42,7 @@ int             main(void)
 {
     t_fdos       *list;
 
-    list = ft_getdir("toto", NULL);
-    //ft_dirdisplay(list);
+    list = ft_getdir(".", NULL);
+    ft_fdos_displaycol(list, 0);
     ft_fdos_del(list);
 }
