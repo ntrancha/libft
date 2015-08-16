@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/08/16 00:13:28 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/08/17 00:29:58 by ntrancha         ###   ########.fr       */
+/*   Updated: 2015/08/17 00:49:59 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,9 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #include "includes/libft.h"
+#define NAME    fileinfo_get(node)->name
+#define NAMEN   fileinfo_get(node->next)->name
+
 
 static t_file       *fileinfo_get(t_node *node)
 {
@@ -38,11 +41,38 @@ void            ft_dirdisplay(t_fdos *list)
     }
 }   
 
+void            ft_fdossort_name(t_list *list)
+{
+    t_node      *node;
+    t_file      *file;
+
+    if (list)
+    {
+        node = list->start;
+        while (node && node->next)
+        {
+            if (ft_strcmp(NAME, NAMEN) > 1) 
+            {
+                ft_listswap(list, node, node->next);
+                if (node->previous)
+                    if (node->previous->previous)
+                        node = node->previous->previous;
+                    else
+                        node = node->previous;
+            }
+            else
+                node = node->next;
+        }
+    }
+
+}
+
 int             main(void)
 {
     t_fdos       *list;
 
     list = ft_getdir(".", NULL);
+    ft_fdossort_name(list);
     ft_fdos_displaycol(list, 0);
     ft_fdos_del(list);
 }
