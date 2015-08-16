@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/02 17:47:17 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/08/16 02:58:54 by ntrancha         ###   ########.fr       */
+/*   Updated: 2015/08/16 20:32:29 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,5 +53,7 @@ int     ft_write_file_end(const char *pathname, char *content);
 DIR     *ft_opendir(char *path);
 int     ft_closedir(DIR *rep);
 t_file  *ft_fileinfo(char *file);
+t_list  *ft_getdir(t_list *list, char *path);
+void    ft_deldir(t_list *list);
 
 #endif

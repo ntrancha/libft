@@ -6,7 +6,7 @@
 #    By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/11/08 10:45:53 by ntrancha          #+#    #+#              #
-#    Updated: 2015/08/16 01:07:38 by ntrancha         ###   ########.fr        #
+#    Updated: 2015/08/16 20:33:35 by ntrancha         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -150,7 +150,8 @@ FILE =	ft_memchr.c				ft_putnbr_fd.c			\
 		ft_date_summertime.c	ft_timestamp.c			\
 		ft_date_timestamp.c		ft_listdelnodenext.c	\
 		ft_getopt.c				ft_opendir.c			\
-		ft_closedir.c			ft_fileinfo.c
+		ft_closedir.c			ft_fileinfo.c			\
+		ft_getdir.c				ft_deldir.c
 
 ifeq ($(OS),Windows_NT)
 	OS = WIN32
