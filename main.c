@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/08/16 00:13:28 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/08/16 12:15:59 by ntrancha         ###   ########.fr       */
+/*   Updated: 2015/08/16 12:18:30 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,14 +54,8 @@ t_list              *ft_getdir(char *path)
     if (rep == NULL || dir == NULL)
         return (NULL);
     file = readdir(rep);
-    if (file)
-            ft_listadd(dir, (void *)ft_fileinfo(file->d_name));
-    while (file)
-    {
-        file = readdir(rep);
-        if (file)
-            ft_listadd(dir, (void *)ft_fileinfo(file->d_name));
-    }
+    while (file = readdir(rep))
+        ft_listadd(dir, (void *)ft_fileinfo(file->d_name));
     ft_closedir(rep);
     return (dir);
 }
