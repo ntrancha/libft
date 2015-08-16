@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/08/16 00:13:28 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/08/16 12:18:30 by ntrancha         ###   ########.fr       */
+/*   Updated: 2015/08/16 12:36:29 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void                ft_tfile_del(t_file *file)
     free(file);
 }
 
-void                ft_list_del(t_list *list)
+void                ft_dir_del(t_list *list)
 {
     t_node          *node;
     t_node          *tmp;
@@ -43,21 +43,42 @@ void                ft_list_del(t_list *list)
     ft_memdel((void**)&list);
 }
 
+void                ft_list_del(t_list *list)
+{
+    t_node          *node;
+    t_node          *tmp;
+
+    if (list)
+    {
+        node = list->start;
+        while (node)
+        {
+            tmp = node->next;
+            ft_dir_del(node->content);
+            ft_memdel((void**)&node);
+            node = tmp;
+        }
+    }
+    ft_memdel((void**)&list);
+}
+
 t_list              *ft_getdir(char *path)
 {
     t_list          *dir;
+    t_list          *list;
     struct dirent   *file;
     DIR             *rep;
 
     rep = ft_opendir(path);
     dir = ft_listcreate();
+    list = ft_listcreate();
+    ft_listadd(list, (void *)dir);
     if (rep == NULL || dir == NULL)
         return (NULL);
-    file = readdir(rep);
     while (file = readdir(rep))
         ft_listadd(dir, (void *)ft_fileinfo(file->d_name));
     ft_closedir(rep);
-    return (dir);
+    return (list);
 }
 
 int     main(void)
