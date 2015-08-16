@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/08/16 20:24:49 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/08/16 22:54:45 by ntrancha         ###   ########.fr       */
+/*   Updated: 2015/08/16 23:30:41 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,11 @@ t_fdos              *ft_getdir(char *path)
     struct dirent   *file;
     DIR             *rep;
 
-    rep = ft_opendir(path);
+    rep = ft_opendir(path, "ls");
+    if (rep == NULL)
+        return (NULL);
     dir = ft_listcreate();
-    if (rep == NULL || dir == NULL)
+    if (dir == NULL)
         return (NULL);
     while ((file = readdir(rep)))
         ft_listadd(dir, (void *)ft_fileinfo(file->d_name));
