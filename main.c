@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/08/16 00:13:28 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/08/17 04:10:23 by ntrancha         ###   ########.fr       */
+/*   Updated: 2015/08/17 07:46:56 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,11 +73,11 @@ int             main(void)
     t_fdos       *list;
     t_dos        *rec;
 
-    //list = ft_getdir(".", NULL);
-    rec = ft_getdir_rec("includes", NULL);
-    //ft_fdossort_name(list);
-    //ft_fdos_displaycol(list, 0);
-    ft_dirdisplay(rec->start->content);
-    //ft_fdos_del(list);
-    ft_dos_del(rec);
+    list = ft_getdir(".", NULL);
+    //rec = ft_getdir_rec("includes", NULL);
+    ft_fdossort_name(list);
+    ft_fdos_displaycol(list, 0);
+    //ft_dirdisplay(rec->start->content);
+    ft_fdos_del(list);
+    //ft_dos_del(rec);
 }
