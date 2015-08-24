@@ -6,13 +6,15 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/02 17:42:48 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/08/09 10:15:29 by ntrancha         ###   ########.fr       */
+/*   Updated: 2015/08/23 21:24:58 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef STRINGS_H
 # define STRINGS_H
-# include "libft.h"
+# include <string.h>
+
+typedef const char  t_cchar;
 
 typedef struct	s_strnrpl
 {
@@ -40,16 +42,17 @@ char	*ft_strchr(const char *s, int c);
 char	*ft_strrchr(const char *s, int c);
 char	*ft_strstr(const char *s1, const char *s2);
 char	*ft_strnstr(const char *s1, const char *s2, size_t n);
-char	*ft_strcasestr(const char *s1, const char *s2);
 char	*ft_strdup(const char *str);
 char	*ft_strcpy(char *dst, const char *src);
 char	*ft_strncpy(char *dst, const char *src, size_t n);
 char	*ft_strmore(char *str, size_t n);
 size_t	ft_strlcat(char *dst, const char *src, size_t size);
+size_t  ft_strlen(const char *str);
 char	*ft_strcat(char *s1, char const *s2);
 char	*ft_strncat(char *s1, const char *s2, size_t n);
 char	*ft_strjoin(char const *s1, char const *s2);
 char	*ft_strmjoin(char const *s1, char const *s2, char const *s3);
+char	*ft_strmmjoin(t_cchar *s1, t_cchar *s2, t_cchar *s3, t_cchar *s4);
 void	ft_straddchar(char **str, char c);
 void	ft_strfusion(char **dst, char **src);
 void	ft_strfusiondel(char **dst, char **src);

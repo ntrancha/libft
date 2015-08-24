@@ -13,24 +13,23 @@
 #ifndef LIBFT_H
 # define LIBFT_H
 
-# include <string.h>
-# include "convert.h"
+# include "mem.h"
+# include "strings.h"
+# include "test.h"
+# include "math.h"
+# include "bag.h"
 # include "count.h"
+# include "date.h"
 # include "extra.h"
+# include "opt.h"
+# include "put.h"
+# include "tab.h"
+# include "socket.h"
+# include "screen.h"
+# include "convert.h"
 # include "file.h"
 # include "list.h"
 # include "macros.h"
-# include "math.h"
-# include "memory.h"
-# include "put.h"
-# include "strings.h"
-# include "tab.h"
-# include "test.h"
-# include "socket.h"
-# include "bag.h"
-# include "opt.h"
-# include "date.h"
 # include "sig.h"
-# include "screen.h"
 
 #endif

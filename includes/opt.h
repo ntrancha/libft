@@ -6,12 +6,13 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/07/28 21:01:30 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/07/28 21:10:58 by ntrancha         ###   ########.fr       */
+/*   Updated: 2015/08/19 06:34:38 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef OPT_H
 # define OPT_H
+# include "list.h"
 
 typedef t_list  t_opt;
 

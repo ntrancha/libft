@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/08/07 02:26:14 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/08/11 06:02:22 by ntrancha         ###   ########.fr       */
+/*   Updated: 2015/08/19 06:21:47 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,9 @@ t_date  *ft_date_modiftime(t_date *date, int sec, int minute, int hour);
 t_date  *ft_date_modifdate(t_date *date, int day, int month, int year);
 int     ft_date_summertime(t_date *date);
 int     ft_date_diny(int year);
+int     ft_date_dins(int day);
+int     ft_date_hins(int hour);
+int     ft_date_mins(int minute);
 long    ft_date_mtos(int minute);
 long    ft_date_htos(int hour);
 long    ft_date_dtos(int day);
