@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/30 19:31:54 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/08/19 07:36:47 by ntrancha         ###   ########.fr       */
+/*   Updated: 2015/08/25 03:34:19 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ char		*ft_listtostr(t_list *list)
 
 	if (!list)
 		return (NULL);
-	if (!(str = ft_strnew(ft_liststrlen(list) + 1)))
+	if (!(str = ft_strnew(ft_liststrlen(list) + 2)))
 		return (NULL);
 	count = 0;
 	node = list->start;
@@ -35,5 +35,6 @@ char		*ft_listtostr(t_list *list)
 			str[count++] = tmp[index++];
 		node = node->next;
 	}
+	str[count] = '\0';
 	return (str);
 }

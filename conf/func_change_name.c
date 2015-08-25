@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/08/24 23:40:49 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/08/25 03:26:49 by ntrancha         ###   ########.fr       */
+/*   Updated: 2015/08/25 03:36:22 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,13 +85,14 @@ void        modif_src2(char *proto, char *proto_modif, char *file)
     while (dos[++index])
         if (ft_strcmp(dos[index], ".") != 0 && ft_strcmp(dos[index], "..") != 0)
             if (ft_strcmp(dos[index], "includes") != 0)
-            {
-                tmp = ft_strmjoin(src, "/", dos[index]);
-                content = ft_get_file(tmp);
-                ft_putendl(content);
-                ft_strdel(&tmp);
-                ft_strdel(&content);
-            }
+                if (dos[index][ft_strlen(dos[index]) - 1] == 'c')
+                {
+                    tmp = ft_strmjoin(src, "/", dos[index]);
+                    content = ft_get_file(tmp);
+                    ft_putendl(content);
+                    ft_strdel(&tmp);
+                    ft_strdel(&content);
+                }
     ft_strdel(&src);
     ft_tabstrdel(dos);
 }
