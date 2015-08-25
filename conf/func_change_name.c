@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/08/24 23:40:49 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/08/25 03:36:22 by ntrancha         ###   ########.fr       */
+/*   Updated: 2015/08/25 03:40:12 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,8 @@ void        modif_src2(char *proto, char *proto_modif, char *file)
                 {
                     tmp = ft_strmjoin(src, "/", dos[index]);
                     content = ft_get_file(tmp);
-                    ft_putendl(content);
+                    if (ft_strcchr(content, proto) != 0)
+                        ft_filestrrpl(tmp, proto, proto_modif);
                     ft_strdel(&tmp);
                     ft_strdel(&content);
                 }
