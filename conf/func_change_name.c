@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/08/24 23:40:49 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/08/25 02:00:56 by ntrancha         ###   ########.fr       */
+/*   Updated: 2015/08/25 03:26:49 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,45 @@ char        *find_in_header(char *origin, char *change)
     return (header);
 }
 
+void        modif_src2(char *proto, char *proto_modif, char *file)
+{
+    char    **dos;
+    char    *src;
+    char    *tmp;
+    char    *content;
+    int     index;
+
+    src = ft_strjoin("src/", file);
+    ft_putendl("ok");
+    dos = ft_getdirtab(src, NULL);
+    index= -1;
+    while (dos[++index])
+        if (ft_strcmp(dos[index], ".") != 0 && ft_strcmp(dos[index], "..") != 0)
+            if (ft_strcmp(dos[index], "includes") != 0)
+            {
+                tmp = ft_strmjoin(src, "/", dos[index]);
+                content = ft_get_file(tmp);
+                ft_putendl(content);
+                ft_strdel(&tmp);
+                ft_strdel(&content);
+            }
+    ft_strdel(&src);
+    ft_tabstrdel(dos);
+}
+
+void        modif_src(char *proto, char *proto_modif)
+{
+    char    **dos;
+    int     index;
+
+    dos = ft_getdirtab("src", NULL);
+    index= -1;
+    while (dos[++index])
+        if (ft_strcmp(dos[index], ".") != 0 && ft_strcmp(dos[index], "..") != 0)
+            modif_src2(proto, proto_modif, dos[index]);
+    ft_tabstrdel(dos);
+}
+
 int         find_proto(char *src, char *header, char *origin, char *change)
 {
     char    *path;
@@ -93,11 +132,10 @@ int         find_proto(char *src, char *header, char *origin, char *change)
         ft_straddchar(&titre, ' ');
     proto = ft_strjoin(origin, "(");
     proto_change = ft_strjoin(change, "(");
-    ft_putendl(path);
-    ft_putendl(path_mod);
     //ft_filestrrpl(path, titre, titre_change);
     //ft_filestrrpl(path, proto, proto_change);
     //ft_filemove(path, path_mod);
+    modif_src(proto, proto_change);
     ft_strdel(&tmp);
     ft_strdel(&tmp_mod);
     ft_strdel(&path);
