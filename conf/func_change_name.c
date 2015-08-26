@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/08/24 23:40:49 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/08/25 03:40:12 by ntrancha         ###   ########.fr       */
+/*   Updated: 2015/08/26 10:17:14 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void        change_header(char *origin, char *change, char *header)
 
     path = ft_strjoin("includes/", header);
     tmp = ft_strjoin(change, "(");
-    //ft_filestrrpl(path, origin, tmp);
+    ft_filestrrpl(path, origin, tmp);
     ft_strdel(&path);
     ft_strdel(&tmp);
 }
@@ -134,9 +134,9 @@ int         find_proto(char *src, char *header, char *origin, char *change)
         ft_straddchar(&titre, ' ');
     proto = ft_strjoin(origin, "(");
     proto_change = ft_strjoin(change, "(");
-    //ft_filestrrpl(path, titre, titre_change);
-    //ft_filestrrpl(path, proto, proto_change);
-    //ft_filemove(path, path_mod);
+    ft_filestrrpl(path, titre, titre_change);
+    ft_filestrrpl(path, proto, proto_change);
+    ft_filemove(path, path_mod);
     modif_src(proto, proto_change);
     ft_strdel(&tmp);
     ft_strdel(&tmp_mod);
@@ -158,14 +158,10 @@ int         init(char *origin, char *change)
 
     proto = ft_strjoin(origin, "(");
     src= ft_strjoin(origin, ".c");
-    // TROUVER ORIGINE DANS HEADER
     test_proto = find_in_header(proto, change);
     if (test_proto == NULL)
         return (-1);
     find_proto(src, test_proto, origin, change);
-    // CHANGER HEADER SRC & MAKEFILE
-    // CHANGER APPELS
-    
     ft_strdel(&proto);
     ft_strdel(&test_proto);
     ft_strdel(&src);
