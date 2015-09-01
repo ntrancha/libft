@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/08/31 11:25:47 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/09/01 01:00:54 by ntrancha         ###   ########.fr       */
+/*   Updated: 2015/09/01 06:52:56 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -155,7 +155,7 @@ int     test_file(char *file, char *path)
     return (ret);
 }
 
-void    make_makefile(t_list *protos, int test, char *lib)
+void    make_makefile(t_list *protos, int test, char *lib, char *output)
 {
     t_node  *node;
     t_list  *makefile;
@@ -196,7 +196,7 @@ void    make_makefile(t_list *protos, int test, char *lib)
     ft_listdel(makefile, ft_memdel);
 }
 
-void    creation(char **list)
+void    creation(char **list, char *output)
 {
     char    *mini_lib;
     char    *content;
@@ -219,12 +219,62 @@ void    creation(char **list)
             get_proto(content, protos);
             ft_strdel(&mini_lib);
             ft_strdel(&content);
-            make_makefile(protos, test, list[index]);
+            make_makefile(protos, test, list[index], output);
             ft_listdel(protos, ft_memdel);
         }
     }
 }
 
+void		verif_file(char *lib, t_list *files, char **dir, char *output)
+{
+	int		index;
+	char	*file;
+
+	index = -1;
+	while (dir[++index])
+	{
+		file = dir[index];
+		if (ft_strlen(file) > 2 && file[ft_strlen(file) - 1] == 'c')
+			if (file[ft_strlen(file) - 2] == '.')
+			{
+				file = ft_strsub(file, 0, ft_strlen(file) - 2);
+				ft_putstr(lib);
+				ft_putstr(":");
+				ft_putendl(file);
+				ft_strdel(&file);
+			}
+	}
+}
+
+void		find_file(char **list, char *output)
+{
+	int		index;
+    int     test;
+	t_list	*files;
+    char    *mini_lib;
+	char	**dir;
+
+	index = -1;
+    test = test_directory();
+	files = ft_listcreate();
+	while (list[++index])
+	{
+		if (ft_strcmp(list[index], ".") != 0 && ft_strcmp(list[index], "..") != 0)
+        {
+            if (test == 1)
+                mini_lib = ft_strmjoin("../src/", list[index], "/");
+            else
+                mini_lib = ft_strmjoin("src/", list[index], "/");
+    		dir = ft_getdirtab(mini_lib, NULL);
+			if (dir)
+				verif_file(list[index], files, dir, output);
+			ft_strdel(&mini_lib);
+			if (dir)
+				ft_tabstrdel(dir);
+		}
+	}
+	ft_listdel(files, ft_memdel);
+}
 
 int		main(int argc, char **argv)
 {
@@ -232,6 +282,7 @@ int		main(int argc, char **argv)
 	char	*option;
 	char	**list_all;
 	char	**list;
+	char	*output;
 
     list_all = list_src();
 	options = ft_optget(argc, argv);
@@ -240,11 +291,21 @@ int		main(int argc, char **argv)
 	{
 		display_list(list_all);
 		ft_strdel(&option);
+		ft_optdel(options);	
+		ft_tabstrdel(list_all);
+		return (0);
 	}
+	option = ft_optgetopt_double(options, "-o");
+	if (option)
+		output = option;
+	else
+		output = ft_strdup(".");
     list = recup_list(options, list_all);
-    creation(list);
+    //creation(list, output);
+    find_file(list, output);
 	ft_tabstrdel(list);
 	ft_tabstrdel(list_all);
 	ft_optdel(options);	
+	ft_strdel(&output);
 	return (0);
 }
