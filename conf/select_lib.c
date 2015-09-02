@@ -6,10 +6,13 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/08/31 11:25:47 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/09/02 02:43:14 by ntrancha         ###   ########.fr       */
+/*   Updated: 2015/09/02 03:12:27 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <sys/dir.h>
+#include <sys/types.h>
+#include <sys/stat.h>
 #include "../includes/libft.h"
 
 int			test_directory(void)
@@ -130,6 +133,48 @@ void		verif_file(char *lib, t_list *files, char **dir, int test)
 	}
 }
 
+void        create_dir(char *output, char **lib, int test)
+{
+    int     index;
+    char    *path;
+    char    *tmp;
+
+    index = -1;
+    if (test == 1)
+        path = ft_strdup("../");
+    else
+        path = ft_strdup("./");
+    if (ft_strcmp(output, ".") == 0)
+        tmp = ft_strjoin(path, "libft");
+    else
+        tmp = ft_strmjoin(path, output, "/libft");
+    mkdir(tmp, 0777);
+    ft_strdel(&path);
+    path = ft_strjoin(tmp, "/includes");
+    mkdir(path, 0777);
+    ft_strdel(&path);
+    path = ft_strjoin(tmp, "/src");
+    mkdir(path, 0777);
+    ft_strdel(&path);
+    while (lib[++index])
+    {
+        path = ft_strmjoin(tmp, "/src/", lib[index]);
+        mkdir(path, 0777);
+        ft_strdel(&path);
+    }
+    ft_strdel(&tmp);
+}
+
+void        traitement(t_list *files, char **lib, char *output, int test)
+{
+    // Creation du rep
+    create_dir(output, lib, test);
+    // Creer makefile
+
+    // Creer libft.h
+
+}
+
 void		find_file(char **list, char *output)
 {
 	int		index;
@@ -157,6 +202,7 @@ void		find_file(char **list, char *output)
 				ft_tabstrdel(dir);
 		}
 	}
+    traitement(files, list, output, test);
 	ft_listdel(files, ft_memdel);
 }
 
