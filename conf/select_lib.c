@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/08/31 11:25:47 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/09/02 03:37:32 by ntrancha         ###   ########.fr       */
+/*   Updated: 2015/09/02 04:28:42 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -165,14 +165,16 @@ char        *create_dir(char *output, char **lib, int test)
     return (tmp);
 }
 
-void        create_makefile(t_list *files, char *path)
+t_list		*create_makefile(t_list *files, char *path)
 {
     t_node  *node;
+	t_list	*list;
     char    *file;
     int     max;
     int     size;
 
     node = files->start;
+	list = ft_listcreate();
     max = ft_liststrlenmax(files) + 1;
     while (node)
     {
@@ -181,22 +183,96 @@ void        create_makefile(t_list *files, char *path)
 		while (size++ < max)
 			ft_straddchar(&file, ' ');
 		ft_straddchar(&file, '/');
-		ft_putendl(file);
-		ft_strdel(&file);
+		ft_listadd(list, (void*)file);
         node = node->next;
     }
+	return (list);
+}
+
+int			ft_count_char(char *str, char c)
+{
+	int		ret;
+	int		count;
+
+	ret = 0;
+	count = 0;
+	while (str[count])
+		if (str[count++] == c)
+				ret++;
+	return (ret);
+}
+
+int 		makefile_add(t_list *makefile, t_list *files)
+{
+	t_node	*node;
+	char	*tmp;
+	int		test;
+
+	node = files->start;
+	test = 0;
+	while (node)
+	{
+		test++;
+		if (test == 1)
+			tmp = ft_strjoin("FILE =\t", (char*)node->content);
+		else
+			tmp = ft_strjoin("\t\t", (char*)node->content);
+		ft_listadd(makefile, (void*)tmp);
+		node = node->next;
+	}
+	return (2);
+}
+
+void		create_makefile_end(t_list *list, char *path, int test)
+{
+	t_list	*makefile;
+	char	*content;
+	char	*tmp;
+	int		count;
+	int		status;
+	int		max;
+
+	if (test == 1)
+		tmp = ft_strdup("../Makefile");
+	else
+		tmp = ft_strdup("Makefile");
+	content = ft_get_file(tmp);
+	makefile = ft_listcreate();
+	ft_strdel(&tmp);
+	max = ft_count_char(content, '\n');
+	count = 0;
+	status = 0;
+	while (count < max)
+	{
+		tmp = ft_strgetline(content, count++);
+		if (status == 0 && ft_strncmp(tmp, "FILE ", 4) == 0)
+			status = 1;
+		else if (status == 2 && ft_strlen(tmp) < 5)
+			status = 0;
+		if (status == 0)
+			ft_listadd(makefile, (void*)ft_strdup(tmp));
+		else if (status == 1)
+			status = makefile_add(makefile, list);
+		ft_strdel(&tmp);
+	}
+	ft_strdel(&content);
+	ft_listputstr(makefile, ft_putendl);
+	ft_listdel(makefile, ft_memdel);
 }
 
 void        traitement(t_list *files, char **lib, char *output, int test)
 {
     char    *path;
+	t_list	*list_makefile;
+
     // Creation du rep
     path = create_dir(output, lib, test);
     // Creer makefile
-    create_makefile(files, path);
+    list_makefile = create_makefile(files, path);
+	create_makefile_end(list_makefile, path, test);
     // Creer libft.h
-
     ft_strdel(&path);
+	ft_listdel(list_makefile, ft_memdel);
 }
 
 void		find_file(char **list, char *output)
