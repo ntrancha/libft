@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/08/31 11:25:47 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/09/02 03:12:27 by ntrancha         ###   ########.fr       */
+/*   Updated: 2015/09/02 03:21:38 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -133,7 +133,7 @@ void		verif_file(char *lib, t_list *files, char **dir, int test)
 	}
 }
 
-void        create_dir(char *output, char **lib, int test)
+char        *create_dir(char *output, char **lib, int test)
 {
     int     index;
     char    *path;
@@ -162,17 +162,36 @@ void        create_dir(char *output, char **lib, int test)
         mkdir(path, 0777);
         ft_strdel(&path);
     }
-    ft_strdel(&tmp);
+    return (tmp);
+}
+
+void        create_makefile(t_list *files, char *path)
+{
+    t_node  *node;
+    char    *file;
+    int     max;
+    int     size;
+
+    node = files->start;
+    max = ft_liststrlenmax(files);
+    while (node)
+    {
+        file = (char*)node->content;
+
+        node = node->next;
+    }
 }
 
 void        traitement(t_list *files, char **lib, char *output, int test)
 {
+    char    *path;
     // Creation du rep
-    create_dir(output, lib, test);
+    path = create_dir(output, lib, test);
     // Creer makefile
-
+    create_makefile(files, path);
     // Creer libft.h
 
+    ft_strdel(&path);
 }
 
 void		find_file(char **list, char *output)
