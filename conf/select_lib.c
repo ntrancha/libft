@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/08/31 11:25:47 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/09/02 04:28:42 by ntrancha         ###   ########.fr       */
+/*   Updated: 2015/09/02 04:42:14 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,12 +33,6 @@ int			test_directory(void)
 	while (tab[index])
 		if (ft_strcmp(tab[index++], "conf") == 0)
 				test = 2;
-	ft_tabstrdel(tab);
-    tab = ft_getdirtab("..", NULL);
-	index = 0;
-	while (tab[index])
-		if (ft_strcmp(tab[index++], "libft") == 0)
-				test = 3;
 	ft_tabstrdel(tab);
 	return (test);
 }
@@ -223,6 +217,19 @@ int 		makefile_add(t_list *makefile, t_list *files)
 	return (2);
 }
 
+void		write_makefile(t_list *makefile, char *path)
+{
+	char	*file;
+	char	*content;
+
+	file = ft_strjoin(path, "/Makefile");
+	ft_filedel(file);
+	content = ft_listtostrd(makefile, "\n");
+	ft_write_file(file, content);
+	ft_strdel(&file);
+	ft_strdel(&content);
+}
+
 void		create_makefile_end(t_list *list, char *path, int test)
 {
 	t_list	*makefile;
@@ -256,6 +263,7 @@ void		create_makefile_end(t_list *list, char *path, int test)
 		ft_strdel(&tmp);
 	}
 	ft_strdel(&content);
+	write_makefile(makefile, path);
 	ft_listputstr(makefile, ft_putendl);
 	ft_listdel(makefile, ft_memdel);
 }
