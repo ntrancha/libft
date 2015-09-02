@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/08/31 11:25:47 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/09/02 03:21:38 by ntrancha         ###   ########.fr       */
+/*   Updated: 2015/09/02 03:37:32 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -173,11 +173,16 @@ void        create_makefile(t_list *files, char *path)
     int     size;
 
     node = files->start;
-    max = ft_liststrlenmax(files);
+    max = ft_liststrlenmax(files) + 1;
     while (node)
     {
-        file = (char*)node->content;
-
+        file = ft_strdup((char*)node->content);
+		size = ft_strlen(file);
+		while (size++ < max)
+			ft_straddchar(&file, ' ');
+		ft_straddchar(&file, '/');
+		ft_putendl(file);
+		ft_strdel(&file);
         node = node->next;
     }
 }
