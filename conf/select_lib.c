@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/08/31 11:25:47 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/09/02 02:37:19 by ntrancha         ###   ########.fr       */
+/*   Updated: 2015/09/02 02:43:14 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,10 +106,12 @@ char    **recup_list(t_opt *options, char **list_all)
     return (list_src());
 }
 
-void		verif_file(char *lib, t_list *files, char **dir, char *output)
+void		verif_file(char *lib, t_list *files, char **dir, int test)
 {
 	int		index;
 	char	*file;
+    char    *src;
+    char    *tmp;
 
 	index = -1;
 	while (dir[++index])
@@ -119,10 +121,11 @@ void		verif_file(char *lib, t_list *files, char **dir, char *output)
 			if (file[ft_strlen(file) - 2] == '.')
 			{
 				file = ft_strsub(file, 0, ft_strlen(file) - 2);
-				ft_putstr(lib);
-				ft_putstr(":");
-				ft_putendl(file);
+                tmp = ft_strmjoin("src/", lib, "/");
+                src = ft_strmjoin(tmp, file, ".c");
+                ft_listadd(files, (void*)src);
 				ft_strdel(&file);
+				ft_strdel(&tmp);
 			}
 	}
 }
@@ -148,7 +151,7 @@ void		find_file(char **list, char *output)
                 mini_lib = ft_strmjoin("src/", list[index], "/");
     		dir = ft_getdirtab(mini_lib, NULL);
 			if (dir)
-				verif_file(list[index], files, dir, output);
+				verif_file(list[index], files, dir, test);
 			ft_strdel(&mini_lib);
 			if (dir)
 				ft_tabstrdel(dir);
