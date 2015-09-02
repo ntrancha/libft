@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/08/31 11:25:47 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/09/02 08:09:24 by ntrancha         ###   ########.fr       */
+/*   Updated: 2015/09/02 08:11:35 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -344,7 +344,6 @@ void        write_header(t_list *point_h, char *path)
     content = ft_listtostrd(point_h, "\n");
     ft_filedel(header);
 	ft_write_file(header, content);
-    ft_putendl(content);
     ft_strdel(&header);
     ft_strdel(&content);
 }
