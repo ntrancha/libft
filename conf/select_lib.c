@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/08/31 11:25:47 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/09/02 04:42:14 by ntrancha         ###   ########.fr       */
+/*   Updated: 2015/09/02 08:09:24 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -225,6 +225,7 @@ void		write_makefile(t_list *makefile, char *path)
 	file = ft_strjoin(path, "/Makefile");
 	ft_filedel(file);
 	content = ft_listtostrd(makefile, "\n");
+    ft_filedel(file);
 	ft_write_file(file, content);
 	ft_strdel(&file);
 	ft_strdel(&content);
@@ -264,8 +265,124 @@ void		create_makefile_end(t_list *list, char *path, int test)
 	}
 	ft_strdel(&content);
 	write_makefile(makefile, path);
-	ft_listputstr(makefile, ft_putendl);
 	ft_listdel(makefile, ft_memdel);
+}
+
+void        copy_src(t_list *list, int test, char *path)
+{
+    t_node  *node;
+    char    *src;
+    char    *dst;
+
+    node = list->start;
+    while (node)
+    {
+        if (test == 1)
+            src = ft_strjoin("../", node->content);
+        else 
+            src = ft_strdup(node->content);
+        dst = ft_strmjoin(path, "/",node->content);
+        ft_filecopy(src, dst);
+        ft_strdel(&src);
+        ft_strdel(&dst);
+        node = node->next;
+    }
+}
+
+void        copy_header(char **lib, int test, char *path)
+{
+    int     index;
+    char    *tmp;
+    char    *dst;
+    char    *src;
+
+    index = -1;
+    while (lib[++index])
+    {
+		if (ft_strcmp(lib[index], ".") != 0 && ft_strcmp(lib[index], "..") != 0)
+        {
+            if (test == 1)
+                tmp = ft_strmjoin("../src/", lib[index], "/includes/");
+            else
+                tmp = ft_strmjoin("src/", lib[index], "/includes/");
+            src = ft_strmjoin(tmp, lib[index], ".h");
+            ft_strdel(&tmp);
+            tmp = ft_strmjoin(path, "/includes/", lib[index]);
+            dst = ft_strjoin(tmp, ".h");
+            ft_filecopy(src, dst);
+            ft_strdel(&tmp);
+            ft_strdel(&src);
+            ft_strdel(&dst);
+        }
+    }
+}
+
+int         add_point_h(t_list *point_h, char **lib)
+{
+    int     index;
+    char    *line;
+
+    index = -1;
+    ft_listadd(point_h, ft_strdup(""));
+    while (lib[++index])
+    {
+		if (ft_strcmp(lib[index], ".") != 0 && ft_strcmp(lib[index], "..") != 0)
+        {
+            line = ft_strmjoin("# include \"", lib[index] ,".h\"");
+            ft_listadd(point_h, line);
+        }
+    }
+    return (3);
+}
+
+void        write_header(t_list *point_h, char *path)
+{
+    char    *header;
+    char    *content;
+
+    header = ft_strjoin(path, "/includes/libft.h");
+    content = ft_listtostrd(point_h, "\n");
+    ft_filedel(header);
+	ft_write_file(header, content);
+    ft_putendl(content);
+    ft_strdel(&header);
+    ft_strdel(&content);
+}
+
+void        create_header(char **lib, int test, char *path)
+{
+    char    *header;
+    char    *content;
+    char    *ligne;
+    int     count;
+    int     status;
+    int     max;
+    t_list  *point_h;
+
+    if (test == 1)
+        header = ft_strdup("../includes/libft.h");
+    else
+        header = ft_strdup("includes/libft.h");
+    content = ft_get_file(header);
+	max = ft_count_char(content, '\n');
+	count = -1;
+    status = 0;
+    point_h = ft_listcreate();
+    while (++count < max)
+    {
+        ligne = ft_strgetline(content, count);
+        if (ft_strlen(ligne) < 3)
+            status++;
+        if (status < 2 || status > 3)
+            ft_listadd(point_h, (void*)ft_strdup(ligne));
+        else if (status == 2)
+            status = add_point_h(point_h, lib);
+        ft_strdel(&ligne);
+    }
+    write_header(point_h, path);
+    ft_listdel(point_h, ft_memdel);
+    ft_strdel(&header);
+    ft_strdel(&content);
 }
 
 void        traitement(t_list *files, char **lib, char *output, int test)
@@ -273,12 +390,12 @@ void        traitement(t_list *files, char **lib, char *output, int test)
     char    *path;
 	t_list	*list_makefile;
 
-    // Creation du rep
     path = create_dir(output, lib, test);
-    // Creer makefile
     list_makefile = create_makefile(files, path);
 	create_makefile_end(list_makefile, path, test);
-    // Creer libft.h
+    copy_src(files, test, path);
+    create_header(lib, test, path);
+    copy_header(lib, test, path);
     ft_strdel(&path);
 	ft_listdel(list_makefile, ft_memdel);
 }
