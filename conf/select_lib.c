@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/08/31 11:25:47 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/09/03 06:42:59 by ntrancha         ###   ########.fr       */
+/*   Updated: 2015/09/03 06:50:39 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -241,9 +241,9 @@ void		create_makefile_end(t_list *list, char *path, int test)
 	int		max;
 
 	if (test == 1)
-		tmp = ft_strdup("../Makefile");
+		tmp = ft_strdup("file/Makefile");
 	else
-		tmp = ft_strdup("Makefile");
+		tmp = ft_strdup("conf/file/Makefile");
 	content = ft_get_file(tmp);
 	makefile = ft_listcreate();
 	ft_strdel(&tmp);
