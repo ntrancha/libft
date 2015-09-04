@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/02 17:47:17 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/08/24 21:18:12 by ntrancha         ###   ########.fr       */
+/*   Updated: 2015/09/04 09:22:18 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,5 +57,6 @@ void    ft_dos_del(t_dos *list);
 char    ft_filetype(t_file *file);
 char    *ft_dinpath(char *pathfile);
 char    *ft_finpath(char *pathfile);
+int		ft_pathisdir(char *path);
 
 #endif
