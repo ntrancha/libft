@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/08/23 10:12:02 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/08/23 10:32:42 by ntrancha         ###   ########.fr       */
+/*   Updated: 2015/09/04 09:16:38 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,6 @@ char        *ft_finpath(char *pathfile)
         size--;
     if (size == (int)ft_strlen(pathfile) - 1)
         return (NULL);
-    ret = ft_strsub(pathfile, size + 1, ft_strlen(pathfile) - size + 1);
+    ret = ft_strsub(pathfile, size + 1, ft_strlen(pathfile) - size);
     return (ret);
 }
