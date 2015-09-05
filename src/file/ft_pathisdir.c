@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/09/04 08:45:07 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/09/05 05:04:33 by ntrancha         ###   ########.fr       */
+/*   Updated: 2015/09/05 05:42:31 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "../../includes/count.h"
 #include "../../includes/strings.h"
 
-static int  pathisdir_next(char **files, char *dos, char *tmp)
+static int  pathisdir_next(char **files, char *dos, char *tmp, char *path)
 {
 	int		count;
 	int		ret;
@@ -27,6 +27,14 @@ static int  pathisdir_next(char **files, char *dos, char *tmp)
 	ft_tabstrdel(files);
 	ft_strdel(&dos);
 	ft_strdel(&tmp);
+    if (ret == 1)
+    {
+        files = ft_getdirtab(path, NULL);
+        if (!files)
+            ret = 0;
+        else
+	        ft_tabstrdel(files);
+    }
     return (ret);
 }
 
@@ -60,5 +68,5 @@ int			ft_pathisdir(char *path)
         dos = ft_strdup(tmp);
     else
     	dos = ft_finpath(tmp);
-	return (pathisdir_next(files,dos, tmp));
+	return (pathisdir_next(files,dos, tmp, path));
 }
