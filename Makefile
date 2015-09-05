@@ -6,7 +6,7 @@
 #    By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/11/08 10:45:53 by ntrancha          #+#    #+#              #
-#    Updated: 2015/09/03 05:52:12 by ntrancha         ###   ########.fr        #
+#    Updated: 2015/09/05 04:32:29 by ntrancha         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -263,6 +263,7 @@ FILE =	src/mem/ft_memchr.c\
 		src/file/ft_dos_del.c\
 		src/file/ft_filetype.c\
 		src/file/ft_dinpath.c\
+		src/file/ft_pathisdir.c\
 		src/file/ft_finpath.c\
 		src/list/ft_listadd.c\
 		src/list/ft_listaddfirst.c\
