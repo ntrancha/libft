@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/09/05 11:25:33 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/09/05 11:54:40 by ntrancha         ###   ########.fr       */
+/*   Updated: 2015/09/05 12:07:09 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,16 @@ int         printf_type(char *format, t_list *list, va_list *ap, int count)
         return (1);
     index = 0;
     while (format[++index])
-    {
         if (format[index] == 'd')
         {
             ft_listadd(list, ft_itoa(va_arg(ap, int)));
             return (1);
         }
-    }
+        else if (format[index] == 's')
+        {
+            ft_listadd(list, va_arg(ap, char*));
+            return (1);
+        }
     return (0);
 }
 
@@ -54,18 +57,19 @@ int         ft_printf(char **str, char const *format, ...)
     *str = ft_listtostr(list);
     ft_listdel(list, ft_memdel);
     va_end(ap);
-    return (0);
+    return (ft_strlen(*str));
 }
 
 int         main(void)
 {
     char    *str;
-    int     coucou;
+    char    *coucou;
     int     coco;
 
-    coucou = -2;
+    coucou = ft_strdup("NK");
     coco = 42;
-    ft_printf(&str, "%dcoucou%d", coucou, coco);
+    ft_printf(&str, "%scoucou%d", coucou, coco);
     ft_putendl(str);
+    ft_strdel(&str);
     return (0);
 }
