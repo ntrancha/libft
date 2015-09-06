@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/02 17:42:48 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/08/23 21:24:58 by ntrancha         ###   ########.fr       */
+/*   Updated: 2015/09/06 04:14:07 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,5 +72,6 @@ char	*ft_strrvs(char *str);
 void	ft_strdoublon(char **str, char del);
 int		ft_strisnum(const char *str);
 char    *ft_strgetline(const char *str, int line);
+char    *ft_strf(char const *format, ...);
 
 #endif

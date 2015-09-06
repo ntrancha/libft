@@ -6,7 +6,7 @@
 #    By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/11/08 10:45:53 by ntrancha          #+#    #+#              #
-#    Updated: 2015/09/05 06:04:44 by ntrancha         ###   ########.fr        #
+#    Updated: 2015/09/06 04:14:21 by ntrancha         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -85,6 +85,7 @@ FILE =	src/mem/ft_memchr.c\
 		src/strings/ft_strdoublon.c\
 		src/strings/ft_strisnum.c\
 		src/strings/ft_strgetline.c\
+		src/strings/ft_strf.c\
 		src/test/ft_isdigit.c\
 		src/test/ft_isalpha.c\
 		src/test/ft_isalnum.c\
