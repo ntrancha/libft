@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/09/05 11:25:33 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/09/06 03:38:46 by ntrancha         ###   ########.fr       */
+/*   Updated: 2015/09/06 03:40:36 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,15 @@ int         printf_add(t_list *list, int ret, char *add)
 void        test(double n)
 {
     int     entier;
+    int     index;
     
     entier = (int)n;
-    ft_putnbr_endl(entier);
-    n -= (int)n; 
+    ft_putnbr(entier);
+    n -= (int)n;
+    index = 0;
+    while (index++ < 6)
+        n *= (double)10.0;
+    ft_putnbr((int)n);
 }
 
 
