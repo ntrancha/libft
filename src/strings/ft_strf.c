@@ -6,19 +6,23 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/09/05 11:25:33 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/09/06 10:44:28 by ntrancha         ###   ########.fr       */
+/*   Updated: 2015/09/06 11:37:14 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdarg.h>
 #include "../../includes/list.h"
+#include "../../includes/put.h"
 #include "../../includes/strings.h"
 #include "../../includes/convert.h"
 #include "../../includes/mem.h"
+#include "../../includes/math.h"
 
-static int  strf_add(t_list *list, int ret, char *add)
+static int  strf_add(t_list *list, int ret, char *add, t_point *point)
 {
     ft_listadd(list, (void*)add);
+    ft_putnbr_endl(point->x);
+    ft_putnbr_endl(point->y);
     return (ret);
 }
 
@@ -74,25 +78,24 @@ static int	strf_precis(char *format, int *precis, int *larg, va_list *ap)
 
 static int  strf_type(char *format, t_list *list, va_list *ap, int index)
 {
-	int		precis;
-	int		larg;
+    t_point *point;
 
-	precis = -1;
-	larg = -1;
+    point = ft_pointcreate(-1, -1);
     if (!(format && format[index++] == '%'))
         return (index);
     if (format[index] == '*' || format[index] == '.')
-		index += strf_precis(format, &precis, &larg, ap);
+		index += strf_precis(format, &(point->y), &(point->x), ap);
     else if (format[index] >= '0' && format[index] <= '9')
-		index += strf_precis(format, &precis, &larg, ap);
+		index += strf_precis(format, &(point->x), &(point->y), ap);
 	if (format[index] == 'd' || format[index] == 'i')
-        return (strf_add(list, index, ft_itoa(va_arg(ap, int))));
+        return (strf_add(list, index, ft_itoa(va_arg(ap, int)), point));
     else if (format[index] == 's')
-        return (strf_add(list, index, ft_strdup(va_arg(ap, char *))));
+        return (strf_add(list, index, ft_strdup(va_arg(ap, char *)), point));
     else if (format[index] == 'c')
-        return (strf_add(list, index, ft_ctos((char)va_arg(ap, int))));
+        return (strf_add(list, index, ft_ctos((char)va_arg(ap, int)), point));
     else if (format[index] == 'f')
         return (strf_float(list, index, (double)va_arg(ap, double)));
+    ft_memdel((void*)&point);
     return (0);
 }
 

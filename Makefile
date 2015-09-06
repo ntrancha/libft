@@ -6,7 +6,7 @@
 #    By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/11/08 10:45:53 by ntrancha          #+#    #+#              #
-#    Updated: 2015/09/06 04:14:21 by ntrancha         ###   ########.fr        #
+#    Updated: 2015/09/06 11:32:32 by ntrancha         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -113,6 +113,7 @@ FILE =	src/mem/ft_memchr.c\
 		src/math/ft_abs_double.c\
 		src/math/ft_neg_double.c\
 		src/math/ft_nbrcat.c\
+		src/math/ft_pointcreate.c\
 		src/bag/ft_bag_create.c\
 		src/bag/ft_bag_addvar.c\
 		src/bag/ft_bag_delvar.c\
