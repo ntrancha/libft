@@ -6,12 +6,18 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/09/05 11:25:33 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/09/05 22:02:12 by ntrancha         ###   ########.fr       */
+/*   Updated: 2015/09/06 02:45:44 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdarg.h>
 #include "includes/libft.h"
+
+int         printf_add(t_list *list, int ret, char *add)
+{
+    ft_listadd(list, (void*)add);
+    return (ret);
+}
 
 int         printf_type(char *format, t_list *list, va_list *ap, int count)
 {
@@ -22,15 +28,9 @@ int         printf_type(char *format, t_list *list, va_list *ap, int count)
     index = 0;
     while (format[++index])
         if (format[index] == 'd')
-        {
-            ft_listadd(list, ft_itoa(va_arg(ap, int)));
-            return (1);
-        }
+            return (printf_add(list, 1, ft_itoa(va_arg(ap, int))));
         else if (format[index] == 's')
-        {
-            ft_listadd(list, va_arg(ap, char*));
-            return (1);
-        }
+            return (printf_add(list, 1, ft_strdup(va_arg(ap, char *))));
     return (0);
 }
 
@@ -65,12 +65,17 @@ int         main(void)
 {
     char    *str;
     char    *coucou;
+    char    *coucou2;
     int     coco;
 
     coucou = ft_strdup("NK");
+    coucou2 = ft_strdup("-N-K-");
     coco = 42;
-    str = ft_printf("%scoucou%d", coucou, coco);
+    //str = ft_printf("coucou%d", coco);
+    str = ft_printf("%scoucou%d%s", coucou, coco, coucou2);
     ft_putendl(str);
     ft_strdel(&str);
+    ft_strdel(&coucou);
+    ft_strdel(&coucou2);
     return (0);
 }
