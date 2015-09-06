@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/09/05 11:25:33 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/09/06 10:33:39 by ntrancha         ###   ########.fr       */
+/*   Updated: 2015/09/06 10:44:28 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,20 +41,30 @@ static int  strf_float(t_list *list, int ret, double n)
     return (ret);
 }
 
-static int	strf_precis(char *format, int *precis, int *larg)
+static int	strf_precis(char *format, int *precis, int *larg, va_list *ap)
 {
 	int		index;
 
 	index = 0;
 	*precis = 0;
 	*larg = 0;
-	while (format[++index] && format[index] >= '0' && format[index] <= '9')
-		*larg += ((*larg) * 10) + format[index] - 48;
-	if (*larg == 0 && index == 1)
-		*larg = -1;
+	if (format[++index] && format[index] == '*' && index++)
+		*larg = va_arg(ap, int);
+	else
+	{
+		while (format[index] && format[index] >= '0' && format[index] <= '9')
+			*larg += ((*larg) * 10) + format[index++] - 48;
+		if (*larg == 0 && index == 1)
+			*larg = -1;
+	}
 	if (format[index] == '.')
-		while (format[++index] && format[index] >= '0' && format[index] <= '9')
-			*precis += ((*precis) * 10) + format[index] - 48;
+	{
+		if (format[++index] && format[index] == '*' && index++)
+			*precis = va_arg(ap, int);
+		else
+			while (format[index] && format[index] >= '0' && format[index] <= '9')
+				*precis += ((*precis) * 10) + format[index++] - 48;
+	}
 	else
 		*precis = -1;
 	ft_putnbr_endl(*larg);
@@ -72,9 +82,9 @@ static int  strf_type(char *format, t_list *list, va_list *ap, int index)
     if (!(format && format[index++] == '%'))
         return (index);
     if (format[index] == '*' || format[index] == '.')
-		index += strf_precis(format, &precis, &larg);
+		index += strf_precis(format, &precis, &larg, ap);
     else if (format[index] >= '0' && format[index] <= '9')
-		index += strf_precis(format, &precis, &larg);
+		index += strf_precis(format, &precis, &larg, ap);
 	if (format[index] == 'd' || format[index] == 'i')
         return (strf_add(list, index, ft_itoa(va_arg(ap, int))));
     else if (format[index] == 's')

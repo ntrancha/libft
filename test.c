@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/09/06 10:00:42 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/09/06 10:35:38 by ntrancha         ###   ########.fr       */
+/*   Updated: 2015/09/06 10:43:17 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,6 @@ int		main(void)
 	printf("%.2Lf \n", result);
 	printf("%*.*Lf \n", 8, 2, result);  /* equivalent a   %8.2Lf    */
 	printf("\n");                     /* affichage du caractère % */
-	ft_putendl(ft_strf("%2.4daze", nbre));
+	ft_putendl(ft_strf("%*.4daze", 2, nbre));
 	return 0;
 }
