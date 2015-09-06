@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/09/05 11:25:33 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/09/06 04:10:39 by ntrancha         ###   ########.fr       */
+/*   Updated: 2015/09/06 04:10:59 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,32 +80,4 @@ char        *ft_strf(char const *format, ...)
     ft_listdel(list, ft_memdel);
     va_end(ap);
     return (str);
-}
-
-int         main(void)
-{
-    char    *str;
-    char    *coucou;
-    char    *coucou2;
-    char    *format;
-    char    c;
-    int     coco;
-    float   un;
-    double  deux;
-
-    coucou = ft_strdup("NK");
-    coucou2 = ft_strdup("-N-K-");
-    format = ft_strdup("%c!%scoucou%i%s\n%f %f");
-    coco = 42;
-    c = 'Z';
-    un = 3.5;
-    deux = -10320.231232;
-    //str = ft_printf("coucou%d", coco);
-    str = ft_strf(format, c, coucou, coco, coucou2, un ,deux);
-    ft_putendl(str);
-    ft_strdel(&str);
-    ft_strdel(&coucou);
-    ft_strdel(&coucou2);
-    ft_strdel(&format);
-    return (0);
 }
