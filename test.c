@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/09/05 11:25:33 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/09/06 03:08:39 by ntrancha         ###   ########.fr       */
+/*   Updated: 2015/09/06 03:11:18 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,12 @@ int         printf_type(char *format, t_list *list, va_list *ap, int count)
     if (!(format && format[0] == '%'))
         return (1);
     index = 0;
-    while (format[++index])
-        if (format[index] == 'd')
-            return (printf_add(list, 1, ft_itoa(va_arg(ap, int))));
-        else if (format[index] == 's')
-            return (printf_add(list, 1, ft_strdup(va_arg(ap, char *))));
+    if (format[1] == 'd')
+        return (printf_add(list, 1, ft_itoa(va_arg(ap, int))));
+    else if (format[1] == 'i')
+        return (printf_add(list, 1, ft_itoa(va_arg(ap, int))));
+    else if (format[1] == 's')
+        return (printf_add(list, 1, ft_strdup(va_arg(ap, char *))));
     return (0);
 }
 
@@ -72,7 +73,7 @@ int         main(void)
 
     coucou = ft_strdup("NK");
     coucou2 = ft_strdup("-N-K-");
-    format = ft_strdup("%scoucou%d%s");
+    format = ft_strdup("%scoucou%i%s");
     coco = 42;
     //str = ft_printf("coucou%d", coco);
     str = ft_printf(format, coucou, coco, coucou2);
