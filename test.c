@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/09/05 11:25:33 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/09/06 03:53:51 by ntrancha         ###   ########.fr       */
+/*   Updated: 2015/09/06 04:04:08 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,13 @@
 #include <stdio.h>
 #include "includes/libft.h"
 
-int         printf_add(t_list *list, int ret, char *add)
+int         strf_add(t_list *list, int ret, char *add)
 {
     ft_listadd(list, (void*)add);
     return (ret);
 }
 
-int         printf_float(t_list *list, int ret, double n)
+int         strf_float(t_list *list, int ret, double n)
 {
     int     index;
     
@@ -40,7 +40,7 @@ int         printf_float(t_list *list, int ret, double n)
 }
 
 
-int         printf_type(char *format, t_list *list, va_list *ap, int count)
+int         strf_type(char *format, t_list *list, va_list *ap, int count)
 {
     int     index;
 
@@ -48,17 +48,17 @@ int         printf_type(char *format, t_list *list, va_list *ap, int count)
         return (1);
     index = 0;
     if (format[1] == 'd' || format[1] == 'i')
-        return (printf_add(list, 1, ft_itoa(va_arg(ap, int))));
+        return (strf_add(list, 1, ft_itoa(va_arg(ap, int))));
     else if (format[1] == 's')
-        return (printf_add(list, 1, ft_strdup(va_arg(ap, char *))));
+        return (strf_add(list, 1, ft_strdup(va_arg(ap, char *))));
     else if (format[1] == 'c')
-        return (printf_add(list, 1, ft_ctos((char)va_arg(ap, int))));
+        return (strf_add(list, 1, ft_ctos((char)va_arg(ap, int))));
     else if (format[1] == 'f')
-        return (printf_float(list, 1, (double)va_arg(ap, double)));
+        return (strf_float(list, 1, (double)va_arg(ap, double)));
     return (0);
 }
 
-char        *ft_printf(char const *format, ...)
+char        *ft_strf(char const *format, ...)
 {
     va_list ap;
     t_list  *list;
@@ -73,7 +73,7 @@ char        *ft_printf(char const *format, ...)
     {
         ret = 1;
         if (*format == '%')
-            ret += printf_type((char*)format, list, &ap, ++count);
+            ret += strf_type((char*)format, list, &ap, ++count);
         else
             ft_listadd(list, ft_ctos(*format));
         while (ret--)
@@ -104,7 +104,7 @@ int         main(void)
     un = 3.5;
     deux = -10320.231232;
     //str = ft_printf("coucou%d", coco);
-    str = ft_printf(format, c, coucou, coco, coucou2, un ,deux);
+    str = ft_strf(format, c, coucou, coco, coucou2, un ,deux);
     ft_putendl(str);
     printf("%f", deux);
     ft_strdel(&str);
