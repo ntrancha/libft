@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/09/05 11:25:33 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/09/06 03:40:36 by ntrancha         ###   ########.fr       */
+/*   Updated: 2015/09/06 03:53:51 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,18 +20,23 @@ int         printf_add(t_list *list, int ret, char *add)
     return (ret);
 }
 
-void        test(double n)
+int         printf_float(t_list *list, int ret, double n)
 {
-    int     entier;
     int     index;
     
-    entier = (int)n;
-    ft_putnbr(entier);
+    if (n < 0)
+    {
+        ft_listadd(list, (void*)ft_ctos('-'));
+        n *= (double)-1.0; 
+    }
+    ft_listadd(list, (void*)ft_itoa((int)n));
+    ft_listadd(list, (void*)ft_ctos('.'));
     n -= (int)n;
     index = 0;
     while (index++ < 6)
         n *= (double)10.0;
-    ft_putnbr((int)n);
+    ft_listadd(list, (void*)ft_itoa((int)n));
+    return (ret);
 }
 
 
@@ -49,7 +54,7 @@ int         printf_type(char *format, t_list *list, va_list *ap, int count)
     else if (format[1] == 'c')
         return (printf_add(list, 1, ft_ctos((char)va_arg(ap, int))));
     else if (format[1] == 'f')
-        test((double)va_arg(ap, double));
+        return (printf_float(list, 1, (double)va_arg(ap, double)));
     return (0);
 }
 
@@ -97,11 +102,11 @@ int         main(void)
     coco = 42;
     c = 'Z';
     un = 3.5;
-    deux = -.23;
+    deux = -10320.231232;
     //str = ft_printf("coucou%d", coco);
     str = ft_printf(format, c, coucou, coco, coucou2, un ,deux);
     ft_putendl(str);
-    //printf(format, coucou, c, coco, coucou2, un, deux);
+    printf("%f", deux);
     ft_strdel(&str);
     ft_strdel(&coucou);
     ft_strdel(&coucou2);
