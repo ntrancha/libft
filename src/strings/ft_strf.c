@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/09/05 11:25:33 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/09/06 11:37:14 by ntrancha         ###   ########.fr       */
+/*   Updated: 2015/09/06 13:45:53 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,12 @@
 
 static int  strf_add(t_list *list, int ret, char *add, t_point *point)
 {
+    int     size;
+
+    size = ft_strlen(add);
+    while (size++ < point->x)
+        ft_listadd(list, (void*)ft_strdup(" "));
     ft_listadd(list, (void*)add);
-    ft_putnbr_endl(point->x);
-    ft_putnbr_endl(point->y);
     return (ret);
 }
 
@@ -71,8 +74,6 @@ static int	strf_precis(char *format, int *precis, int *larg, va_list *ap)
 	}
 	else
 		*precis = -1;
-	ft_putnbr_endl(*larg);
-	ft_putnbr_endl(*precis);
 	return (--index);
 }
 
