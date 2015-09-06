@@ -6,11 +6,12 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/09/05 11:25:33 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/09/06 02:45:44 by ntrancha         ###   ########.fr       */
+/*   Updated: 2015/09/06 03:08:39 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdarg.h>
+#include <stdio.h>
 #include "includes/libft.h"
 
 int         printf_add(t_list *list, int ret, char *add)
@@ -66,16 +67,20 @@ int         main(void)
     char    *str;
     char    *coucou;
     char    *coucou2;
+    char    *format;
     int     coco;
 
     coucou = ft_strdup("NK");
     coucou2 = ft_strdup("-N-K-");
+    format = ft_strdup("%scoucou%d%s");
     coco = 42;
     //str = ft_printf("coucou%d", coco);
-    str = ft_printf("%scoucou%d%s", coucou, coco, coucou2);
+    str = ft_printf(format, coucou, coco, coucou2);
     ft_putendl(str);
+    printf(format, coucou, coco, coucou2);
     ft_strdel(&str);
     ft_strdel(&coucou);
     ft_strdel(&coucou2);
+    ft_strdel(&format);
     return (0);
 }
