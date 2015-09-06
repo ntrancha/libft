@@ -6,21 +6,20 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/09/05 11:25:33 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/09/06 04:04:08 by ntrancha         ###   ########.fr       */
+/*   Updated: 2015/09/06 04:10:39 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdarg.h>
-#include <stdio.h>
 #include "includes/libft.h"
 
-int         strf_add(t_list *list, int ret, char *add)
+static int  strf_add(t_list *list, int ret, char *add)
 {
     ft_listadd(list, (void*)add);
     return (ret);
 }
 
-int         strf_float(t_list *list, int ret, double n)
+static int  strf_float(t_list *list, int ret, double n)
 {
     int     index;
     
@@ -40,7 +39,7 @@ int         strf_float(t_list *list, int ret, double n)
 }
 
 
-int         strf_type(char *format, t_list *list, va_list *ap, int count)
+static int  strf_type(char *format, t_list *list, va_list *ap)
 {
     int     index;
 
@@ -64,16 +63,14 @@ char        *ft_strf(char const *format, ...)
     t_list  *list;
     char    *str;
     int     ret;
-    int     count;
 
-    count = 0;
     list = ft_listcreate();
     va_start(ap, format);
     while (*format != 0)
     {
         ret = 1;
         if (*format == '%')
-            ret += strf_type((char*)format, list, &ap, ++count);
+            ret += strf_type((char*)format, list, &ap);
         else
             ft_listadd(list, ft_ctos(*format));
         while (ret--)
@@ -106,7 +103,6 @@ int         main(void)
     //str = ft_printf("coucou%d", coco);
     str = ft_strf(format, c, coucou, coco, coucou2, un ,deux);
     ft_putendl(str);
-    printf("%f", deux);
     ft_strdel(&str);
     ft_strdel(&coucou);
     ft_strdel(&coucou2);
