@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/09/05 11:25:33 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/09/06 04:18:10 by ntrancha         ###   ########.fr       */
+/*   Updated: 2015/09/06 10:33:39 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,19 +41,48 @@ static int  strf_float(t_list *list, int ret, double n)
     return (ret);
 }
 
-
-static int  strf_type(char *format, t_list *list, va_list *ap)
+static int	strf_precis(char *format, int *precis, int *larg)
 {
-    if (!(format && format[0] == '%'))
-        return (1);
-    if (format[1] == 'd' || format[1] == 'i')
-        return (strf_add(list, 1, ft_itoa(va_arg(ap, int))));
-    else if (format[1] == 's')
-        return (strf_add(list, 1, ft_strdup(va_arg(ap, char *))));
-    else if (format[1] == 'c')
-        return (strf_add(list, 1, ft_ctos((char)va_arg(ap, int))));
-    else if (format[1] == 'f')
-        return (strf_float(list, 1, (double)va_arg(ap, double)));
+	int		index;
+
+	index = 0;
+	*precis = 0;
+	*larg = 0;
+	while (format[++index] && format[index] >= '0' && format[index] <= '9')
+		*larg += ((*larg) * 10) + format[index] - 48;
+	if (*larg == 0 && index == 1)
+		*larg = -1;
+	if (format[index] == '.')
+		while (format[++index] && format[index] >= '0' && format[index] <= '9')
+			*precis += ((*precis) * 10) + format[index] - 48;
+	else
+		*precis = -1;
+	ft_putnbr_endl(*larg);
+	ft_putnbr_endl(*precis);
+	return (--index);
+}
+
+static int  strf_type(char *format, t_list *list, va_list *ap, int index)
+{
+	int		precis;
+	int		larg;
+
+	precis = -1;
+	larg = -1;
+    if (!(format && format[index++] == '%'))
+        return (index);
+    if (format[index] == '*' || format[index] == '.')
+		index += strf_precis(format, &precis, &larg);
+    else if (format[index] >= '0' && format[index] <= '9')
+		index += strf_precis(format, &precis, &larg);
+	if (format[index] == 'd' || format[index] == 'i')
+        return (strf_add(list, index, ft_itoa(va_arg(ap, int))));
+    else if (format[index] == 's')
+        return (strf_add(list, index, ft_strdup(va_arg(ap, char *))));
+    else if (format[index] == 'c')
+        return (strf_add(list, index, ft_ctos((char)va_arg(ap, int))));
+    else if (format[index] == 'f')
+        return (strf_float(list, index, (double)va_arg(ap, double)));
     return (0);
 }
 
@@ -70,7 +99,7 @@ char        *ft_strf(char const *format, ...)
     while (format[++index])
     {
         if (format[index] == '%')
-            index += strf_type((char*)format, list, &ap);
+            index += strf_type((char*)format, list, &ap, 0);
         else
             ft_listadd(list, ft_ctos(format[index]));
     }
