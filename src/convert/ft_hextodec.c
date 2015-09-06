@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test.c                                             :+:      :+:    :+:   */
+/*   ft_hextodec.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/09/06 06:45:13 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/09/06 06:58:35 by ntrancha         ###   ########.fr       */
+/*   Updated: 2015/09/06 06:59:39 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/libft.h"
+#include "../../includes/libft.h"
 
 int		convert_hexa(char c)
 {
@@ -35,10 +35,4 @@ int		ft_hextodec(char *hex)
 		else
 			ret += convert_hexa(hex[size]) * ft_power(16, power++);
 	return (ret);
-}
-
-int		main(void)
-{
-	ft_putnbr_endl(ft_hextodec("-3E8"));
-	return (0);
 }

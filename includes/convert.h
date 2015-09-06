@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/02 17:33:25 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/01/02 17:33:25 by ntrancha         ###   ########.fr       */
+/*   Updated: 2015/09/06 07:00:32 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ int		ft_ftoi(float n);
 int		ft_dtoi(double n);
 int		ft_dectobin(int dec);
 int		ft_bintodec(int bin);
+char	*ft_dectohex(int dec);
+int		ft_hextodec(char *hex);
 long	ft_atol(const char *str);
 long	ft_itol(int n);
 long	ft_dtol(double n);

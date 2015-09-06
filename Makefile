@@ -217,7 +217,9 @@ FILE =	src/mem/ft_memchr.c\
 		src/convert/ft_ftoi.c\
 		src/convert/ft_dtoi.c\
 		src/convert/ft_dectobin.c\
+		src/convert/ft_dectohex.c\
 		src/convert/ft_bintodec.c\
+		src/convert/ft_hextodec.c\
 		src/convert/ft_atol.c\
 		src/convert/ft_itol.c\
 		src/convert/ft_dtol.c\
