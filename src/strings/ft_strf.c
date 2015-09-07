@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/09/05 11:25:33 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/09/06 13:45:53 by ntrancha         ###   ########.fr       */
+/*   Updated: 2015/09/06 21:04:55 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,16 @@ static int  strf_add(t_list *list, int ret, char *add, t_point *point)
 {
     int     size;
 
-    size = ft_strlen(add);
-    while (size++ < point->x)
-        ft_listadd(list, (void*)ft_strdup(" "));
+    if (ft_strisnum(add))
+    {
+        ft_putendl("num");
+        if (ft_strcchr(add, ".") == 1)
+            ft_putendl("virgule");
+        size = ft_strlen(add);
+        while (size++ < point->x)
+            ft_listadd(list, (void*)ft_strdup(" "));
+    }
+    ft_putendl("null");
     ft_listadd(list, (void*)add);
     return (ret);
 }
