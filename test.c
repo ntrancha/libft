@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/09/06 10:00:42 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/09/08 07:17:26 by ntrancha         ###   ########.fr       */
+/*   Updated: 2015/09/08 14:41:23 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,23 @@ t_octet					ft_bitsgetoctet(t_mem *memory, int octet);
 t_octet					*ft_bitsgetaddr(t_mem *memory, int octet);
 
 
+int			ft_strisoctet(char *str)
+{
+	int		index;
+	int		test;
+	int		size;
+
+	index = -1;
+	size = 0;
+	while (str && str[++index] && size < 9)
+		if (str[index] == '0' || str[index] == '1')
+			size++;
+		else
+			return (0);
+	if (size != 8)
+		return (0);
+	return (1);
+}
 
 int			ft_bitsmodifbit(t_mem *memory, int octet, int bit, int value)
 {
@@ -99,6 +116,9 @@ int		main(void)
 	ft_bitsmodifbit(mem, 0, 5, 1);
 	ft_bitsmodifbit(mem, 0, 6, 0);
 	ft_bitsmodifbit(mem, 0, 7, 0);
+	ft_putnbr_endl(ft_strisoctet("01010101"));
+	ft_putnbr_endl(ft_strisoctet("01020101"));
+	ft_putnbr_endl(ft_strisoctet("010110101"));
 	ft_putendl(mem->memory);
 	ft_strdel(&str);
 	ft_bitsdel(mem);
