@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/09/06 10:00:42 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/09/09 03:07:46 by ntrancha         ###   ########.fr       */
+/*   Updated: 2015/09/09 03:18:47 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,25 +26,6 @@ t_mem					*ft_bitscreate(void *memory, size_t octet);
 t_mem					*ft_bitsdel(t_mem *memory);
 t_octet					ft_bitsgetoctet(t_mem *memory, int octet);
 t_octet					*ft_bitsgetaddr(t_mem *memory, int octet);
-
-
-int			ft_strisoctet(char *str)
-{
-	int		index;
-	int		test;
-	int		size;
-
-	index = -1;
-	size = 0;
-	while (str && str[++index] && size < 9)
-		if (str[index] == '0' || str[index] == '1')
-			size++;
-		else
-			return (0);
-	if (size != 8)
-		return (0);
-	return (1);
-}
 
 int			ft_bitssetbit(t_mem *memory, int octet, int bit, int value)
 {
