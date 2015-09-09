@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/09/06 10:00:42 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/09/09 05:06:49 by ntrancha         ###   ########.fr       */
+/*   Updated: 2015/09/09 05:57:42 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ t_bits					*ft_bitscreate(void *memory, size_t octet);
 t_bits					*ft_bitsdel(t_bits *memory);
 t_octet					ft_bitsgetoctet(t_bits *memory, int octet);
 t_octet					*ft_bitsgetaddr(t_bits *memory, int octet);
+t_octet		            ft_bitssetoctet(t_bits *memory, int n_octet, t_bin octet)
+int			            ft_bitssetbit(t_bits *memory, int octet, int bit, int value)
 
 int			ft_bitssetbit(t_bits *memory, int octet, int bit, int value)
 {
