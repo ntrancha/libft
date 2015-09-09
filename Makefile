@@ -411,7 +411,7 @@ binaire:
 	@if [ -f '$(NAME)' ]; then \
    	    echo "$(NAME) exists"; \
 	else \
-		echo "$(shell echo $(OBJS) | wc -w) files (Flags: $(FLAG)) on $(OS) $(SYS)"; \
+		echo "$(shell find src/ -type f -print | grep .c$ | wc -l) files (Flags: $(FLAG)) on $(OS) $(SYS)"; \
 		cat $(HEADER) | sed -e "s/OS_UNKNOW/$(OS)/g" > $(HEADER).nk; \
 		mv $(HEADER).nk $(HEADER); \
 		cat $(HEADER) | sed -e "s/SYS_UNKNOW/$(SYS)/g" > $(HEADER).nk; \
