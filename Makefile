@@ -6,7 +6,7 @@
 #    By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/11/08 10:45:53 by ntrancha          #+#    #+#              #
-#    Updated: 2015/09/09 03:19:08 by ntrancha         ###   ########.fr        #
+#    Updated: 2015/09/09 05:02:46 by ntrancha         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -221,6 +221,7 @@ FILE =	src/mem/ft_memchr.c\
 		src/convert/ft_dectobin.c\
 		src/convert/ft_dectohex.c\
 		src/convert/ft_bintodec.c\
+		src/convert/ft_sbintocdec.c\
 		src/convert/ft_hextodec.c\
 		src/convert/ft_atol.c\
 		src/convert/ft_itol.c\
