@@ -1,30 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test.c                                             :+:      :+:    :+:   */
+/*   ft_bitssetbit.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/09/06 10:00:42 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/09/09 06:42:45 by ntrancha         ###   ########.fr       */
+/*   Created: 2015/09/09 06:42:19 by ntrancha          #+#    #+#             */
+/*   Updated: 2015/09/09 06:42:40 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/libft.h"
+#include "../../includes/bits.h"
 
-int		main(void)
+int			ft_bitssetbit(t_bits *memory, int octet, int bit, int value)
 {
-	t_bits	*mem;
-	char	*str;
-	size_t	size;
-
-	str = ft_strdup("Nk42");
-	size = sizeof(str);
-	mem = ft_bitscreate((void*)str, ft_strlen(str));
-    ft_bitssetoctet(mem, 0, ft_sbintocdec("111000"));
-    ft_bitssetoctet(mem, 1, 'a');
-    ft_bitssetoctet(mem, 2, 'a');
-	ft_putendl(mem->memory);
-	ft_strdel(&str);
-	ft_bitsdel(mem);
+	if (ft_bitsgetoctet(memory, octet) == 0 || bit > 7)
+		return (-1);
+	if (value == 0)
+		memory->memory[octet] &= ~(1 << bit);
+	else
+		memory->memory[octet] |= (1 << bit);
+	return (value);
 }

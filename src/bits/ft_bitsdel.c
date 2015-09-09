@@ -1,30 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test.c                                             :+:      :+:    :+:   */
+/*   ft_bitsdel.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/09/06 10:00:42 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/09/09 06:42:45 by ntrancha         ###   ########.fr       */
+/*   Created: 2015/09/09 06:39:13 by ntrancha          #+#    #+#             */
+/*   Updated: 2015/09/09 06:39:32 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/libft.h"
+#include "../../includes/mem.h"
+#include "../../includes/bits.h"
 
-int		main(void)
+t_bits		*ft_bitsdel(t_bits *memory)
 {
-	t_bits	*mem;
-	char	*str;
-	size_t	size;
-
-	str = ft_strdup("Nk42");
-	size = sizeof(str);
-	mem = ft_bitscreate((void*)str, ft_strlen(str));
-    ft_bitssetoctet(mem, 0, ft_sbintocdec("111000"));
-    ft_bitssetoctet(mem, 1, 'a');
-    ft_bitssetoctet(mem, 2, 'a');
-	ft_putendl(mem->memory);
-	ft_strdel(&str);
-	ft_bitsdel(mem);
+	ft_memdel((void*)&(memory->memory));
+	ft_memdel((void*)&memory);
+	return (NULL);
 }
+

@@ -38,6 +38,12 @@ FILE =	src/mem/ft_memchr.c\
 		src/mem/ft_memalloc.c\
 		src/mem/ft_memdel.c\
 		src/mem/ft_memcmp.c\
+		src/bits/ft_bitscreate.c\
+		src/bits/ft_bitsdel.c\
+		src/bits/ft_bitsgetoctet.c\
+		src/bits/ft_bitsgetaddr.c\
+		src/bits/ft_bitssetoctet.c\
+		src/bits/ft_bitssetbit.c\
 		src/strings/ft_strequ.c\
 		src/strings/ft_strnequ.c\
 		src/strings/ft_strcmp.c\

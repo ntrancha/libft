@@ -1,30 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test.c                                             :+:      :+:    :+:   */
+/*   ft_bitscreate.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/09/06 10:00:42 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/09/09 06:42:45 by ntrancha         ###   ########.fr       */
+/*   Created: 2015/09/09 06:36:33 by ntrancha          #+#    #+#             */
+/*   Updated: 2015/09/09 06:38:47 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/libft.h"
+#include "../../includes/mem.h"
+#include "../../includes/bits.h"
 
-int		main(void)
+t_bits		*ft_bitscreate(void *memory, size_t octet)
 {
 	t_bits	*mem;
-	char	*str;
-	size_t	size;
 
-	str = ft_strdup("Nk42");
-	size = sizeof(str);
-	mem = ft_bitscreate((void*)str, ft_strlen(str));
-    ft_bitssetoctet(mem, 0, ft_sbintocdec("111000"));
-    ft_bitssetoctet(mem, 1, 'a');
-    ft_bitssetoctet(mem, 2, 'a');
-	ft_putendl(mem->memory);
-	ft_strdel(&str);
-	ft_bitsdel(mem);
+	mem = ft_memalloc(sizeof(t_bits));
+	if (!mem)
+		return (NULL);
+	if (!memory)
+	{
+		mem->memory = NULL;
+		mem->octet = 0;
+	}
+	else
+	{
+		mem->memory = ft_memalloc(octet + 1);
+	   	ft_memcpy(mem->memory, memory, octet);
+		mem->memory[octet] = 0;
+		mem->octet = octet;
+	}
+	return (mem);
 }
