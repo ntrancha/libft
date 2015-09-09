@@ -6,12 +6,13 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/09/06 10:00:42 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/09/08 14:41:23 by ntrancha         ###   ########.fr       */
+/*   Updated: 2015/09/09 03:07:46 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/libft.h"
 
+typedef unsigned char	t_bin;
 typedef unsigned char	t_octet;
 typedef _Bool			t_bit;
 
@@ -45,7 +46,7 @@ int			ft_strisoctet(char *str)
 	return (1);
 }
 
-int			ft_bitsmodifbit(t_mem *memory, int octet, int bit, int value)
+int			ft_bitssetbit(t_mem *memory, int octet, int bit, int value)
 {
 	if (ft_bitsgetoctet(memory, octet) == 0 || bit > 7)
 		return (-1);
@@ -61,6 +62,11 @@ t_octet		*ft_bitsgetaddr(t_mem *memory, int octet)
 	if (octet < ft_strlen(memory->memory))
 		return (&memory->memory[octet]);
 	return (0);
+}
+
+t_octet		ft_bitssetoctet(t_mem *memory, int n_octet, t_octet octet)
+{
+	
 }
 
 t_octet		ft_bitsgetoctet(t_mem *memory, int octet)
@@ -108,17 +114,6 @@ int		main(void)
 	str = ft_strdup("Nk42");
 	size = sizeof(str);
 	mem = ft_bitscreate((void*)str, ft_strlen(str));
-	ft_bitsmodifbit(mem, 0, 0, 0);
-	ft_bitsmodifbit(mem, 0, 1, 1);
-	ft_bitsmodifbit(mem, 0, 2, 0);
-	ft_bitsmodifbit(mem, 0, 3, 1);
-	ft_bitsmodifbit(mem, 0, 4, 0);
-	ft_bitsmodifbit(mem, 0, 5, 1);
-	ft_bitsmodifbit(mem, 0, 6, 0);
-	ft_bitsmodifbit(mem, 0, 7, 0);
-	ft_putnbr_endl(ft_strisoctet("01010101"));
-	ft_putnbr_endl(ft_strisoctet("01020101"));
-	ft_putnbr_endl(ft_strisoctet("010110101"));
 	ft_putendl(mem->memory);
 	ft_strdel(&str);
 	ft_bitsdel(mem);
