@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/09/06 10:00:42 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/09/09 06:42:45 by ntrancha         ###   ########.fr       */
+/*   Updated: 2015/09/10 21:43:50 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ int		main(void)
 	mem = ft_bitscreate((void*)str, ft_strlen(str));
     ft_bitssetoctet(mem, 0, ft_sbintocdec("111000"));
     ft_bitssetoctet(mem, 1, 'a');
-    ft_bitssetoctet(mem, 2, 'a');
 	ft_putendl(mem->memory);
 	ft_strdel(&str);
 	ft_bitsdel(mem);
