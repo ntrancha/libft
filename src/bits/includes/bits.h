@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/09/09 06:32:25 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/09/11 11:05:32 by ntrancha         ###   ########.fr       */
+/*   Updated: 2015/09/11 11:25:16 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ t_octet		ft_bitssetoctet(t_bits *memory, int n_octet, t_octet octet);
 int	    	ft_bitssetbit(t_bits *memory, int octet, int bit, int value);
 
 int			ft_octetgetbit(t_octet a, int bit);
-int			ft_octetsetbit(t_octet a, int bit, int value);
+t_octet		ft_octetsetbit(t_octet a, int bit, int value);
 t_octet		ft_octet_or(t_octet a, t_octet b);
 t_octet		ft_octet_xor(t_octet a, t_octet b);
 t_octet		ft_octet_and(t_octet a, t_octet b);
