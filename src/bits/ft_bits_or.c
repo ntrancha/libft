@@ -6,13 +6,13 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/09/11 08:55:13 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/09/11 09:02:23 by ntrancha         ###   ########.fr       */
+/*   Updated: 2015/09/11 09:41:58 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/libft.h"
 
-t_octet     ft_bits_not(t_octet a)
+t_bin     ft_bits_not(t_bin a)
 {
     return (~a);
 }

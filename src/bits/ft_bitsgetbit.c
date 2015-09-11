@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bits_xor.c                                      :+:      :+:    :+:   */
+/*   ft_bitsgetbit.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/09/11 08:55:13 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/09/11 09:42:25 by ntrancha         ###   ########.fr       */
+/*   Created: 2015/09/11 09:18:31 by ntrancha          #+#    #+#             */
+/*   Updated: 2015/09/11 09:42:59 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/libft.h"
 
-t_bin     ft_bits_xor(t_bin a, t_bin b)
+int ft_bitsgetbit(t_bin a, int bit)
 {
-    return (a ^ b);
+    return ((a & (1 << bit)) ? 1 : 0);
 }

@@ -6,13 +6,13 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/09/11 09:06:24 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/09/11 09:09:25 by ntrancha         ###   ########.fr       */
+/*   Updated: 2015/09/11 09:42:10 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/libft.h"
 
-t_octet     ft_bits_shl(t_octet a, int shl)
+t_bin     ft_bits_shl(t_bin a, int shl)
 {
     if (shl < 1 || shl > 7)
         return (0);

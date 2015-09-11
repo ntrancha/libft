@@ -6,13 +6,13 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/09/11 08:55:13 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/09/11 09:04:31 by ntrancha         ###   ########.fr       */
+/*   Updated: 2015/09/11 09:41:48 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/libft.h"
 
-t_octet     ft_bits_and(t_octet a, t_octet b)
+t_bin     ft_bits_and(t_bin a, t_bin b)
 {
     return (a & b);
 }
