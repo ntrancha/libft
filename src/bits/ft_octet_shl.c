@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/09/11 09:06:24 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/09/11 10:54:58 by ntrancha         ###   ########.fr       */
+/*   Updated: 2015/09/11 18:20:41 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,5 +16,5 @@ t_octet     ft_octet_shl(t_octet a, int shl)
 {
     if (shl < 1 || shl > 7)
         return (0);
-    return (a >> shl);
+    return (a << shl);
 }
