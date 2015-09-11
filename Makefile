@@ -6,7 +6,7 @@
 #    By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/11/08 10:45:53 by ntrancha          #+#    #+#              #
-#    Updated: 2015/09/09 05:02:46 by ntrancha         ###   ########.fr        #
+#    Updated: 2015/09/11 09:09:59 by ntrancha         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,6 +44,12 @@ FILE =	src/mem/ft_memchr.c\
 		src/bits/ft_bitsgetaddr.c\
 		src/bits/ft_bitssetoctet.c\
 		src/bits/ft_bitssetbit.c\
+		src/bits/ft_bits_or.c\
+		src/bits/ft_bits_xor.c\
+		src/bits/ft_bits_not.c\
+		src/bits/ft_bits_and.c\
+		src/bits/ft_bits_shr.c\
+		src/bits/ft_bits_shl.c\
 		src/strings/ft_strequ.c\
 		src/strings/ft_strnequ.c\
 		src/strings/ft_strcmp.c\
