@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/09/06 10:00:42 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/09/11 18:19:34 by ntrancha         ###   ########.fr       */
+/*   Updated: 2015/09/11 18:28:25 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,10 @@ int		test(int num)
 	a = (t_octet) num;
     ft_putoctet(a);
 	ft_putendl("");
-	b = ft_octet_shr(a, 1);
+	b = ft_octet_ror(a, 4);
     ft_putoctet(b);
 	ft_putendl("");
-	b = ft_octet_shl(a, 1);
+	b = ft_octet_rol(a, 4);
     ft_putoctet(b);
 	ft_putendl("");
 }

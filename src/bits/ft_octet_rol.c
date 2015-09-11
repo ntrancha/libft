@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/09/11 09:15:18 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/09/11 11:08:02 by ntrancha         ###   ########.fr       */
+/*   Updated: 2015/09/11 18:24:30 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ t_octet     ft_octet_rol(t_octet a, int rol)
 
 	tmp = ft_octetgetbit(a, 7);
 	a = ft_octet_shl(a, 1);
-	ft_octetsetbit(a, 0, tmp);
+	a = ft_octetsetbit(a, 0, tmp);
 	if (rol == 1)
 		return (a);
 	return (ft_octet_rol(a, --rol));
