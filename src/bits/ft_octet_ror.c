@@ -1,24 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bitssetbit.c                                    :+:      :+:    :+:   */
+/*   ft_octet_ror.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/09/09 06:42:19 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/09/11 10:46:59 by ntrancha         ###   ########.fr       */
+/*   Created: 2015/09/11 09:15:18 by ntrancha          #+#    #+#             */
+/*   Updated: 2015/09/11 11:08:20 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/bits.h"
+#include "../../includes/libft.h"
 
-int			ft_bitssetbit(t_bits *memory, int octet, int bit, int value)
+t_octet     ft_octet_ror(t_octet a, int ror)
 {
-	if (ft_bitsgetoctet(memory, octet) == 0 || bit > 7)
-		return (-1);
-	if (value == 0)
-		memory->memory[octet] &= ~(1 << bit);
-	else
-		memory->memory[octet] |= (1 << bit);
-	return (value);
+    int     tmp;
+
+	tmp = ft_octetgetbit(a, 0);
+	a = ft_octet_shr(a, 1);
+	ft_octetsetbit(a, 7, tmp);
+	if (ror == 1)
+		return (a);
+	return (ft_octet_ror(a, --ror));
 }

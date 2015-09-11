@@ -42,15 +42,18 @@ FILE =	src/mem/ft_memchr.c\
 		src/bits/ft_bitsdel.c\
 		src/bits/ft_bitsgetoctet.c\
 		src/bits/ft_bitsgetaddr.c\
-		src/bits/ft_bitsgetbit.c\
 		src/bits/ft_bitssetoctet.c\
 		src/bits/ft_bitssetbit.c\
-		src/bits/ft_bits_or.c\
-		src/bits/ft_bits_xor.c\
-		src/bits/ft_bits_not.c\
-		src/bits/ft_bits_and.c\
-		src/bits/ft_bits_shr.c\
-		src/bits/ft_bits_shl.c\
+		src/bits/ft_octetgetbit.c\
+		src/bits/ft_octetsetbit.c\
+		src/bits/ft_octet_or.c\
+		src/bits/ft_octet_xor.c\
+		src/bits/ft_octet_not.c\
+		src/bits/ft_octet_and.c\
+		src/bits/ft_octet_shr.c\
+		src/bits/ft_octet_shl.c\
+		src/bits/ft_octet_rol.c\
+		src/bits/ft_octet_ror.c\
 		src/strings/ft_strequ.c\
 		src/strings/ft_strnequ.c\
 		src/strings/ft_strcmp.c\
