@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/09/12 11:07:26 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/09/12 11:45:07 by ntrancha         ###   ########.fr       */
+/*   Updated: 2015/09/12 12:31:53 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,6 @@ void        addstr(char *a, char *b, char *ret)
     index = ft_strlen(a);
     index2 = ft_strlen(ret);
     retenu = 0;
-    ft_putendl(a);
-    ft_putendl(b);
     while (--index >= 0)
     {
         result = num(a[index]) + num(b[index]) + retenu;
