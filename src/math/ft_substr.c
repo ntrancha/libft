@@ -6,13 +6,13 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/09/12 11:07:26 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/09/12 11:49:48 by ntrancha         ###   ########.fr       */
+/*   Updated: 2015/09/12 12:53:19 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/libft.h"
 
-int         strlennum(char *str)
+static int  strlennum(char *str)
 {
     int     ret;
 
@@ -22,12 +22,12 @@ int         strlennum(char *str)
     return (ret);
 }
 
-int         num(char c)
+static int  num(char c)
 {
     return (c - 48);
 }
 
-void        substr(char *a, char *b, char *ret)
+static void substr(char *a, char *b, char *ret)
 {
     int     index;
     int     index2;

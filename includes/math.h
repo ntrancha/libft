@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/02 17:30:11 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/09/12 11:50:38 by ntrancha         ###   ########.fr       */
+/*   Updated: 2015/09/12 12:50:22 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,5 +45,6 @@ t_point     *ft_pointcreate(int x, int y);
 char        *ft_sintaddint(char *num, int add); 
 char        *ft_addstr(char *a, char *b);
 char        *ft_substr(char *a, char *b);
+char        *ft_addsubstr(char *a, char *b, int op);
 
 #endif

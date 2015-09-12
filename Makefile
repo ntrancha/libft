@@ -6,7 +6,7 @@
 #    By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/11/08 10:45:53 by ntrancha          #+#    #+#              #
-#    Updated: 2015/09/12 11:50:04 by ntrancha         ###   ########.fr        #
+#    Updated: 2015/09/12 12:50:44 by ntrancha         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -138,6 +138,7 @@ FILE =	src/mem/ft_memchr.c\
 		src/math/ft_sintaddint.c\
 		src/math/ft_addstr.c\
 		src/math/ft_substr.c\
+		src/math/ft_addsubstr.c\
 		src/bag/ft_bag_create.c\
 		src/bag/ft_bag_addvar.c\
 		src/bag/ft_bag_delvar.c\
