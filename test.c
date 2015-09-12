@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/09/06 10:00:42 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/09/12 12:56:33 by ntrancha         ###   ########.fr       */
+/*   Updated: 2015/09/12 14:13:03 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +39,9 @@ int		main(void)
     t_bits *mem;
     t_bits *mem2;
 
-    str = ft_strdup("-6");
-    str2 = ft_strdup("4");
-    ft_putendl(ft_addsubstr(str, str2, 1));
+    str = ft_strdup("-5");
+    str2 = ft_strdup("3");
+    ft_putendl(ft_addsubstr(str, str2, -1));
     return (-1);
     ft_putnbr_endl(sizeof(int));
     ft_putnbr_endl(sizeof(long long));
