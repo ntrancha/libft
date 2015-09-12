@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/09/06 10:00:42 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/09/12 09:50:01 by ntrancha         ###   ########.fr       */
+/*   Updated: 2015/09/12 11:45:47 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,12 +33,16 @@ int		main(void)
 {
 	int	num;
     char *str;
+    char *str2;
     long test;
 	long long a;
     t_bits *mem;
     t_bits *mem2;
 
-    //str = ft_strdup("test");
+    str = ft_strdup("9299999213123");
+    str2 = ft_strdup("783645832749");
+    ft_putendl(ft_addstr(str, str2));
+    return (-1);
     ft_putnbr_endl(sizeof(int));
     ft_putnbr_endl(sizeof(long long));
     test = 87198236714123;
@@ -48,6 +52,7 @@ int		main(void)
     mem2 = ft_bitscreate((void*)&a, sizeof(long long));
 	ft_putendl("");
     a = ft_bitsvalue(mem2);
+    ft_strdel(&str);
     ft_bitsdel(mem);
     ft_bitsdel(mem2);
 }

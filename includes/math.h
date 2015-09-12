@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/02 17:30:11 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/09/06 11:32:00 by ntrancha         ###   ########.fr       */
+/*   Updated: 2015/09/12 11:50:38 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,5 +42,8 @@ double  	ft_abs_double(double n);
 double  	ft_neg_double(int nbr);
 int	    	ft_nbrcat(int nbr, int nbr2);
 t_point     *ft_pointcreate(int x, int y);
+char        *ft_sintaddint(char *num, int add); 
+char        *ft_addstr(char *a, char *b);
+char        *ft_substr(char *a, char *b);
 
 #endif
