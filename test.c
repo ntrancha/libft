@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/09/06 10:00:42 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/09/12 09:09:18 by ntrancha         ###   ########.fr       */
+/*   Updated: 2015/09/12 09:50:01 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,4 @@ int		main(void)
     a = ft_bitsvalue(mem2);
     ft_bitsdel(mem);
     ft_bitsdel(mem2);
-	//while (num++ < 9)
-		//test(num);
 }
