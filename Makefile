@@ -45,6 +45,7 @@ FILE =	src/mem/ft_memchr.c\
 		src/bits/ft_bitsgetaddr.c\
 		src/bits/ft_bitssetoctet.c\
 		src/bits/ft_bitssetbit.c\
+		src/bits/ft_octetvalue.c\
 		src/bits/ft_octetgetbit.c\
 		src/bits/ft_octetsetbit.c\
 		src/bits/ft_octet_or.c\
