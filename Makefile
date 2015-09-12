@@ -6,7 +6,7 @@
 #    By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/11/08 10:45:53 by ntrancha          #+#    #+#              #
-#    Updated: 2015/09/11 18:07:54 by ntrancha         ###   ########.fr        #
+#    Updated: 2015/09/12 08:23:32 by ntrancha         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -177,6 +177,7 @@ FILE =	src/mem/ft_memchr.c\
 		src/put/ft_putnbr_endl.c\
 		src/put/ft_putfloat.c\
 		src/put/ft_putlong.c\
+		src/put/ft_putbits.c\
 		src/put/ft_putoctet.c\
 		src/put/ft_putoctets.c\
 		src/put/ft_putdouble.c\
