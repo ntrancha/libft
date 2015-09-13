@@ -178,6 +178,7 @@ FILE =	src/mem/ft_memchr.c\
 		src/put/ft_putchar_fd.c\
 		src/put/ft_putstr_fd.c\
 		src/put/ft_putendl_fd.c\
+		src/put/ft_putaddr.c\
 		src/put/ft_putchar.c\
 		src/put/ft_putstr.c\
 		src/put/ft_putendl.c\

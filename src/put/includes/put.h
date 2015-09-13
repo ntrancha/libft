@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/02 17:32:13 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/09/12 08:13:41 by ntrancha         ###   ########.fr       */
+/*   Updated: 2015/09/13 10:13:18 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ void	ft_putnbr_fd(int n, int fd);
 void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char const *s, int fd);
 void	ft_putendl_fd(char const *s, int fd);
+void	ft_putaddr(void *ptr);
 void	ft_putchar(char c);
 void	ft_putstr(char const *str);
 void	ft_putendl(char const *s);
