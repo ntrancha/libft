@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/02 17:30:11 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/09/12 12:50:32 by ntrancha         ###   ########.fr       */
+/*   Updated: 2015/10/04 18:19:41 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ typedef unsigned char	t_uchar;
 typedef unsigned int	t_uint;
 typedef signed char		t_schar;
 typedef signed int		t_sint;
+
 typedef struct          s_point
 {
     int                 x;

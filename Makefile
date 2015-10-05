@@ -6,7 +6,7 @@
 #    By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/11/08 10:45:53 by ntrancha          #+#    #+#              #
-#    Updated: 2015/09/12 12:50:44 by ntrancha         ###   ########.fr        #
+#    Updated: 2015/09/17 15:25:34 by ntrancha         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -54,8 +54,8 @@ FILE =	src/mem/ft_memchr.c\
 		src/bits/ft_octet_and.c\
 		src/bits/ft_octet_shr.c\
 		src/bits/ft_octet_shl.c\
-		src/bits/ft_octet_rol.c\
 		src/bits/ft_octet_ror.c\
+		src/bits/ft_octet_rol.c\
 		src/strings/ft_strequ.c\
 		src/strings/ft_strnequ.c\
 		src/strings/ft_strcmp.c\
