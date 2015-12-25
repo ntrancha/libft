@@ -145,6 +145,7 @@ FILE =	src/mem/ft_memchr.c\
 		src/bag/ft_bag_delnode.c\
 		src/bag/ft_bag_del.c\
 		src/bag/ft_bag_content.c\
+		src/bag/ft_bag_get.c\
 		src/count/ft_strlen.c\
 		src/count/ft_nbrlen.c\
 		src/count/ft_floatlenfloat.c\

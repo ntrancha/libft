@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/09/06 10:00:42 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/12/25 07:42:55 by ntrancha         ###   ########.fr       */
+/*   Updated: 2015/12/25 08:20:38 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,34 @@ int		test(int num)
 	ft_putendl("");
 }
 
+void	prime(void)
+{
+	int	num;
+	int count;
+
+	num = 0;
+	while (++num < 1000000)
+		if (ft_is_prime(num))
+		{
+			ft_putnbr(count);
+			ft_putstr(" : ");
+			ft_putnbr_endl(num);
+			count++;
+		}
+}
+
+void	testa(void)
+{
+	t_bag *bag;
+
+	bag = ft_bag_create();
+	ft_bag_addvar(bag, ft_strdup("NK"), "name");
+	ft_bag_addvar(bag, ft_strdup("test"), "1");
+	ft_bag_addvar(bag, ft_strdup("NULL"), "2");
+	ft_putstr((char*)ft_bag_get(bag, "1"));
+
+}
+
 int		main(void)
 {
 	int	num;
@@ -39,6 +67,10 @@ int		main(void)
     t_bits *mem;
     t_bits *mem2;
 	void	(*del)(void**);
+
+	testa();
+	return 1;
+	prime();
 	del= &ft_memdel;
     str = ft_strdup("4");
 	ft_putaddr((void*)str);
