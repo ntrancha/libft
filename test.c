@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/09/06 10:00:42 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/12/25 08:20:38 by ntrancha         ###   ########.fr       */
+/*   Updated: 2015/12/25 13:58:56 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void	testa(void)
 	ft_bag_addvar(bag, ft_strdup("test"), "1");
 	ft_bag_addvar(bag, ft_strdup("NULL"), "2");
 	ft_putstr((char*)ft_bag_get(bag, "1"));
-
+    ft_putendl(ft_addstr("11", "-1"));
 }
 
 int		main(void)
@@ -67,8 +67,28 @@ int		main(void)
     t_bits *mem;
     t_bits *mem2;
 	void	(*del)(void**);
+    unsigned char c;
+    char *c2;
 
-	testa();
+    c2 = ft_strdup("-12987987987978979876456543409");
+    mem = ft_sinttooct(c2);
+	ft_putbits(mem, '-');
+    ft_bitsdel(mem);
+	return 1;
+    c = 254;
+    num = ft_octet_add(&c, 2);
+    ft_putnbr_endl(num);
+    ft_putnbr_endl((int)c);
+    c2 = ft_strdup("-01234");
+    c2[0] -= 48;
+    c2[1] -= 48;
+    c2[2] -= 48;
+    c2[3] -= 48;
+    c2[4] -= 48;
+    mem = ft_bitscreate((void*)c2, 5);
+	ft_putbits(mem, '-');
+    ft_bitsdel(mem);
+	//testa();
 	return 1;
 	prime();
 	del= &ft_memdel;

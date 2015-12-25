@@ -1,31 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putoctets.c                                     :+:      :+:    :+:   */
+/*   ft_octet_add.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/09/11 17:59:20 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/12/25 11:56:57 by ntrancha         ###   ########.fr       */
+/*   Created: 2015/12/25 10:22:34 by ntrancha          #+#    #+#             */
+/*   Updated: 2015/12/25 12:12:40 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/convert.h"
-#include "../../includes/put.h"
-#include "../../includes/bits.h"
-#include "../../includes/strings.h"
+#include "../../includes/libft.h"
 
-void    ft_putoctets(t_octet *octet, char del)
+int         ft_octet_add(t_octet *a, t_octet b)
 {
-    int index;
+    int     ret;
+    int     res;
 
-    if (*octet == 0)
-        ft_putstr("00000000");
-    index = 0;
-    while (octet[index])
+    ret = 0;
+    res = *a + b;
+    if (res > 255)
     {
-        ft_putoctet((t_octet)octet[index++]);
-        if (del != 0)
-            ft_putchar(del);
+        res -= 256;
+        ret = 1;
     }
+    *a = res;
+    return (ret);
 }

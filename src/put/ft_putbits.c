@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/09/12 08:13:59 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/09/12 08:23:04 by ntrancha         ###   ########.fr       */
+/*   Updated: 2015/12/25 13:35:13 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,15 @@
 
 void    ft_putbits(t_bits *memory, char del)
 {
-    ft_putoctets(memory->memory, del);
+    int index;
+
+    index = 0;
+    ft_putnbr_endl(memory->octet);
+    while (index < (int)memory->octet)
+    {
+        ft_putoctet((t_octet)memory->memory[index++]);
+        if (index < (int)memory->octet)
+            ft_putchar(del);
+    }
 }
 

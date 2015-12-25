@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/09/09 06:32:25 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/09/12 09:28:12 by ntrancha         ###   ########.fr       */
+/*   Updated: 2015/12/25 11:50:42 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,8 @@ t_octet		ft_octetsetbit(t_octet a, int bit, int value);
 t_octet		ft_octet_or(t_octet a, t_octet b);
 t_octet		ft_octet_xor(t_octet a, t_octet b);
 t_octet		ft_octet_and(t_octet a, t_octet b);
+int         ft_octet_add(t_octet *a, t_octet b);
+int         ft_octet_sub(t_octet *a, t_octet b);
 t_octet		ft_octet_shr(t_octet a, int shr);
 t_octet		ft_octet_shl(t_octet a, int shl);
 t_octet		ft_octet_ror(t_octet a, int ror);

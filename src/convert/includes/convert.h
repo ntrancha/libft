@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/02 17:33:25 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/09/09 05:02:18 by ntrancha         ###   ########.fr       */
+/*   Updated: 2015/12/25 13:46:50 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,5 +48,6 @@ double	ft_atod(const char *str);
 double	ft_itod(int n);
 double	ft_ltod(long n);
 double	ft_ftod(float n);
+t_bits  *ft_sinttooct(char *str);
 
 #endif
