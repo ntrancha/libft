@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/02 17:32:13 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/09/13 10:13:18 by ntrancha         ###   ########.fr       */
+/*   Updated: 2015/12/25 07:40:33 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,6 @@ void	ft_putdouble(double n);
 void	ft_putoctet(t_octet octet);
 void	ft_putoctets(t_octet *octet, char del);
 void    ft_putbits(t_bits *memory, char del);
+void	ft_puthexa(t_octet *octet, char del);
 
 #endif

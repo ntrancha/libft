@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/09/06 10:00:42 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/10/04 18:05:46 by ntrancha         ###   ########.fr       */
+/*   Updated: 2015/12/25 07:42:55 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,8 @@ int		main(void)
 	long long a;
     t_bits *mem;
     t_bits *mem2;
-
+	void	(*del)(void**);
+	del= &ft_memdel;
     str = ft_strdup("4");
 	ft_putaddr((void*)str);
     str2 = ft_strdup("9");
@@ -47,6 +48,15 @@ int		main(void)
     ft_putendl(ft_addsubstr(str, str2, -1));
     ft_strdel(&str);
     ft_strdel(&str2);
+	ft_puthexa("coucou les enfants", ' ');
+	num = 42;
+    mem = ft_bitscreate((void*)&num, sizeof(int));
+	ft_putbits(mem, '-');
+    ft_bitsdel(mem);
+	num = ft_octet_rol(num, 1);
+    mem = ft_bitscreate((void*)&num, sizeof(int));
+	ft_putbits(mem, '\0');
+    ft_bitsdel(mem);
     return (-1);
     ft_putnbr_endl(sizeof(int));
     ft_putnbr_endl(sizeof(long long));

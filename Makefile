@@ -181,6 +181,7 @@ FILE =	src/mem/ft_memchr.c\
 		src/put/ft_putaddr.c\
 		src/put/ft_putchar.c\
 		src/put/ft_putstr.c\
+		src/put/ft_puthexa.c\
 		src/put/ft_putendl.c\
 		src/put/ft_putnbr.c\
 		src/put/ft_putnbr_endl.c\
