@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/25 13:35:27 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/12/25 13:57:32 by ntrancha         ###   ########.fr       */
+/*   Updated: 2015/12/25 14:03:44 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,6 @@ t_bits      *ft_sinttooct(char *str)
         return (NULL);
     }
     ret = ft_bitscreate((void*)tmp, ft_strlen(str));
+    ft_strdel(&tmp);
     return (ret);
 }

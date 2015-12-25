@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/09/06 10:00:42 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/12/25 13:58:56 by ntrancha         ###   ########.fr       */
+/*   Updated: 2015/12/25 14:03:31 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,7 @@ int		main(void)
     mem = ft_sinttooct(c2);
 	ft_putbits(mem, '-');
     ft_bitsdel(mem);
+    ft_strdel(&c2);
 	return 1;
     c = 254;
     num = ft_octet_add(&c, 2);
