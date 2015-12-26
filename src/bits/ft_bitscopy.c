@@ -1,21 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bitsgetoctet.c                                  :+:      :+:    :+:   */
+/*   ft_bitscopy.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/09/09 06:39:54 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/12/26 03:53:43 by ntrancha         ###   ########.fr       */
+/*   Created: 2015/12/26 04:19:38 by ntrancha          #+#    #+#             */
+/*   Updated: 2015/12/26 04:25:55 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/strings.h"
-#include "../../includes/bits.h"
+#include "../../includes/libft.h"
 
-t_octet   ft_bitsgetoctet(t_bits *memory, int octet)
+t_bits      *ft_bitscopy(t_bits *mem)
 {
-	if (octet < (int)memory->octet)
-		return (memory->memory[octet]);
-	return (0);
+    t_bits  *new;
+
+    if (!mem)
+        return (NULL);
+    new = ft_memalloc(sizeof(t_bits));
+    if (!new)
+        return (NULL);
+    new->octet = mem->octet;
+    new->memory = ft_memalloc(mem->octet + 1);
+    ft_memcpy(new->memory, mem->memory, mem->octet);
+	new->memory[mem->octet] = 0;
+    return (new);
 }

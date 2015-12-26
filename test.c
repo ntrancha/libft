@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/09/06 10:00:42 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/12/25 14:03:31 by ntrancha         ###   ########.fr       */
+/*   Updated: 2015/12/26 11:58:05 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,15 +66,24 @@ int		main(void)
 	long long a;
     t_bits *mem;
     t_bits *mem2;
+    t_bits *mem3;
 	void	(*del)(void**);
     unsigned char c;
     char *c2;
+    char *c1;
 
-    c2 = ft_strdup("-12987987987978979876456543409");
+    c2 = ft_strdup("013");
+    c1 = ft_strdup("14");
     mem = ft_sinttooct(c2);
-	ft_putbits(mem, '-');
+	//ft_putbits(mem, '-');
+    mem2 = ft_sinttooct(c1);
+    mem3  = ft_bits_addition(mem, mem2, 10, 1);
+	//ft_putbits(mem3, '-');
     ft_bitsdel(mem);
     ft_strdel(&c2);
+    ft_bitsdel(mem2);
+    ft_strdel(&c1);
+    //ft_bitsdel(mem3);
 	return 1;
     c = 254;
     num = ft_octet_add(&c, 2);

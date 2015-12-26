@@ -1,21 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bitsgetoctet.c                                  :+:      :+:    :+:   */
+/*   ft_bitscreate_empty.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/09/09 06:39:54 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/12/26 03:53:43 by ntrancha         ###   ########.fr       */
+/*   Created: 2015/12/26 08:05:43 by ntrancha          #+#    #+#             */
+/*   Updated: 2015/12/26 08:09:29 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/strings.h"
+#include "../../includes/mem.h"
 #include "../../includes/bits.h"
 
-t_octet   ft_bitsgetoctet(t_bits *memory, int octet)
+t_bits		*ft_bitscreate_empty(size_t octet)
 {
-	if (octet < (int)memory->octet)
-		return (memory->memory[octet]);
-	return (0);
+	t_bits	*mem;
+
+	mem = ft_memalloc(sizeof(t_bits));
+	if (!mem)
+		return (NULL);
+	mem->memory = ft_memalloc(octet + 1);
+	mem->memory[octet] = 0;
+	mem->octet = octet;
+	return (mem);
 }
+
