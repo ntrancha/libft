@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/25 23:48:51 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/12/26 11:58:03 by ntrancha         ###   ########.fr       */
+/*   Updated: 2015/12/26 13:33:03 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,21 +33,50 @@ void     ft_bits_addition_neg(t_bits *mem)
         mem->memory[0] = 255;
 }
 
+static int      ft_bits_addition_cmp(t_bits *a, t_bits *b);
+
+static int      ft_bitscmp_neg(t_bits *a, t_bits *b)
+{
+    int         ret;
+
+    if (b->memory[0] == 255 && a->memory[0] != 255)
+        return (1);
+    if (a->memory[0] == 255 && b->memory[0] != 255)
+        return (-1);
+    a->memory[0] = 0;
+    b->memory[0] = 0;
+    ret = ft_bits_addition_cmp(b, a);
+    a->memory[0] = 255;
+    b->memory[0] = 255;
+    return (ret);
+}
+
 static int      ft_bits_addition_cmp(t_bits *a, t_bits *b)
 {
     int         count;
+    int         size;
+    int         tmp_a;
+    int         tmp_b;
 
-    if (a->octet > b->octet)
-        return (1);
-    else if (b->octet > a->octet)
-        return (-1);
+    if (a->memory[0] == 255 || b->memory[0] == 255)
+        return (ft_bitscmp_neg(a, b));
+    size = (a->octet > b->octet) ? a->octet : b->octet;
     count = -1;
-    while (++count < (int)a->octet)
+    while (++count < size)
     {
-        if (a->memory[count] > b->memory[count])
-            return (1);
-        if (b->memory[count] > a->memory[count])
+        tmp_a = (a->octet - size + count);
+        tmp_b = (b->octet - size + count);
+        if (tmp_a < 0 && b->memory[tmp_b] != 0)
             return (-1);
+        if (tmp_b < 0 && a->memory[tmp_a] != 0)
+            return (1);
+        if (tmp_a >= 0 && tmp_b >= 0)
+        {
+            if (a->memory[tmp_a] > b->memory[tmp_b])
+                return (1);
+            if (b->memory[tmp_b] > a->memory[tmp_a])
+                return (-1);
+        }
     }
     return (0);
 }
@@ -84,7 +113,7 @@ t_bits          *ft_bits_addition(t_bits *a, t_bits *b, int base, int sign)
         tmp_a = ft_bitscopy(a);
         tmp_b = ft_bitscopy(b);
     }
-    ft_putnbr_endl(ft_bits_addition_cmp(tmp_a, tmp_b));
+    ft_putnbr_endl(ft_bits_addition_cmp(a, b));
     //ft_bits_addition_abs2(a);
     //ft_bits_addition_neg(b);
     ft_bitsdel(tmp_a);

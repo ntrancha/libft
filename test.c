@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/09/06 10:00:42 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/12/26 11:58:05 by ntrancha         ###   ########.fr       */
+/*   Updated: 2015/12/26 13:32:38 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,8 +72,8 @@ int		main(void)
     char *c2;
     char *c1;
 
-    c2 = ft_strdup("013");
-    c1 = ft_strdup("14");
+    c2 = ft_strdup("-003");
+    c1 = ft_strdup("-4");
     mem = ft_sinttooct(c2);
 	//ft_putbits(mem, '-');
     mem2 = ft_sinttooct(c1);
