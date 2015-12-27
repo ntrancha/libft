@@ -6,7 +6,7 @@
 #    By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/11/08 10:45:53 by ntrancha          #+#    #+#              #
-#    Updated: 2015/12/26 11:08:32 by ntrancha         ###   ########.fr        #
+#    Updated: 2015/12/27 04:26:50 by ntrancha         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,6 +42,11 @@ FILE =	src/mem/ft_memchr.c\
 		src/bits/ft_bitscreate_empty.c\
 		src/bits/ft_bitsdel.c\
 		src/bits/ft_bitscopy.c\
+		src/bits/ft_bits_abs.c\
+		src/bits/ft_bits_cmp.c\
+		src/bits/ft_bits_debug.c\
+		src/bits/ft_bits_isneg.c\
+		src/bits/ft_bits_neg.c\
 		src/bits/ft_bits_add.c\
 		src/bits/ft_bits_addition.c\
 		src/bits/ft_bits_less.c\

@@ -1,23 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bitsgetoctet.c                                  :+:      :+:    :+:   */
+/*   ft_bits_isneg.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/09/09 06:39:54 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/12/27 01:17:00 by ntrancha         ###   ########.fr       */
+/*   Created: 2015/12/27 04:25:18 by ntrancha          #+#    #+#             */
+/*   Updated: 2015/12/27 04:29:19 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/strings.h"
-#include "../../includes/bits.h"
+#include "../../includes/libft.h"
 
-t_octet   ft_bitsgetoctet(t_bits *memory, int octet)
+int     ft_bits_isneg(t_bits *a)
 {
-    if (!memory || !memory->memory || octet < 0)
-        return (0);
-	if (octet < (int)memory->octet)
-		return (memory->memory[octet]);
-	return (0);
+    if (!(a->memory))
+        return (-1);
+    return ((a->memory[0] == 255) ? 1 : 0);
 }

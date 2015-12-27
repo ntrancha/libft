@@ -6,12 +6,20 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/09/09 06:32:25 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/12/26 11:08:19 by ntrancha         ###   ########.fr       */
+/*   Updated: 2015/12/27 04:48:59 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef BITS_H
 # define BITS_H
+# define A_GT_B         ft_bits_cmp(a, b) > 0
+# define B_GT_A         ft_bits_cmp(a, b) < 0
+# define BITS_IS_NEG    ft_bits_isneg
+# define BITS_NEG       ft_bits_neg
+# define BITS_ABS       ft_bits_abs
+# define A_ADD_B        ft_bits_add(a, b, base)  
+# define A_SUB_B        ft_bits_less(a, b, base)  
+# define B_SUB_A        ft_bits_less(b, a, base)  
 # include <stdlib.h>
 
 typedef unsigned char	t_octets;
@@ -36,6 +44,11 @@ long long   ft_bitsvalue(t_bits *memory);
 t_bits      *ft_bits_add(t_bits *a, t_bits *b, int base);
 t_bits      *ft_bits_less(t_bits *a, t_bits *b, int base);
 t_bits      *ft_bits_addition(t_bits *a, t_bits *b, int base, int sign);
+void        ft_bits_debug(t_bits *mem);
+t_bits      *ft_bits_abs(t_bits *mem);
+t_bits      *ft_bits_neg(t_bits *mem);
+int         ft_bits_cmp(t_bits *a, t_bits *b);
+int         ft_bits_isneg(t_bits *a);
 
 int			ft_octetvalue(t_octet octet);
 int			ft_octetgetbit(t_octet a, int bit);

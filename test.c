@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/09/06 10:00:42 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/12/26 13:32:38 by ntrancha         ###   ########.fr       */
+/*   Updated: 2015/12/27 02:47:53 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,27 @@ void	testa(void)
     ft_putendl(ft_addstr("11", "-1"));
 }
 
+void    addstr(char *a, char *b, int base, int sign)
+{
+    t_bits *mem;
+    t_bits *mem2;
+    t_bits *mem3;
+    char *c2;
+    char *c1;
+
+    c2 = ft_strdup(a);
+    c1 = ft_strdup(b);
+    mem = ft_sinttooct(a);
+    mem2 = ft_sinttooct(b);
+    mem3  = ft_bits_addition(mem, mem2, base, sign);
+    ft_bitsdel(mem);
+    ft_strdel(&c2);
+    ft_bitsdel(mem2);
+    ft_strdel(&c1);
+    ft_bitsdel(mem3);
+}
+
+
 int		main(void)
 {
 	int	num;
@@ -72,8 +93,17 @@ int		main(void)
     char *c2;
     char *c1;
 
-    c2 = ft_strdup("-003");
-    c1 = ft_strdup("-4");
+    addstr("11", "1", 2, 1);
+    addstr("3", "6", 10, -1);
+    addstr("6", "-3", 10, -1);
+    addstr("3", "-6", 10, -1);
+    addstr("-6", "3", 10, -1);
+    addstr("-3", "6", 10, -1);
+    addstr("-6", "-3", 10, -1);
+    addstr("-3", "-6", 10, -1);
+    return 1;
+    c2 = ft_strdup("-3");
+    c1 = ft_strdup("6");
     mem = ft_sinttooct(c2);
 	//ft_putbits(mem, '-');
     mem2 = ft_sinttooct(c1);
@@ -83,7 +113,7 @@ int		main(void)
     ft_strdel(&c2);
     ft_bitsdel(mem2);
     ft_strdel(&c1);
-    //ft_bitsdel(mem3);
+    ft_bitsdel(mem3);
 	return 1;
     c = 254;
     num = ft_octet_add(&c, 2);
