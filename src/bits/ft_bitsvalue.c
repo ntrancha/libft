@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/09/12 08:29:58 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/09/12 09:49:43 by ntrancha         ###   ########.fr       */
+/*   Updated: 2015/12/28 05:42:21 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,14 +23,14 @@ long long       ft_bitsvalue(t_bits *memory)
     ret = 0;
     while ((int)size-- > 0)
     {
-        ret += ft_octetgetbit(memory->memory[size], 7) * ft_power(2, c--);
-        ret += ft_octetgetbit(memory->memory[size], 6) * ft_power(2, c--);
-        ret += ft_octetgetbit(memory->memory[size], 5) * ft_power(2, c--);
-        ret += ft_octetgetbit(memory->memory[size], 4) * ft_power(2, c--);
-        ret += ft_octetgetbit(memory->memory[size], 3) * ft_power(2, c--);
-        ret += ft_octetgetbit(memory->memory[size], 2) * ft_power(2, c--);
-        ret += ft_octetgetbit(memory->memory[size], 1) * ft_power(2, c--);
-        ret += ft_octetgetbit(memory->memory[size], 0) * ft_power(2, c--);
+        ret += ft_octetgetbit(memory->memory[size], 7) * ft_power(2, --c);
+        ret += ft_octetgetbit(memory->memory[size], 6) * ft_power(2, --c);
+        ret += ft_octetgetbit(memory->memory[size], 5) * ft_power(2, --c);
+        ret += ft_octetgetbit(memory->memory[size], 4) * ft_power(2, --c);
+        ret += ft_octetgetbit(memory->memory[size], 3) * ft_power(2, --c);
+        ret += ft_octetgetbit(memory->memory[size], 2) * ft_power(2, --c);
+        ret += ft_octetgetbit(memory->memory[size], 1) * ft_power(2, --c);
+        ret += ft_octetgetbit(memory->memory[size], 0) * ft_power(2, --c);
     }
     return (ret);
 }

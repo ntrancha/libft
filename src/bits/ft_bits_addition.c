@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/25 23:48:51 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/12/27 05:04:08 by ntrancha         ###   ########.fr       */
+/*   Updated: 2015/12/27 05:21:30 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,5 @@ t_bits          *ft_bits_addition(t_bits *a, t_bits *b, int base, int sign)
         res = ft_bits_addition_add(a, b, base);
     else
         res = ft_bits_addition_sub(a, b, base);
-    ft_bits_debug(res);
     return (res);
 }

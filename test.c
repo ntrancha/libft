@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/09/06 10:00:42 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/12/27 05:15:11 by ntrancha         ###   ########.fr       */
+/*   Updated: 2015/12/28 05:48:26 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,22 +93,14 @@ int		main(void)
     char *c2;
     char *c1;
 
-    addstr("6", "6", 10, -1);
-    addstr("3", "6", 10, -1);
-    addstr("6", "-3", 10, -1);
-    addstr("3", "-6", 10, -1);
-    addstr("-6", "3", 10, -1);
-    addstr("-3", "6", 10, -1);
-    addstr("-6", "-3", 10, -1);
-    addstr("-3", "-6", 10, -1);
-    addstr("6", "6", 10, 1);
-    addstr("3", "6", 10, 1);
-    addstr("6", "-3", 10, 1);
-    addstr("3", "-6", 10, 1);
-    addstr("-6", "3", 10, 1);
-    addstr("-3", "6", 10, 1);
-    addstr("-6", "-3", 10, 1);
-    addstr("-3", "-6", 10, 1);
+	num = 424242;
+    mem2 = ft_bitscreate((void*)&num, sizeof(int));
+	ft_putbits(mem2, '-');
+    //addstr("-3", "-6", 10, 1);
+    mem  = ft_bits_addition(mem2, ft_sinttooct("1"), 256, 1);
+	ft_putbits(mem, '-');
+    a = ft_bitsvalue(mem);
+    ft_putlong(a);
     return 1;
     c2 = ft_strdup("-3");
     c1 = ft_strdup("6");
