@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/05 13:56:33 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/01/07 17:33:11 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/01/10 14:12:55 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,24 +23,31 @@ typedef struct  s_stacks t_stacks;
 /* ************************************************************************** */
 t_type          *ft_vartype_init(void);
 t_type          *ft_vartype_add(char *type, size_t n, void (*del)(void**));
-void            *ft_vartype_delete(t_type *var);
+t_type          *ft_vartype_addput(char *type, void (*put)(void*));
+t_type          *ft_vartype_addcpy(char *type, void *(*cpy)(void*,void*));
 t_type          *ft_vartype_get(char *type);
-                /* STACK */
+char            *ft_vartype_gettype(char *type);
+void            *ft_vartype_delete(t_type *var);
+void            *ft_vartype_free(void);
+                    /* STACK */
 t_stacks        *ft_stack_init(void);
 void            *ft_stack_free(void);
 void            ft_stack_infos(void);
 void            *ft_stack_clean(void);
 void            *ft_stack_free(void);
-                /* ALLOC */
+                    /* ALLOC */
 void            *ft_malloc(size_t len);
 void            *ft_calloc(void *var, size_t len, char *id, char *type);
 void            *ft_alloc(void *var, size_t len, char *id, char *type);
 t_alloc         *ft_alloc_get(char *id);
+t_alloc         *ft_alloc_getvoid(void *var);
+void            *ft_alloc_nget(void *var);
 void            *ft_alloc_vget(char *id);
 static void     *ft_alloc_delete(t_alloc *alloc);
 void            *ft_alloc_copy(char *id, char *new);
 void            *ft_alloc_pdel(void *content);
 t_stacks        *ft_alloc_del(char *id);
+t_stacks        *ft_alloc_rename(char *id, char *new_name);
 /* ************************************************************************** */
 
 struct          s_alloc
@@ -57,12 +64,15 @@ struct          s_type
     char        *type;
     size_t      n_octet;
     void        (*del)(void**);
+    void        (*put)(void*);
+    void        *(*cpy)(void*, void*);
     t_type      *next;
 };
 
 struct  s_stacks
 {
     size_t      stack_size;
+    size_t      stack_free;
     size_t      elements;
     size_t      sys;
     size_t      free;
@@ -71,6 +81,19 @@ struct  s_stacks
 };
 
 /* ************************************************************************** */
+
+static void     *ft_cpyvoid(void *src, void *dest)
+{
+    t_alloc     *alloc;
+
+    alloc = ft_alloc_get(src);
+    return (ft_alloc(alloc->content, alloc->size, dest, alloc->type));
+}
+
+static void     ft_putvoid(void *str)
+{
+    ft_putstr((char *)str);
+}
 
 static char     *ft_stack_randomid(void)
 {
@@ -113,38 +136,30 @@ static void     *ft_stack_strdup(char *str)
     return (ptr);
 }
 
-static int      ft_alloc_size(void)
-{
-    t_stacks    *stack;
-    t_alloc     *alloc;
-    int         size;
-    
-    stack = ft_stack_init();
-    alloc = stack->alloc;
-    size = 0;
-    while (alloc)
-    {
-        size += ft_strlen(alloc->name) + ft_strlen(alloc->type);
-        alloc = alloc->next;
-    }
-    return (size);
-}
-
 static void     ft_stack_display(void)
 {
     t_stacks    *stack;
     t_alloc     *alloc;
-    
+    t_type      *type;
+
     stack = ft_stack_init();
     alloc = stack->alloc;
     while (alloc)
     {
-        ft_putstr((char *)alloc->name);
+        type = ft_vartype_get(alloc->type);
+        if (alloc->name)
+            ft_putstr((char *)alloc->name);
+        else
+            ft_putstr("#");
         ft_putstr(" (");
-        ft_putstr((char *)alloc->type);
+        if (alloc->type)
+            ft_putstr((char *)alloc->type);
+        else
+            ft_putstr("sys");
         ft_putstr(") : ");
-        if (alloc->content)
-            ft_putendl((char *)alloc->content);
+        if (type && alloc->content && type->put)
+            type->put(alloc->content);
+        ft_putendl("");
         alloc = alloc->next;
     }
 }
@@ -163,6 +178,10 @@ void            ft_stack_infos(void)
     ft_putnbr_endl(((int)stack->free));
     ft_putstr("bytes allocated      :");
     ft_putnbr_endl((int)stack->sys);
+    ft_putstr("stack size           :");
+    ft_putnbr_endl((int)stack->stack_size);
+    ft_putstr("stack free           :");
+    ft_putnbr_endl((int)stack->stack_free);
     ft_putendl("===========STACK===========");
     ft_stack_display();
     ft_putendl("===========STACK===========");
@@ -181,7 +200,10 @@ void            *ft_stack_clean(void)
     while (alloc)
     {
         next = alloc->next;
-        ft_alloc_delete(alloc);
+        if (alloc->type)
+            ft_alloc_delete(alloc);
+        else
+            ft_memdel((void**)&(alloc));
         alloc = next;
     }
     stack->alloc = NULL;
@@ -191,20 +213,12 @@ void            *ft_stack_clean(void)
 void            *ft_stack_free(void)
 {
     t_stacks    *stack;
-    t_type      *type;
-    t_type      *next;
     
     stack = ft_stack_init();
     if (!stack)
         return (NULL);
     ft_stack_clean();
-    type = stack->types;
-    while (type)
-    {
-        next = type->next;
-        ft_vartype_delete(type);
-        type = next;
-    }
+    ft_vartype_free();
     ft_memdel((void**)&stack);
     return (NULL);
 }
@@ -218,6 +232,7 @@ t_stacks            *ft_stack_init(void)
         if (!(alloc = ft_memalloc(sizeof(t_stacks))))
             return (NULL);
         alloc->stack_size = 0;
+        alloc->stack_free = 0;
         alloc->elements = 0;
         alloc->free = 0;
         alloc->sys = sizeof(t_stacks);
@@ -229,6 +244,23 @@ t_stacks            *ft_stack_init(void)
 
 /* ************************************************************************** */
 
+static int      ft_stack_size(void)
+{
+    t_stacks    *stack;
+    t_alloc     *alloc;
+    int         size;
+    
+    stack = ft_stack_init();
+    alloc = stack->alloc;
+    size = 0;
+    while (alloc)
+    {
+        size += ft_strlen(alloc->name) + ft_strlen(alloc->type);
+        alloc = alloc->next;
+    }
+    return (size);
+}
+
 static void     *ft_alloc_delete(t_alloc *alloc)
 {
     t_type      *type;
@@ -238,9 +270,10 @@ static void     *ft_alloc_delete(t_alloc *alloc)
     stack = ft_stack_init();
     type = ft_vartype_get(alloc->type);
     stack->stack_size -= type->n_octet * alloc->size;
+    stack->stack_free += (alloc->size * type->n_octet);
     type->del(&(alloc->content));
-    stack->stack_size -= (ft_strlen(alloc->type) * sizeof(char));
-    ft_strdel(&(alloc->type));
+    //stack->stack_size -= (ft_strlen(alloc->type) * sizeof(char));
+    //ft_strdel(&(alloc->type));
     ft_strdel(&(alloc->name));
     stack->elements -= 1;
     stack->free += 1;
@@ -277,6 +310,27 @@ void            *ft_alloc_pdel(void *content)
     return (NULL);
 }
 
+t_stacks        *ft_alloc_rename(char *id, char *new_name)
+{
+    t_stacks    *stack;
+    t_alloc     *alloc;
+    
+    if (!(stack = ft_stack_init()) || !stack->alloc)
+        return (NULL);    
+    alloc = stack->alloc;
+    while (alloc)
+    {
+        if (!ft_strcmp(alloc->name, id))
+        {
+            ft_strdel(&(alloc->name));
+            alloc->name = ft_strdup(new_name);
+            return (stack);
+        }
+        alloc = alloc->next;
+    }
+    return (NULL);
+}
+
 t_stacks        *ft_alloc_del(char *id)
 {
     t_stacks    *stack;
@@ -292,7 +346,7 @@ t_stacks        *ft_alloc_del(char *id)
     while (alloc)
     {
         alloc_next = alloc->next;
-        if (!ft_strcmp(alloc->name, id))
+        if (alloc->name && !ft_strcmp(alloc->name, id))
         {
             ft_alloc_delete(alloc);
             if (alloc_prev == NULL)
@@ -313,6 +367,33 @@ void            *ft_alloc_vget(char *id)
     alloc = ft_alloc_get(id);
     if (alloc && alloc->content)
         return (alloc->content);
+    return (NULL);
+}
+
+void            *ft_alloc_nget(void *var)
+{
+    t_alloc     *alloc;
+
+    alloc = ft_alloc_getvoid(var);
+    if (alloc && alloc->content)
+        return (alloc->content);
+    return (NULL);
+}
+
+t_alloc         *ft_alloc_getvoid(void *var)
+{
+    t_stacks    *stack;
+    t_alloc     *alloc;
+
+    if (!(stack = ft_stack_init()))
+        return (NULL);    
+    alloc = stack->alloc;
+    while (alloc)
+    {
+        if (var == alloc->content)
+            return (alloc);
+        alloc = alloc->next;
+    }
     return (NULL);
 }
 
@@ -342,19 +423,24 @@ static void     ft_alloc_more(char *type, t_stacks *stack, size_t len)
     stack->stack_size += (len * types->n_octet);
 }
 
+t_type          *ft_alloc_type(char *id)
+{
+    t_alloc     *alloc;
+    t_type      *type;
+
+    if (id && (alloc = ft_alloc_get(id)))
+        if (alloc->type && (type = ft_vartype_get(alloc->type)))
+            return (type);
+    return (NULL);
+}
+
 void            *ft_alloc_copy(char *id, char *new)
 {
-    t_stacks    *stack;
-    t_alloc     *alloc;
+    t_type      *type;
 
-    stack = ft_stack_init();
-    alloc = stack->alloc;
-    while (alloc)
-    {
-        if (!ft_strcmp(alloc->name, id))
-            return (ft_alloc(alloc->content, alloc->size, new, alloc->type));
-        alloc = alloc->next;
-    }
+    if (id && (type = ft_alloc_type(id)))
+        if (new && type->cpy)
+            return (type->cpy(id, new));
     return (NULL);
 }
 
@@ -375,7 +461,7 @@ void            *ft_malloc(size_t len)
         return (NULL);
     new->size = len;
     new->name = ft_stack_randomid();
-    new->type = ft_stack_strdup("str");
+    new->type = ft_vartype_gettype("str");
     new->next = NULL;
     ft_alloc_more("str", stack, len);
     if (stack->alloc == NULL)
@@ -401,7 +487,7 @@ void            *ft_calloc(void *var, size_t len, char *id, char *type)
     new->content = var;
     new->size = len;
     new->name = (id) ? ft_stack_strdup(id) : ft_stack_randomid();
-    new->type = ft_stack_strdup(type);
+    new->type = ft_vartype_gettype(type);
     new->next = NULL;
     ft_alloc_more(type, stack, len);
     if (stack->alloc == NULL)
@@ -410,6 +496,34 @@ void            *ft_calloc(void *var, size_t len, char *id, char *type)
         alloc->next = new;
     return (new->content);
 }
+
+void            *ft_alloc_include(void *var, size_t len)
+{
+    t_alloc     *alloc;
+    t_alloc     *new;
+    t_stacks    *stack;
+
+    if (!(stack = ft_stack_init()))
+        return (NULL);    
+    alloc = stack->alloc;
+    while (alloc && alloc->next)
+        alloc = alloc->next;
+    if (!(new = ft_stack_memalloc(sizeof(t_alloc))))
+        return (NULL);
+    new->content = (var) ? var : NULL;
+    new->size = len;
+    new->name = NULL; // (id) ? ft_stack_strdup(id) : ft_stack_randomid();
+    new->type = NULL; // ft_stack_strdup(type);
+    new->next = NULL;
+    stack->elements += 1;
+    stack->stack_size += len;
+    if (stack->alloc == NULL)
+        stack->alloc = new;
+    else
+        alloc->next = new;
+    return (new->content);
+}
+
 
 void            *ft_alloc(void *var, size_t len, char *id, char *type)
 {
@@ -430,7 +544,7 @@ void            *ft_alloc(void *var, size_t len, char *id, char *type)
         new->content = ft_stack_memmove(new->content, var, len);
     new->size = len;
     new->name = (id) ? ft_stack_strdup(id) : ft_stack_randomid();
-    new->type = ft_stack_strdup(type);
+    new->type = ft_vartype_gettype(type);
     new->next = NULL;
     ft_alloc_more(type, stack, len);
     if (stack->alloc == NULL)
@@ -451,6 +565,8 @@ t_type      *ft_vartype_init(void)
     new->type = ft_stack_strdup("str");
     new->n_octet = sizeof(char);
     new->del = ft_memdel;
+    new->put = ft_putvoid;
+    new->cpy = ft_cpyvoid;
     new->next = NULL;
     return (new);
 }
@@ -464,13 +580,51 @@ t_type      *ft_vartype_get(char *type)
     var = stack->types;
     if (!var)
         return (NULL);
-    while (var)
+    while (type && var)
     {
-        if (ft_strcmp(var->type, type) == 0)
+        if (var->type && ft_strcmp(var->type, type) == 0)
             return (var);
         var = var->next;
     }
     return (NULL);
+}
+
+char        *ft_vartype_gettype(char *type)
+{
+    t_type      *var;
+    
+    var = ft_vartype_get(type);
+    return (var->type);
+}
+
+t_type      *ft_vartype_addcpy(char *type, void *(*cpy)(void*,void*))
+{
+    t_type  *node;
+    t_stacks  *stack;
+
+    stack = ft_stack_init();
+    if (!type || !cpy || ft_vartype_get(type) != NULL)
+        return (NULL);
+    node = stack->types;
+    while (node && node->next)
+        node = node->next;
+    node->cpy = cpy;
+    return (stack->types);
+}
+
+t_type      *ft_vartype_addput(char *type, void (*put)(void*))
+{
+    t_type  *node;
+    t_stacks  *stack;
+
+    stack = ft_stack_init();
+    if (!type || !put || ft_vartype_get(type) != NULL)
+        return (NULL);
+    node = stack->types;
+    while (node && node->next)
+        node = node->next;
+    node->put = put;
+    return (stack->types);
 }
 
 t_type      *ft_vartype_add(char *type, size_t n, void (*del)(void**))
@@ -480,7 +634,6 @@ t_type      *ft_vartype_add(char *type, size_t n, void (*del)(void**))
     t_stacks  *stack;
 
     stack = ft_stack_init();
-
     if (!type || !del || ft_vartype_get(type) != NULL)
         return (NULL);
     if (!(new = ft_stack_memalloc(sizeof(t_type))))
@@ -489,6 +642,8 @@ t_type      *ft_vartype_add(char *type, size_t n, void (*del)(void**))
         return (NULL);
     new->n_octet = n;
     new->del = del;
+    new->put = NULL;
+    new->cpy = NULL;
     new->next = NULL;
     if (!(node = stack->types->next))
         stack->types->next = new;
@@ -499,6 +654,14 @@ t_type      *ft_vartype_add(char *type, size_t n, void (*del)(void**))
         node->next = new;
     }
     return (stack->types);
+}
+
+void            *ft_vartype_free(void)
+{
+    t_stacks    *stack;
+
+    stack = ft_stack_init();
+    ft_vartype_delete(stack->types);
 }
 
 void        *ft_vartype_delete(t_type *var)
@@ -523,19 +686,17 @@ int     main(int argc, char **argv)
     t_stacks    *stack;
     char        *str;
 
-    ft_alloc("coucou", 7, NULL, "str");
-    ft_alloc(NULL, 4, "n2", "str");
-    ft_alloc("u23", 4, NULL, "str");
-    ft_alloc("42", 3, "nk", "str");
-    ft_alloc_copy("nkc", "test");
+    ft_alloc("1", 2, "A", "str");
+    ft_alloc(NULL, 2, "B", "str");
+    ft_alloc("3", 2, "C", "str");
+    ft_alloc_copy("B", "E");
+    str = ft_strdup("a");
+    ft_alloc_include(str, 7);
+    ft_alloc("4", 2, "D", "str");
     ft_stack_infos();
-    DEL(n2);
-    str = (char*)(GET(nk));
-    PDEL(str);
-    ft_stack_infos();
-    ft_stack_clean();
-    XSTR(test, nkc);
+    DEL(A);
     ft_stack_infos();
     ft_stack_free();
+    ft_strdel(&str);
     return (1);
 }
