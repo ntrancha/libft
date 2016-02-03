@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/02 17:47:17 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/09/05 06:03:57 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/03 11:57:34 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ int     ft_filefind(char *file, char *search);
 int     ft_filestrrpl(char *file, char *src, char *mod);
 t_fdos  *ft_getdir(char *path, char *error);
 char    **ft_getdirtab(char *path, char *error);
+char    **ft_getdirtab_f(char *path, char *error, char type);
 t_fdos  *ft_getdir_rec(char *path, char *error);
 int     ft_fileindos(char *path, char *error, char *file);
 int     ft_fileindos_rec(char *path, char *error, char *file);

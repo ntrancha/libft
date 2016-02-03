@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/08/22 01:14:10 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/08/22 23:00:56 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/03 11:08:07 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,15 +24,13 @@ char        **ft_getdirtab(char *path, char *error)
     int             index;
     char            **tab;
 
-    rep = ft_opendir(path, error);
-    if (rep == NULL)
+    if ((rep = ft_opendir(path, error)) == NULL)
         return (NULL);
     count = 0;
     while ((file = readdir(rep)))
             count++;
     ft_closedir(rep);
-    rep = ft_opendir(path, error);
-    if (rep == NULL)
+    if ((rep = ft_opendir(path, error)) == NULL)
         return (NULL);
     tab = ft_memalloc(sizeof(char*) * (count + 1));
     index = 0;

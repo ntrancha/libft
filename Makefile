@@ -6,7 +6,7 @@
 #    By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/11/08 10:45:53 by ntrancha          #+#    #+#              #
-#    Updated: 2015/12/27 04:26:50 by ntrancha         ###   ########.fr        #
+#    Updated: 2016/02/03 11:27:24 by ntrancha         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -304,6 +304,7 @@ FILE =	src/mem/ft_memchr.c\
 		src/file/ft_filestrrpl.c\
 		src/file/ft_getdir.c\
 		src/file/ft_getdirtab.c\
+		src/file/ft_getdirtab_f.c\
 		src/file/ft_getdir_rec.c\
 		src/file/ft_fileindos.c\
 		src/file/ft_fileindos_rec.c\

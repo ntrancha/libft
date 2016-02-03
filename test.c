@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/09/06 10:00:42 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/12/28 05:48:26 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/03 11:58:03 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,15 @@ int		main(void)
     unsigned char c;
     char *c2;
     char *c1;
+    char    **direct;
+    int     ind;
 
+    direct = ft_getdirtab_f(".", NULL, 'r');
+    ind = -1;
+    while (direct[++ind])
+        ft_putendl(direct[ind]);
+    ft_tabstrdel(direct);
+    return (-1);
 	num = 424242;
     mem2 = ft_bitscreate((void*)&num, sizeof(int));
 	ft_putbits(mem2, '-');

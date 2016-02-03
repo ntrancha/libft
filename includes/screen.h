@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/07/30 05:02:43 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/08/01 03:50:57 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/02 11:29:53 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define SCREEN_H
 # define TAB		4
 # define SPACE		" "
-# define C_NULL    "\033[0m"
+# define C_NULL     "\033[0m"
 # define C_BLACK    "\033[30m"
 # define C_RED      "\033[31m"
 # define C_GREEN    "\033[32m"
@@ -24,7 +24,7 @@
 # define C_CYAN     "\033[36m"
 # define C_GRAY     "\033[37m"
 # define C_WHITE    "\033[39m"
-# define B_NULL    "\033[49m"
+# define B_NULL     "\033[49m"
 # define B_BLACK    "\033[40m"
 # define B_RED      "\033[41m"
 # define B_GREEN    "\033[42m"
