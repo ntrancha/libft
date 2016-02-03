@@ -6,7 +6,7 @@
 #    By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/11/08 10:45:53 by ntrancha          #+#    #+#              #
-#    Updated: 2016/02/03 11:27:24 by ntrancha         ###   ########.fr        #
+#    Updated: 2016/02/03 12:45:01 by ntrancha         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -303,6 +303,7 @@ FILE =	src/mem/ft_memchr.c\
 		src/file/ft_filefind.c\
 		src/file/ft_filestrrpl.c\
 		src/file/ft_getdir.c\
+		src/file/ft_getdirdeep.c\
 		src/file/ft_getdirtab.c\
 		src/file/ft_getdirtab_f.c\
 		src/file/ft_getdir_rec.c\
