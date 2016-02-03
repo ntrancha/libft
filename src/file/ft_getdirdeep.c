@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/03 12:33:50 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/03 12:45:04 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/03 13:40:49 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,21 +18,19 @@
 int         ft_getdirdeep(char *path, char *error)
 {
     char    **files;
-    char    *newfile;
+    //char    *newfile;
     int     index;
     int     ret;
     int     tmp;
 
-    ret = 1;
-    files = ft_getdirtab_f(path, error, 'd');
+    ret = 0;
+    if ((files = ft_getdirtab_f(path, error, 'd')) == NULL)
+        return (1);
     index = -1;
     while (files[++index])
-    {
-        newfile = ft_strmjoin(path, "/", files[index]);
-        tmp = ft_getdirdeep(newfile, error);
-        if (tmp > ret)
-            ret = tmp;
-        ft_strdel(&newfile);
-    }
+        if (ft_strcmp(files[index], ".") && ft_strcmp(files[index], ".."))
+            if ((tmp = ft_getdirdeep(files[index], error) + 1) > ret)
+                ret = tmp;
+    ft_tabstrdel(files);
     return (ret);
 }

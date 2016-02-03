@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/03 11:10:53 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/03 12:33:36 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/03 13:34:14 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include "../../includes/mem.h"
 #include "../../includes/strings.h"
 
-char        **ret_create(char ** files)
+static char **ret_create(char ** files)
 {
     char    **ret;
     int     max;
@@ -28,11 +28,24 @@ char        **ret_create(char ** files)
     return (ret);
 }
 
+static int  next(char *pfile, char **ret, int count, char type)
+{
+    t_file  *file;
+
+    if ((file = ft_fileinfo(pfile)) == NULL)
+        return (-1);
+    if (ft_filetype(file) == type)
+        ret[count++] = ft_strdup(pfile);
+    ft_strdel(&(file->name));
+    ft_memdel((void**)(&(file)));
+    return (count);
+}
+
 char        **ft_getdirtab_f(char *path, char *error, char type)
 {
     char    **files;
+    char    *pfile;
     char    **ret;
-    t_file  *file;
     int     index;
     int     count;
 
@@ -43,12 +56,14 @@ char        **ft_getdirtab_f(char *path, char *error, char type)
     count = 0;
     while (files[++index])
     {
-        if ((file = ft_fileinfo(files[index])) == NULL)
-            return (NULL);
-        if (ft_filetype(file) == type)
-            ret[count++] = ft_strdup(files[index]);
-        ft_strdel(&(file->name));
-        ft_memdel((void**)(&(file)));
+        if (ft_strcmp(path, ".") == 0)
+            pfile = ft_strdup(files[index]);
+        else
+            pfile = ft_strmjoin(path, "/", files[index]);
+        if (ft_strcmp(files[index], ".") && ft_strcmp(files[index], ".."))
+            if ((count = next(pfile, ret, count, type)) == -1)
+                return (NULL);
+        ft_strdel(&pfile);
     }
     ft_tabstrdel(files);
     return (ret);

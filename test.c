@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/09/06 10:00:42 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/03 12:45:59 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/03 13:41:50 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,10 @@ int		main(void)
     char    **direct;
     int     ind;
 
-    direct = ft_getdirtab_f(".", NULL, 'd');
+    ind = ft_getdirdeep("/", NULL);
+    ft_putnbr_endl(ind);
+    return (1);
+    direct = ft_getdirtab_f("/", NULL, 'd');
     ind = -1;
     while (direct[++ind])
         ft_putendl(direct[ind]);
