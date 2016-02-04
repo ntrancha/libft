@@ -6,20 +6,20 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/05 13:56:33 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/01/10 14:12:55 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/01/10 14:28:25 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/libft.h"
 
-typedef struct  s_alloc t_alloc;
-typedef struct  s_type t_type;
-typedef struct  s_stacks t_stacks;
+typedef struct  s_alloc		t_alloc;
+typedef struct  s_type		t_type;
+typedef struct  s_stacks	t_stacks;
 /* ************************************************************************** */
-#define  GET(variable) ft_alloc_vget(#variable)
-#define  DEL(variable) ft_alloc_del(#variable)
-#define  PDEL(variable) ft_alloc_pdel(variable)
-#define  XSTR(var, name) ft_alloc(#var, ft_strlen(#var) + 1, #name, "str")
+#define  GET(variable) 		ft_alloc_vget(#variable)
+#define  DEL(variable) 		ft_alloc_del(#variable)
+#define  PDEL(variable) 	ft_alloc_pdel(variable)
+#define  XSTR(var, name) 	ft_alloc(#var, ft_strlen(#var) + 1, #name, "str")
 /* ************************************************************************** */
 t_type          *ft_vartype_init(void);
 t_type          *ft_vartype_add(char *type, size_t n, void (*del)(void**));

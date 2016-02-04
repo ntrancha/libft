@@ -19,3 +19,4 @@ install: clean
 	@gcc func_change_name.c ../libft.a -I../includes/ -o ../42-func_change_name
 	@gcc select_lib.c ../libft.a -I../includes/ -o ../42-selec_lib
 	@gcc proto.c ../libft.a -I../includes/ -o ../42-check_header
+	@gcc functions.c ../libft.a -I../includes/ -o ../42-list_proto
