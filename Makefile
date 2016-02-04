@@ -6,7 +6,7 @@
 #    By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/11/08 10:45:53 by ntrancha          #+#    #+#              #
-#    Updated: 2016/02/04 14:02:57 by ntrancha         ###   ########.fr        #
+#    Updated: 2016/02/04 14:10:01 by ntrancha         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -347,7 +347,7 @@ FILE =	src/mem/ft_memchr.c\
 ifeq ($(OS),Windows_NT)
 	OS = WIN32
     ifeq ($(PROCESSOR_ARCHITECTURE),AMD64)
-        SYS = AMD64
+        SYS = IA64
     endif
     ifeq ($(PROCESSOR_ARCHITECTURE),x86)
         SYS = IA32
@@ -362,7 +362,7 @@ else
    endif
    UNAME_P := $(shell uname -p)
    ifeq ($(UNAME_P),x86_64)
-       SYS = AMD64
+       SYS = IA64
    endif
    ifneq ($(filter %86,$(UNAME_P)),)
        SYS = IA32
@@ -470,7 +470,7 @@ reset:
     mv $(HEADER).nk $(HEADER);
 	@cat $(HEADER) | sed -e "s/IA32/SYS_UNKNOW/g" > $(HEADER).nk; \
     mv $(HEADER).nk $(HEADER); \
-    cat $(HEADER) | sed -e "s/AMD64/SYS_UNKNOW/g" > $(HEADER).nk; \
+    cat $(HEADER) | sed -e "s/IA64/SYS_UNKNOW/g" > $(HEADER).nk; \
     mv $(HEADER).nk $(HEADER); \
     cat $(HEADER) | sed -e "s/ARM/SYS_UNKNOW/g" > $(HEADER).nk; \
     mv $(HEADER).nk $(HEADER);
