@@ -6,13 +6,13 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/07/28 05:39:42 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/12/25 08:09:41 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/04 19:58:05 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef BAG_H
 # define BAG_H
-# include "memory.h"
+# include "mem.h"
 # include "strings.h"
 
 typedef struct      s_var

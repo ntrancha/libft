@@ -6,13 +6,12 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/02 17:25:24 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/04 13:45:43 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/04 19:53:18 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIST_H
 # define LIST_H
-# include "list.h"
 # include <stdlib.h>
 
 typedef struct		s_lst
