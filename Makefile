@@ -6,7 +6,7 @@
 #    By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/11/08 10:45:53 by ntrancha          #+#    #+#              #
-#    Updated: 2016/02/03 12:45:01 by ntrancha         ###   ########.fr        #
+#    Updated: 2016/02/04 14:02:57 by ntrancha         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -372,13 +372,13 @@ else
    endif
 endif
 
+all: reset binaire $(NAME)
+
 update:
 	@echo "Update ..."
 	@git clone $(DEPOT) tmp > /dev/null 2> /dev/null
 	@cd tmp/; cp -R * ..; cd ..; rm -rf tmp/
 	@echo "Done"
-
-all: reset binaire $(NAME)
 
 $(NAME): $(OBJS)
 	@if [ -f '$(NAME)' ]; then \
@@ -433,10 +433,14 @@ clean:
  
 fclean: clean reset
 	@rm -rf $(NAME)
+	@rm -rf 42-*
 			 
 re: fclean all
 	
-install: timestamp re
+tools:
+	@cd conf; make install; cd ..
+
+install: timestamp re tools
 	@rm -rf $(OBJS)
 	@echo "`/bin/date "+%s"` - `cat t.nk`" > t.nk
 	@echo "in `cat t.nk | bc`s"
@@ -444,7 +448,7 @@ install: timestamp re
 
 proto:
 	@grep "^[a-z]" *.c | cut -d ":" -f 2
-	@echo "total: `ls *.c | wc -l` fonction(s)"
+	@echo "total: `ls -R src/*.c | wc -l` fonction(s)"
 
 binaire:
 	@if [ -f '$(NAME)' ]; then \
