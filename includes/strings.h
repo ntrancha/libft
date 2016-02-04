@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/02 17:42:48 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/09/12 11:33:27 by ntrancha         ###   ########.fr       */
+/*   Updated: 2015/09/12 11:33:10 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,5 +76,6 @@ char    *ft_strgetline(const char *str, int line);
 char    *ft_strf(char const *format, ...);
 int     ft_strisoctet(char *str);
 char    *ft_strint(int size);
+char    *ft_lorem_ipsum(int size);
 
 #endif

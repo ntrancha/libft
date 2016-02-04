@@ -6,14 +6,13 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/02 17:33:25 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/12/25 13:50:14 by ntrancha         ###   ########.fr       */
+/*   Updated: 2015/12/25 13:46:50 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CONVERT_H
 # define CONVERT_H
 # include "libft.h"
-# include "bits.h"
 
 typedef long long	t_ll;
 

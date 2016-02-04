@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/07/28 05:39:42 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/01/05 13:51:39 by ntrancha         ###   ########.fr       */
+/*   Updated: 2015/12/25 08:09:41 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,6 @@ t_var   *ft_bag_delvar(t_bag *bag, char *var, void(del)(void **));
 t_var   *ft_bag_delnode(t_bag *bag, t_var *node, void(del)(void **));
 void    ft_bag_del(t_bag *bag, void(del)(void**));
 int     ft_bag_content(t_bag *bag, char *var);
-void	*ft_bag_get(t_bag *bag, char *var);
+void*	ft_bag_get(t_bag *bag, char *var);
 
 #endif

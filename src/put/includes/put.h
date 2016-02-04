@@ -6,13 +6,12 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/02 17:32:13 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/12/25 07:40:33 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/04 13:51:22 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUT_H
 # define PUT_H
-# include "libft.h"
 # include "bits.h"
 
 void	ft_putnbr_fd(int n, int fd);

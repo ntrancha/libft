@@ -65,5 +65,8 @@ long    ft_date_htos(int hour);
 long    ft_date_dtos(int day);
 long    ft_date_timestamp(t_date *date);
 long    ft_timestamp(char *str);
+int     ft_date_mins(int minute);
+int     ft_date_dins(int day);
+int     ft_date_hins(int hour);
 
 #endif

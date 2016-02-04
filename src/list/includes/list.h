@@ -6,13 +6,14 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/02 17:25:24 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/03 23:45:51 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/04 13:45:43 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIST_H
 # define LIST_H
 # include "list.h"
+# include <stdlib.h>
 
 typedef struct		s_lst
 {
@@ -58,5 +59,7 @@ t_lst	*ft_lstnew(void const *content, size_t content_size);
 void	ft_lstadd(t_lst **alst, t_lst *new);
 t_lst	*ft_lstmap(t_lst *lst, t_lst *(*f)(t_lst *elem));
 void	ft_lstiter(t_lst *lst, void (*f)(t_lst *elem));
+t_node  *ft_listdelnext(t_list *list, t_node *node, void (del)(void **));
+t_node  *ft_listdelnoden(t_list *list, t_node *node, void (del)(void**));
 
 #endif

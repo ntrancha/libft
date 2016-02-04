@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/02 17:47:17 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/03 12:44:26 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/03 12:44:40 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,5 +62,7 @@ char    *ft_finpath(char *pathfile);
 int		ft_pathisdir(char *path);
 int		ft_pathisfile(char *path);
 int		ft_pathexist(char *path);
+void    ft_deldir(t_list *list);
+int     ft_catfile_list(const int fd);
 
 #endif

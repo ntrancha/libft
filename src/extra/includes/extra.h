@@ -18,5 +18,6 @@ int	ft_rgb(int red, int green, int blue);
 int ft_getcol(void);
 int ft_getrow(void);
 int ft_getpid();
+int     ft_test(void);
 
 #endif

@@ -23,5 +23,6 @@ int	ft_istolower(int c);
 int	ft_istoupper(int c);
 int	ft_isspace(char c);
 int	ft_is_prime(int nbr);
+int     ft_isopt(char *option);
 
 #endif

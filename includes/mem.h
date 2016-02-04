@@ -6,13 +6,14 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/02 17:38:42 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/08/19 05:43:01 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/04 13:28:49 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MEM_H
 # define MEM_H
-# include <string.h> 
+# include "libft.h"
+# include <stdlib.h>
 
 void	*ft_memchr(const void *s, int c, size_t n);
 void	*ft_memcpy(void *dst, const void *src, size_t n);

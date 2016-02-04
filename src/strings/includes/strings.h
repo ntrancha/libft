@@ -76,5 +76,6 @@ char    *ft_strgetline(const char *str, int line);
 char    *ft_strf(char const *format, ...);
 int     ft_strisoctet(char *str);
 char    *ft_strint(int size);
+char    *ft_lorem_ipsum(int size);
 
 #endif

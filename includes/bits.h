@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/09/09 06:32:25 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/12/27 04:48:59 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/04 13:44:14 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # define BITS_ABS       ft_bits_abs
 # define A_ADD_B        ft_bits_add(a, b, base)  
 # define A_SUB_B        ft_bits_less(a, b, base)  
-# define B_SUB_A        ft_bits_less(b, a, base)  
+# define B_SUB_A        ft_bits_less(b, a, base)
 # include <stdlib.h>
 
 typedef unsigned char	t_octets;
