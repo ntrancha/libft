@@ -6,21 +6,21 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/31 11:35:44 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/08/19 07:34:14 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/03 23:45:32 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/list.h"
 
-t_node	    *ft_listdelnoden(t_list *list, t_node *node, void (del)(void **))
+t_node	    *ft_listdelnodenext(t_list *lst, t_node *node, void (del)(void **))
 {
 	t_node	*next;
 
 	next= NULL;
-	if (list && node)
+	if (lst && node)
 	{
 		next = node->next;
-		ft_listdelnode(list, node, del);
+		ft_listdelnode(lst, node, del);
 	}
 	return (next);
 }

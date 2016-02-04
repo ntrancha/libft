@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_octet_not.c                                     :+:      :+:    :+:   */
+/*   ft_octet_or.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/09/11 08:55:13 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/09/11 10:54:41 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/03 23:44:31 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/libft.h"
 
-t_octet     ft_octet_not(t_octet a)
+t_octet     ft_octet_or(t_octet a, t_octet b)
 {
-    return (~a);
+    return (a | b);
 }
