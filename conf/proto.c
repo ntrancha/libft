@@ -6,12 +6,13 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/03 21:50:57 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/04 02:43:18 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/04 13:32:57 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libft.h"
-#define DOS_SRC     "../src"
+
+char        *find_pathsrc(void);
 
 char        *get_path(char *path)
 {
@@ -26,10 +27,13 @@ char        *get_path(char *path)
 char        *get_dos(char *path)
 {
     char    *ret;
+    char    *src;
     int     len;
 
-    len = ft_strlen(DOS_SRC) + 1;
+    src = find_pathsrc();
+    len = ft_strlen(src) + 1;
     ret = ft_strsub(path, len, ft_strlen(path) - len);
+    ft_strdel(&src);
     return (ret);
 }
 
@@ -96,6 +100,8 @@ void        add_proto(char *header, char *proto, char *cat)
 
     tmp = ft_strsub(cat, 0, ft_strlen(cat) - 8);
     ret = ft_strmjoin(tmp, proto, "\n\n#endif\n");
+    if (ft_write_file(header, ret) == 0)
+        ft_putendl("_ Réécriture du header");
     ft_strdel(&ret);
     ft_strdel(&tmp);
 }
@@ -160,7 +166,7 @@ void        parse(char *file, char *path, char *header)
     }
     else
     {
-        ft_putendl("__________ERROR__________");
+        ft_putstr("La fonction ne correspond pas au nom du fichier : ");
         ft_putendl(path);
     }
     ft_strdel(&cat);
@@ -168,25 +174,98 @@ void        parse(char *file, char *path, char *header)
     ft_strdel(&func2);
 }
 
+char        *get_function(char *proto)
+{
+    int     index;
+    char    *ret;
+    int     start;
+    int     end;
+
+    index = -1;
+    start = 0;
+    end = 0;
+    while (proto[++index])
+    {
+        if (!start && index > 3 && proto[index] == '_')
+            if (proto[index - 1] == 't' && proto[index - 2] == 'f')
+                start = index - 2;
+        if (start && !end && proto[index] == '(')
+            end = index;
+    }
+    ret = ft_strsub(proto, start, end - start);
+    return (ret);
+}
+
+char        *get_dir(char *header)
+{
+    int     count;
+    int     index;
+
+    index = -1;
+    count= 0;
+    while (header[++index])
+        if (header[index] == '/')
+            count = index + 1;
+    return (ft_strsub(header, count, ft_strlen(header) - count));
+}
+
+void        verif_header(char *dos, char *proto, char *func, char *path)
+{
+    char    *file;
+    char    *cat;
+    char    *tmp;
+
+    file = ft_strmmjoin(dos, "/", func, ".c");
+    cat = ft_get_file(file);
+    if (!cat)
+    {
+        ft_putstr("Aucun fichier correspondant : ");
+        ft_putendl(file);
+    }
+    tmp = ft_strjoin(func, "(");
+    if (ft_strcchr(cat, tmp) == 0)
+    {
+        ft_putstr("Aucune function correspondante : ");
+        ft_putendl(file);
+    }
+    ft_strdel(&file);
+    ft_strdel(&cat);
+    ft_strdel(&tmp);
+}
+
 void        parse_header(char *header, char *dos)
 {
     char    *cat;
+    char    *func;
+    char    *dir;
     char    **split;
     int     index;
 
     cat = ft_get_file(header);
+    dir = get_dir(dos);
     split = ft_strsplit(cat, '\n');
     index = -1;
-    ft_putendl(dos);
     while (split[++index])
     {
         if (ft_strcchr(split[index], ");") && ft_strcchr(split[index], "ft_"))
         {
-            ft_putendl(split[index]);
+            func = get_function(split[index]);
+            verif_header(dos, split[index], func, header);
+            ft_strdel(&func);
         }
     }
     ft_tabstrdel(split);
     ft_strdel(&cat);
+    ft_strdel(&dir);
+}
+
+void        copy(char *header, char *dos, char *path)
+{
+    char    *include;
+
+    include = ft_strmmjoin(path, "/includes/", dos, ".h");
+    ft_filecopy(header, include);
+    ft_strdel(&include);
 }
 
 void        next(char *path, char *dos, char *pathdos)
@@ -210,22 +289,48 @@ void        next(char *path, char *dos, char *pathdos)
     }
     ft_tabstrdel(files);
     parse_header(include2, pathdos);
+    copy(include2, dos, path);
     ft_strdel(&include);
     ft_strdel(&include2);
 }
 
-int         main(int argc, char **argv)
+char        *find_pathsrc(void)
 {
-    t_opt   *options;
     char    **dos;
+    int     index;
+    int     test;
+    
+    test = 0;
+    index = -1;
+    dos = ft_getdirtab_f(".", NULL, 'd');
+    while (!test && dos[++index])
+        if (ft_strcmp(dos[index], "src") == 0)
+            test = 1;
+    ft_tabstrdel(dos);
+    if (test)
+        return (ft_strdup("src"));
+    index = -1;
+    dos = ft_getdirtab_f("..", NULL, 'd');
+    while (!test && dos[++index])
+        if (ft_strcmp(dos[index], "../src") == 0)
+            test = 1;
+    ft_tabstrdel(dos);
+    if (test)
+        return (ft_strdup("../src"));
+    return (NULL);
+}
+
+int         main(void)
+{
+    char    **dos;
+    char    *path_src;
     char    *dos_lib;
     char    *path;
     int     index;
     
-    if ((options = ft_optget(argc, argv)) == NULL)
-        return (-1);
-    dos = ft_getdirtab_f(DOS_SRC, NULL, 'd');
-    path = get_path(DOS_SRC);
+    path_src = find_pathsrc();
+    dos = ft_getdirtab_f(path_src, NULL, 'd');
+    path = get_path(path_src);
     index = -1;
     while (dos[++index])
     {
@@ -234,7 +339,7 @@ int         main(int argc, char **argv)
         ft_strdel(&dos_lib);
     }
     ft_tabstrdel(dos);
-    ft_optdel(options);
     ft_strdel(&path);
+    ft_strdel(&path_src);
     return (1);
 }
