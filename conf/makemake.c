@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/04 16:33:35 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/05 09:44:45 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/05 09:57:32 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -208,11 +208,29 @@ void        list(t_opt *options, t_list *lst)
 
 void        add_make(t_list *lst)
 {
+    t_list  *content;
     char    *file;
+    char    **ligne;
+    int     test;
+    int     line;
 
     file = ft_get_file("Makefile");
-    ft_putendl(file);
+    line = -1;
+    test = 0;
+    ligne = ft_strsplit(file, '\n');
+    content = ft_listcreate();
+    while (ligne[++line])
+    {
+        if (ft_strcchr(ligne[line], "FILE ="))
+            test = 1;
+        if (ft_strcchr(ligne[line], "Windows_NT"))
+            test = 2;
+        if(test != 1);
+            ft_listadd(content, ft_strdup(ligne[line]));
+    }
+    ft_listputstr(content, ft_putendl);
     ft_strdel(&file);
+    ft_tabstrdel(ligne);
 }
 
 void        create_make(t_list *lst)
