@@ -274,6 +274,7 @@ FILE	=	src/mem/ft_memalloc.c                \
 			src/file/ft_catfile.c                \
 			src/file/ft_opendir.c                \
 			src/file/ft_getdir_rec.c             \
+			src/file/ft_dircreate.c              \
 			src/file/ft_fileindos_rec.c          \
 			src/file/ft_filestrrpl.c             \
 			src/file/ft_dinpath.c                \

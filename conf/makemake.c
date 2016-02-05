@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/04 16:33:35 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/05 16:49:44 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/05 23:34:22 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -206,37 +206,126 @@ void        list(t_opt *options, t_list *lst)
     }
 }
 
-void        add_make(t_list *lst, char *mini)
+char        *path_make(t_list *lst, char *mini, t_list *content)
+{
+    int     test;
+
+    test = 0;
+    if (mini)
+    {
+        ft_listadd(content, ft_get_file("conf/files/Makefile_mini_h"));
+        ft_listadd(content, ft_listtostrd(lst, "\n"));
+        ft_listadd(content, ft_get_file("conf/files/Makefile_mini_t"));
+        if (ft_dircreate(mini) == -1)
+            return (NULL);
+        return (ft_strjoin(mini, "/Makefile"));
+    }
+    ft_listadd(content, ft_get_file("conf/files/Makefile_full_h"));
+    ft_listadd(content, ft_listtostrd(lst, "\n"));
+    ft_listadd(content, ft_get_file("conf/files/Makefile_full_t"));
+    return (ft_strdup("Makefile"));
+}
+
+void        copy_src_lib(char *mini, char *lib)
+{
+    char    *dos;
+    char    **file;
+    int     index;
+
+    index = -1;
+    dos = ft_strjoin("src/", lib);
+    file = ft_getdirtab_f(dos, NULL, 'r');
+    ft_strdel(&dos);
+    while (file[++index])
+    {
+        dos = ft_strmjoin(mini, "/", file[index]);
+        ft_filecopy(file[index], dos);
+        ft_strdel(&dos);
+    }
+    ft_tabstrdel(file);
+}
+
+int         test_include(t_list *options, char *lib)
+{
+    t_node  *node;
+
+    node = options->start;
+    while (node)
+    {
+        if (ft_strcchr(lib, node->content))
+            return (1);
+        node = node->next;
+    }
+    return (0);
+}
+
+void        copy_src_includes(char *mini, t_list *options)
+{
+    char    **file;
+    char    *dst;
+    int     index;
+
+    file = ft_getdirtab_f("includes", NULL, 'r');
+    dst = ft_strjoin(mini, "/includes/libft.h");
+    ft_filecopy("includes/libft.h", dst);
+    ft_strdel(&dst);
+    index = -1;
+    while (file[++index])
+    {
+        dst = ft_strmjoin(mini, "/", file[index]);
+        if (test_include(options, file[index]))
+            ft_filecopy(file[index], dst);
+        ft_strdel(&dst);
+    }
+    ft_tabstrdel(file);
+}
+
+void        copy_src(char *mini, t_list *options)
+{
+    char    *includes;
+    t_node  *node;
+
+    includes = ft_strjoin(mini, "/includes");
+    ft_dircreate(includes);
+    ft_strdel(&includes);
+    includes = ft_strjoin(mini, "/src");
+    ft_dircreate(includes);
+    ft_strdel(&includes);
+    node = options->start;
+    while (node)
+    {
+        includes = ft_strmjoin(mini, "/src/", node->content);
+        ft_dircreate(includes);
+        ft_strdel(&includes);
+        copy_src_lib(mini, node->content);
+        node = node->next;
+    }
+    copy_src_includes(mini, options);
+}
+
+void        add_make(t_list *lst, char *mini, t_list *options)
 {
     t_list  *content;
     char    *file;
-    char    *head;
-    char    *tail;
-    char    *src;
+    char    *path;
 
-    ft_putendl(mini);
     content = ft_listcreate();
-    if (mini)
+    path = path_make(lst, mini, content);
+    file = ft_listtostrd(content, "\n");
+    if (path)
     {
-        head = ft_get_file("conf/files/Makefile_mini_h");
-        tail = ft_get_file("conf/files/Makefile_mini_t");
+        ft_write_file(path, file); 
+        if (mini)
+            copy_src(mini, options);
     }
     else
-    {
-        head = ft_get_file("conf/files/Makefile_full_h");
-        tail = ft_get_file("conf/files/Makefile_full_t");
-    }
-    ft_listadd(content, head);
-    src = ft_listtostrd(lst, "\n");
-    ft_listadd(content, src);
-    ft_listadd(content, tail);
-    file = ft_listtostrd(content, "\n");
-    ft_write_file("Makefile", file); 
+        ft_putendl("Create directory : FAIL");
+    ft_strdel(&path);
     ft_strdel(&file);
     ft_listdel(content, ft_memdel);
 }
 
-void        create_make(t_list *lst, char *mini)
+void        create_make(t_list *lst, char *mini, t_list *options)
 {
     t_node  *node;
     char    *new;
@@ -264,7 +353,7 @@ void        create_make(t_list *lst, char *mini)
         ft_strdel(&tmp);
         node = node->next;
     }
-    add_make(lst, mini);
+    add_make(lst, mini, options);
 }
 
 int         main(int argc, char **argv)
@@ -283,7 +372,7 @@ int         main(int argc, char **argv)
     else
         start(options);
     list(options, lst);
-    create_make(lst, mini);
+    create_make(lst, mini, options);
     ft_strdel(&all);
     ft_strdel(&mini);
     ft_optdel(options);

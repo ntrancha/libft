@@ -64,5 +64,6 @@ int		ft_pathisfile(char *path);
 int		ft_pathexist(char *path);
 void    ft_deldir(t_list *list);
 int     ft_catfile_list(const int fd);
+int     ft_dircreate(const char *path);
 
 #endif
