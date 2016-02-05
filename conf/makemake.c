@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/04 16:33:35 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/04 20:09:30 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/05 09:11:48 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int         test_dos(char *dir)
     lib = ft_getdirtab_f("src", NULL, 'd');
     while (lib[++index])
     {
-        tmp = ft_strsub(lib[index], 4, ft_strlen(lib[index]));
+        tmp = ft_strsub(lib[index], 4, ft_strlen(lib[index])- 4);
         if (ft_strcmp(tmp, dir) == 0)
             test = 1;
         ft_strdel(&tmp);
@@ -56,7 +56,7 @@ char        *recup_lib(char *include)
             slash = index;
     if (slash > guill)
         guill = slash;
-    tmp = ft_strsub(include, guill + 1, 30);
+    tmp = ft_strsub(include, guill + 1, ft_strlen(include) - guill);
     tmp[ft_strlen(tmp) - 3] = '\0';
     return (tmp);
 }
@@ -96,7 +96,6 @@ void        next(char *option, t_opt *options)
 {
     char    *path;
     char    *cat;
-    char    *include;
     char    **ligne;
     int     line;
 
@@ -109,7 +108,7 @@ void        next(char *option, t_opt *options)
             next2(ligne[line], options, option);
     ft_strdel(&cat);
     ft_strdel(&path);
-
+    ft_tabstrdel(ligne);
 }
 
 void        start(t_opt *options)
@@ -145,14 +144,82 @@ void        get_all(t_opt *options)
     ft_tabstrdel(path);
 }
 
-void        list(t_opt *options)
+void        add_makefile(char *dos, char *func, char *proto, t_list *lst)
+{
+    if (!proto && func[0] != '.')
+    {
+        ft_putstr("Prototype not found of ");
+        ft_putendl(func);
+    }
+    else if (func[0] != '.')
+        ft_listadd(lst, ft_strdup(dos));
+}
+
+void        recup_proto(char *dos, char *cat, char *file, t_list *lst)
+{
+    char    **ligne;
+    int     len;
+    int     count;
+    char    *proto;
+    char    *func;
+
+    ligne = ft_strsplit(cat, '\n');
+    count = -1;
+    proto = NULL;
+    len = ft_strlen(dos) + 5;
+    func = ft_strsub(file, len, ft_strlen(file) - len);
+    func[ft_strlen(func) - 1] = '\0';
+    func[ft_strlen(func) - 1] = '(';
+    while (ligne[++count] && !proto)
+        if (ft_strcchr(ligne[count], func) != 0)
+            proto = ft_strdup(ligne[count]);
+    func[ft_strlen(func) - 1] = '\0';
+    add_makefile(file, func, proto, lst);
+    ft_tabstrdel(ligne);
+    ft_strdel(&func);
+    ft_strdel(&proto);
+}
+
+void        list(t_opt *options, t_list *lst)
 {
     t_node  *node;
+    char    **dos;
+    char    *path;
+    char    *cat;
+    int     index;
 
     node = options->start;
     while (node)
     {
-        ft_putendl(node->content);
+        index = -1;
+        path = ft_strjoin("src/", node->content);
+        dos = ft_getdirtab_f(path, NULL, 'r');
+        while (dos[++index])
+        {
+            cat = ft_get_file(dos[index]);
+            recup_proto(node->content, cat, dos[index], lst);
+            ft_strdel(&cat);
+        }
+        node = node->next;
+        ft_tabstrdel(dos);
+        ft_strdel(&path);
+    }
+}
+
+void        create_make(t_list *lst, int max)
+{
+    t_node  *node;
+    int     len;
+
+    node = lst->start;
+    while (node)
+    {
+        ft_putstr("\t\t");
+        ft_putstr(node->content);
+        len = ft_strlen(node->content) + 8;
+        while (len++ <= 11 * 4)
+            ft_putchar(' ');
+        ft_putendl("\\");
         node = node->next;
     }
 }
@@ -160,15 +227,18 @@ void        list(t_opt *options)
 int         main(int argc, char **argv)
 {
     t_opt   *options;
+    t_list  *lst;
     char    *all;
     
     options = ft_optget(argc, argv);
     all = ft_optgetopt_simple(options, "-all");
+    lst= ft_listcreate();
     if (all)
         get_all(options);
     else
         start(options);
-    list(options);
+    list(options, lst);
+    create_make(lst, ft_liststrlenmax(lst));
     ft_strdel(&all);
     ft_optdel(options);
     return (-1);
