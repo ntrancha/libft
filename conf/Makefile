@@ -6,7 +6,7 @@
 #    By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/11/08 10:45:53 by ntrancha          #+#    #+#              #
-#    Updated: 2016/02/04 14:03:54 by ntrancha         ###   ########.fr        #
+#    Updated: 2016/02/05 11:34:23 by ntrancha         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,3 +20,4 @@ install: clean
 	@gcc select_lib.c ../libft.a -I../includes/ -o ../42-selec_lib
 	@gcc proto.c ../libft.a -I../includes/ -o ../42-check_header
 	@gcc functions.c ../libft.a -I../includes/ -o ../42-list_proto
+	@gcc makemake.c ../libft.a -I../includes/ -o ../42-makefile

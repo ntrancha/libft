@@ -39,8 +39,8 @@
 # define EXIT_ERROR		-2
 # define USER_OS		LINUX
 # define LINUX
-# define USER_SYS		IA64
-# define IA64
+# define USER_SYS		AMD64
+# define AMD64
 # define STR_EMPTY		ft_strdup("")
 # define PUT_ENDL		ft_putchar('\n')
 # define PUT_ERROR(x)	ft_putstr_fd(x, STDERR)

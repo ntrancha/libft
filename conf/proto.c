@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/03 21:50:57 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/04 13:32:57 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/05 15:19:50 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -341,5 +341,5 @@ int         main(void)
     ft_tabstrdel(dos);
     ft_strdel(&path);
     ft_strdel(&path_src);
-    return (1);
+    return (0);
 }

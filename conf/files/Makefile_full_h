@@ -1,0 +1,29 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2014/11/08 10:45:53 by ntrancha          #+#    #+#              #
+#    Updated: 2016/02/04 14:10:01 by ntrancha         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+AUTEUR	=	ntrancha
+
+PROJECT	=	libft
+
+NAME	=	$(PROJECT).a
+ 
+FLAG	=	-Wall -Wextra -Werror -g
+   
+HEADER	=	includes/macros.h
+
+GIT		=	https://github.com/$(AUTEUR)/
+
+SCRIPT	= 	$(GIT)Script.git 
+
+DEPOT	= 	$(GIT)$(PROJECT).git
+
+OBJS	=	$(FILE:.c=.o)

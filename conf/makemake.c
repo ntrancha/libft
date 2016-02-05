@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/04 16:33:35 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/05 09:57:32 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/05 15:20:03 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -138,7 +138,7 @@ void        get_all(t_opt *options)
     index = -1;
     while (path[++index])
     {
-        file = ft_strsub(path[index], 4, ft_strlen(path[index]));
+        file = ft_strsub(path[index], 4, ft_strlen(path[index]) - 4);
         ft_listadd(options, file);
     }
     ft_tabstrdel(path);
@@ -210,43 +210,49 @@ void        add_make(t_list *lst)
 {
     t_list  *content;
     char    *file;
-    char    **ligne;
-    int     test;
-    int     line;
+    char    *head;
+    char    *tail;
+    char    *src;
 
-    file = ft_get_file("Makefile");
-    line = -1;
-    test = 0;
-    ligne = ft_strsplit(file, '\n');
     content = ft_listcreate();
-    while (ligne[++line])
-    {
-        if (ft_strcchr(ligne[line], "FILE ="))
-            test = 1;
-        if (ft_strcchr(ligne[line], "Windows_NT"))
-            test = 2;
-        if(test != 1);
-            ft_listadd(content, ft_strdup(ligne[line]));
-    }
-    ft_listputstr(content, ft_putendl);
+    head = ft_get_file("conf/files/Makefile_full_h");
+    tail = ft_get_file("conf/files/Makefile_full_t");
+    ft_listadd(content, head);
+    src = ft_listtostrd(lst, "\n");
+    ft_listadd(content, src);
+    ft_listadd(content, tail);
+    file = ft_listtostrd(content, "\n");
+    ft_write_file("Makefile", file); 
     ft_strdel(&file);
-    ft_tabstrdel(ligne);
+    ft_listdel(content, ft_memdel);
 }
 
 void        create_make(t_list *lst)
 {
     t_node  *node;
+    char    *new;
+    char    *tmp;
     int     len;
 
     node = lst->start;
     while (node)
     {
-        ft_putstr("\t\t");
-        ft_putstr(node->content);
+        if (node == lst->start)
+            tmp = ft_strjoin("FILE\t=\t", node->content);
+        else
+            tmp = ft_strjoin("\t\t\t", node->content);
         len = ft_strlen(node->content) + 8;
         while (len++ <= 11 * 4)
-            ft_putchar(' ');
-        ft_putendl("\\");
+        {
+            new = ft_strjoin(tmp, " ");
+            ft_strdel(&tmp);
+            tmp = ft_strdup(new);
+            ft_strdel(&new);
+        }
+        new = ft_strjoin(tmp, "\\");
+        ft_strdel((char**)&(node->content));
+        node->content = new;
+        ft_strdel(&tmp);
         node = node->next;
     }
     add_make(lst);
@@ -269,5 +275,5 @@ int         main(int argc, char **argv)
     create_make(lst);
     ft_strdel(&all);
     ft_optdel(options);
-    return (-1);
+    return (0);
 }
