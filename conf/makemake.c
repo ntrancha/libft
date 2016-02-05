@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/04 16:33:35 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/05 09:11:48 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/05 09:44:45 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -206,7 +206,16 @@ void        list(t_opt *options, t_list *lst)
     }
 }
 
-void        create_make(t_list *lst, int max)
+void        add_make(t_list *lst)
+{
+    char    *file;
+
+    file = ft_get_file("Makefile");
+    ft_putendl(file);
+    ft_strdel(&file);
+}
+
+void        create_make(t_list *lst)
 {
     t_node  *node;
     int     len;
@@ -222,6 +231,7 @@ void        create_make(t_list *lst, int max)
         ft_putendl("\\");
         node = node->next;
     }
+    add_make(lst);
 }
 
 int         main(int argc, char **argv)
@@ -238,7 +248,7 @@ int         main(int argc, char **argv)
     else
         start(options);
     list(options, lst);
-    create_make(lst, ft_liststrlenmax(lst));
+    create_make(lst);
     ft_strdel(&all);
     ft_optdel(options);
     return (-1);
