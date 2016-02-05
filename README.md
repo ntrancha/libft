@@ -35,7 +35,7 @@ Créé un makefile en fonction de librairie passé en paramétres.
 
       ./42-makefile mem put strings test
 
-     ./42-makefile -all
+      ./42-makefile -all
 
  
 Créé une mini librairie avec seulement les fichier requis.
@@ -44,55 +44,55 @@ Créé une mini librairie avec seulement les fichier requis.
 
 
 
-BAG     = GESTION DE VARIABLES
+BAG = GESTION DE VARIABLES
 
 
-BITS    = GESTION BITS A BITS
+BITS = GESTION BITS A BITS
 
 
 CONVERT = CONVERTION
 
 
-COUNT   = COMPTAGE
+COUNT = COMPTAGE
 
 
-DATE    = DATE
+DATE = DATE
 
 
-EXTRA   = DIVERS
+EXTRA = DIVERS
 
 
-LIST    = LISTE CHAÎNÉES
+LIST = LISTE CHAÎNÉES
 
 
-MACROS  = MACROS
+MACROS = MACROS
 
 
-MATH    = FONCTIONS MATHÉMATIQUES
+MATH = FONCTIONS MATHÉMATIQUES
 
 
-MEM     = GESTION DE LA MÉMOIRE
+MEM = GESTION DE LA MÉMOIRE
 
 
-OPT     = GESTION DES OPTIONS
+OPT = GESTION DES OPTIONS
 
 
-PUT     = AFFICHAGE
+PUT = AFFICHAGE
 
 
-SCREEN  = GESTION D'ÉCRAN
+SCREEN = GESTION D'ÉCRAN
 
 
-SIG     = GESTION DE SIGNAL
+SIG = GESTION DE SIGNAL
 
 
-SOCKET  = GESTION DE SOCKET
+SOCKET = GESTION DE SOCKET
 
 
 STRINGS = CHAÎNES DE CARACTÈRES
 
 
-TAB     = TABLEAUX
+TAB = TABLEAUX
 
 
-TEST    = TEST
+TEST = TEST
