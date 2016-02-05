@@ -274,6 +274,7 @@ FILE	=	src/mem/ft_memalloc.c                \
 			src/file/ft_catfile.c                \
 			src/file/ft_opendir.c                \
 			src/file/ft_getdir_rec.c             \
+			src/file/ft_dircreate.c              \
 			src/file/ft_fileindos_rec.c          \
 			src/file/ft_filestrrpl.c             \
 			src/file/ft_dinpath.c                \
@@ -411,13 +412,13 @@ $(NAME): $(OBJS)
 timestamp:
 	@echo `/bin/date "+%s"` > t.nk
 
-make:timestamp maker re tools
+make:timestamp tools maker re
 
 header:
 	@echo "`./42-check_header`"
 
 maker: header 
-	@echo "`./42-makefile`"
+	@echo "`./42-makefile -all`"
 
 .PHONY: verbose quiet clean fclean re install proto reset binaire fichier timestamp test dynamique make maker tools
 
