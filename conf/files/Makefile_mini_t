@@ -1,0 +1,299 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2014/11/08 10:45:53 by ntrancha          #+#    #+#              #
+#    Updated: 2015/08/25 03:43:46 by ntrancha         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+NAME =	libft.a
+
+FLAG =	-Wall -Wextra -Werror -g
+
+OBJS =	$(FILE:.c=.o)
+
+FILE =	src/mem/ft_memchr.c\
+		src/mem/ft_memcpy.c\
+		src/mem/ft_memccpy.c\
+		src/mem/ft_memmove.c\
+		src/mem/ft_ralloc.c\
+		src/mem/ft_memset.c\
+		src/mem/ft_bzero.c\
+		src/mem/ft_memalloc.c\
+		src/mem/ft_memdel.c\
+		src/mem/ft_memcmp.c\
+		src/strings/ft_strequ.c\
+		src/strings/ft_strnequ.c\
+		src/strings/ft_strcmp.c\
+		src/strings/ft_strncmp.c\
+		src/strings/ft_strdel.c\
+		src/strings/ft_tabstrdel.c\
+		src/strings/ft_strnew.c\
+		src/strings/ft_striter.c\
+		src/strings/ft_striteri.c\
+		src/strings/ft_strmap.c\
+		src/strings/ft_strmapi.c\
+		src/strings/ft_strcchr.c\
+		src/strings/ft_match.c\
+		src/strings/ft_strchr.c\
+		src/strings/ft_strrchr.c\
+		src/strings/ft_strstr.c\
+		src/strings/ft_strnstr.c\
+		src/strings/ft_strdup.c\
+		src/strings/ft_strcpy.c\
+		src/strings/ft_strncpy.c\
+		src/strings/ft_strmore.c\
+		src/strings/ft_strlcat.c\
+		src/strings/ft_strlen.c\
+		src/strings/ft_strcat.c\
+		src/strings/ft_strncat.c\
+		src/strings/ft_strjoin.c\
+		src/strings/ft_strmjoin.c\
+		src/strings/ft_strmmjoin.c\
+		src/strings/ft_straddchar.c\
+		src/strings/ft_strfusion.c\
+		src/strings/ft_strfusiondel.c\
+		src/strings/ft_strtrim.c\
+		src/strings/ft_strcleanback.c\
+		src/strings/ft_strcleanfront.c\
+		src/strings/ft_strclr.c\
+		src/strings/ft_strtoupper.c\
+		src/strings/ft_strtolower.c\
+		src/strings/ft_toupper.c\
+		src/strings/ft_tolower.c\
+		src/strings/ft_strnrpl.c\
+		src/strings/ft_strralloc.c\
+		src/strings/ft_strsplit.c\
+		src/strings/ft_strsub.c\
+		src/strings/ft_strrvs.c\
+		src/strings/ft_strdoublon.c\
+		src/strings/ft_strisnum.c\
+		src/strings/ft_strgetline.c\
+		src/test/ft_isdigit.c\
+		src/test/ft_isalpha.c\
+		src/test/ft_isalnum.c\
+		src/test/ft_isascii.c\
+		src/test/ft_isprint.c\
+		src/test/ft_istolower.c\
+		src/test/ft_istoupper.c\
+		src/test/ft_isspace.c\
+		src/test/ft_is_prime.c\
+		src/math/ft_abs.c\
+		src/math/ft_find_next_prime.c\
+		src/math/ft_neg.c\
+		src/math/ft_power.c\
+		src/math/ft_sqrt.c\
+		src/math/ft_facto.c\
+		src/math/ft_abs_long.c\
+		src/math/ft_neg_long.c\
+		src/math/ft_abs_longlong.c\
+		src/math/ft_abs_float.c\
+		src/math/ft_neg_float.c\
+		src/math/ft_rsqrt.c\
+		src/math/ft_cos.c\
+		src/math/ft_sin.c\
+		src/math/ft_tan.c\
+		src/math/ft_abs_double.c\
+		src/math/ft_neg_double.c\
+		src/math/ft_nbrcat.c\
+		src/bag/ft_bag_create.c\
+		src/bag/ft_bag_addvar.c\
+		src/bag/ft_bag_delvar.c\
+		src/bag/ft_bag_delnode.c\
+		src/bag/ft_bag_del.c\
+		src/bag/ft_bag_content.c\
+		src/count/ft_strlen.c\
+		src/count/ft_nbrlen.c\
+		src/count/ft_floatlenfloat.c\
+		src/count/ft_floatlen.c\
+		src/count/ft_longlen.c\
+		src/count/ft_doublelen.c\
+		src/count/ft_doublelendouble.c\
+		src/count/ft_cinstr.c\
+		src/date/ft_date_convert.c\
+		src/date/ft_date_modiftime.c\
+		src/date/ft_date_modifdate.c\
+		src/date/ft_date_summertime.c\
+		src/date/ft_date_diny.c\
+		src/date/ft_date_mtos.c\
+		src/date/ft_date_htos.c\
+		src/date/ft_date_dtos.c\
+		src/date/ft_date_timestamp.c\
+		src/date/ft_timestamp.c\
+		src/extra/ft_rgb.c\
+		src/extra/ft_getcol.c\
+		src/extra/ft_getrow.c\
+		src/extra/ft_getpid.c\
+		src/opt/ft_optget.c\
+		src/opt/ft_isopt.c\
+		src/opt/ft_optdel.c\
+		src/opt/ft_opttest.c\
+		src/opt/ft_optgetopt_simple.c\
+		src/opt/ft_optgetopt_double.c\
+		src/opt/ft_optgetopt_next.c\
+		src/put/ft_putnbr_fd.c\
+		src/put/ft_putchar_fd.c\
+		src/put/ft_putstr_fd.c\
+		src/put/ft_putendl_fd.c\
+		src/put/ft_putchar.c\
+		src/put/ft_putstr.c\
+		src/put/ft_putendl.c\
+		src/put/ft_putnbr.c\
+		src/put/ft_putnbr_endl.c\
+		src/put/ft_putfloat.c\
+		src/put/ft_putlong.c\
+		src/put/ft_putdouble.c\
+		src/tab/ft_tabmin.c\
+		src/tab/ft_tabmax.c\
+		src/tab/ft_tabup.c\
+		src/tab/ft_tabdup.c\
+		src/tab/ft_puttab.c\
+		src/tab/ft_tabclear.c\
+		src/tab/ft_tabdel.c\
+		src/tab/ft_tabnew.c\
+		src/socket/ft_socket_init.c\
+		src/socket/ft_socket_init_server.c\
+		src/socket/ft_socket_init_client.c\
+		src/socket/ft_socket_read.c\
+		src/socket/ft_socket_end.c\
+		src/socket/ft_socket_end_co.c\
+		src/screen/ft_casescreate.c\
+		src/screen/ft_caseadd.c\
+		src/screen/ft_caseset.c\
+		src/screen/ft_casendel.c\
+		src/screen/ft_casedel.c\
+		src/screen/ft_casedelend.c\
+		src/screen/ft_casedelete.c\
+		src/screen/ft_casesdel.c\
+		src/screen/ft_screeninit.c\
+		src/screen/ft_screenget_row.c\
+		src/screen/ft_screenget_col.c\
+		src/screen/ft_screenget_offset.c\
+		src/screen/ft_screenget_cursor.c\
+		src/screen/ft_screenget_size.c\
+		src/screen/ft_screenget_buffer.c\
+		src/screen/ft_screenget_original.c\
+		src/screen/ft_screenset_offset.c\
+		src/screen/ft_screenset_cursor.c\
+		src/screen/ft_screenset_lcursor.c\
+		src/screen/ft_screenset_size.c\
+		src/screen/ft_screenwrite_charl.c\
+		src/screen/ft_screenwrite_char.c\
+		src/screen/ft_screenwrite_str.c\
+		src/screen/ft_screenwrite_charf.c\
+		src/screen/ft_screenwrite_strf.c\
+		src/screen/ft_screenprint.c\
+		src/screen/ft_screenbuffering.c\
+		src/screen/ft_screenfree.c\
+		src/screen/ft_screenclear.c\
+		src/screen/ft_screenclean.c\
+		src/screen/ft_screenreset.c\
+		src/screen/ft_screenfull.c\
+		src/screen/ft_screenis_full.c\
+		src/convert/ft_itoa.c\
+		src/convert/ft_ltoa.c\
+		src/convert/ft_ftoa.c\
+		src/convert/ft_dtoa.c\
+		src/convert/ft_ctos.c\
+		src/convert/ft_atoi.c\
+		src/convert/ft_ltoi.c\
+		src/convert/ft_ftoi.c\
+		src/convert/ft_dtoi.c\
+		src/convert/ft_dectobin.c\
+		src/convert/ft_bintodec.c\
+		src/convert/ft_atol.c\
+		src/convert/ft_itol.c\
+		src/convert/ft_dtol.c\
+		src/convert/ft_ftol.c\
+		src/convert/ft_itoll.c\
+		src/convert/ft_ltoll.c\
+		src/convert/ft_dtoll.c\
+		src/convert/ft_ftoll.c\
+		src/convert/ft_atoll.c\
+		src/convert/ft_atof.c\
+		src/convert/ft_itof.c\
+		src/convert/ft_ltof.c\
+		src/convert/ft_dtof.c\
+		src/convert/ft_fround.c\
+		src/convert/ft_atod.c\
+		src/convert/ft_itod.c\
+		src/convert/ft_ltod.c\
+		src/convert/ft_ftod.c\
+		src/file/ft_gnl.c\
+		src/file/ft_gnl_list.c\
+		src/file/ft_readstdin.c\
+		src/file/ft_readfile.c\
+		src/file/ft_readfile_list.c\
+		src/file/ft_catfile.c\
+		src/file/ft_get_file.c\
+		src/file/ft_write_file.c\
+		src/file/ft_write_file_end.c\
+		src/file/ft_opendir.c\
+		src/file/ft_closedir.c\
+		src/file/ft_fileinfo.c\
+		src/file/ft_fileget_rights.c\
+		src/file/ft_filedel.c\
+		src/file/ft_filecopy.c\
+		src/file/ft_filemove.c\
+		src/file/ft_filefind.c\
+		src/file/ft_filestrrpl.c\
+		src/file/ft_getdir.c\
+		src/file/ft_getdirtab.c\
+		src/file/ft_getdir_rec.c\
+		src/file/ft_fileindos.c\
+		src/file/ft_fileindos_rec.c\
+		src/file/ft_fdos_displaycol.c\
+		src/file/ft_fdos_del.c\
+		src/file/ft_dos_del.c\
+		src/file/ft_filetype.c\
+		src/file/ft_dinpath.c\
+		src/file/ft_finpath.c\
+		src/list/ft_listadd.c\
+		src/list/ft_listaddfirst.c\
+		src/list/ft_listaddafter.c\
+		src/list/ft_listcreate.c\
+		src/list/ft_listtostr.c\
+		src/list/ft_listtotab.c\
+		src/list/ft_listtostrd.c\
+		src/list/ft_listcontent.c\
+		src/list/ft_listdel.c\
+		src/list/ft_listdelnode.c\
+		src/list/ft_listdelnoden.c\
+		src/list/ft_listlen.c\
+		src/list/ft_liststrlen.c\
+		src/list/ft_liststrlenmax.c\
+		src/list/ft_listreverse.c\
+		src/list/ft_listswap.c\
+		src/list/ft_listputstr.c\
+		src/list/ft_lstdel.c\
+		src/list/ft_lstdelone.c\
+		src/list/ft_lstnew.c\
+		src/list/ft_lstadd.c\
+		src/list/ft_lstmap.c\
+		src/list/ft_lstiter.c\
+		src/sig/ft_signalsend.c\
+		src/sig/ft_signalread.c\
+
+$(NAME): $(OBJS)
+	@ar rc $@ $^
+	@ranlib $(NAME)
+
+%.o: %.c
+	@gcc $(FLAG) -c -o $@ $^
+
+.PHONY: clean fclean re
+
+clean:
+		@rm -rf $(OBJS)
+
+fclean: clean 
+		@rm -rf $(NAME)
+
+re: fclean $(NAME)
+	
+install: re
+		@rm -rf $(OBJS)

@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/04 16:33:35 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/05 15:20:03 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/05 16:49:44 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -206,7 +206,7 @@ void        list(t_opt *options, t_list *lst)
     }
 }
 
-void        add_make(t_list *lst)
+void        add_make(t_list *lst, char *mini)
 {
     t_list  *content;
     char    *file;
@@ -214,9 +214,18 @@ void        add_make(t_list *lst)
     char    *tail;
     char    *src;
 
+    ft_putendl(mini);
     content = ft_listcreate();
-    head = ft_get_file("conf/files/Makefile_full_h");
-    tail = ft_get_file("conf/files/Makefile_full_t");
+    if (mini)
+    {
+        head = ft_get_file("conf/files/Makefile_mini_h");
+        tail = ft_get_file("conf/files/Makefile_mini_t");
+    }
+    else
+    {
+        head = ft_get_file("conf/files/Makefile_full_h");
+        tail = ft_get_file("conf/files/Makefile_full_t");
+    }
     ft_listadd(content, head);
     src = ft_listtostrd(lst, "\n");
     ft_listadd(content, src);
@@ -227,7 +236,7 @@ void        add_make(t_list *lst)
     ft_listdel(content, ft_memdel);
 }
 
-void        create_make(t_list *lst)
+void        create_make(t_list *lst, char *mini)
 {
     t_node  *node;
     char    *new;
@@ -255,7 +264,7 @@ void        create_make(t_list *lst)
         ft_strdel(&tmp);
         node = node->next;
     }
-    add_make(lst);
+    add_make(lst, mini);
 }
 
 int         main(int argc, char **argv)
@@ -263,17 +272,20 @@ int         main(int argc, char **argv)
     t_opt   *options;
     t_list  *lst;
     char    *all;
+    char    *mini;
     
     options = ft_optget(argc, argv);
     all = ft_optgetopt_simple(options, "-all");
+    mini = ft_optgetopt_double(options, "-mini");
     lst= ft_listcreate();
     if (all)
         get_all(options);
     else
         start(options);
     list(options, lst);
-    create_make(lst);
+    create_make(lst, mini);
     ft_strdel(&all);
+    ft_strdel(&mini);
     ft_optdel(options);
     return (0);
 }
