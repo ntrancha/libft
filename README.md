@@ -35,7 +35,7 @@ Créé un makefile en fonction de librairie passé en paramétres.
 
       ./42-makefile mem put strings test
 
-     ./42-makefile -all
+      ./42-makefile -all
 
  
 Créé une mini librairie avec seulement les fichier requis.
