@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/25 23:48:51 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/12/27 05:21:30 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/06 11:10:39 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 static t_bits   *ft_bits_addition_neg(t_bits *a, t_bits *b, int base, int cmp)
 {
     t_bits      *res;
-    
-    res = (B_GT_A) ? B_SUB_A : A_SUB_B; 
+
+    res = (B_GT_A) ? B_SUB_A : A_SUB_B;
     if (A_GT_B && cmp < 0)
         ft_bits_neg(res);
     if (B_GT_A && cmp > 0)
@@ -36,7 +36,7 @@ static t_bits   *ft_bits_addition_add(t_bits *a, t_bits *b, int base)
     neg_b = ft_bits_isneg(b);
     BITS_ABS(a);
     BITS_ABS(b);
-    if (!neg_a && !neg_b) 
+    if (!neg_a && !neg_b)
         res = A_ADD_B;
     else if (neg_a && neg_b)
         res = BITS_NEG(A_ADD_B);

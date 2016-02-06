@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/09/12 12:32:20 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/09/12 14:20:34 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/06 11:25:39 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,9 @@ char        *operation(char *a, char *b, int neg, int op)
 	char	*ret;
 
     if (op == 1)
-        tmp = ft_addstr(a,b);
+        tmp = ft_addstr(a, b);
     else
-        tmp = ft_substr(a,b);
+        tmp = ft_substr(a, b);
 	ret = ft_strcleanfront(tmp, '0');
     if (neg == 1)
         ft_straddcharf(&ret, '-');
@@ -58,7 +58,7 @@ char    *addsubstr_next(char *a, char *b, char *abs_a, char *abs_b)
         ret = operation(abs_a, abs_b, 0, -1);
     if (!neg(a) && !neg(b) && ft_strcmp(abs_a, abs_b) < 0)
         ret = operation(abs_a, abs_b, 1, -1);
-    if (!neg(a) && neg(b)) 
+    if (!neg(a) && neg(b))
         ret = operation(abs_a, abs_b, 1, 1);
 	if (neg(a) && !neg(b))
         ret = operation(abs_a, abs_b, 0, 1);
@@ -75,8 +75,7 @@ char    *ft_addsubstr(char *a, char *b, int op)
 	ret = NULL;
     if (op == 1)
     {
-        if (neg(a) && neg(b))
-            ret = operation(abs_a, abs_b, 1, 1);
+        ret = (neg(a) && neg(b)) ? operation(abs_a, abs_b, 1, 1) : ret;
         if ((neg(a) && !neg(b)) || (!neg(a) && neg(b)))
 		{
         	if (ft_strcmp(abs_a, abs_b) >= 0)
@@ -84,8 +83,7 @@ char    *ft_addsubstr(char *a, char *b, int op)
 			else
             	ret = operation(abs_a, abs_b, 1, -1);
 		}
-        if (!neg(a) && !neg(b))
-            ret = operation(abs_a, abs_b, 0, 1);
+        ret = (!neg(a) && !neg(b)) ? operation(abs_a, abs_b, 0, 1) : ret;
     }
 	else
 		ret = addsubstr_next(a, b, abs_a, abs_b);

@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/27 04:22:57 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/12/27 04:23:39 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/06 11:09:31 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,13 +49,11 @@ int      ft_bits_cmp(t_bits *a, t_bits *b)
             return (-1);
         if (tmp_b < 0 && a->memory[tmp_a] != 0)
             return (1);
-        if (tmp_a >= 0 && tmp_b >= 0)
-        {
+        while (tmp_a >= 0 && tmp_b >= 0)
             if (a->memory[tmp_a] > b->memory[tmp_b])
                 return (1);
-            if (b->memory[tmp_b] > a->memory[tmp_a])
+            else if (b->memory[tmp_b] > a->memory[tmp_a])
                 return (-1);
-        }
     }
     return (0);
 }

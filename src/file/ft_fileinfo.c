@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/08/16 00:46:20 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/08/19 07:25:45 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/06 11:18:07 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 #include "../../includes/file.h"
 #include "../../includes/mem.h"
 #include "../../includes/strings.h"
-
 
 t_file      *ft_fileinfo(char *file)
 {

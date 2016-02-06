@@ -6,11 +6,11 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/05 09:46:38 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/08/18 22:29:24 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/06 11:08:03 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h> 
+#include <string.h>
 
 void				*ft_memmove(void *dst, const void *src, size_t len)
 {

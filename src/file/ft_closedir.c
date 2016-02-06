@@ -6,10 +6,9 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/08/16 00:07:03 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/08/16 00:09:03 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/06 11:21:03 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include <dirent.h>
 #include <sys/types.h>

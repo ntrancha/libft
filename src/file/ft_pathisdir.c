@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/09/04 08:45:07 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/09/05 05:42:31 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/06 11:20:23 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,5 +68,5 @@ int			ft_pathisdir(char *path)
         dos = ft_strdup(tmp);
     else
     	dos = ft_finpath(tmp);
-	return (pathisdir_next(files,dos, tmp, path));
+	return (pathisdir_next(files, dos, tmp, path));
 }

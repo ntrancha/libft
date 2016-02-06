@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/08/17 02:48:24 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/08/23 04:37:51 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/06 11:21:35 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +39,9 @@ char                *fchemin(char *path, char *file)
 {
     char            *chemin;
 
-    if (ft_strcmp(path, ".") == 0) 
+    if (ft_strcmp(path, ".") == 0)
         chemin = ft_strdup(file);
-    else if (ft_strcmp(path, "/") == 0) 
+    else if (ft_strcmp(path, "/") == 0)
         chemin = ft_strjoin("/", file);
     else
         chemin = ft_strmjoin(path, "/", file);

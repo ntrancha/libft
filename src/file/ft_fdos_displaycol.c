@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/08/17 00:26:26 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/08/19 07:25:07 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/06 11:19:38 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int             ft_namefiles_max(t_fdos *list, int colone, int colones)
             while (count++ < colones && node)
                 node = node->next;
         }
-    } 
+    }
     return (max);
 }
 
@@ -84,14 +84,11 @@ void            ft_fdos_displaycol(t_fdos *list, int col)
         while (node)
         {
             count++;
-            if (count > col)
-            {
+            if (count > col && (count = 1))
                 ft_putchar('\n');
-                count = 1;
-            }
             ft_putstr(fileinfo_get(node)->name);
             count2 = ft_strlen(fileinfo_get(node)->name);
-            max = ft_namefiles_max(list, count, col); 
+            max = ft_namefiles_max(list, count, col);
             while (count2++ < max + 2)
                 ft_putchar(' ');
             node = node->next;

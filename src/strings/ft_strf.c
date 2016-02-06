@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/09/05 11:25:33 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/09/06 21:04:55 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/06 11:17:41 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,11 +39,11 @@ static int  strf_add(t_list *list, int ret, char *add, t_point *point)
 static int  strf_float(t_list *list, int ret, double n)
 {
     int     index;
-    
+
     if (n < 0)
     {
         ft_listadd(list, (void*)ft_ctos('-'));
-        n *= (double)-1.0; 
+        n *= (double)-1.0;
     }
     ft_listadd(list, (void*)ft_itoa((int)n));
     ft_listadd(list, (void*)ft_ctos('.'));
@@ -57,31 +57,31 @@ static int  strf_float(t_list *list, int ret, double n)
 
 static int	strf_precis(char *format, int *precis, int *larg, va_list *ap)
 {
-	int		index;
+	int		num;
 
-	index = 0;
+	num = 0;
 	*precis = 0;
 	*larg = 0;
-	if (format[++index] && format[index] == '*' && index++)
+	if (format[++num] && format[num] == '*' && num++)
 		*larg = va_arg(ap, int);
 	else
 	{
-		while (format[index] && format[index] >= '0' && format[index] <= '9')
-			*larg += ((*larg) * 10) + format[index++] - 48;
-		if (*larg == 0 && index == 1)
+		while (format[num] && format[num] >= '0' && format[num] <= '9')
+			*larg += ((*larg) * 10) + format[num++] - 48;
+		if (*larg == 0 && num == 1)
 			*larg = -1;
 	}
-	if (format[index] == '.')
+	if (format[num] == '.')
 	{
-		if (format[++index] && format[index] == '*' && index++)
+		if (format[++num] && format[num] == '*' && num++)
 			*precis = va_arg(ap, int);
 		else
-			while (format[index] && format[index] >= '0' && format[index] <= '9')
-				*precis += ((*precis) * 10) + format[index++] - 48;
+			while (format[num] && format[num] >= '0' && format[num] <= '9')
+				*precis += ((*precis) * 10) + format[num++] - 48;
 	}
 	else
 		*precis = -1;
-	return (--index);
+	return (--num);
 }
 
 static int  strf_type(char *format, t_list *list, va_list *ap, int index)

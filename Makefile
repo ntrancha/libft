@@ -6,7 +6,7 @@
 #    By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/11/08 10:45:53 by ntrancha          #+#    #+#              #
-#    Updated: 2016/02/06 10:51:36 by ntrancha         ###   ########.fr        #
+#    Updated: 2016/02/06 11:04:53 by ntrancha         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -451,9 +451,8 @@ quiet: $(OBJS)
 clean:
 	@rm -rf $(OBJS)
  
-fclean: clean reset
+fclean: clean reset clean_tools
 	@rm -rf $(NAME)
-	@rm -rf 42-*
 			 
 re: fclean all
 	
