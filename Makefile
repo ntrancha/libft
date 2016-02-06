@@ -6,7 +6,7 @@
 #    By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/11/08 10:45:53 by ntrancha          #+#    #+#              #
-#    Updated: 2016/02/04 14:10:01 by ntrancha         ###   ########.fr        #
+#    Updated: 2016/02/06 10:51:36 by ntrancha         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -183,8 +183,6 @@ FILE	=	src/mem/ft_memalloc.c                \
 			src/strings/ft_strrvs.c              \
 			src/strings/ft_strlen.c              \
 			src/strings/ft_strtolower.c          \
-			src/strings/ft_strdelt.c             \
-			src/strings/ft_strdelf.c             \
 			src/strings/ft_strmapi.c             \
 			src/strings/ft_straddcharf.c         \
 			src/strings/ft_strchr.c              \
@@ -208,7 +206,6 @@ FILE	=	src/mem/ft_memalloc.c                \
 			src/strings/ft_strralloc.c           \
 			src/strings/ft_strstr.c              \
 			src/strings/ft_strtoupper.c          \
-			src/strings/ft_strdelth.c            \
 			src/strings/ft_strnew.c              \
 			src/strings/ft_strrchr.c             \
 			src/strings/ft_strisnum.c            \
@@ -391,6 +388,16 @@ all: reset binaire $(NAME)
 
 update:
 	@echo "Update ..."
+	@echo "5"
+	@sleep 1
+	@echo "4"
+	@sleep 1
+	@echo "3"
+	@sleep 1
+	@echo "2"
+	@sleep 1
+	@echo "1"
+	@sleep 1
 	@git clone $(DEPOT) tmp > /dev/null 2> /dev/null
 	@cd tmp/; cp -R * ..; cd ..; rm -rf tmp/
 	@echo "Done"
@@ -558,13 +565,14 @@ tools: clean_tools
 	@echo " "										>>	42-update
 	@echo "./42-check_header"						>>	42-update
 	@echo "./42-makefile -all"						>>	42-update
-	@echo "echo \"libft update\""					>>	42-update
+	@echo "make re"									>>	42-update
+	@echo "echo \"libft updated\""					>>	42-update
 	@echo "#!/bin/sh" 								>	42-restore
 	@chmod 755											42-restore
 	@echo " "										>>	42-restore
 	@echo "cp conf/files/libft.h includes/"			>>	42-restore
 	@echo "cp conf/files/Makefile_full Makefile"	>>	42-restore
-	@echo "echo \"restored\""						>>	42-restore
+	@echo "echo \"libft restored\""					>>	42-restore
 	@echo "   Done";
 	
 reboot:
@@ -572,4 +580,3 @@ reboot:
 	@cp conf/files/libft.h includes/
 	@echo "Makefile [restoration ...]"
 	@cp conf/files/Makefile_full Makefile
-

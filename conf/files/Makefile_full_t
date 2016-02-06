@@ -30,6 +30,16 @@ all: reset binaire $(NAME)
 
 update:
 	@echo "Update ..."
+	@echo "5"
+	@sleep 1
+	@echo "4"
+	@sleep 1
+	@echo "3"
+	@sleep 1
+	@echo "2"
+	@sleep 1
+	@echo "1"
+	@sleep 1
 	@git clone $(DEPOT) tmp > /dev/null 2> /dev/null
 	@cd tmp/; cp -R * ..; cd ..; rm -rf tmp/
 	@echo "Done"
@@ -197,13 +207,14 @@ tools: clean_tools
 	@echo " "										>>	42-update
 	@echo "./42-check_header"						>>	42-update
 	@echo "./42-makefile -all"						>>	42-update
-	@echo "echo \"libft update\""					>>	42-update
+	@echo "make re"									>>	42-update
+	@echo "echo \"libft updated\""					>>	42-update
 	@echo "#!/bin/sh" 								>	42-restore
 	@chmod 755											42-restore
 	@echo " "										>>	42-restore
 	@echo "cp conf/files/libft.h includes/"			>>	42-restore
 	@echo "cp conf/files/Makefile_full Makefile"	>>	42-restore
-	@echo "echo \"restored\""						>>	42-restore
+	@echo "echo \"libft restored\""					>>	42-restore
 	@echo "   Done";
 	
 reboot:
