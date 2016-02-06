@@ -6,11 +6,11 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/08/24 23:40:49 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/08/26 10:17:14 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/06 10:36:28 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+#include "../../includes/libft.h"
 
 int         have_proto(char *file, char *func)
 {

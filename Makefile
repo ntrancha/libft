@@ -6,7 +6,7 @@
 #    By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/11/08 10:45:53 by ntrancha          #+#    #+#              #
-#    Updated: 2016/02/04 14:10:01 by ntrancha         ###   ########.fr        #
+#    Updated: 2016/02/06 10:51:36 by ntrancha         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -457,9 +457,6 @@ fclean: clean reset
 			 
 re: fclean all
 	
-tools:
-	@cd conf; make install; cd ..
-
 install: timestamp re tools
 	@rm -rf $(OBJS)
 	@echo "`/bin/date "+%s"` - `cat t.nk`" > t.nk
@@ -514,3 +511,19 @@ test: fclean quiet fclean
 	@script/./test_file_makefile.sh
 	@rm -rf script
 
+clean_tools:
+	@rm -rf 42-*
+
+tools: clean_tools
+	@echo "Tools creation ..."
+	@gcc conf/src/select_lib.c			libft.a	-Iincludes/	-o	42-selec_lib
+	@gcc conf/src/func_change_name.c	libft.a -Iincludes/ -o	42-func_change_name
+	@gcc conf/src/proto.c				libft.a -Iincludes/ -o	42-check_header
+	@gcc conf/src/functions.c			libft.a -Iincludes/ -o	42-list_proto
+	@gcc conf/src/makemake.c			libft.a -Iincludes/ -o	42-makefile
+	@echo "#!/bin/sh" 					>						42-update
+	@chmod								755						42-update
+	@echo " "							>>						42-update
+	@echo "./42-check_header"			>>						42-update
+	@echo "./42-makefile -all"			>>						42-update
+	@echo "Done";

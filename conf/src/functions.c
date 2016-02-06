@@ -6,12 +6,12 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/04 14:20:49 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/04 15:45:59 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/06 10:36:21 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
-#define LIBFT	"includes/libft.h"
+#include "../../includes/libft.h"
+#define LIBFT	"../includes/libft.h"
 
 char		*get_func(char *proto)
 {

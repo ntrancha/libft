@@ -6,14 +6,14 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/08/31 11:25:47 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/09/06 04:31:22 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/06 10:35:45 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <sys/dir.h>
 #include <sys/types.h>
 #include <sys/stat.h>
-#include "../includes/libft.h"
+#include "../../includes/libft.h"
 
 int			test_directory(void)
 {

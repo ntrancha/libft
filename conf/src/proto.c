@@ -6,11 +6,11 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/03 21:50:57 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/05 15:19:50 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/06 10:35:52 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+#include "../../includes/libft.h"
 
 char        *find_pathsrc(void);
 
