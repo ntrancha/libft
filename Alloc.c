@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/05 13:56:33 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/01/10 14:28:25 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/07 00:14:00 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,13 +29,13 @@ t_type          *ft_vartype_get(char *type);
 char            *ft_vartype_gettype(char *type);
 void            *ft_vartype_delete(t_type *var);
 void            *ft_vartype_free(void);
-                    /* STACK */
+/* STACK */
 t_stacks        *ft_stack_init(void);
 void            *ft_stack_free(void);
 void            ft_stack_infos(void);
 void            *ft_stack_clean(void);
 void            *ft_stack_free(void);
-                    /* ALLOC */
+/* ALLOC */
 void            *ft_malloc(size_t len);
 void            *ft_calloc(void *var, size_t len, char *id, char *type);
 void            *ft_alloc(void *var, size_t len, char *id, char *type);
@@ -95,12 +95,61 @@ static void     ft_putvoid(void *str)
     ft_putstr((char *)str);
 }
 
+static int  ft_lenint(int cp)
+{
+    int     nblen;
+
+    if (cp == 0)
+        return (1);
+    nblen = 0;
+    while (cp != 0)
+    {
+        nblen++;
+        cp = cp / 10;
+    }
+    return (nblen);
+}
+
+static int  ft_signint(int cp)
+{
+    if (cp < 0)
+        return (1);
+    return (0);
+}
+
+static char *itoa(int n)
+{
+    int     nblen;
+    int     sign;
+    char    *res;
+
+    sign = ft_signint(n);
+    nblen = ft_lenint(n);
+    res = NULL;
+    res = (char *)ft_malloc(sizeof(char) * (nblen + sign + 1));
+    if (res)
+    {
+        res = res + nblen + sign;
+        *res = '\0';
+        if (!n)
+            *--res = '0';
+        while (n != 0)
+        {
+            *--res = ft_abs(n % 10) + '0';
+            n = n / 10;
+        }
+        if (sign)
+            *--res = '-';
+    }
+    return (res);
+}
+
 static char     *ft_stack_randomid(void)
 {
     static int  id_rand;
 
     id_rand++;
-    return (ft_itoa(id_rand));
+    return (itoa(id_rand));
 }
 
 static void     *ft_stack_memmove(void *dst, void *src, size_t len)
@@ -167,7 +216,7 @@ static void     ft_stack_display(void)
 void            ft_stack_infos(void)
 {
     t_stacks    *stack;
-    
+
     stack = ft_stack_init();
     ft_putendl("===========INFOS===========");
     ft_putstr("allocs               :");
@@ -192,7 +241,7 @@ void            *ft_stack_clean(void)
     t_stacks    *stack;
     t_alloc     *alloc;
     t_alloc     *next;
-    
+
     stack = ft_stack_init();
     if (!stack)
         return (NULL);
@@ -213,7 +262,7 @@ void            *ft_stack_clean(void)
 void            *ft_stack_free(void)
 {
     t_stacks    *stack;
-    
+
     stack = ft_stack_init();
     if (!stack)
         return (NULL);
@@ -249,7 +298,7 @@ static int      ft_stack_size(void)
     t_stacks    *stack;
     t_alloc     *alloc;
     int         size;
-    
+
     stack = ft_stack_init();
     alloc = stack->alloc;
     size = 0;
@@ -287,7 +336,7 @@ void            *ft_alloc_pdel(void *content)
     t_alloc     *alloc;
     t_alloc     *alloc_prev;
     t_alloc     *alloc_next;
-    
+
     if (!(stack = ft_stack_init()) || !stack->alloc)
         return (NULL);    
     alloc = stack->alloc;
@@ -314,7 +363,7 @@ t_stacks        *ft_alloc_rename(char *id, char *new_name)
 {
     t_stacks    *stack;
     t_alloc     *alloc;
-    
+
     if (!(stack = ft_stack_init()) || !stack->alloc)
         return (NULL);    
     alloc = stack->alloc;
@@ -337,7 +386,7 @@ t_stacks        *ft_alloc_del(char *id)
     t_alloc     *alloc;
     t_alloc     *alloc_prev;
     t_alloc     *alloc_next;
-    
+
     if (!(stack = ft_stack_init()) || !stack->alloc)
         return (NULL);    
     alloc = stack->alloc;
@@ -592,7 +641,7 @@ t_type      *ft_vartype_get(char *type)
 char        *ft_vartype_gettype(char *type)
 {
     t_type      *var;
-    
+
     var = ft_vartype_get(type);
     return (var->type);
 }
