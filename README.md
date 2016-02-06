@@ -29,7 +29,7 @@ Affiche la liste des prototypes
 
 
 
-Créé un makefile en fonction de librairie passé en paramétres.
+Créé un makefile en fonction de librairie passé en paramétres. (gestion des dépendances)
 
       ./42-makefile [-mini][nom_de_la_nouvelle_lib][-all][librairies]
 
@@ -38,7 +38,7 @@ Créé un makefile en fonction de librairie passé en paramétres.
       ./42-makefile -all
 
  
-Créé une mini librairie avec seulement les fichier requis.
+Créé une mini librairie avec seulement les fichiers requis.
 
      ./42-makefile -mini ../minilibft mem put strings test
 
