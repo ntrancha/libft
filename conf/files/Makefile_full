@@ -396,10 +396,10 @@ $(NAME): $(OBJS)
 	@if [ -f '$(NAME)' ]; then \
 		error=1; \
 	else \
-		echo "Compilation [$(NAME)]"; \
+		echo "_ Compilation [$(NAME)]"; \
 		ar rc $@ $^; \
 		ranlib $(NAME); \
-		echo "Done"; \
+		echo "   Done"; \
 	fi
   
 %.o: %.c
@@ -453,19 +453,19 @@ help:
 dynamique: fclean reset binaire $(OBJS) libso
 	 
 libso:
-	@echo "Compilation [libft.so]";
+	@echo "_ Compilation [libft.so]";
 	@gcc -o libft.so -shared $(OBJS)
-	@echo "Done;"
+	@echo "   Done;"
 	@rm -rf $(OBJS)
 
 verbose: binaire fichier $(OBJS)
 	@if [ -f '$(NAME)' ]; then \
 		error=1; \
 	else \
-		echo "Compilation [$(NAME)]"; \
+		echo "_ Compilation [$(NAME)]"; \
 		ar rc $(NAME) $(OBJS); \
 		ranlib $(NAME); \
-		echo "Done"; \
+		echo "   Done"; \
 	fi
 
 quiet: $(OBJS)
@@ -493,14 +493,14 @@ install: timestamp re tools
 	@rm -rf t.nk
 
 proto:
-	@grep "^[a-z]" *.c | cut -d ":" -f 2
-	@echo "total: `ls -R src/*.c | wc -l` fonction(s)"
+	@cat includes/*.h | grep ");" | grep "ft_"
+	@echo "total: `ls src -R1 | grep "\.c" | wc -l` fonction(s)"
 
 binaire:
 	@if [ -f '$(NAME)' ]; then \
    	    echo "$(NAME) exists"; \
 	else \
-		echo "$(shell find src/ -type f -print | grep .c$ | wc -l) files (Flags: $(FLAG)) on $(OS) $(SYS)"; \
+		echo "$(shell ls src -R1 | grep "\.c" | wc -l) files (Flags: $(FLAG)) on $(OS) $(SYS)"; \
 		cat $(HEADER) | sed -e "s/OS_UNKNOW/$(OS)/g" > $(HEADER).nk; \
 		mv $(HEADER).nk $(HEADER); \
 		cat $(HEADER) | sed -e "s/SYS_UNKNOW/$(SYS)/g" > $(HEADER).nk; \
@@ -544,7 +544,7 @@ clean_tools:
 	@rm -rf 42-*
 
 tools: clean_tools
-	@echo "Tools creation ..."
+	@echo "_ Compilation [42-tools]"
 	@gcc conf/src/select_lib.c			libft.a		-o	42-selec_lib
 	@gcc conf/src/func_change_name.c	libft.a		-o	42-func_change_name
 	@gcc conf/src/proto.c				libft.a		-o	42-check_header
@@ -562,7 +562,7 @@ tools: clean_tools
 	@echo "cp conf/files/libft.h includes/"			>>	42-restore
 	@echo "cp conf/files/Makefile_full Makefile"	>>	42-restore
 	@echo "echo \"restored\""						>>	42-restore
-	@echo "Done";
+	@echo "   Done";
 	
 reboot:
 	@echo "libft.h [restoration ...]"
