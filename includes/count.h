@@ -6,12 +6,13 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/02 17:39:58 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/08/19 07:21:00 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/06 12:00:15 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef COUNT_H
 # define COUNT_H
+# include <stdlib.h>
 # include "libft.h"
 
 size_t	ft_strlen(const char *str);

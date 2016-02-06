@@ -420,7 +420,35 @@ header:
 maker: header 
 	@echo "`./42-makefile -all`"
 
-.PHONY: verbose quiet clean fclean re install proto reset binaire fichier timestamp test dynamique make maker tools
+.PHONY: verbose quiet clean fclean re install proto reset binaire fichier	\
+timestamp test dynamique make maker tools clean_tools reboot finstall help	\
+update all libso
+
+help:
+	@echo ""
+	@echo "    ===== MAN LIBFT ====="
+	@echo ""
+	@echo "make all\t\t compile la libft"
+	@echo "make verbose\t\t mode verbeux"
+	@echo "make quiet\t\t mode silencieux"
+	@echo "make clean\t\t efface les .o"
+	@echo "make fclean\t\t efface les .o, les .a et les tools"
+	@echo "make re\t\t\t nettoie et recompile"
+	@echo "make install\t\t nettoie et recompile avec toutes les options\
+		par défaut et renettoie"
+	@echo "make test\t\t tests de compilation et norminette"
+	@echo "make tools\t\t compile les outils"
+	@echo "make reboot\t\t restauration de la librairie"
+	@echo "make finstall\t\t restaure et recompile"
+	@echo "make update\t\t git pull"
+	@echo ""
+	@echo "./42-check_header\t Ajoute les prototypes manquant dans les headers"
+	@echo "./42-func_change_name\t Modifie le nom d'une fonction"
+	@echo "./42-list_proto\t\t Recherche les prototypes"
+	@echo "./42-makefile\t\t Génère Makefile et header"
+	@echo "./42-update\t\t Ajoute les prototypes des nouvelles fonctions\
+		dans les headers et met à jour le Makefile"
+	@echo "./42-restore\t\t Restaure la libft par defaut"
 
 dynamique: fclean reset binaire $(OBJS) libso
 	 
@@ -451,11 +479,12 @@ quiet: $(OBJS)
 clean:
 	@rm -rf $(OBJS)
  
-fclean: clean reset
+fclean: clean reset clean_tools
 	@rm -rf $(NAME)
-	@rm -rf 42-*
 			 
 re: fclean all
+
+finstall: reboot install
 	
 install: timestamp re tools
 	@rm -rf $(OBJS)
@@ -516,14 +545,27 @@ clean_tools:
 
 tools: clean_tools
 	@echo "Tools creation ..."
-	@gcc conf/src/select_lib.c			libft.a	-Iincludes/	-o	42-selec_lib
-	@gcc conf/src/func_change_name.c	libft.a -Iincludes/ -o	42-func_change_name
-	@gcc conf/src/proto.c				libft.a -Iincludes/ -o	42-check_header
-	@gcc conf/src/functions.c			libft.a -Iincludes/ -o	42-list_proto
-	@gcc conf/src/makemake.c			libft.a -Iincludes/ -o	42-makefile
-	@echo "#!/bin/sh" 					>						42-update
-	@chmod								755						42-update
-	@echo " "							>>						42-update
-	@echo "./42-check_header"			>>						42-update
-	@echo "./42-makefile -all"			>>						42-update
+	@gcc conf/src/select_lib.c			libft.a		-o	42-selec_lib
+	@gcc conf/src/func_change_name.c	libft.a		-o	42-func_change_name
+	@gcc conf/src/proto.c				libft.a		-o	42-check_header
+	@gcc conf/src/functions.c			libft.a		-o	42-list_proto
+	@gcc conf/src/makemake.c			libft.a		-o	42-makefile
+	@echo "#!/bin/sh" 								>	42-update
+	@chmod 755											42-update
+	@echo " "										>>	42-update
+	@echo "./42-check_header"						>>	42-update
+	@echo "./42-makefile -all"						>>	42-update
+	@echo "echo \"libft update\""					>>	42-update
+	@echo "#!/bin/sh" 								>	42-restore
+	@chmod 755											42-restore
+	@echo " "										>>	42-restore
+	@echo "cp conf/files/libft.h includes/"			>>	42-restore
+	@echo "cp conf/files/Makefile_full Makefile"	>>	42-restore
+	@echo "echo \"restored\""						>>	42-restore
 	@echo "Done";
+	
+reboot:
+	@echo "libft.h [restoration ...]"
+	@cp conf/files/libft.h includes/
+	@echo "Makefile [restoration ...]"
+	@cp conf/files/Makefile_full Makefile

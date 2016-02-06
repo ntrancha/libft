@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/04 16:33:35 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/06 10:35:59 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/06 12:05:29 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -259,6 +259,37 @@ int         test_include(t_list *options, char *lib)
     return (0);
 }
 
+void        includes(t_list *options, char *mini)
+{
+    t_node  *node;
+    char    *head;
+    char    *tail;
+    char    *content;
+    t_list  *list;
+
+    node = options->start;
+    list = ft_listcreate();
+    while (node)
+    {
+        ft_listadd(list, ft_strmjoin("# include \"", node->content, ".h\""));
+        node = node->next;
+    }
+    ft_listadd(list, ft_strdup("\n#endif"));
+    head = ft_get_file("conf/files/libft_h.h");
+    tail = ft_listtostrd(list, "\n");
+    content = ft_strmjoin(head, "\n", tail);
+    ft_strdel(&head);
+    ft_strdel(&tail);
+    if (!mini)
+        head = ft_strdup("includes/libft.h");
+    else
+        head = ft_strjoin(mini, "/includes/libft.h");
+    ft_write_file(head, content);
+    ft_strdel(&content);
+    ft_strdel(&head);
+    ft_listdel(list, ft_memdel);
+}
+
 void        copy_src_includes(char *mini, t_list *options)
 {
     char    **file;
@@ -266,6 +297,7 @@ void        copy_src_includes(char *mini, t_list *options)
     int     index;
 
     file = ft_getdirtab_f("includes", NULL, 'r');
+    includes(options, mini);
     dst = ft_strjoin(mini, "/includes/libft.h");
     ft_filecopy("includes/libft.h", dst);
     ft_strdel(&dst);

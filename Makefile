@@ -6,7 +6,7 @@
 #    By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/11/08 10:45:53 by ntrancha          #+#    #+#              #
-#    Updated: 2016/02/06 11:04:53 by ntrancha         ###   ########.fr        #
+#    Updated: 2016/02/04 14:10:01 by ntrancha         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -420,7 +420,7 @@ header:
 maker: header 
 	@echo "`./42-makefile -all`"
 
-.PHONY: verbose quiet clean fclean re install proto reset binaire fichier timestamp test dynamique make maker tools
+.PHONY: verbose quiet clean fclean re install proto reset binaire fichier timestamp test dynamique make maker tools reboot finstall
 
 dynamique: fclean reset binaire $(OBJS) libso
 	 
@@ -453,8 +453,13 @@ clean:
  
 fclean: clean reset clean_tools
 	@rm -rf $(NAME)
+
+clean_tools:
+	@rm -rf 42-*
 			 
 re: fclean all
+
+finstall: reboot install
 	
 install: timestamp re tools
 	@rm -rf $(OBJS)
@@ -510,9 +515,6 @@ test: fclean quiet fclean
 	@script/./test_file_makefile.sh
 	@rm -rf script
 
-clean_tools:
-	@rm -rf 42-*
-
 tools: clean_tools
 	@echo "Tools creation ..."
 	@gcc conf/src/select_lib.c			libft.a	-Iincludes/	-o	42-selec_lib
@@ -526,3 +528,10 @@ tools: clean_tools
 	@echo "./42-check_header"			>>						42-update
 	@echo "./42-makefile -all"			>>						42-update
 	@echo "Done";
+	
+reboot:
+	@echo "libft.h [restoration ...]"
+	@cp conf/files/libft.h includes/
+	@echo "Makefile [restoration ...]"
+	@cp conf/files/Makefile_full Makefile
+
