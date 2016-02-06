@@ -1,5 +1,0 @@
-#!/bin/sh
- 
-cp conf/files/libft.h includes/
-cp conf/files/Makefile_full Makefile
-echo "restored"
