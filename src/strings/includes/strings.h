@@ -77,5 +77,8 @@ char    *ft_strf(char const *format, ...);
 int     ft_strisoctet(char *str);
 char    *ft_strint(int size);
 char    *ft_lorem_ipsum(void);
+void    ft_strdelt(char **one, char **two);
+void    ft_strdelf(char **a, char **b, char **c, char **d);
+void    ft_strdelth(char **a, char **b, char **c);
 
 #endif
