@@ -6,7 +6,7 @@
 #    By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/11/08 10:45:53 by ntrancha          #+#    #+#              #
-#    Updated: 2016/02/04 14:10:01 by ntrancha         ###   ########.fr        #
+#    Updated: 2016/02/07 21:18:24 by ntrancha         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -130,6 +130,7 @@ FILE	=	src/mem/ft_memalloc.c                \
 			src/list/ft_listtostr.c              \
 			src/list/ft_lstdelone.c              \
 			src/list/ft_listdelnext.c            \
+			src/list/ft_liststrsize.c            \
 			src/list/ft_listfusion.c             \
 			src/list/ft_listtotab.c              \
 			src/list/ft_listadd.c                \
@@ -599,7 +600,7 @@ tools: clean_tools
 	@echo " "										>>	42-update
 	@echo "./42-check_header"						>>	42-update
 	@echo "./42-makefile -all"						>>	42-update
-	@echo "make re"									>>	42-update
+	@echo "make install"							>>	42-update
 	@echo "echo \"libft updated\""					>>	42-update
 	@echo "#!/bin/sh" 								>	42-restore
 	@chmod 755											42-restore

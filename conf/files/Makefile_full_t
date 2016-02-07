@@ -210,7 +210,7 @@ tools: clean_tools
 	@echo " "										>>	42-update
 	@echo "./42-check_header"						>>	42-update
 	@echo "./42-makefile -all"						>>	42-update
-	@echo "make re"									>>	42-update
+	@echo "make install"							>>	42-update
 	@echo "echo \"libft updated\""					>>	42-update
 	@echo "#!/bin/sh" 								>	42-restore
 	@chmod 755											42-restore
@@ -225,4 +225,5 @@ reboot:
 	@cp conf/files/libft.h includes/
 	@echo "Makefile [restoration ...]"
 	@cp conf/files/Makefile_full Makefile
+
 

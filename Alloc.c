@@ -6,24 +6,38 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/05 13:56:33 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/07 16:28:17 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/07 20:33:15 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/libft.h"
 #include "includes/stack.h"
+#define START       return (ft_start(argc, argv));
+#define ARGS        int argc, char **argv
+#define MAIN        int main
+#define FT_MAIN     MAIN(ARGS){START}
 
-int     main(int argc, char **argv)
+int         ft_main(void);
+
+void        ft_optdel_void(void **opt)
 {
-    t_stacks    *stack;
-
-    ft_alloc("1", 2, "A", "str");
-    ft_alloc(NULL, 2, "B", "str");
-    ft_alloc("3", 2, "C", "str");
-    ft_alloc_copy("B", "E");
-    ft_alloc("4", 2, "D", "str");
-    DEL(A);
-    ft_stack_infos();
-    ft_stack_free();
-    return (1);
+    ft_optdel(*opt);
 }
+
+int         ft_main(void)
+{
+
+}
+
+int         ft_start(int argc, char **argv)
+{
+    t_opt   *opt;
+
+    opt = ft_optget(argc, argv);
+    ft_vartype_add("ft_opt", ft_liststrsize(opt), ft_optdel_void); 
+    ft_calloc(opt, 1, "OPTIONS", "ft_opt");
+    ft_main();
+    ft_stack_free();
+}
+
+FT_MAIN

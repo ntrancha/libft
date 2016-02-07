@@ -1,18 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_abs.c                                           :+:      :+:    :+:   */
+/*   ft_liststrsize.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/12/16 13:57:49 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/07 17:29:32 by ntrancha         ###   ########.fr       */
+/*   Created: 2016/02/07 17:45:47 by ntrancha          #+#    #+#             */
+/*   Updated: 2016/02/07 19:55:37 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_abs(int n)
+#include <stdio.h>
+#include "../../includes/list.h"
+#include "../../includes/count.h"
+
+size_t      ft_liststrsize(t_list *list)
 {
-	if (n < 0)
-		return (n * -1);
-	return (n);
+    size_t 	len;
+
+    len = (ft_liststrlen(list) + list->size) * sizeof(char);
+    len += sizeof(t_node) * list->size;
+    len += sizeof(t_list);
+    return (len);
 }
