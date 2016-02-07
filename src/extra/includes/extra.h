@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/02 17:48:19 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/07/31 09:23:40 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/07 01:52:02 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 int	ft_rgb(int red, int green, int blue);
 int ft_getcol(void);
 int ft_getrow(void);
-int ft_getpid();
-int     ft_test(void);
+int ft_getpid(void);
+int ft_test(void);
 
 #endif

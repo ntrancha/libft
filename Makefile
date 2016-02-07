@@ -6,7 +6,7 @@
 #    By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/11/08 10:45:53 by ntrancha          #+#    #+#              #
-#    Updated: 2016/02/04 14:10:01 by ntrancha         ###   ########.fr        #
+#    Updated: 2016/02/07 02:32:58 by ntrancha         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -534,13 +534,16 @@ install: timestamp re tools
 
 proto:
 	@cat includes/*.h | grep ");" | grep "ft_"
-	@echo "total: `ls src -R1 | grep "\.c" | wc -l` fonction(s)"
+	@echo "total: `ls src -R1 | grep "\.c" | wc -l` fonction(s) [\
+	`cat \`find . -type f -print | grep "\\.c"\` | wc -l` lines]"
 
 binaire:
 	@if [ -f '$(NAME)' ]; then \
    	    echo "$(NAME) exists"; \
 	else \
-		echo "$(shell ls src -R1 | grep "\.c" | wc -l) files (Flags: $(FLAG)) on $(OS) $(SYS)"; \
+		echo "$(shell ls src -R1 | grep "\.c" | wc -l) files $(shell \
+		cat `find . -type f -print | grep "\.c"` | \
+		wc -l) lines (Flags: $(FLAG)) on $(OS) $(SYS)"; \
 		cat $(HEADER) | sed -e "s/OS_UNKNOW/$(OS)/g" > $(HEADER).nk; \
 		mv $(HEADER).nk $(HEADER); \
 		cat $(HEADER) | sed -e "s/SYS_UNKNOW/$(SYS)/g" > $(HEADER).nk; \

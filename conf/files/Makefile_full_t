@@ -146,13 +146,16 @@ install: timestamp re tools
 
 proto:
 	@cat includes/*.h | grep ");" | grep "ft_"
-	@echo "total: `ls src -R1 | grep "\.c" | wc -l` fonction(s)"
+	@echo "total: `ls src -R1 | grep "\.c" | wc -l` fonction(s) [\
+	`cat \`find . -type f -print | grep "\\.c"\` | wc -l` lines]"
 
 binaire:
 	@if [ -f '$(NAME)' ]; then \
    	    echo "$(NAME) exists"; \
 	else \
-		echo "$(shell ls src -R1 | grep "\.c" | wc -l) files (Flags: $(FLAG)) on $(OS) $(SYS)"; \
+		echo "$(shell ls src -R1 | grep "\.c" | wc -l) files $(shell \
+		cat `find . -type f -print | grep "\.c"` | \
+		wc -l) lines (Flags: $(FLAG)) on $(OS) $(SYS)"; \
 		cat $(HEADER) | sed -e "s/OS_UNKNOW/$(OS)/g" > $(HEADER).nk; \
 		mv $(HEADER).nk $(HEADER); \
 		cat $(HEADER) | sed -e "s/SYS_UNKNOW/$(SYS)/g" > $(HEADER).nk; \
@@ -222,3 +225,4 @@ reboot:
 	@cp conf/files/libft.h includes/
 	@echo "Makefile [restoration ...]"
 	@cp conf/files/Makefile_full Makefile
+
