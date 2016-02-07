@@ -225,5 +225,3 @@ reboot:
 	@cp conf/files/libft.h includes/
 	@echo "Makefile [restoration ...]"
 	@cp conf/files/Makefile_full Makefile
-
-
