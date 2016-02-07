@@ -6,7 +6,7 @@
 #    By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/11/08 10:45:53 by ntrancha          #+#    #+#              #
-#    Updated: 2016/02/07 02:32:58 by ntrancha         ###   ########.fr        #
+#    Updated: 2016/02/04 14:10:01 by ntrancha         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -130,6 +130,7 @@ FILE	=	src/mem/ft_memalloc.c                \
 			src/list/ft_listtostr.c              \
 			src/list/ft_lstdelone.c              \
 			src/list/ft_listdelnext.c            \
+			src/list/ft_listfusion.c             \
 			src/list/ft_listtotab.c              \
 			src/list/ft_listadd.c                \
 			src/list/ft_listtostrd.c             \
@@ -613,4 +614,5 @@ reboot:
 	@cp conf/files/libft.h includes/
 	@echo "Makefile [restoration ...]"
 	@cp conf/files/Makefile_full Makefile
+
 

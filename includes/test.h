@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/02 17:35:31 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/07 01:52:14 by ntrancha         ###   ########.fr       */
+/*   Updated: 2015/01/02 17:35:31 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,6 @@ int	ft_istolower(int c);
 int	ft_istoupper(int c);
 int	ft_isspace(char c);
 int	ft_is_prime(int nbr);
-int ft_isopt(char *option);
+int     ft_isopt(char *option);
 
 #endif
