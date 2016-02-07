@@ -6,13 +6,11 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/27 04:22:57 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/06 11:09:31 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/07 16:34:07 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/libft.h"
-
-int      ft_bits_cmp(t_bits *a, t_bits *b);
+#include "../../includes/bits.h"
 
 static int      ft_bitscmp_neg(t_bits *a, t_bits *b)
 {

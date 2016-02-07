@@ -6,11 +6,11 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/27 04:21:46 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/12/27 04:22:17 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/07 16:42:02 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/libft.h"
+#include "../../includes/bits.h"
 
 t_bits          *ft_bits_neg(t_bits *mem)
 {

@@ -6,11 +6,12 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/26 04:19:38 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/12/26 04:25:55 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/07 16:42:40 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/libft.h"
+#include "../../includes/bits.h"
+#include "../../includes/mem.h"
 
 t_bits      *ft_bitscopy(t_bits *mem)
 {

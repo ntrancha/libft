@@ -1,36 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_is_prime.c                                      :+:      :+:    :+:   */
+/*   Alloc.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/12/25 15:05:11 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/07 16:52:59 by ntrancha         ###   ########.fr       */
+/*   Created: 2016/01/05 13:56:33 by ntrancha          #+#    #+#             */
+/*   Updated: 2016/02/07 16:28:17 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-static int		ft42_abs(int n)
-{
-	if (n < 0)
-		return (n * -1);
-	return (n);
-}
+#include "includes/libft.h"
+#include "includes/stack.h"
 
-int				ft_is_prime(int nbr)
+int     main(int argc, char **argv)
 {
-	int			index;
+    t_stacks    *stack;
 
-	if (nbr < 0)
-		nbr = ft42_abs(nbr);
-	if (nbr < 2)
-		return (0);
-	index = nbr - 1;
-	while (index > 1)
-	{
-		if (!(nbr % index))
-			return (0);
-		index--;
-	}
-	return (1);
+    ft_alloc("1", 2, "A", "str");
+    ft_alloc(NULL, 2, "B", "str");
+    ft_alloc("3", 2, "C", "str");
+    ft_alloc_copy("B", "E");
+    ft_alloc("4", 2, "D", "str");
+    DEL(A);
+    ft_stack_infos();
+    ft_stack_free();
+    return (1);
 }

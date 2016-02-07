@@ -6,11 +6,11 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/09/11 09:18:31 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/09/11 10:55:16 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/07 16:48:35 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/libft.h"
+#include "../../includes/bits.h"
 
 int ft_octetgetbit(t_octet a, int bit)
 {

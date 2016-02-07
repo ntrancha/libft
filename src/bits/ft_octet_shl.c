@@ -6,11 +6,11 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/09/11 09:06:24 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/09/11 18:20:41 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/07 16:48:06 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/libft.h"
+#include "../../includes/bits.h"
 
 t_octet     ft_octet_shl(t_octet a, int shl)
 {

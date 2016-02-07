@@ -6,11 +6,11 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/27 04:25:18 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/12/27 04:29:19 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/07 16:41:35 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/libft.h"
+#include "../../includes/bits.h"
 
 int     ft_bits_isneg(t_bits *a)
 {

@@ -6,11 +6,11 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/25 23:48:51 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/06 11:10:39 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/07 16:33:10 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/libft.h"
+#include "../../includes/bits.h"
 
 static t_bits   *ft_bits_addition_neg(t_bits *a, t_bits *b, int base, int cmp)
 {

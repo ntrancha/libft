@@ -6,12 +6,13 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/07 01:25:07 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/07 01:43:02 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/07 16:55:36 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/stack.h"
 #include "../../includes/strings.h"
+#include "../../includes/mem.h"
 
 static void     *ft_alloc_delete(t_alloc *alloc)
 {

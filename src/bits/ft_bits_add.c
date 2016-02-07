@@ -6,11 +6,11 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/25 23:48:51 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/12/26 10:51:01 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/07 16:32:48 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/libft.h"
+#include "../../includes/bits.h"
 
 static int  ft_bits_add_size(t_bits *a, t_bits *b)
 {

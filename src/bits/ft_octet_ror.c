@@ -6,11 +6,11 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/09/11 09:15:18 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/09/11 18:27:44 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/07 16:47:57 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/libft.h"
+#include "../../includes/bits.h"
 
 t_octet     ft_octet_ror(t_octet a, int ror)
 {
