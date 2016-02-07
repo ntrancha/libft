@@ -6,7 +6,7 @@
 #    By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/11/08 10:45:53 by ntrancha          #+#    #+#              #
-#    Updated: 2016/02/06 10:51:36 by ntrancha         ###   ########.fr        #
+#    Updated: 2016/02/04 14:10:01 by ntrancha         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -154,6 +154,33 @@ FILE	=	src/mem/ft_memalloc.c                \
 			src/extra/ft_getpid.c                \
 			src/extra/ft_test.c                  \
 			src/extra/ft_rgb.c                   \
+			src/stack/ft_alloc_pdel.c            \
+			src/stack/ft_stack_strdup.c          \
+			src/stack/ft_alloc_copy.c            \
+			src/stack/ft_stack_size.c            \
+			src/stack/ft_alloc_getvoid.c         \
+			src/stack/ft_stack_init.c            \
+			src/stack/ft_alloc_include.c         \
+			src/stack/ft_stack_infos.c           \
+			src/stack/ft_vartype_add.c           \
+			src/stack/ft_stack_clean.c           \
+			src/stack/ft_alloc_nget.c            \
+			src/stack/ft_stack_free.c            \
+			src/stack/ft_alloc_rename.c          \
+			src/stack/ft_vartype_gettype.c       \
+			src/stack/ft_alloc_del.c             \
+			src/stack/ft_vartype_addput.c        \
+			src/stack/ft_vartype_get.c           \
+			src/stack/ft_calloc.c                \
+			src/stack/ft_alloc_get.c             \
+			src/stack/ft_alloc_vget.c            \
+			src/stack/ft_vartype_init.c          \
+			src/stack/ft_stack_memalloc.c        \
+			src/stack/ft_vartype_delete.c        \
+			src/stack/ft_vartype_addcpy.c        \
+			src/stack/ft_alloc.c                 \
+			src/stack/ft_malloc.c                \
+			src/stack/ft_stack_memmove.c         \
 			src/date/ft_date_convert.c           \
 			src/date/ft_date_mins.c              \
 			src/date/ft_date_timestamp.c         \
@@ -183,6 +210,8 @@ FILE	=	src/mem/ft_memalloc.c                \
 			src/strings/ft_strrvs.c              \
 			src/strings/ft_strlen.c              \
 			src/strings/ft_strtolower.c          \
+			src/strings/ft_strdelt.c             \
+			src/strings/ft_strdelf.c             \
 			src/strings/ft_strmapi.c             \
 			src/strings/ft_straddcharf.c         \
 			src/strings/ft_strchr.c              \
@@ -206,6 +235,7 @@ FILE	=	src/mem/ft_memalloc.c                \
 			src/strings/ft_strralloc.c           \
 			src/strings/ft_strstr.c              \
 			src/strings/ft_strtoupper.c          \
+			src/strings/ft_strdelth.c            \
 			src/strings/ft_strnew.c              \
 			src/strings/ft_strrchr.c             \
 			src/strings/ft_strisnum.c            \
@@ -580,3 +610,4 @@ reboot:
 	@cp conf/files/libft.h includes/
 	@echo "Makefile [restoration ...]"
 	@cp conf/files/Makefile_full Makefile
+

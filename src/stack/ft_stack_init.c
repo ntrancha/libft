@@ -1,0 +1,32 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_stack_init.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/02/07 00:26:16 by ntrancha          #+#    #+#             */
+/*   Updated: 2016/02/07 00:28:00 by ntrancha         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "../../includes/stack.h"
+
+t_stacks            *ft_stack_init(void)
+{
+    static t_stacks *alloc;
+
+    if (!alloc)
+    {
+        if (!(alloc = ft_memalloc(sizeof(t_stacks))))
+            return (NULL);
+        alloc->stack_size = 0;
+        alloc->stack_free = 0;
+        alloc->elements = 0;
+        alloc->free = 0;
+        alloc->sys = sizeof(t_stacks);
+        alloc->alloc = NULL;
+        alloc->types = ft_vartype_init();
+    }
+    return (alloc);
+}

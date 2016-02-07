@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/04 10:09:36 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/09/09 06:34:55 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/07 01:32:03 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@
 # include "tab.h"
 # include "socket.h"
 # include "screen.h"
+# include "stack.h"
 # include "convert.h"
 # include "file.h"
 # include "list.h"
