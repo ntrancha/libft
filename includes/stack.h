@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/05 13:56:33 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/07 23:08:39 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/08 14:32:46 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # define    DEL(variable)   ft_alloc_del(#variable)
 # define    PDEL(variable) 	ft_alloc_pdel(variable)
 # define    XSTR(var, name) ft_alloc(#var, ft_strlen(#var) + 1, #name, "str")
+# define    ASTR(var, name) ft_alloc(var, ft_strlen(var) + 1, name, "str")
 # define    START           return (ft_start(argc, argv));
 # define    ARGS            int argc, char **argv
 # define    MAIN            int main
