@@ -8,7 +8,7 @@ Création de la librairie :
 
 
 
-change le nom d'une fonction (fichier, proto, appel fonction, makefile);
+Change le nom d'une fonction (fichier, proto, appel fonction, makefile);
 
       ./42-func_change_name [ancien nom][nouveau nom]
 
