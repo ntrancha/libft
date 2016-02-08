@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/02 17:45:36 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/01/13 09:12:32 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/08 15:22:59 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,5 +56,27 @@
 # define TAN(x)			ft_tan(x)
 # define ABS(x)			ft_abs(x)
 # define NEG(x)			ft_neg(x)
+# define TAB		    4
+# define SPACE		    " "
+# define C_NULL         "\033[0m"
+# define C_BLACK        "\033[30m"
+# define C_RED          "\033[31m"
+# define C_GREEN        "\033[32m"
+# define C_YELLOW       "\033[33m"
+# define C_BLUE         "\033[34m"
+# define C_MAGENTA      "\033[35m"
+# define C_CYAN         "\033[36m"
+# define C_GRAY         "\033[37m"
+# define C_WHITE        "\033[39m"
+# define B_NULL         "\033[49m"
+# define B_BLACK        "\033[40m"
+# define B_RED          "\033[41m"
+# define B_GREEN        "\033[42m"
+# define B_YELLOW       "\033[43m"
+# define B_BLUE         "\033[44m"
+# define B_MAGENTA      "\033[45m"
+# define B_CYAN         "\033[46m"
+# define B_GRAY         "\033[47m"
+# define B_WHITE        "\033[39m"
 
 #endif

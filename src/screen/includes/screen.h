@@ -6,12 +6,13 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/07/30 05:02:43 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/08/01 03:50:57 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/08 15:22:03 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SCREEN_H
 # define SCREEN_H
+
 # define TAB		4
 # define SPACE		" "
 # define C_NULL    "\033[0m"
@@ -34,7 +35,6 @@
 # define B_CYAN     "\033[46m"
 # define B_GRAY     "\033[47m"
 # define B_WHITE    "\033[39m"
-
 
 typedef struct      s_case
 {
