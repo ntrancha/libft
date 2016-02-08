@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/07 01:21:00 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/08 15:21:12 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/08 22:52:44 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ static char *itoa(int n)
         return (NULL);    
     sign = (n < 0) ? 1 : 0;
     nblen = ft_lenint(n);
-    res = (char *)ft_memalloc(sizeof(char) * (nblen + sign + 1));
+    res = (char *)ft_stack_memalloc(sizeof(char) * (nblen + sign + 1));
     stack->sys += sizeof(char) * (nblen + sign + 1);
     if (res)
     {
