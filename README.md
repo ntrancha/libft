@@ -29,7 +29,7 @@ Affiche la liste des prototypes:
 
 
 
-Créé un makefile en fonction de librairie passé en paramétres: (gestion des dépendances)
+Créé un makefile en fonction de librairie passé en paramétres:
 
       ./42-makefile [-mini][nom_de_la_nouvelle_lib][-all][librairies]
 
