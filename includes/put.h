@@ -31,5 +31,7 @@ void	ft_putoctet(t_octet octet);
 void	ft_putoctets(t_octet *octet, char del);
 void    ft_putbits(t_bits *memory, char del);
 void	ft_puthexa(t_octet *octet, char del);
+void    ft_putspace(int nbr);
+void    ft_putcenter(char *str, int col);
 
 #endif

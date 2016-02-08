@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/07 23:04:32 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/08 16:25:19 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/08 19:04:51 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ int         ft_start(int argc, char **argv)
     char    *row;
     int     ret;
 
-    ASTR(&(argv[0][2]), "STR_PROG");
+    ASTR(argv[0], "STR_PROG");
     pid = ft42_itoa(ft_getpid());
     col = ft42_itoa(ft_getcol());
     row = ft42_itoa(ft_getrow());

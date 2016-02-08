@@ -54,6 +54,7 @@ FILE	=	src/mem/ft_memalloc.c                \
 			src/count/ft_nbrlen.c                \
 			src/count/ft_floatlen.c              \
 			src/count/ft_doublelendouble.c       \
+			src/count/ft_tabstrlen.c             \
 			src/count/ft_floatlenfloat.c         \
 			src/screen/ft_screenfull.c           \
 			src/screen/ft_casedelend.c           \
@@ -347,6 +348,7 @@ FILE	=	src/mem/ft_memalloc.c                \
 			src/put/ft_putendl_fd.c              \
 			src/put/ft_putoctet.c                \
 			src/put/ft_putlong.c                 \
+			src/put/ft_putspace.c                \
 			src/put/ft_putoctets.c               \
 			src/put/ft_putdouble.c               \
 			src/put/ft_putfloat.c                \
@@ -354,6 +356,7 @@ FILE	=	src/mem/ft_memalloc.c                \
 			src/put/ft_putnbr_endl.c             \
 			src/put/ft_putnbr.c                  \
 			src/put/ft_putstr.c                  \
+			src/put/ft_putcenter.c               \
 			src/put/ft_putaddr.c                 \
 			src/convert/ft_atof.c                \
 			src/convert/ft_dtoll.c               \
