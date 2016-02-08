@@ -23,7 +23,7 @@ Vérifie la présence des fonctions dans les headers et les ajoutes si besoin:
 
 
 
-Affiche la liste des prototypes
+Affiche la liste des prototypes:
 
       ./42-list_proto [recherche]
 
