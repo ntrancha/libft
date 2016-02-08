@@ -15,7 +15,7 @@ Change le nom d'une fonction (fichier, proto, appel fonction, makefile):
 
 
 
-Vérifie la présence des fonctions dans les headers et les ajoutes si besoin.
+Vérifie la présence des fonctions dans les headers et les ajoutes si besoin:
 
       ./42-check_header
 
