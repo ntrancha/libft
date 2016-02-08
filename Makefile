@@ -6,7 +6,7 @@
 #    By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/11/08 10:45:53 by ntrancha          #+#    #+#              #
-#    Updated: 2016/02/08 00:35:23 by ntrancha         ###   ########.fr        #
+#    Updated: 2016/02/04 14:10:01 by ntrancha         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,6 +46,7 @@ FILE	=	src/mem/ft_memalloc.c                \
 			src/tab/ft_tabmin.c                  \
 			src/tab/ft_tabclear.c                \
 			src/tab/ft_puttab.c                  \
+			src/sys/ft_start.c                   \
 			src/count/ft_longlen.c               \
 			src/count/ft_doublelen.c             \
 			src/count/ft_strlen.c                \
@@ -167,7 +168,6 @@ FILE	=	src/mem/ft_memalloc.c                \
 			src/stack/ft_vartype_add.c           \
 			src/stack/ft_stack_clean.c           \
 			src/stack/ft_alloc_nget.c            \
-			src/stack/ft_start.c                 \
 			src/stack/ft_stack_free.c            \
 			src/stack/ft_alloc_rename.c          \
 			src/stack/ft_vartype_gettype.c       \

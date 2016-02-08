@@ -1,20 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   sys.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/02/07 23:13:16 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/08 15:57:16 by ntrancha         ###   ########.fr       */
+/*   Created: 2016/02/08 15:35:44 by ntrancha          #+#    #+#             */
+/*   Updated: 2016/02/08 15:37:18 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/libft.h"
+#ifndef SYS_H
+# define SYS_H
+# include "libft.h"
 
-int         ft_main(void)
-{
-    ft_stack_infos();
-}
+# define    START           return (ft_start(argc, argv));
+# define    ARGS            int argc, char **argv
+# define    MAIN            int main
+# define    FT_MAIN         MAIN(ARGS){START}
 
-FT_MAIN
+int         ft_start(int argc, char **argv);
+
+#endif
