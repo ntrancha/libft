@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/07 23:13:16 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/08 20:04:25 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/08 23:07:38 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ void        ft_man(void)
 int         ft_main(void)
 {
     ft_stack_infos();
-    ft_man();
+    //ft_man();
 }
 
 FT_MAIN

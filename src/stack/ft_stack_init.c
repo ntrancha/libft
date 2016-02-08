@@ -6,11 +6,12 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/07 00:26:16 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/07 00:28:00 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/08 23:10:34 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/stack.h"
+#include "../../includes/mem.h"
 
 t_stacks            *ft_stack_init(void)
 {
