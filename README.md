@@ -8,14 +8,14 @@ Création de la librairie :
 
 
 
-change le nom d'une fonction (fichier, proto, appel fonction, makefile);
+Change le nom d'une fonction (fichier, proto, appel fonction, makefile):
 
       ./42-func_change_name [ancien nom][nouveau nom]
 
 
 
 
-Vérifie la présence des fonctions dans les headers et les ajoutes si besoin.
+Vérifie la présence des fonctions dans les headers et les ajoutes si besoin:
 
       ./42-check_header
 
@@ -23,13 +23,13 @@ Vérifie la présence des fonctions dans les headers et les ajoutes si besoin.
 
 
 
-Affiche la liste des prototypes
+Affiche la liste des prototypes:
 
       ./42-list_proto [recherche]
 
 
 
-Créé un makefile en fonction de librairie passé en paramétres. (gestion des dépendances)
+Créé un makefile en fonction de librairie passé en paramétres:
 
       ./42-makefile [-mini][nom_de_la_nouvelle_lib][-all][librairies]
 
@@ -38,7 +38,7 @@ Créé un makefile en fonction de librairie passé en paramétres. (gestion des 
       ./42-makefile -all
 
  
-Créé une mini librairie avec seulement les fichiers requis.
+Créé une mini librairie avec seulement les fichiers requis:
 
      ./42-makefile -mini ../minilibft mem put strings test
 
