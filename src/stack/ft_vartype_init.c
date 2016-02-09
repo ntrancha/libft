@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/07 00:54:18 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/08 19:44:44 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/09 09:06:51 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,10 @@ static void     *ft_cpyvoid(void *src, void *dest)
 
 static void     ft_tabstrdelvoid(void **str)
 {
-    ft_tabstrdel((char **)str);
+    char        **tmp;
+
+    tmp = (char**)(*str);
+    ft_tabstrdel((char **)tmp);
 }
 
 static void     ft_puttabstrvoid(void *str)

@@ -6,12 +6,12 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/07 00:26:16 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/08 23:10:34 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/09 09:13:53 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
 #include "../../includes/stack.h"
-#include "../../includes/mem.h"
 
 t_stacks            *ft_stack_init(void)
 {
@@ -19,7 +19,7 @@ t_stacks            *ft_stack_init(void)
 
     if (!alloc)
     {
-        if (!(alloc = ft_memalloc(sizeof(t_stacks))))
+        if (!(alloc = malloc(sizeof(t_stacks))))
             return (NULL);
         alloc->stack_size = 0;
         alloc->stack_free = 0;
