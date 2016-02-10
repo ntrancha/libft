@@ -62,5 +62,6 @@ t_node  *ft_listdelnext(t_list *list, t_node *node, void (del)(void **));
 t_node  *ft_listdelnoden(t_list *list, t_node *node, void (del)(void**));
 t_list  *ft_listfusion(t_list *first, t_list *second);
 size_t  ft_liststrsize(t_list *list);
+t_list  *ft_liststrcpy(t_list *list);
 
 #endif

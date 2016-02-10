@@ -134,6 +134,7 @@ FILE	=	src/mem/ft_memalloc.c                \
 			src/list/ft_listdelnext.c            \
 			src/list/ft_liststrsize.c            \
 			src/list/ft_listfusion.c             \
+			src/list/ft_liststrcpy.c             \
 			src/list/ft_listtotab.c              \
 			src/list/ft_listadd.c                \
 			src/list/ft_listtostrd.c             \
