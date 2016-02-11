@@ -158,6 +158,7 @@ FILE	=	src/mem/ft_memalloc.c                \
 			src/extra/ft_getcol.c                \
 			src/extra/ft_getpid.c                \
 			src/extra/ft_test.c                  \
+			src/extra/ft_getpwd.c                \
 			src/extra/ft_rgb.c                   \
 			src/stack/ft_alloc_pdel.c            \
 			src/stack/ft_stack_strdup.c          \

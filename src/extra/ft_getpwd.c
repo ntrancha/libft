@@ -1,24 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   extra.h                                            :+:      :+:    :+:   */
+/*   ft_getpwd.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/01/02 17:48:19 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/07 01:52:02 by ntrancha         ###   ########.fr       */
+/*   Created: 2016/02/11 13:04:47 by ntrancha          #+#    #+#             */
+/*   Updated: 2016/02/11 13:06:17 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef EXTRA_H
-# define EXTRA_H
-# include "libft.h"
+#include <unistd.h>
+#include "../../includes/mem.h"
 
-int	ft_rgb(int red, int green, int blue);
-int ft_getcol(void);
-int ft_getrow(void);
-int ft_getpid(void);
-int ft_test(void);
-char    *ft_getpwd(void);
+char        *ft_getpwd(void)
+{
+    char    *str;
+    int     size;
 
-#endif
+    size = 1;
+    str = ft_strnew(size + 1);
+    while (!getcwd(str, size))
+    {
+        ft_strdel(&str);
+        size += 10;
+        str = ft_strnew(size + 1);
+    }
+    return (str);
+}

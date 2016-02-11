@@ -19,5 +19,6 @@ int ft_getcol(void);
 int ft_getrow(void);
 int ft_getpid(void);
 int ft_test(void);
+char    *ft_getpwd(void);
 
 #endif
