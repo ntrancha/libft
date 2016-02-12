@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/08 15:35:44 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/09 17:09:26 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/12 10:54:12 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # define    ARGS            int argc, char **argv
 # define    MAIN            int main
 # define    FT_MAIN         MAIN(ARGS){START}
+# define    CACHE_SIZE      1000
 
 int         ft_start(int argc, char **argv);
 
