@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/07 23:13:16 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/11 13:03:40 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/12 09:54:17 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,10 +79,8 @@ int         ft_main(void)
     char    **tab;
 
 
-    ft_putendl(ft_getcwd());
-    return (1);
-    tab = ft_getdirtab_f(".", NULL, 'd');
-    ft_calloc(tab, ft_tabstrlen(tab) + 1, "TAB_TEST", "tabstr"); 
+    tab = ft_getdirtab_f("src/stack", NULL, 'r');
+    //ft_calloc(tab, ft_tabstrlen(tab) + 1, "TAB_TEST", "tabstr"); 
     ft_stack_infos();
     //ft_man();
 }

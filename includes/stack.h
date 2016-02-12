@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/05 13:56:33 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/08 15:41:56 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/11 23:58:46 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # define    PDEL(variable) 	ft_alloc_pdel(variable)
 # define    XSTR(var, name) ft_alloc(#var, ft_strlen(#var) + 1, #name, "str")
 # define    ASTR(var, name) ft_alloc(var, ft_strlen(var) + 1, name, "str")
+# define    CSTR(var, name) ft_calloc(var, ft_strlen(var) + 1, name, "str")
 
 typedef struct  s_alloc		t_alloc;
 typedef struct  s_type		t_type;

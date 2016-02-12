@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/07 00:54:18 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/09 09:06:51 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/12 09:49:31 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ static void     ft_puttabstrvoid(void *str)
 
     index = -1;
     tmp = (char**)str;
-    while (tmp[++index])
+    while (tmp[++index] && tmp[index][0])
         ft_putendl(tmp[index]);
 }
 

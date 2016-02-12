@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/07 23:04:32 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/08 23:14:48 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/12 09:54:15 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,21 +70,18 @@ static void ft_optdel_void(void **opt)
 int         ft_start(int argc, char **argv)
 {
     t_opt   *opt;
-    char    *pid;
-    char    *col;
-    char    *row;
+    char    *str;
     int     ret;
 
     ASTR(argv[0], "STR_PROG");
-    pid = ft42_itoa(ft_getpid());
-    col = ft42_itoa(ft_getcol());
-    row = ft42_itoa(ft_getrow());
-    ASTR(col, "COL_PROG");
-    ASTR(row, "ROW_PROG");
-    ASTR(pid, "PID_PROG");
-    ft_strdel(&pid);
-    ft_strdel(&col);
-    ft_strdel(&row);
+    str = ft42_itoa(ft_getpid());
+    CSTR(str, "PID_PROG");
+    str = ft42_itoa(ft_getcol());
+    CSTR(str, "COL_PROG");
+    str = ft42_itoa(ft_getrow());
+    CSTR(str, "ROW_PROG");
+    str = ft_getpwd();
+    CSTR(str, "PWD_PROG");
     if (argc > 1)
     {
         opt = ft_optget(argc, argv);
