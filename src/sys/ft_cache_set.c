@@ -1,24 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_cache_set.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/02/07 01:18:27 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/13 20:38:47 by ntrancha         ###   ########.fr       */
+/*   Created: 2016/02/12 21:38:56 by ntrancha          #+#    #+#             */
+/*   Updated: 2016/02/12 21:40:27 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/stack.h"
+#include "../../includes/mem.h"
 
-void            *ft_calloc(void *var, size_t len, char *id, char *type)
+void        ft_cache_set(void *content)
 {
-    void        *copy;
+    t_alloc *alloc;
 
-    if (!(copy = ft_memalloc(len)))
-        return (NULL);
-    if (!(copy = ft_memcpy(copy, var, len)))
-        return (NULL);
-    return (ft_alloc_create(copy, len, id, type));
+    alloc = ft_alloc_get("TMP_PROG");
+    if (alloc->content)
+       ft_memdel((void**)&(alloc->content)); 
+    alloc->content = content;
 }

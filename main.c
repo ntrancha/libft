@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/07 23:13:16 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/12 11:09:44 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/13 20:55:52 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,9 +77,13 @@ char        *ft_getcwd(void)
 int         ft_main(void)
 {
     char    **tab;
+    char    *str;
 
-    //tab = ft_getdirtab_f("src/stack", NULL, 'r');
-    //ft_calloc(tab, ft_tabstrlen(tab) + 1, "TAB_TEST", "tabstr"); 
+    /*ft_cache_set(ft_strdup("coucou"));
+    ft_cache_set(ft_strdup("1"));
+    ft_cache_set(ft_strdup("3"));
+    ft_alloc_copy("TMP_PROG", "Ca");
+    ft_cache_set(ft_strdup("2"));*/
     ft_stack_infos();
     //ft_man();
 }

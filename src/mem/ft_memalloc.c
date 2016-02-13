@@ -6,13 +6,16 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/04 10:07:30 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/09 09:16:22 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/13 16:27:26 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include <string.h>
 #include "../../includes/mem.h"
+#ifdef STACK_H
+# include "../../includes/stack.h"
+#endif
 
 void		    *ft_memalloc(size_t size)
 {

@@ -83,5 +83,7 @@ void            *ft_alloc_pdel(void *content);
 t_stacks        *ft_stack_init(void);
 t_stacks        *ft_alloc_del(char *id);
 t_stacks        *ft_alloc_rename(char *id, char *new_name);
+size_t  ft_vartype_getsize(char *type);
+void    *ft_alloc_create(void *var, size_t len, char *id, char *type);
 
 #endif

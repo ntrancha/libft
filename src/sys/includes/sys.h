@@ -22,5 +22,6 @@
 # define    CACHE_SIZE      1000
 
 int         ft_start(int argc, char **argv);
+void    ft_cache_set(void *content);
 
 #endif

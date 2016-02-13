@@ -46,6 +46,7 @@ FILE	=	src/mem/ft_memalloc.c                \
 			src/tab/ft_tabmin.c                  \
 			src/tab/ft_tabclear.c                \
 			src/tab/ft_puttab.c                  \
+			src/sys/ft_cache_set.c               \
 			src/sys/ft_start.c                   \
 			src/count/ft_longlen.c               \
 			src/count/ft_doublelen.c             \
@@ -160,6 +161,7 @@ FILE	=	src/mem/ft_memalloc.c                \
 			src/extra/ft_test.c                  \
 			src/extra/ft_getpwd.c                \
 			src/extra/ft_rgb.c                   \
+			src/stack/ft_vartype_getsize.c       \
 			src/stack/ft_alloc_pdel.c            \
 			src/stack/ft_stack_strdup.c          \
 			src/stack/ft_alloc_copy.c            \
@@ -181,6 +183,7 @@ FILE	=	src/mem/ft_memalloc.c                \
 			src/stack/ft_alloc_get.c             \
 			src/stack/ft_alloc_vget.c            \
 			src/stack/ft_vartype_init.c          \
+			src/stack/ft_alloc_create.c          \
 			src/stack/ft_stack_memalloc.c        \
 			src/stack/ft_vartype_delete.c        \
 			src/stack/ft_vartype_addcpy.c        \

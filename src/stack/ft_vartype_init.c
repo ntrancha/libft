@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/07 00:54:18 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/12 09:49:31 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/13 20:45:10 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,9 @@ static void     *ft_cpyvoid(void *src, void *dest)
 {
     t_alloc     *alloc;
 
-    alloc = ft_alloc_get(src);
-    return (ft_alloc(alloc->content, alloc->size, dest, alloc->type));
+    if (!(alloc = ft_alloc_get(src)))
+        return (NULL);
+    return (ft_alloc_create(ft_strdup(alloc->content), alloc->size, dest, alloc->type));
 }
 
 static void     ft_tabstrdelvoid(void **str)

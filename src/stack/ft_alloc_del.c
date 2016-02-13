@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/07 01:25:07 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/07 16:55:36 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/13 20:52:11 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,9 @@ static void     *ft_alloc_delete(t_alloc *alloc)
 
     stack = ft_stack_init();
     type = ft_vartype_get(alloc->type);
-    stack->stack_size -= type->n_octet * alloc->size;
-    stack->stack_free += (alloc->size * type->n_octet);
     type->del(&(alloc->content));
-    ft_strdel(&(alloc->name));
+    if (alloc && alloc->name)
+        ft_strdel(&(alloc->name));
     stack->elements -= 1;
     stack->free += 1;
     ft_memdel((void**)&(alloc));

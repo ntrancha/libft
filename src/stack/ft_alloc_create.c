@@ -1,18 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_malloc.c                                        :+:      :+:    :+:   */
+/*   ft_alloc_create.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/02/07 01:21:00 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/13 21:10:00 by ntrancha         ###   ########.fr       */
+/*   Created: 2016/02/13 15:41:35 by ntrancha          #+#    #+#             */
+/*   Updated: 2016/02/13 20:37:16 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/stack.h"
+#include "../../includes/mem.h"
 
-static int  ft_lenint(int cp)
+static int  ft42_lenint(int cp)
 {
     int     nblen;
 
@@ -27,17 +28,15 @@ static int  ft_lenint(int cp)
     return (nblen);
 }
 
-static char *itoa(int n)
+static char *ft42_itoa(int n)
 {
     int     nblen;
     int     sign;
     char    *res;
-    t_stacks    *stack;
 
-    if (!(stack = ft_stack_init()))
-        return (NULL);    
     sign = (n < 0) ? 1 : 0;
-    nblen = ft_lenint(n);
+    nblen = ft42_lenint(n);
+    res = NULL;
     res = (char *)ft_memalloc(sizeof(char) * (nblen + sign + 1));
     if (res)
     {
@@ -56,43 +55,37 @@ static char *itoa(int n)
     return (res);
 }
 
+
 static char     *ft_stack_randomid(void)
 {
     static int  id_rand;
 
     id_rand++;
-    return (itoa(id_rand));
+    return (ft42_itoa(id_rand));
 }
 
-static void     ft_alloc_more(char *type, t_stacks *stack, size_t len)
-{
-    t_type      *types;
-
-    types = ft_vartype_get(type);
-    stack->elements += 1;
-    stack->stack_size += (len * types->n_octet);
-}
-
-void            *ft_malloc(size_t len)
+void        *ft_alloc_create(void *var, size_t len, char *id, char *type)
 {
     t_alloc     *alloc;
     t_alloc     *new;
     t_stacks    *stack;
 
-    if (!(stack = ft_stack_init()))
+    if (!(stack = ft_stack_init()) || !ft_vartype_get(type) || !len)
         return (NULL);    
     alloc = stack->alloc;
     while (alloc && alloc->next)
         alloc = alloc->next;
-    if (!(new = ft_stack_memalloc(sizeof(t_alloc))))
+    if (!(new = ft_memalloc(sizeof(t_alloc))))
         return (NULL);
-    if (!(new->content = ft_stack_memalloc(len)))
+    if (var)
+        new->content = var;
+    else if (!(new->content = ft_memalloc(len)))
         return (NULL);
     new->size = len;
-    new->name = ft_stack_randomid();
-    new->type = ft_vartype_gettype("str");
+    new->name = (id) ? ft_strdup(id) : ft_stack_randomid();
+    new->type = ft_vartype_gettype(type);
     new->next = NULL;
-    ft_alloc_more("str", stack, len);
+    stack->elements += 1;
     if (stack->alloc == NULL)
         stack->alloc = new;
     else
