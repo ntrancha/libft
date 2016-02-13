@@ -1,7 +1,8 @@
 # libft
 Librairie FT
 
-Création de la librairie :
+
+Création de la librairie:
 
       make install
 
