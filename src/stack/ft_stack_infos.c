@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/07 00:30:08 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/14 20:24:50 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/14 22:47:43 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void            ft_stack_infos(void)
     ft_putnbr_endl(((int)stack->free));
     ft_putstr("bytes allocated      :");
     ft_putnbr_endl((int)stack->sys);
-    ft_putstr("stack size           :");
+    ft_putstr("stack alloc          :");
     ft_putnbr_endl((int)stack->stack_size);
     ft_putstr("stack free           :");
     ft_putnbr_endl((int)stack->stack_free);
