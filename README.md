@@ -38,10 +38,12 @@ Créé un makefile en fonction de librairie passé en paramétres:
 
       ./42-makefile -all
 
+
  
 Créé une mini librairie avec seulement les fichiers requis:
 
      ./42-makefile -mini ../minilibft mem put strings test
+
 
 
 
@@ -104,3 +106,5 @@ TAB = TABLEAUX
 
 
 TEST = TEST
+
+
