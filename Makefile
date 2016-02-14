@@ -48,6 +48,7 @@ FILE	=	src/mem/ft_memalloc.c                \
 			src/tab/ft_puttab.c                  \
 			src/sys/ft_cache_set.c               \
 			src/sys/ft_start.c                   \
+			src/sys/ft_sys_option.c              \
 			src/count/ft_longlen.c               \
 			src/count/ft_doublelen.c             \
 			src/count/ft_strlen.c                \
@@ -158,6 +159,7 @@ FILE	=	src/mem/ft_memalloc.c                \
 			src/extra/ft_getrow.c                \
 			src/extra/ft_getcol.c                \
 			src/extra/ft_getpid.c                \
+			src/extra/ft_timer.c                 \
 			src/extra/ft_test.c                  \
 			src/extra/ft_getpwd.c                \
 			src/extra/ft_rgb.c                   \

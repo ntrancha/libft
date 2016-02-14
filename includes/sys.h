@@ -23,5 +23,6 @@
 
 int         ft_start(int argc, char **argv);
 void    ft_cache_set(void *content);
+void    ft_sys_option(int argc, char **argv);
 
 #endif
