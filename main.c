@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/07 23:13:16 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/13 20:55:52 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/13 21:16:57 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,11 +79,12 @@ int         ft_main(void)
     char    **tab;
     char    *str;
 
-    /*ft_cache_set(ft_strdup("coucou"));
+    ft_cache_set(ft_strdup("coucou"));
     ft_cache_set(ft_strdup("1"));
     ft_cache_set(ft_strdup("3"));
     ft_alloc_copy("TMP_PROG", "Ca");
-    ft_cache_set(ft_strdup("2"));*/
+    ft_cache_set(ft_strdup("2"));
+    DEL(TMP_PROG);
     ft_stack_infos();
     //ft_man();
 }

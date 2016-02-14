@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/12 21:38:56 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/12 21:40:27 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/13 21:22:01 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void        ft_cache_set(void *content)
     t_alloc *alloc;
 
     alloc = ft_alloc_get("TMP_PROG");
-    if (alloc->content)
+    if (alloc && alloc->content)
        ft_memdel((void**)&(alloc->content)); 
     alloc->content = content;
 }
