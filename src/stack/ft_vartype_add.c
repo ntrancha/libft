@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/07 00:42:29 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/07 01:13:10 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/14 12:01:22 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@ t_type      *ft_vartype_add(char *type, size_t n, void (*del)(void**))
     stack = ft_stack_init();
     if (!type || !del || ft_vartype_get(type) != NULL)
         return (NULL);
-    if (!(new = ft_stack_memalloc(sizeof(t_type))))
+    if (!(new = ft_memalloc(sizeof(t_type))))
         return (NULL);
-    if (!(new->type = ft_stack_strdup(type)))
+    if (!(new->type = ft_strdup(type)))
         return (NULL);
     new->n_octet = n;
     new->del = del;

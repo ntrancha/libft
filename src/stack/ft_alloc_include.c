@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/07 01:16:31 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/13 16:11:13 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/14 20:40:46 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void            *ft_alloc_include(void *var, size_t len)
     alloc = stack->alloc;
     while (alloc && alloc->next)
         alloc = alloc->next;
-    if (!(new = ft_stack_memalloc(sizeof(t_alloc))))
+    if (!(new = ft_memalloc(sizeof(t_alloc))))
         return (NULL);
     new->content = (var) ? var : NULL;
     new->size = len;
@@ -31,7 +31,7 @@ void            *ft_alloc_include(void *var, size_t len)
     new->type = NULL;
     new->next = NULL;
     stack->elements += 1;
-    stack->stack_size += len;
+    //stack->stack_size += len;
     if (stack->alloc == NULL)
         stack->alloc = new;
     else

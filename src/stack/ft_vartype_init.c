@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/07 00:54:18 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/13 20:45:10 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/14 12:00:51 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,16 +51,16 @@ t_type      *ft_vartype_init(void)
 {
     t_type  *new;
 
-    if (!(new = ft_stack_memalloc(sizeof(t_type))))
+    if (!(new = ft_memalloc(sizeof(t_type))))
         return (NULL);
-    new->type = ft_stack_strdup("str");
+    new->type = ft_strdup("str");
     new->n_octet = sizeof(char);
     new->del = ft_memdel;
     new->put = ft_putvoid;
     new->cpy = ft_cpyvoid;
-    if (!(new->next = ft_stack_memalloc(sizeof(t_type))))
+    if (!(new->next = ft_memalloc(sizeof(t_type))))
         return (NULL);
-    new->next->type = ft_stack_strdup("tabstr");
+    new->next->type = ft_strdup("tabstr");
     new->next->del = ft_tabstrdelvoid;
     new->next->put = ft_puttabstrvoid;
     new->next->n_octet = sizeof(char);

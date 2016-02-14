@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/07 01:21:00 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/13 21:10:00 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/14 20:42:05 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,15 +64,6 @@ static char     *ft_stack_randomid(void)
     return (itoa(id_rand));
 }
 
-static void     ft_alloc_more(char *type, t_stacks *stack, size_t len)
-{
-    t_type      *types;
-
-    types = ft_vartype_get(type);
-    stack->elements += 1;
-    stack->stack_size += (len * types->n_octet);
-}
-
 void            *ft_malloc(size_t len)
 {
     t_alloc     *alloc;
@@ -92,7 +83,6 @@ void            *ft_malloc(size_t len)
     new->name = ft_stack_randomid();
     new->type = ft_vartype_gettype("str");
     new->next = NULL;
-    ft_alloc_more("str", stack, len);
     if (stack->alloc == NULL)
         stack->alloc = new;
     else

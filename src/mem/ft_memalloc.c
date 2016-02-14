@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/04 10:07:30 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/13 16:27:26 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/14 20:26:48 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,8 @@ void		    *ft_memalloc(size_t size)
             ft_memdel(&ptr);
             return (NULL);
        }
-       else
-           stack->sys += size;
+       stack->sys += size;
+       stack->stack_size += 1;
     #endif
 	return (ptr);
 }
