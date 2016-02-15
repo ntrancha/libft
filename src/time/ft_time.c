@@ -1,26 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   extra.h                                            :+:      :+:    :+:   */
+/*   ft_time.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/01/02 17:48:19 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/14 23:49:51 by ntrancha         ###   ########.fr       */
+/*   Created: 2016/02/15 01:24:12 by ntrancha          #+#    #+#             */
+/*   Updated: 2016/02/15 01:26:07 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef EXTRA_H
-# define EXTRA_H
-# include "libft.h"
-# define SYSTIMER   54000000
+#include <time.h>
 
-int	ft_rgb(int red, int green, int blue);
-int ft_getcol(void);
-int ft_getrow(void);
-int ft_getpid(void);
-int ft_test(void);
-char    *ft_getpwd(void);
-void    ft_timer(int ms);
+size_t      ft_time(void)
+{
+    time_t  t;
+    size_t  ret;
 
-#endif
+    time(&t);
+    ret = (size_t)t;
+    return (ret);
+}

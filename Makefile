@@ -365,6 +365,9 @@ FILE	=	src/mem/ft_memalloc.c                \
 			src/put/ft_putstr.c                  \
 			src/put/ft_putcenter.c               \
 			src/put/ft_putaddr.c                 \
+			src/time/ft_sleep.c                  \
+			src/time/ft_time.c                   \
+			src/time/ft_random.c                 \
 			src/convert/ft_atof.c                \
 			src/convert/ft_dtoll.c               \
 			src/convert/ft_hextodec.c            \
