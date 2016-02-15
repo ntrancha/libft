@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/04 16:33:35 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/06 12:05:29 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/16 00:01:13 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -287,7 +287,7 @@ void        includes(t_list *options, char *mini)
     ft_write_file(head, content);
     ft_strdel(&content);
     ft_strdel(&head);
-    ft_listdel(list, ft_memdel);
+    ft_listdel(&list, ft_memdel);
 }
 
 void        copy_src_includes(char *mini, t_list *options)
@@ -354,7 +354,7 @@ void        add_make(t_list *lst, char *mini, t_list *options)
         ft_putendl("Create directory : FAIL");
     ft_strdel(&path);
     ft_strdel(&file);
-    ft_listdel(content, ft_memdel);
+    ft_listdel(&content, ft_memdel);
 }
 
 void        create_make(t_list *lst, char *mini, t_list *options)
@@ -407,6 +407,6 @@ int         main(int argc, char **argv)
     create_make(lst, mini, options);
     ft_strdel(&all);
     ft_strdel(&mini);
-    ft_optdel(options);
+    ft_optdel(&options);
     return (0);
 }

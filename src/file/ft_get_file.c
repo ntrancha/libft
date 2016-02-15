@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/07/28 06:41:02 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/08/19 07:26:33 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/15 23:57:21 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ static int  readfile_list(const int fd, char **str)
     del = ft_memdel;
     if (readfile_next(fd, str, list) != 1)
         return (EXIT_FAIL);
-    ft_listdel(list, del);
+    ft_listdel(&list, del);
     return (1);
 }
 

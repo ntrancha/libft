@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/08/31 11:25:47 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/06 10:35:45 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/15 23:59:22 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ char        **recup_src(t_opt *options, char **src)
         option = ft_optgetopt_next(options);
     }
     tab = ft_listtotab(list);
-    ft_listdel(list, ft_memdel);
+    ft_listdel(&list, ft_memdel);
     return (tab);
 }
 
@@ -265,7 +265,7 @@ void		create_makefile_end(t_list *list, char *path, int test)
 	}
 	ft_strdel(&content);
 	write_makefile(makefile, path);
-	ft_listdel(makefile, ft_memdel);
+	ft_listdel(&makefile, ft_memdel);
 }
 
 void        copy_src(t_list *list, int test, char *path)
@@ -379,7 +379,7 @@ void        create_header(char **lib, int test, char *path)
         ft_strdel(&ligne);
     }
     write_header(point_h, path);
-    ft_listdel(point_h, ft_memdel);
+    ft_listdel(&point_h, ft_memdel);
     ft_strdel(&header);
     ft_strdel(&content);
 }
@@ -396,7 +396,7 @@ void        traitement(t_list *files, char **lib, char *output, int test)
     create_header(lib, test, path);
     copy_header(lib, test, path);
     ft_strdel(&path);
-	ft_listdel(list_makefile, ft_memdel);
+	ft_listdel(&list_makefile, ft_memdel);
 }
 
 void		find_file(char **list, char *output)
@@ -427,7 +427,7 @@ void		find_file(char **list, char *output)
 		}
 	}
     traitement(files, list, output, test);
-	ft_listdel(files, ft_memdel);
+	ft_listdel(&files, ft_memdel);
 }
 
 int		main(int argc, char **argv)
@@ -445,7 +445,7 @@ int		main(int argc, char **argv)
 	{
 		display_list(list_all);
 		ft_strdel(&option);
-		ft_optdel(options);	
+		ft_optdel(&options);	
 		ft_tabstrdel(list_all);
 		return (0);
 	}
@@ -459,7 +459,7 @@ int		main(int argc, char **argv)
     find_file(list, output);
 	ft_tabstrdel(list);
 	ft_tabstrdel(list_all);
-	ft_optdel(options);	
+	ft_optdel(&options);	
 	ft_strdel(&output);
 	return (0);
 }

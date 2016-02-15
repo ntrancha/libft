@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/15 01:40:52 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/15 10:40:22 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/15 19:43:16 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int     ft_random(void)
     static long mem;
 
     if (!mem)
-        mem = ft_time();
+        mem = ft_get_timestamp();
     mem = 16807 * mem % (ft_power_long(2,31) - 1);
     return ((int)mem);
 }

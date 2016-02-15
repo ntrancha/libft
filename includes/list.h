@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/02 17:25:24 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/04 19:53:03 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/15 23:45:54 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ char	*ft_listtostr(t_list *list);
 char	**ft_listtotab(t_list *list);
 char	*ft_listtostrd(t_list *list, char *del);
 int		ft_listcontent(t_list *list, t_node *node);
-void	ft_listdel(t_list *list, void (del)(void **));
+void	ft_listdel(t_list **list, void (del)(void **));
 void	ft_listdelnode(t_list *list, t_node *node, void (del)(void **));
 t_node	*ft_listdelnodenext(t_list *list, t_node *node, void (del)(void **));
 size_t	ft_listlen(t_list *list);

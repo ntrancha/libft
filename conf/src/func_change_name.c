@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/08/24 23:40:49 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/06 10:36:28 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/15 23:59:51 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -183,6 +183,6 @@ int         main(int argc, char ** argv)
     init(origin, change);
     ft_strdel(&change);
     ft_strdel(&origin);
-    ft_optdel(options);
+    ft_optdel(&options);
     return (1);
 }

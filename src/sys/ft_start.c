@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/07 23:04:32 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/14 22:56:43 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/16 00:02:54 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int         ft_main(void);
 
 static void ft_optdel_void(void **opt)
 {
-    ft_optdel(*opt);
+    ft_optdel((t_opt**)opt);
 }
 
 static void ft_syscache(void)

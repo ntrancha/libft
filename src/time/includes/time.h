@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/15 01:26:21 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/15 01:36:04 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/15 20:12:56 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,5 +19,6 @@ void    ft_sleep(int sec);
 int     ft_random(void);
 int     ft_rand(int min, int max);
 int     ft_get_timestamp(void);
+int     ft_random_hundred(void);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/07 23:13:16 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/15 17:23:02 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/15 23:35:59 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,10 +79,15 @@ char        *ft_getcwd(void)
 
 int         ft_main(void)
 {
-    ft_putnbr_endl((int)ft_get_timestamp());
-    ft_putnbr_endl((int)ft_time());
-    ft_putnbr_endl(ft_rand(1,10));
-    ft_putnbr_endl(ft_rand(1,10));
+    //ft_putnbr_endl((int)ft_get_timestamp());
+    //ft_putnbr_endl((int)ft_time());
+    ft_putnbr_endl(ft_random_hundred());
+    ft_putnbr_endl(ft_random_hundred());
+    ft_putnbr_endl(ft_random_hundred());
+    ft_putnbr_endl(ft_random_hundred());
+    ft_putnbr_endl(ft_random_hundred());
+    ft_putnbr_endl(ft_random_hundred());
+    /*ft_putnbr_endl(ft_rand(1,10));
     ft_putnbr_endl(ft_rand(1,10));
     ft_putnbr_endl(ft_rand(1,10));
     ft_putnbr_endl(ft_rand(1,10));
@@ -94,7 +99,7 @@ int         ft_main(void)
     ft_putnbr_endl(ft_rand(1,100));
     ft_putnbr_endl(ft_random());
     ft_putnbr_endl(ft_random());
-    ft_putnbr_endl(ft_random());
+    ft_putnbr_endl(ft_random());*/
     return 1;
 }
 

@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/07/29 02:55:42 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/08/19 07:30:46 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/15 23:57:02 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int         ft_readstdin(char **str)
         if (*line == '\n')
         {
             *str = ft_listtostr(list);
-            ft_listdel(list, ft_memdel);
+            ft_listdel(&list, ft_memdel);
             return (1);
         }
 	}

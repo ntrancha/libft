@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/09/05 11:25:33 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/06 11:17:41 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/15 23:53:57 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,7 +125,7 @@ char        *ft_strf(char const *format, ...)
             ft_listadd(list, ft_ctos(format[index]));
     }
     str = ft_listtostr(list);
-    ft_listdel(list, ft_memdel);
+    ft_listdel(&list, ft_memdel);
     va_end(ap);
     return (str);
 }

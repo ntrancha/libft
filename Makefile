@@ -371,6 +371,7 @@ FILE	=	src/mem/ft_memalloc.c                \
 			src/time/ft_time.c                   \
 			src/time/ft_random.c                 \
 			src/time/ft_get_timestamp.c          \
+			src/time/ft_random_hundred.c         \
 			src/convert/ft_atof.c                \
 			src/convert/ft_dtoll.c               \
 			src/convert/ft_hextodec.c            \

@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/08/23 06:15:54 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/08/23 10:40:11 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/15 23:55:09 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,6 @@ int         ft_fileindos(char *path, char *error, char *file)
             ret = 1;
         node = node->next;
     }
-    ft_listdel(list, ft_memdel);
+    ft_listdel(&list, ft_memdel);
     return (ret);
 }
