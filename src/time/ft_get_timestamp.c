@@ -1,23 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   time.h                                             :+:      :+:    :+:   */
+/*   ft_get_timestamp.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/02/15 01:26:21 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/15 01:36:04 by ntrancha         ###   ########.fr       */
+/*   Created: 2016/02/15 17:13:20 by ntrancha          #+#    #+#             */
+/*   Updated: 2016/02/15 17:16:00 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef TIME_H
-# define TIME_H
-# include <time.h>
+#include <sys/stat.h>
+#include "../../includes/file.h"
 
-size_t      ft_time(void);
-void    ft_sleep(int sec);
-int     ft_random(void);
-int     ft_rand(int min, int max);
-int     ft_get_timestamp(void);
+int             ft_get_timestamp(void)
+{
+    struct stat s;
 
-#endif
+    ft_write_file("libft_timestamp", "42");
+    lstat("libft_timestamp", &s);
+    ft_filedel("libft_timestamp");
+    return (s.st_ctime);
+}

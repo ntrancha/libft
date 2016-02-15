@@ -6,10 +6,13 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/07 23:13:16 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/15 10:41:12 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/15 17:23:02 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <fcntl.h>
 #include <unistd.h>
 #include "includes/libft.h"
 
@@ -76,12 +79,19 @@ char        *ft_getcwd(void)
 
 int         ft_main(void)
 {
-    ft_putnbr_endl(ft_random());
-    ft_putnbr_endl(ft_random());
-    ft_putnbr_endl(ft_random());
-    ft_putnbr_endl(ft_random());
-    ft_putnbr_endl(ft_random());
-    ft_putnbr_endl(ft_random());
+    ft_putnbr_endl((int)ft_get_timestamp());
+    ft_putnbr_endl((int)ft_time());
+    ft_putnbr_endl(ft_rand(1,10));
+    ft_putnbr_endl(ft_rand(1,10));
+    ft_putnbr_endl(ft_rand(1,10));
+    ft_putnbr_endl(ft_rand(1,10));
+    ft_putnbr_endl(ft_rand(1,10));
+    ft_putnbr_endl(ft_rand(1,100));
+    ft_putnbr_endl(ft_rand(1,100));
+    ft_putnbr_endl(ft_rand(1,100));
+    ft_putnbr_endl(ft_rand(1,100));
+    ft_putnbr_endl(ft_rand(1,100));
+    ft_putnbr_endl(ft_rand(1,100));
     ft_putnbr_endl(ft_random());
     ft_putnbr_endl(ft_random());
     ft_putnbr_endl(ft_random());

@@ -17,5 +17,7 @@
 size_t      ft_time(void);
 void    ft_sleep(int sec);
 int     ft_random(void);
+int     ft_rand(int min, int max);
+int     ft_get_timestamp(void);
 
 #endif
