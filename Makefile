@@ -325,6 +325,7 @@ FILE	=	src/mem/ft_memalloc.c                \
 			src/math/ft_power.c                  \
 			src/math/ft_pointcreate.c            \
 			src/math/ft_nbrcat.c                 \
+			src/math/ft_prime_between.c          \
 			src/math/ft_substr.c                 \
 			src/math/ft_neg.c                    \
 			src/math/ft_abs.c                    \

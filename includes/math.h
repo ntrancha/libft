@@ -47,5 +47,6 @@ char        *ft_sintaddint(char *num, int add);
 char        *ft_addstr(char *a, char *b);
 char        *ft_substr(char *a, char *b);
 char        *ft_addsubstr(char *a, char *b, int op);
+int     ft_prime_between(int a, int b);
 
 #endif
