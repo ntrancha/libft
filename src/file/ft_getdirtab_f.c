@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/03 11:10:53 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/03 13:34:14 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/16 00:31:11 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,6 @@ char        **ft_getdirtab_f(char *path, char *error, char type)
                 return (NULL);
         ft_strdel(&pfile);
     }
-    ft_tabstrdel(files);
+    ft_tabstrdel(&files);
     return (ret);
 }

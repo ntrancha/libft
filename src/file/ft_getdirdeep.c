@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/03 12:33:50 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/03 14:17:02 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/16 00:31:30 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,6 @@ int         ft_getdirdeep(char *path, char *error)
         if (ft_strcmp(files[index], ".") && ft_strcmp(files[index], ".."))
             if ((tmp = ft_getdirdeep(files[index], error) + 1) > ret)
                 ret = tmp;
-    ft_tabstrdel(files);
+    ft_tabstrdel(&files);
     return (ret);
 }

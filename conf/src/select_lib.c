@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/08/31 11:25:47 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/15 23:59:22 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/16 00:35:35 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,13 +27,13 @@ int			test_directory(void)
 	while (tab[index])
 		if (ft_strcmp(tab[index++], "select_lib.c") == 0)
 				test = 1;
-	ft_tabstrdel(tab);
+	ft_tabstrdel(&tab);
 	tab = ft_getdirtab(".", NULL);
 	index = 0;
 	while (tab[index])
 		if (ft_strcmp(tab[index++], "conf") == 0)
 				test = 2;
-	ft_tabstrdel(tab);
+	ft_tabstrdel(&tab);
 	return (test);
 }
 
@@ -423,7 +423,7 @@ void		find_file(char **list, char *output)
 				verif_file(list[index], files, dir, test);
 			ft_strdel(&mini_lib);
 			if (dir)
-				ft_tabstrdel(dir);
+				ft_tabstrdel(&dir);
 		}
 	}
     traitement(files, list, output, test);
@@ -446,7 +446,7 @@ int		main(int argc, char **argv)
 		display_list(list_all);
 		ft_strdel(&option);
 		ft_optdel(&options);	
-		ft_tabstrdel(list_all);
+		ft_tabstrdel(&list_all);
 		return (0);
 	}
 	option = ft_optgetopt_double(options, "-o");
@@ -457,8 +457,8 @@ int		main(int argc, char **argv)
     list = recup_list(options, list_all);
     //creation(list, output);
     find_file(list, output);
-	ft_tabstrdel(list);
-	ft_tabstrdel(list_all);
+	ft_tabstrdel(&list);
+	ft_tabstrdel(&list_all);
 	ft_optdel(&options);	
 	ft_strdel(&output);
 	return (0);

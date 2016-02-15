@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/09/04 08:45:07 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/06 11:20:23 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/16 00:32:06 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static int  pathisdir_next(char **files, char *dos, char *tmp, char *path)
 	while (files[++count])
 		if (ft_strcmp(dos, files[count]) == 0)
 			ret = 1;
-	ft_tabstrdel(files);
+	ft_tabstrdel(&files);
 	ft_strdel(&dos);
 	ft_strdel(&tmp);
     if (ret == 1)
@@ -33,7 +33,7 @@ static int  pathisdir_next(char **files, char *dos, char *tmp, char *path)
         if (!files)
             ret = 0;
         else
-	        ft_tabstrdel(files);
+	        ft_tabstrdel(&files);
     }
     return (ret);
 }

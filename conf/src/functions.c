@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/04 14:20:49 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/06 16:45:56 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/16 00:34:14 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -182,7 +182,7 @@ void		display_next(char *options)
         if (option[index + 1])
             ft_putchar(',');
     }
-    ft_tabstrdel(option);
+    ft_tabstrdel(&option);
 }
 
 void		display_opt(char *proto)
@@ -257,7 +257,7 @@ void		parse(char *content, char *search)
 				display(ligne[line]);
 		}
 	}
-	ft_tabstrdel(ligne);
+	ft_tabstrdel(&ligne);
 }
 
 int			main(int argc, char **argv)
@@ -283,6 +283,6 @@ int			main(int argc, char **argv)
 		}
 	}
 	ft_strdel(&search);
-	ft_tabstrdel(dos);
+	ft_tabstrdel(&dos);
 	return (1);
 }

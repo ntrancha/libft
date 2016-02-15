@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/08/24 23:40:49 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/15 23:59:51 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/16 00:33:56 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,12 +61,12 @@ char        *find_in_header(char *origin, char *change)
         ret = have_proto(tab[index], origin);
     if (ret == 0)
     {
-        ft_tabstrdel(tab);
+        ft_tabstrdel(&tab);
         return (NULL);
     }
     header = ft_strsub(tab[index - 1], 0, ft_strlen(tab[index - 1]) - 2);
     change_header(origin, change, tab[index - 1]);
-    ft_tabstrdel(tab);
+    ft_tabstrdel(&tab);
     return (header);
 }
 
@@ -95,7 +95,7 @@ void        modif_src2(char *proto, char *proto_modif, char *file)
                     ft_strdel(&content);
                 }
     ft_strdel(&src);
-    ft_tabstrdel(dos);
+    ft_tabstrdel(&dos);
 }
 
 void        modif_src(char *proto, char *proto_modif)
@@ -108,7 +108,7 @@ void        modif_src(char *proto, char *proto_modif)
     while (dos[++index])
         if (ft_strcmp(dos[index], ".") != 0 && ft_strcmp(dos[index], "..") != 0)
             modif_src2(proto, proto_modif, dos[index]);
-    ft_tabstrdel(dos);
+    ft_tabstrdel(&dos);
 }
 
 int         find_proto(char *src, char *header, char *origin, char *change)

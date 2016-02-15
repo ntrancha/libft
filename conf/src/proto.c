@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/03 21:50:57 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/06 10:35:52 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/16 00:35:07 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -148,7 +148,7 @@ void        make_header(char *func, char *file, char *header, char *cat)
     ft_strdel(&proto);
     ft_strdel(&test);
     ft_strdel(&name);
-    ft_tabstrdel(ligne);
+    ft_tabstrdel(&ligne);
 }
 
 void        parse(char *file, char *path, char *header)
@@ -254,7 +254,7 @@ void        parse_header(char *header, char *dos)
             ft_strdel(&func);
         }
     }
-    ft_tabstrdel(split);
+    ft_tabstrdel(&split);
     ft_strdel(&cat);
     ft_strdel(&dir);
 }
@@ -287,7 +287,7 @@ void        next(char *path, char *dos, char *pathdos)
             parse(file, files[index], include2);
         ft_strdel(&file);
     }
-    ft_tabstrdel(files);
+    ft_tabstrdel(&files);
     parse_header(include2, pathdos);
     copy(include2, dos, path);
     ft_strdel(&include);
@@ -306,7 +306,7 @@ char        *find_pathsrc(void)
     while (!test && dos[++index])
         if (ft_strcmp(dos[index], "src") == 0)
             test = 1;
-    ft_tabstrdel(dos);
+    ft_tabstrdel(&dos);
     if (test)
         return (ft_strdup("src"));
     index = -1;
@@ -314,7 +314,7 @@ char        *find_pathsrc(void)
     while (!test && dos[++index])
         if (ft_strcmp(dos[index], "../src") == 0)
             test = 1;
-    ft_tabstrdel(dos);
+    ft_tabstrdel(&dos);
     if (test)
         return (ft_strdup("../src"));
     return (NULL);
@@ -338,7 +338,7 @@ int         main(void)
         next(path, dos_lib, dos[index]);
         ft_strdel(&dos_lib);
     }
-    ft_tabstrdel(dos);
+    ft_tabstrdel(&dos);
     ft_strdel(&path);
     ft_strdel(&path_src);
     return (0);

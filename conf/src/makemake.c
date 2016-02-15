@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/04 16:33:35 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/16 00:01:13 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/16 00:34:42 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int         test_dos(char *dir)
             test = 1;
         ft_strdel(&tmp);
     }
-    ft_tabstrdel(lib);
+    ft_tabstrdel(&lib);
     if (test == 0)
     {
         ft_putstr(dir);
@@ -108,7 +108,7 @@ void        next(char *option, t_opt *options)
             next2(ligne[line], options, option);
     ft_strdel(&cat);
     ft_strdel(&path);
-    ft_tabstrdel(ligne);
+    ft_tabstrdel(&ligne);
 }
 
 void        start(t_opt *options)
@@ -141,7 +141,7 @@ void        get_all(t_opt *options)
         file = ft_strsub(path[index], 4, ft_strlen(path[index]) - 4);
         ft_listadd(options, file);
     }
-    ft_tabstrdel(path);
+    ft_tabstrdel(&path);
 }
 
 void        add_makefile(char *dos, char *func, char *proto, t_list *lst)
@@ -175,7 +175,7 @@ void        recup_proto(char *dos, char *cat, char *file, t_list *lst)
             proto = ft_strdup(ligne[count]);
     func[ft_strlen(func) - 1] = '\0';
     add_makefile(file, func, proto, lst);
-    ft_tabstrdel(ligne);
+    ft_tabstrdel(&ligne);
     ft_strdel(&func);
     ft_strdel(&proto);
 }
@@ -201,7 +201,7 @@ void        list(t_opt *options, t_list *lst)
             ft_strdel(&cat);
         }
         node = node->next;
-        ft_tabstrdel(dos);
+        ft_tabstrdel(&dos);
         ft_strdel(&path);
     }
 }
@@ -242,7 +242,7 @@ void        copy_src_lib(char *mini, char *lib)
         ft_filecopy(file[index], dos);
         ft_strdel(&dos);
     }
-    ft_tabstrdel(file);
+    ft_tabstrdel(&file);
 }
 
 int         test_include(t_list *options, char *lib)
@@ -309,7 +309,7 @@ void        copy_src_includes(char *mini, t_list *options)
             ft_filecopy(file[index], dst);
         ft_strdel(&dst);
     }
-    ft_tabstrdel(file);
+    ft_tabstrdel(&file);
 }
 
 void        copy_src(char *mini, t_list *options)

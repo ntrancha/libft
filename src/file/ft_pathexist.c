@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/09/05 05:30:28 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/09/05 06:23:00 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/16 00:32:45 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,6 @@ int         ft_pathexist(char *path)
                 ret = 1;
     ft_strdel(&dos);
     ft_strdel(&file);
-    ft_tabstrdel(files);
+    ft_tabstrdel(&files);
     return (ret);
 }
-

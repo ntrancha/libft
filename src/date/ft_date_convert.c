@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/08/09 09:50:56 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/08/19 06:16:05 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/16 00:30:25 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void        date_convert_date(char *str, t_date *date)
             date->year = ft_atoi(tmp[2]);
         }
         if (tmp != NULL)
-            ft_tabstrdel(tmp);
+            ft_tabstrdel(&tmp);
     }
 }
 
@@ -63,7 +63,7 @@ void        date_convert_time(char *str, t_date *date)
             date->seconde = ft_atoi(tmp[2]);
         }
         if (tmp != NULL)
-            ft_tabstrdel(tmp);
+            ft_tabstrdel(&tmp);
     }
 }
 
@@ -96,7 +96,7 @@ t_date      *ft_date_convert(char *str)
             return (NULL);
         date_convert_time(ret[0], date);
         date_convert_date(ret[1], date);
-        ft_tabstrdel(ret);
+        ft_tabstrdel(&ret);
         return (date);
     }
     return (NULL);

@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/02 17:42:48 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/05 15:15:51 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/16 00:28:27 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int		ft_strnequ(char const *s1, char const *s2, size_t n);
 int		ft_strcmp(const char *s1, const char *s2);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 void	ft_strdel(char **as);
-void	ft_tabstrdel(char **str);
+void	ft_tabstrdel(char ***str);
 char	*ft_strnew(size_t size);
 void	ft_striter(char *s, void (*f)(char *));
 void	ft_striteri(char *s, void (*f)(unsigned int, char *));
