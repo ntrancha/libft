@@ -52,6 +52,7 @@ FILE	=	src/mem/ft_memalloc.c                \
 			src/sys/ft_start.c                   \
 			src/sys/ft_systabstr.c               \
 			src/sys/ft_sys_option.c              \
+			src/sys/ft_debug.c                   \
 			src/count/ft_longlen.c               \
 			src/count/ft_doublelen.c             \
 			src/count/ft_strlen.c                \

@@ -1,23 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_debug.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/02/07 23:13:16 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/16 16:32:09 by ntrancha         ###   ########.fr       */
+/*   Created: 2016/02/16 16:26:28 by ntrancha          #+#    #+#             */
+/*   Updated: 2016/02/16 16:30:38 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/libft.h"
+#include "../../includes/stack.h"
 
-int         ft_main(void)
+void        ft_debug(char *file, int line)
 {
-    DEBUG;
-    DEBUG;
-    ft_stack_infos();
-    return 1;
-}
+    char    *str;
 
-FT_MAIN
+    if (file)
+    {
+        str = ft_strdup(file);
+        ASTR(str, "__FILE__");
+        str = ft_itoa(line);
+        ASTR(str, "__LINE__");
+    }
+}
