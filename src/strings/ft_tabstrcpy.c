@@ -1,29 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   count.h                                            :+:      :+:    :+:   */
+/*   ft_tabstrcpy.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/01/02 17:39:58 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/06 12:00:15 by ntrancha         ###   ########.fr       */
+/*   Created: 2016/02/16 10:55:34 by ntrancha          #+#    #+#             */
+/*   Updated: 2016/02/16 11:07:53 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef COUNT_H
-# define COUNT_H
-# include <stdlib.h>
-# include "libft.h"
+#include "../../includes/mem.h"
+#include "../../includes/strings.h"
 
-size_t	ft_strlen(const char *str);
-size_t	ft_nbrlen(int nbr);
-size_t	ft_floatlenfloat(float n);
-size_t	ft_floatlen(float n);
-size_t	ft_longlen(long n);
-size_t	ft_doublelen(double n);
-size_t	ft_doublelendouble(double n);
-int		ft_cinstr(char *str, char c);
-size_t  ft_tabstrlen(char **str);
-int     ft_tabstrcount(char **tab);
+char        **ft_tabstrcpy(char **tab)
+{
+    char    **new;
+    int     len;
 
-#endif
+    len = 0;
+    while (tab[len])
+        len++;
+    if (!(new = ft_memalloc(sizeof(char*) * len)))
+        return (NULL);
+    len = -1;
+    while (tab[++len])
+        if (!(new[len] = ft_strdup(tab[len])))
+            return (NULL);
+    return (new);
+}

@@ -49,11 +49,13 @@ FILE	=	src/mem/ft_memalloc.c                \
 			src/sys/ft_syslist.c                 \
 			src/sys/ft_cache_set.c               \
 			src/sys/ft_start.c                   \
+			src/sys/ft_systabstr.c               \
 			src/sys/ft_sys_option.c              \
 			src/count/ft_longlen.c               \
 			src/count/ft_doublelen.c             \
 			src/count/ft_strlen.c                \
 			src/count/ft_cinstr.c                \
+			src/count/ft_tabstrcount.c           \
 			src/count/ft_nbrlen.c                \
 			src/count/ft_floatlen.c              \
 			src/count/ft_doublelendouble.c       \
@@ -208,6 +210,7 @@ FILE	=	src/mem/ft_memalloc.c                \
 			src/date/ft_timestamp.c              \
 			src/strings/ft_lorem_ipsum.c         \
 			src/strings/ft_strdel.c              \
+			src/strings/ft_tabstrcpy.c           \
 			src/strings/ft_strint.c              \
 			src/strings/ft_strncpy.c             \
 			src/strings/ft_toupper.c             \

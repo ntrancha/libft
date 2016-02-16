@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/07 23:04:32 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/16 00:40:36 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/16 11:10:19 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,7 @@ int         ft_start(int argc, char **argv)
     ft_sys_option(argc, argv);
     ft_syscache();
     ft_syslist();
+    ft_systabstr();
     ret = ft_main();
     ft_stack_free();
     return (ret);

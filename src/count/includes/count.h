@@ -24,5 +24,6 @@ size_t	ft_doublelen(double n);
 size_t	ft_doublelendouble(double n);
 int		ft_cinstr(char *str, char c);
 size_t  ft_tabstrlen(char **str);
+int     ft_tabstrcount(char **tab);
 
 #endif

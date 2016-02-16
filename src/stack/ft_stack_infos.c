@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/07 00:30:08 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/16 00:55:02 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/16 11:16:13 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,11 +55,10 @@ void            ft_stack_show(t_stacks *stack)
         {
             ft_putstr(type->type);
             ft_putspace(11 - ft_strlen(type->type));
-            ft_putstr("(");
             if (type->del)
-                ft_putstr("  X ");
+                ft_putstr("   X ");
             else
-                ft_putstr("    ");
+                ft_putstr("     ");
             if (type->put)
                 ft_putstr("  X ");
             else
@@ -68,7 +67,7 @@ void            ft_stack_show(t_stacks *stack)
                 ft_putstr("  X ");
             else
                 ft_putstr("    ");
-            ft_putstr(" )\n");
+            ft_putstr("\n");
         }
         type= type->next;
     }
