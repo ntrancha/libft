@@ -178,6 +178,7 @@ FILE	=	src/mem/ft_memalloc.c                \
 			src/stack/ft_alloc_include.c         \
 			src/stack/ft_stack_infos.c           \
 			src/stack/ft_vartype_add.c           \
+			src/stack/ft_alloc_erase.c           \
 			src/stack/ft_alloc_cmp.c             \
 			src/stack/ft_stack_clean.c           \
 			src/stack/ft_alloc_nget.c            \

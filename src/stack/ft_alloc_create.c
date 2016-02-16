@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/13 15:41:35 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/13 21:14:09 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/17 00:09:05 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void        *ft_alloc_create(void *var, size_t len, char *id, char *type)
     alloc = stack->alloc;
     while (alloc && alloc->next)
         alloc = alloc->next;
-    if (!(new = ft_memalloc(sizeof(t_alloc))))
+    if (ft_alloc_get(id) != NULL || !(new = ft_memalloc(sizeof(t_alloc))))
         return (NULL);
     if (var)
         new->content = var;

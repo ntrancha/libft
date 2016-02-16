@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/05 13:56:33 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/16 13:02:05 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/17 00:23:45 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 # define    XSTR(var, name) ft_alloc(#var, ft_strlen(#var) + 1, #name, "str")
 # define    ASTR(var, name) ft_alloc(var, ft_strlen(var) + 1, name, "str")
 # define    CSTR(var, name) ft_calloc(var, ft_strlen(var) + 1, name, "str")
+# define    DSTR(v, n)      ft_alloc_erase(v, ft_strlen(v) + 1, n, "str")
 
 typedef struct  s_alloc		t_alloc;
 typedef struct  s_type		t_type;
@@ -90,5 +91,6 @@ size_t  ft_vartype_getsize(char *type);
 void    *ft_alloc_create(void *var, size_t len, char *id, char *type);
 void    ft_alloc_put(char *id);
 int     ft_alloc_cmp(char *a, char *b);
+void    *ft_alloc_erase(void *var, size_t len, char *id, char *type);
 
 #endif

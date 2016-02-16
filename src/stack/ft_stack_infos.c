@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/07 00:30:08 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/16 16:06:07 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/17 00:33:47 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,13 @@ static void     ft_stack_display(void)
             ft_putstr((char *)alloc->name);
         else
             ft_putstr("#");
-        ft_putstr(" (");
+        ft_putspace(16 - ft_strlen(alloc->name));
         if (alloc->type)
             ft_putstr((char *)alloc->type);
         else
             ft_putstr("sys");
-        ft_putstr(") : ");
+        ft_putspace(13 - ft_strlen(alloc->type));
+        ft_putstr(": ");
         ft_alloc_put(alloc->name);
         ft_putendl("");
         alloc = alloc->next;
@@ -79,17 +80,17 @@ void            ft_stack_infos(void)
     stack = ft_stack_init();
     ft_stack_show(stack);
     ft_putendl("================== INFOS ==================");
-    ft_putstr("allocs                         :");
+    ft_putstr("allocs                         : ");
     ft_putnbr_endl((int)stack->elements + (int)stack->free);
-    ft_putstr("actifs                         :");
+    ft_putstr("actifs                         : ");
     ft_putnbr_endl((int)stack->elements);
-    ft_putstr("frees                          :");
+    ft_putstr("frees                          : ");
     ft_putnbr_endl(((int)stack->free));
-    ft_putstr("bytes allocated                :");
+    ft_putstr("bytes allocated                : ");
     ft_putnbr_endl((int)stack->sys);
-    ft_putstr("stack alloc                    :");
+    ft_putstr("stack alloc                    : ");
     ft_putnbr_endl((int)stack->stack_size);
-    ft_putstr("stack free                     :");
+    ft_putstr("stack free                     : ");
     ft_putnbr_endl((int)stack->stack_free);
     ft_putendl("================== STACK ==================");
     ft_stack_display();

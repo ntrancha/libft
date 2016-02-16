@@ -1,31 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_debug.c                                         :+:      :+:    :+:   */
+/*   ft_alloc_erase.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/02/16 16:26:28 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/17 00:24:39 by ntrancha         ###   ########.fr       */
+/*   Created: 2016/02/17 00:19:32 by ntrancha          #+#    #+#             */
+/*   Updated: 2016/02/17 00:22:32 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/stack.h"
 
-void        ft_debug(const char *file, const char *func, int line)
+void        *ft_alloc_erase(void *var, size_t len, char *id, char *type)
 {
-    char    *str;
-
-    if (file && func)
-    {
-        str = ft_strdup(file);
-        if (!(DSTR(str, "__FILE__")))
-            ft_strdel(&str);
-        str = ft_strdup(func);
-        if (!(DSTR(str, "__FUNC__")))
-            ft_strdel(&str);
-        str = ft_itoa(line);
-        if (!(DSTR(str, "__LINE__")))
-            ft_strdel(&str);
-    }
+    if (!ft_stack_init() || !ft_vartype_get(type) || !len)
+        return (NULL);  
+    if (ft_alloc_get(id) != NULL)
+        ft_alloc_del(id);
+    return (ft_alloc_create(var, len, id, type));
 }
