@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/07 00:54:18 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/16 13:03:41 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/16 15:50:02 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,19 @@ static void     ft_putvoid(void *str)
     ft_putstr((char *)str);
 }
 
-t_type      *ft_vartype_init(void)
+static int      ft_cmpvoid(void *a, void *b)
 {
-    t_type  *new;
+    return (ft_strcmp((char*)a, (char*)b));
+}
+
+static int      ft_strlenvoid(void *a)
+{
+    return ((int)ft_strlen((char*)a));
+}
+
+t_type          *ft_vartype_init(void)
+{
+    t_type      *new;
 
     if (!(new = ft_memalloc(sizeof(t_type))))
         return (NULL);
@@ -39,8 +49,8 @@ t_type      *ft_vartype_init(void)
     new->del = ft_memdel;
     new->put = ft_putvoid;
     new->cpy = ft_cpyvoid;
-    new->len = NULL;
+    new->cmp = ft_cmpvoid;
+    new->len = ft_strlenvoid;
     new->count = NULL;
-    new->cmp = NULL;
     return (new);
 }

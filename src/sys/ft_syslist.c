@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/16 00:13:42 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/16 15:12:52 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/16 16:01:50 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,11 @@ static void *ft_listcpyvoid(void *list, void *name)
     return (ft_alloc((void*)new, ft_liststrlen(new), name, "liststr"));
 }
 
+static int  ft_listlenvoid(void *a)
+{
+    return ((int)ft_listlen((t_list*)a));
+}
+
 void        ft_syslist(void)
 {
     t_type  *type; 
@@ -48,4 +53,5 @@ void        ft_syslist(void)
         type = type->next;
     type->put = ft_listputstrvoid; 
     type->cpy = ft_listcpyvoid; 
+    type->count = ft_listlenvoid; 
 }
