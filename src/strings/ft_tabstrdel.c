@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/25 14:13:14 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/16 00:27:57 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/16 00:40:08 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void		ft_tabstrdel(char ***str)
 	int		index;
 
 	index = 0;
-	while (*str[index])
+	while ((*str)[index])
 	{
 		ft_strdel(&((*str)[index]));
 		index++;

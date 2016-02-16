@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/07 23:13:16 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/15 23:35:59 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/16 01:27:22 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void        ft_mandisplay(char *lib)
     {
         ft_putendl(tab[index]);
     }
-    ft_tabstrdel(tab);
+    ft_tabstrdel(&tab);
     ft_strdel(&path);
     ft_strdel(&content);
 }
@@ -81,12 +81,7 @@ int         ft_main(void)
 {
     //ft_putnbr_endl((int)ft_get_timestamp());
     //ft_putnbr_endl((int)ft_time());
-    ft_putnbr_endl(ft_random_hundred());
-    ft_putnbr_endl(ft_random_hundred());
-    ft_putnbr_endl(ft_random_hundred());
-    ft_putnbr_endl(ft_random_hundred());
-    ft_putnbr_endl(ft_random_hundred());
-    ft_putnbr_endl(ft_random_hundred());
+    ft_stack_infos();
     /*ft_putnbr_endl(ft_rand(1,10));
     ft_putnbr_endl(ft_rand(1,10));
     ft_putnbr_endl(ft_rand(1,10));

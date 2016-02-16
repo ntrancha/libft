@@ -46,6 +46,7 @@ FILE	=	src/mem/ft_memalloc.c                \
 			src/tab/ft_tabmin.c                  \
 			src/tab/ft_tabclear.c                \
 			src/tab/ft_puttab.c                  \
+			src/sys/ft_syslist.c                 \
 			src/sys/ft_cache_set.c               \
 			src/sys/ft_start.c                   \
 			src/sys/ft_sys_option.c              \

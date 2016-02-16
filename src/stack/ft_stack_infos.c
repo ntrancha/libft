@@ -6,11 +6,12 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/07 00:30:08 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/14 22:47:43 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/16 00:55:02 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/stack.h"
+#include "../../includes/count.h"
 #include "../../includes/put.h"
 
 static void     ft_stack_display(void)
@@ -41,11 +42,44 @@ static void     ft_stack_display(void)
     }
 }
 
+void            ft_stack_show(t_stacks *stack)
+{
+    t_type      *type;
+
+    type = stack->types;
+    ft_putendl("===========TYPES===========");
+    ft_putendl("            [ del put cpy ]");
+    while (type)
+    {
+        if (type->type)
+        {
+            ft_putstr(type->type);
+            ft_putspace(11 - ft_strlen(type->type));
+            ft_putstr("(");
+            if (type->del)
+                ft_putstr("  X ");
+            else
+                ft_putstr("    ");
+            if (type->put)
+                ft_putstr("  X ");
+            else
+                ft_putstr("    ");
+            if (type->cpy)
+                ft_putstr("  X ");
+            else
+                ft_putstr("    ");
+            ft_putstr(" )\n");
+        }
+        type= type->next;
+    }
+}
+
 void            ft_stack_infos(void)
 {
     t_stacks    *stack;
 
     stack = ft_stack_init();
+    ft_stack_show(stack);
     ft_putendl("===========INFOS===========");
     ft_putstr("allocs               :");
     ft_putnbr_endl((int)stack->elements + (int)stack->free);
