@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/07 00:42:29 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/16 01:32:23 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/16 13:04:01 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,9 @@ t_type      *ft_vartype_add(char *type, size_t n, void (*del)(void**))
     new->del = del;
     new->put = NULL;
     new->cpy = NULL;
+    new->len = NULL;
+    new->count = NULL;
+    new->cmp = NULL;
     new->next = NULL;
     if (!(node = stack->types->next))
         stack->types->next = new;

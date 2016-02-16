@@ -46,6 +46,7 @@ FILE	=	src/mem/ft_memalloc.c                \
 			src/tab/ft_tabmin.c                  \
 			src/tab/ft_tabclear.c                \
 			src/tab/ft_puttab.c                  \
+			src/sys/ft_sysmem.c                  \
 			src/sys/ft_syslist.c                 \
 			src/sys/ft_cache_set.c               \
 			src/sys/ft_start.c                   \
@@ -185,6 +186,7 @@ FILE	=	src/mem/ft_memalloc.c                \
 			src/stack/ft_vartype_addput.c        \
 			src/stack/ft_vartype_get.c           \
 			src/stack/ft_calloc.c                \
+			src/stack/ft_alloc_put.c             \
 			src/stack/ft_alloc_get.c             \
 			src/stack/ft_alloc_vget.c            \
 			src/stack/ft_vartype_init.c          \

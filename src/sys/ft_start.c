@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/07 23:04:32 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/16 11:10:19 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/16 15:06:00 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,10 +71,10 @@ int         ft_start(int argc, char **argv)
         ft_vartype_add("ft_opt", ft_liststrsize(opt), ft_optdel_void); 
         ft_alloc(opt, 1, "OPTIONS", "ft_opt");
     }
-    ft_vartype_add("mem", sizeof(char*), ft_memdel); 
     ft_sysinfo();
     ft_sys_option(argc, argv);
     ft_syscache();
+    ft_sysmem();
     ft_syslist();
     ft_systabstr();
     ret = ft_main();

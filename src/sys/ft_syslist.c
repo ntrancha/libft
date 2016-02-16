@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/16 00:13:42 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/16 01:32:23 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/16 15:12:52 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,11 @@ static void ft_listputstrvoid(void *list)
 
 static void *ft_listcpyvoid(void *list, void *name)
 {
+    t_alloc *alloc;
     t_list  *new;
 
-    new = ft_liststrcpy((t_list*)list);
+    alloc = ft_alloc_get(list);
+    new = ft_liststrcpy((t_list*)alloc->content);
     return (ft_alloc((void*)new, ft_liststrlen(new), name, "liststr"));
 }
 

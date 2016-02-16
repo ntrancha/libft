@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/07 00:30:08 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/16 11:16:13 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/16 15:18:27 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,11 @@ static void     ft_stack_display(void)
 {
     t_stacks    *stack;
     t_alloc     *alloc;
-    t_type      *type;
 
     stack = ft_stack_init();
     alloc = stack->alloc;
     while (alloc)
     {
-        type = ft_vartype_get(alloc->type);
         if (alloc->name)
             ft_putstr((char *)alloc->name);
         else
@@ -35,11 +33,18 @@ static void     ft_stack_display(void)
         else
             ft_putstr("sys");
         ft_putstr(") : ");
-        if (type && alloc->content && type->put)
-            type->put(alloc->content);
+        ft_alloc_put(alloc->name);
         ft_putendl("");
         alloc = alloc->next;
     }
+}
+
+void            ft_stack_show_test(void *type)
+{
+    if (type)
+        ft_putstr("  X ");
+    else
+        ft_putstr("    ");
 }
 
 void            ft_stack_show(t_stacks *stack)
@@ -47,29 +52,23 @@ void            ft_stack_show(t_stacks *stack)
     t_type      *type;
 
     type = stack->types;
-    ft_putendl("===========TYPES===========");
-    ft_putendl("            [ del put cpy ]");
+    ft_putendl("===================TYPES===================");
+    ft_putendl("           [ del put cpy cmp len count ]");
     while (type)
     {
         if (type->type)
         {
             ft_putstr(type->type);
             ft_putspace(11 - ft_strlen(type->type));
-            if (type->del)
-                ft_putstr("   X ");
-            else
-                ft_putstr("     ");
-            if (type->put)
-                ft_putstr("  X ");
-            else
-                ft_putstr("    ");
-            if (type->cpy)
-                ft_putstr("  X ");
-            else
-                ft_putstr("    ");
+            ft_stack_show_test(type->del);
+            ft_stack_show_test(type->put);
+            ft_stack_show_test(type->cpy);
+            ft_stack_show_test(type->cmp);
+            ft_stack_show_test(type->len);
+            ft_stack_show_test(type->count);
             ft_putstr("\n");
         }
-        type= type->next;
+        type = type->next;
     }
 }
 
@@ -79,7 +78,7 @@ void            ft_stack_infos(void)
 
     stack = ft_stack_init();
     ft_stack_show(stack);
-    ft_putendl("===========INFOS===========");
+    ft_putendl("===================INFOS===================");
     ft_putstr("allocs               :");
     ft_putnbr_endl((int)stack->elements + (int)stack->free);
     ft_putstr("actifs               :");
@@ -92,7 +91,7 @@ void            ft_stack_infos(void)
     ft_putnbr_endl((int)stack->stack_size);
     ft_putstr("stack free           :");
     ft_putnbr_endl((int)stack->stack_free);
-    ft_putendl("===========STACK===========");
+    ft_putendl("===================STACK===================");
     ft_stack_display();
-    ft_putendl("===========STACK===========");
+    ft_putendl("===================STACK===================");
 }

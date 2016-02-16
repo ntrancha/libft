@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/05 13:56:33 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/11 23:58:46 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/16 13:02:05 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,9 @@ struct          s_type
     void        (*del)(void**);
     void        (*put)(void*);
     void        *(*cpy)(void*, void*);
+    int         (*len)(void*);
+    int         (*count)(void*);
+    int         (*cmp)(void*, void*);
     t_type      *next;
 };
 
@@ -85,5 +88,6 @@ t_stacks        *ft_alloc_del(char *id);
 t_stacks        *ft_alloc_rename(char *id, char *new_name);
 size_t  ft_vartype_getsize(char *type);
 void    *ft_alloc_create(void *var, size_t len, char *id, char *type);
+void    ft_alloc_put(char *id);
 
 #endif
