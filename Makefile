@@ -370,6 +370,7 @@ FILE	=	src/mem/ft_memalloc.c                \
 			src/put/ft_putspace.c                \
 			src/put/ft_putoctets.c               \
 			src/put/ft_putdouble.c               \
+			src/put/ft_putmem.c                  \
 			src/put/ft_putfloat.c                \
 			src/put/ft_putbits.c                 \
 			src/put/ft_putnbr_endl.c             \
