@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/17 08:21:09 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/17 08:32:45 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/17 08:39:25 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,14 @@
 void        *ft_sysint_alloc(int num, char *id)
 {
     int     *alloc;
+    void    *ret;
 
     if (!(alloc = ft_memalloc(sizeof(int))))
         return (NULL);
     *alloc = num;
-    return (ft_alloc_create(alloc, 1, id, "int"));
+    ret =  ft_alloc_erase(alloc, 1, id, "int");
+    if (ret)
+        return (ret);
+    ft_memdel((void**)&alloc);
+    return (NULL);
 }

@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/07 23:13:16 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/17 08:13:57 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/17 08:37:52 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,7 @@ int         ft_main(void)
     int     num;
 
     DEBUG;
-    a = ft_memalloc(sizeof(int));
-    *a = 42;
-    ft_alloc_create(a, 1, "INT", "int");
+    DEBUG;
     DEBUG;
     ft_stack_infos();
     return 1;
