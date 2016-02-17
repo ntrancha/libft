@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/07 23:04:32 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/16 16:16:17 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/17 08:26:46 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,12 +37,9 @@ static void ft_sysinfo(void)
     int     test;
     int     count;
 
-    str = ft_itoa(ft_getpid());
-    ASTR(str, "PID_PROG");
-    str = ft_itoa(ft_getcol());
-    ASTR(str, "COL_PROG");
-    str = ft_itoa(ft_getrow());
-    ASTR(str, "ROW_PROG");
+    ft_sysint_alloc(ft_getpid(), "PID_PROG");
+    ft_sysint_alloc(ft_getcol(), "COL_PROG");
+    ft_sysint_alloc(ft_getrow(), "ROW_PROG");
     str = ft_getpwd();
     ASTR(str, "PWD_PROG");
     path = ft_strmjoin(str, "/", GET(STR_PROG));
@@ -71,12 +68,13 @@ int         ft_start(int argc, char **argv)
         ft_vartype_add("ft_opt", ft_liststrsize(opt), ft_optdel_void); 
         ft_alloc(opt, 1, "OPTIONS", "ft_opt");
     }
-    ft_sysinfo();
     ft_sys_option(argc, argv);
     ft_syscache();
     ft_sysmem();
     ft_syslist();
     ft_systabstr();
+    ft_sysint();
+    ft_sysinfo();
     ret = ft_main();
     ft_stack_free();
     return (ret);

@@ -1,29 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_sysint_alloc.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/02/07 23:13:16 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/17 08:13:57 by ntrancha         ###   ########.fr       */
+/*   Created: 2016/02/17 08:21:09 by ntrancha          #+#    #+#             */
+/*   Updated: 2016/02/17 08:32:45 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/libft.h"
+#include "../../includes/sys.h"
+#include "../../includes/mem.h"
 
-int         ft_main(void)
+void        *ft_sysint_alloc(int num, char *id)
 {
-    int     *a;
-    int     num;
+    int     *alloc;
 
-    DEBUG;
-    a = ft_memalloc(sizeof(int));
-    *a = 42;
-    ft_alloc_create(a, 1, "INT", "int");
-    DEBUG;
-    ft_stack_infos();
-    return 1;
+    if (!(alloc = ft_memalloc(sizeof(int))))
+        return (NULL);
+    *alloc = num;
+    return (ft_alloc_create(alloc, 1, id, "int"));
 }
-
-FT_MAIN

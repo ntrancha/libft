@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/08 15:35:44 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/16 16:59:04 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/17 08:32:55 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,7 @@ void    ft_syslist(void);
 void    ft_systabstr(void);
 void    ft_sysmem(void);
 void    ft_debug(const char *file, const char *func, int line);
+void    ft_sysint(void);
+void    *ft_sysint_alloc(int num, char *id);
 
 #endif
