@@ -17,5 +17,9 @@
 int     ft_fork(void);
 int     ft_fork_goto(void (*parent)(void), void (*child)(void));
 int     ft_fork_go(void (*child)(void));
+int     *ft_pipe(void);
+void    ft_pipe_closein(int *tube);
+void    ft_pipe_closeout(int *tube);
+void    ft_pipe_close_free(int **tube);
 
 #endif

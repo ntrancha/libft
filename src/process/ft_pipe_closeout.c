@@ -1,25 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   process.h                                          :+:      :+:    :+:   */
+/*   ft_pipe_closeout.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/02/18 17:14:29 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/18 17:14:32 by ntrancha         ###   ########.fr       */
+/*   Created: 2016/02/19 00:13:44 by ntrancha          #+#    #+#             */
+/*   Updated: 2016/02/19 00:14:41 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PROCESS_H
-# define PROCESS_H
+#include <unistd.h>
 
-
-int     ft_fork(void);
-int     ft_fork_goto(void (*parent)(void), void (*child)(void));
-int     ft_fork_go(void (*child)(void));
-int     *ft_pipe(void);
-void    ft_pipe_closein(int *tube);
-void    ft_pipe_closeout(int *tube);
-void    ft_pipe_close_free(int **tube);
-
-#endif
+void    ft_pipe_closeout(int *tube)
+{
+    close(tube[1]);
+}

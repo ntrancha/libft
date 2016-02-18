@@ -1,25 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   process.h                                          :+:      :+:    :+:   */
+/*   ft_pipe.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/02/18 17:14:29 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/18 17:14:32 by ntrancha         ###   ########.fr       */
+/*   Created: 2016/02/19 00:02:45 by ntrancha          #+#    #+#             */
+/*   Updated: 2016/02/19 00:08:52 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PROCESS_H
-# define PROCESS_H
+#include <unistd.h>
+#include "../../includes/mem.h"
 
+int     *ft_pipe(void)
+{
+    int *tube;
 
-int     ft_fork(void);
-int     ft_fork_goto(void (*parent)(void), void (*child)(void));
-int     ft_fork_go(void (*child)(void));
-int     *ft_pipe(void);
-void    ft_pipe_closein(int *tube);
-void    ft_pipe_closeout(int *tube);
-void    ft_pipe_close_free(int **tube);
-
-#endif
+    tube = ft_memalloc(sizeof(int) * 2);
+    pipe(tube);
+    return (tube);
+}

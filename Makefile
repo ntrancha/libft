@@ -301,8 +301,12 @@ FILE	=	src/mem/ft_memalloc.c                \
 			src/test/ft_isspace.c                \
 			src/test/ft_is_prime.c               \
 			src/test/ft_isdigit.c                \
+			src/process/ft_pipe_closein.c        \
+			src/process/ft_pipe.c                \
+			src/process/ft_pipe_closeout.c       \
 			src/process/ft_fork_goto.c           \
 			src/process/ft_fork_go.c             \
+			src/process/ft_pipe_close_free.c     \
 			src/process/ft_fork.c                \
 			src/file/ft_fileindos.c              \
 			src/file/ft_finpath.c                \
