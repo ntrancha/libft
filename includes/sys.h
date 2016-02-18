@@ -31,5 +31,6 @@ void    ft_sysmem(void);
 void    ft_debug(const char *file, const char *func, int line);
 void    ft_sysint(void);
 void    *ft_sysint_alloc(int num, char *id);
+void    ft_sysstr_convert(void);
 
 #endif

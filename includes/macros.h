@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/02 17:45:36 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/08 15:22:59 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/18 08:00:35 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,8 @@
 # define EXIT_NULL		0
 # define EXIT_FAIL		-1
 # define EXIT_ERROR		-2
-# define USER_OS		OS_UNKNOW
-# define OS_UNKNOW
+# define USER_OS		LINUX
+# define LINUX
 # define USER_SYS		AMD64
 # define AMD64
 # define STR_EMPTY		ft_strdup("")
@@ -46,6 +46,7 @@
 # define PUT_ERROR(x)	ft_putstr_fd(x, STDERR)
 # define PUT_ERROR_L(x)	ft_putendl_fd(x, STDERR)
 # define STR(x)			ft_strdup(#x)
+# define CMP(a, b)      ft_strcmp(a, b)
 # define CONTENT		ft_listcontent
 # define POWER(x, y)	ft_power(x, y)
 # define FACTO(x)		ft_facto(x)

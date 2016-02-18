@@ -1,34 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_stack_init.c                                    :+:      :+:    :+:   */
+/*   ft_alloc_cnvrt_xst.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/02/07 00:26:16 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/18 07:32:02 by ntrancha         ###   ########.fr       */
+/*   Created: 2016/02/18 07:52:45 by ntrancha          #+#    #+#             */
+/*   Updated: 2016/02/18 08:01:46 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "../../includes/stack.h"
+#include "../../includes/macros.h"
+#include "../../includes/strings.h"
 
-t_stacks            *ft_stack_init(void)
+int             ft_alloc_cnvrt_xst(char *src, char *dst)
 {
-    static t_stacks *alloc;
+    t_stacks    *stack;
+    t_cnvrt     *convert;
 
-    if (!alloc)
+    stack = ft_stack_init();
+    convert = stack->convert;
+    while (convert)
     {
-        if (!(alloc = malloc(sizeof(t_stacks))))
-            return (NULL);
-        alloc->stack_size = 0;
-        alloc->stack_free = 0;
-        alloc->elements = 0;
-        alloc->free = 0;
-        alloc->sys = sizeof(t_stacks);
-        alloc->alloc = NULL;
-        alloc->convert = NULL;
-        alloc->types = ft_vartype_init();
+        if (CMP(src, convert->src) == 0 && CMP(dst, convert->dst) == 0)
+            return (1);
+        convert = convert->next;
     }
-    return (alloc);
+    return (0);
 }

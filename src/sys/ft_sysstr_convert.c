@@ -1,34 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_stack_init.c                                    :+:      :+:    :+:   */
+/*   ft_sysstr_convert.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/02/07 00:26:16 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/18 07:32:02 by ntrancha         ###   ########.fr       */
+/*   Created: 2016/02/18 08:10:58 by ntrancha          #+#    #+#             */
+/*   Updated: 2016/02/18 08:29:00 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "../../includes/sys.h"
 #include "../../includes/stack.h"
 
-t_stacks            *ft_stack_init(void)
+void        ft_sysstr_to_int(void *src, char *dst)
 {
-    static t_stacks *alloc;
+    char    *old;
 
-    if (!alloc)
+    if (src && ft_strcmp(dst, "int") == 0)
     {
-        if (!(alloc = malloc(sizeof(t_stacks))))
-            return (NULL);
-        alloc->stack_size = 0;
-        alloc->stack_free = 0;
-        alloc->elements = 0;
-        alloc->free = 0;
-        alloc->sys = sizeof(t_stacks);
-        alloc->alloc = NULL;
-        alloc->convert = NULL;
-        alloc->types = ft_vartype_init();
+        old = ft_strdup(((t_alloc*)src)->name);
+        ft_sysint_alloc(ft_atoi((char*)(((t_alloc*)(src))->content)), old);
+        ft_strdel(&old);
     }
-    return (alloc);
+}
+
+void        ft_sysstr_convert(void)
+{
+    ft_alloc_cnvrt_add("str", "int", ft_sysstr_to_int);
 }

@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/05 13:56:33 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/17 00:23:45 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/18 07:59:54 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,15 @@
 # define    GET(variable)   ft_alloc_vget(#variable)
 # define    DEL(variable)   ft_alloc_del(#variable)
 # define    PDEL(variable) 	ft_alloc_pdel(variable)
-# define    XSTR(var, name) ft_alloc(#var, ft_strlen(#var) + 1, #name, "str")
-# define    ASTR(var, name) ft_alloc(var, ft_strlen(var) + 1, name, "str")
-# define    CSTR(var, name) ft_calloc(var, ft_strlen(var) + 1, name, "str")
-# define    DSTR(v, n)      ft_alloc_erase(v, ft_strlen(v) + 1, n, "str")
+# define    XSTR(vr, nm) ft_alloc(#vr, ft_strlen(#vr) + 1, #nm, "str")
+# define    ASTR(vr, nm) ft_alloc(vr, ft_strlen(vr) + 1, nm, "str")
+# define    CSTR(vr, nm) ft_calloc(vr, ft_strlen(vr) + 1, nm, "str")
+# define    DSTR(vr, nm)      ft_alloc_erase(vr, ft_strlen(vr) + 1, nm, "str")
 
 typedef struct  s_alloc		t_alloc;
 typedef struct  s_type		t_type;
 typedef struct  s_stacks	t_stacks;
+typedef struct  s_cnvrt     t_cnvrt;
 
 struct          s_alloc
 {
@@ -48,6 +49,15 @@ struct          s_type
     t_type      *next;
 };
 
+struct          s_cnvrt
+{
+    char        *src;
+    char        *dst;
+    void        (*cnvrt)(void*, char*);
+    t_cnvrt     *next;
+
+};
+
 struct  s_stacks
 {
     size_t      stack_size;
@@ -56,6 +66,7 @@ struct  s_stacks
     size_t      sys;
     size_t      free;
     t_type      *types;
+    t_cnvrt     *convert;
     t_alloc     *alloc;
 };
 
@@ -92,5 +103,8 @@ void    *ft_alloc_create(void *var, size_t len, char *id, char *type);
 void    ft_alloc_put(char *id);
 int     ft_alloc_cmp(char *a, char *b);
 void    *ft_alloc_erase(void *var, size_t len, char *id, char *type);
+int     ft_alloc_cnvrt_xst(char *src, char *dst);
+t_cnvrt *ft_alloc_cnvrt_add(char *s, char *d, void (*c)(void*, char*));
+void    ft_alloc_cnvrt(char *src, char *type);
 
 #endif
