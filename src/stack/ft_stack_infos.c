@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/07 00:30:08 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/17 00:33:47 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/18 08:59:03 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ static void     ft_stack_display(void)
     }
 }
 
-void            ft_stack_show_test(void *type)
+static void     ft_stack_show_test(void *type)
 {
     if (type)
         ft_putstr("  X ");
@@ -48,12 +48,11 @@ void            ft_stack_show_test(void *type)
         ft_putstr("    ");
 }
 
-void            ft_stack_show(t_stacks *stack)
+static void     ft_stack_show(t_stacks *stack)
 {
     t_type      *type;
 
     type = stack->types;
-    ft_putendl("================== TYPES ==================");
     ft_putendl("             [ del put cpy cmp len count ]");
     while (type)
     {
@@ -73,12 +72,33 @@ void            ft_stack_show(t_stacks *stack)
     }
 }
 
+static void     ft_stack_convert(void)
+{
+    t_stacks    *stack;
+    t_cnvrt     *convert;
+
+    stack = ft_stack_init();
+    convert = stack->convert;
+    while (convert)
+    {
+        ft_putstr(convert->src);
+        ft_putspace(16 - ft_strlen(convert->src));
+        ft_putstr("=>");
+        ft_putspace(16 - ft_strlen(convert->dst));
+        ft_putendl(convert->dst);
+        convert = convert->next;
+    }
+}
+
 void            ft_stack_infos(void)
 {
     t_stacks    *stack;
 
     stack = ft_stack_init();
+    ft_putendl("================== TYPES ==================");
     ft_stack_show(stack);
+    ft_putendl("================= CONVERT =================");
+    ft_stack_convert();
     ft_putendl("================== INFOS ==================");
     ft_putstr("allocs                         : ");
     ft_putnbr_endl((int)stack->elements + (int)stack->free);

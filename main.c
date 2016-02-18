@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/07 23:13:16 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/18 08:51:36 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/18 09:12:58 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,9 @@ int         ft_main(void)
     DEBUG;
     ptr = &ft_strlen;
     ft_calloc(ptr, 50, "DUMP STACK", "mem");
-    CSTR("42", "test_convert");
+    CSTR("-42", "test_convert");
     ft_alloc_cnvrt("test_convert", "int");
+    ft_alloc_cnvrt("test_convert", "str");
     ft_stack_infos();
     return 1;
 }
