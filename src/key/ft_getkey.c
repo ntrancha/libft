@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/18 16:11:58 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/18 16:24:20 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/18 16:37:49 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,10 @@
 #include <unistd.h>
 #include <stdlib.h>
 
-char        *ft_getkey(void)
+char                *ft_getkey(void)
 {
-    struct termios        t;
-    char                  *buffer;
+    struct termios  t;
+    char            *buffer;
 
     buffer = malloc((sizeof(char) * 4));
     buffer[0] = '\0'; 
@@ -31,6 +31,11 @@ char        *ft_getkey(void)
     if (ioctl(0, TCSETS, &t) < 0)
         return (NULL);
     read(0, buffer, 3);
+    if (ioctl(0, TCGETS, &t) < 0)
+        return (NULL);
+    t.c_lflag &= ICANON;
+    if (ioctl(0, TCSETS, &t) < 0)
+        return (NULL);
     write(1, "\b\b\b\b    \b\b\b\b", 12);
     return (buffer);
 }

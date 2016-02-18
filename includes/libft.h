@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/04 10:09:36 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/18 16:19:05 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/18 17:16:00 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@
 # include "sig.h"
 # include "sys.h"
 # include "key.h"
+# include "process.h"
 # include "bits.h"
 
 #endif
