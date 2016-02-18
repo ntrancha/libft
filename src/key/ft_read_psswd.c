@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_getkey.c                                        :+:      :+:    :+:   */
+/*   ft_read_psswd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/02/18 16:11:58 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/18 19:35:08 by ntrancha         ###   ########.fr       */
+/*   Created: 2016/02/18 19:37:09 by ntrancha          #+#    #+#             */
+/*   Updated: 2016/02/18 19:46:19 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,26 +14,27 @@
 #include <termios.h>
 #include <unistd.h>
 #include <stdlib.h>
+#include "../../includes/file.h"
+#include "../../includes/strings.h"
 
-char                *ft_getkey(void)
+char                *ft_read_psswd(void)
 {
     struct termios  t;
-    char            *buffer;
+    struct termios  old;
+    char            *ret;
 
-    buffer = malloc((sizeof(char) * 4));
-    buffer[0] = '\0'; 
-    buffer[1] = '\0'; 
-    buffer[2] = '\0'; 
-    buffer[3] = '\0'; 
     if (ioctl(0, TCGETS, &t) < 0)
         return (NULL);
-    t.c_lflag &= ~ICANON;
+    old = t;
+    t.c_lflag &= ~ECHO;
     if (ioctl(0, TCSETS, &t) < 0)
         return (NULL);
-    read(0, buffer, 3);
-    t.c_lflag &= ~ICANON;
-    if (ioctl(0, TCSETS, &t) < 0)
+    ret = NULL;
+    ft_readstdin(&ret);
+    if (ioctl(0, TCSETS, &old) < 0)
+    {
+        ft_strdel(&ret);
         return (NULL);
-    write(1, "\b\b\b\b    \b\b\b\b", 12);
-    return (buffer);
+    }
+    return (ret);
 }

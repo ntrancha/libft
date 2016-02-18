@@ -14,5 +14,6 @@
 # define KEY_H
 
 char    *ft_getkey(void);
+char    *ft_read_psswd(void);
 
 #endif

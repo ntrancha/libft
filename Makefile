@@ -107,6 +107,7 @@ FILE	=	src/mem/ft_memalloc.c                \
 			src/opt/ft_optgetopt_double.c        \
 			src/opt/ft_opttest.c                 \
 			src/key/ft_getkey.c                  \
+			src/key/ft_read_psswd.c              \
 			src/bits/ft_bits_cmp.c               \
 			src/bits/ft_bitsvalue.c              \
 			src/bits/ft_octetgetbit.c            \
