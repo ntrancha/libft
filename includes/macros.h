@@ -37,8 +37,8 @@
 # define EXIT_NULL		0
 # define EXIT_FAIL		-1
 # define EXIT_ERROR		-2
-# define USER_OS		LINUX
-# define LINUX
+# define USER_OS		OS_UNKNOW
+# define OS_UNKNOW
 # define USER_SYS		AMD64
 # define AMD64
 # define STR_EMPTY		ft_strdup("")
