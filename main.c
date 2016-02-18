@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/07 23:13:16 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/17 11:40:54 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/18 05:52:32 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,12 @@
 
 int         ft_main(void)
 {
-    int     num;
-    char    *str;
-    int     *a;
-    int tab[30] = {0, 23, 150, 255, 12, 16,  21, 42, 78, 75, 12,23,34,112,1223,4324234,3422324};
+    size_t  (*ptr)(const char *);
 
-    /*DEBUG;*/
-    /*ft_stack_infos();*/
-    ft_putmem((void*)tab, sizeof(tab));
+    DEBUG;
+    ptr = &ft_strlen;
+    ft_calloc(ptr, 500, "DUMP STACK", "mem");
+    ft_stack_infos();
     return 1;
 }
 

@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/17 07:57:02 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/17 08:34:09 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/18 05:52:14 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,28 @@ static void     *ft_intcpyvoid(void *src, void *dst)
     return (ft_sysint_alloc(*((int*)alloc->content), dst));
 }
 
+static int      ft_intlenvoid(void *a)
+{
+    int         *num;
+
+    num = (int*)a;
+    return ((int)ft_nbrlen((int)*num));
+}
+
+static int      ft_intcmpvoid(void *a, void *b)
+{
+    int         *int_a;
+    int         *int_b;
+
+    int_a = (int*)a;
+    int_b = (int*)b;
+    if (*int_a > *int_b)
+        return (1);
+    if (*int_a < *int_b)
+        return (-1);
+    return (0);
+}
+
 void            ft_sysint(void)
 {
     t_type  *type;
@@ -39,4 +61,6 @@ void            ft_sysint(void)
         type = type->next;
     type->put = ft_putintvoid; 
     type->cpy = ft_intcpyvoid; 
+    type->len = ft_intlenvoid; 
+    type->cmp = ft_intcmpvoid; 
 }

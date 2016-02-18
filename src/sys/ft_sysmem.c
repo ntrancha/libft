@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/16 14:59:52 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/16 15:57:09 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/17 13:42:12 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,13 +37,31 @@ static int      ft_memcmpvoid(void *a, void *b)
     return (ft_memcmp((void*)a, (void*)b, alloc->size));
 }
 
+static void     ft_putmemvoid(void *num)
+{
+    t_alloc     *alloc;
+    int         len;
+
+    if (num)
+    {
+        alloc = ft_alloc_getvoid(num);
+        len = (int)ft_vartype_getsize(alloc->type);
+        if (alloc)
+        {
+            ft_putendl("");
+            ft_putmem(num, alloc->size * len);
+        }
+    }
+}
+
 void        ft_sysmem(void)
 {
     t_type  *type; 
 
-    type = ft_vartype_add("mem", sizeof(void*), ft_memdel); 
+    type = ft_vartype_add("mem", 1, ft_memdel); 
     while (type && type->next)
         type = type->next;
     type->cpy = ft_memcpyvoid; 
     type->cmp = ft_memcmpvoid; 
+    type->put = ft_putmemvoid; 
 }
