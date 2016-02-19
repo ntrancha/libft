@@ -1,6 +1,0 @@
-#!/bin/sh
- 
-./42-check_header
-./42-makefile -all
-make install
-echo "libft updated"
