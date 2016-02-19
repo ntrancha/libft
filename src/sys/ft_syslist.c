@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/16 00:13:42 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/19 20:52:39 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/19 21:40:56 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,14 +25,25 @@ static void ft_listputstrvoid(void *list)
     t_node  *node;
 
     node = ((t_list*)list)->start;
-    ft_putendl((char*)node->content);
-    node = node->next;
-    while (node && node->next)
+    if (node && node->next)
     {
+        ft_putendl("");
         ft_putendl((char*)node->content);
         node = node->next;
     }
-    ft_putstr((char*)node->content);
+    else if (node)
+    {
+        ft_putstr((char*)node->content);
+        node = node->next;
+    }
+    while (node && node->next)
+    {
+        if (node->content)
+            ft_putendl((char*)node->content);
+        node = node->next;
+    }
+    if (node && node->content)
+        ft_putstr((char*)node->content);
 }
 
 static void *ft_listcpyvoid(void *list, void *name)
@@ -61,6 +72,8 @@ void        ft_syslist(void)
     type->cpy = ft_listcpyvoid; 
     type->count = ft_listlenvoid; 
     type = ft_vartype_get("ft_opt");
-    type->cpy = ft_listcpyvoid;
-    type->put = ft_listputstrvoid;
+    if (type)
+        type->cpy = ft_listcpyvoid;
+    if (type)
+        type->put = ft_listputstrvoid;
 }

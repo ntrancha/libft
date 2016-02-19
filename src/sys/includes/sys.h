@@ -35,5 +35,6 @@ void    *ft_sysint_alloc(int num, char *id);
 void    ft_sysstr_convert(void);
 void    ft_sysconvert(void);
 void    ft_sys_fusion(void);
+void    ft_syslen(void);
 
 #endif

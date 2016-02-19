@@ -51,6 +51,7 @@ FILE	=	src/mem/ft_memalloc.c                \
 			src/sys/ft_cache_set.c               \
 			src/sys/ft_sysstr_convert.c          \
 			src/sys/ft_start.c                   \
+			src/sys/ft_syslen.c                  \
 			src/sys/ft_systabstr.c               \
 			src/sys/ft_sys_fusion.c              \
 			src/sys/ft_sysint.c                  \
