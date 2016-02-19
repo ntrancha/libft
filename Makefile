@@ -53,6 +53,7 @@ FILE	=	src/mem/ft_memalloc.c                \
 			src/sys/ft_start.c                   \
 			src/sys/ft_systabstr.c               \
 			src/sys/ft_sysint.c                  \
+			src/sys/ft_sysconvert.c              \
 			src/sys/ft_sys_option.c              \
 			src/sys/ft_sysint_alloc.c            \
 			src/sys/ft_debug.c                   \
@@ -178,6 +179,7 @@ FILE	=	src/mem/ft_memalloc.c                \
 			src/stack/ft_stack_strdup.c          \
 			src/stack/ft_alloc_copy.c            \
 			src/stack/ft_stack_size.c            \
+			src/stack/ft_stack_free_debug.c      \
 			src/stack/ft_alloc_cnvrt_xst.c       \
 			src/stack/ft_alloc_getvoid.c         \
 			src/stack/ft_stack_init.c            \
@@ -383,6 +385,7 @@ FILE	=	src/mem/ft_memalloc.c                \
 			src/put/ft_putnbr_fd.c               \
 			src/put/ft_putchar_fd.c              \
 			src/put/ft_putendl_fd.c              \
+			src/put/ft_putstr_color.c            \
 			src/put/ft_putoctet.c                \
 			src/put/ft_putlong.c                 \
 			src/put/ft_putspace.c                \

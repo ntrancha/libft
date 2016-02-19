@@ -1,29 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_putstr_color.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/02/07 23:13:16 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/19 14:40:54 by ntrancha         ###   ########.fr       */
+/*   Created: 2016/02/19 13:31:38 by ntrancha          #+#    #+#             */
+/*   Updated: 2016/02/19 13:33:25 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/libft.h"
+#include "../../includes/put.h"
 
-int         ft_main(void)
+void    ft_putstr_color(char *str, char *color)
 {
-    size_t  (*ptr)(const char *);
-    char    *str;
-    int     fork;
-
-    DBG_FILE;
-    DBG_PROG;
-    ptr = &ft_strlen;
-    ft_calloc(ptr, 48, "DUMP STACK", "mem");
-    ft_stack_infos();
-    return 1;
+    ft_putstr(color);
+    ft_putstr(str);
+    ft_putstr("\033[0m");
 }
-
-FT_MAIN

@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/17 11:37:39 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/17 18:34:59 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/19 13:27:49 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include "../../includes/strings.h"
 #include "../../includes/put.h"
 
-static void         ft_putmem_char(char **str, int count)
+static void         ft_putmem_char(char **str, int count, int len)
 {
     while (count % 16 != 0)
     {
@@ -27,7 +27,8 @@ static void         ft_putmem_char(char **str, int count)
         count++;
     }
     ft_putstr(*str);
-    ft_putendl("");
+    if (count + 8 <= len)
+        ft_putendl("");
     ft_strdel(str);
     *str = ft_strdup("");
 }
@@ -61,10 +62,10 @@ void                ft_putmem(void *mem, int len)
         ft_putmem_put(hexa, count, &carac);
         ft_strdel(&hexa);
         if (count % 16 == 0)
-            ft_putmem_char(&carac, count);
+            ft_putmem_char(&carac, count, len);
     }
     if (carac[0] != '\0')
-        ft_putmem_char(&carac, count);
+        ft_putmem_char(&carac, count, len);
     ft_strdel(&carac);
 }
 

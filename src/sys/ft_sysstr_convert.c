@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/18 08:10:58 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/19 11:02:18 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/19 13:18:06 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,20 @@ static void ft_sysstr_to_int(void *src, char *dst)
     ft_strdel(&old);
 }
 
+static void ft_sysliststr_to_str(void *src, char *dst)
+{
+    char    *old;
+    char    *tmp;
+
+    old = ft_strdup(SRC_NAME);
+    if (src && ft_strcmp(dst, "str") == 0)
+    {
+        tmp = ft_listtostr((t_list*)SRC_CONTENT);
+        ft_alloc_erase(tmp, ft_strlen(tmp) + 1, old, dst);
+    }
+    ft_strdel(&old);
+}
+
 void        ft_sysstr_convert(void)
 {
     ft_alloc_cnvrt_add("str", "int", ft_sysstr_to_int);
@@ -88,4 +102,6 @@ void        ft_sysstr_convert(void)
     ft_alloc_cnvrt_add("mem", "str", ft_sysstr_to_mem);
     ft_alloc_cnvrt_add("int", "mem", ft_sysint_to_mem);
     ft_alloc_cnvrt_add("mem", "int", ft_sysint_to_mem);
+    ft_alloc_cnvrt_add("liststr", "str", ft_sysliststr_to_str);
+    ft_alloc_cnvrt_add("ft_opt", "str", ft_sysliststr_to_str);
 }

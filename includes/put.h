@@ -34,5 +34,6 @@ void	ft_puthexa(t_octet *octet, char del);
 void    ft_putspace(int nbr);
 void    ft_putcenter(char *str, int col);
 void    ft_putmem(void *mem, int len);
+void    ft_putstr_color(char *str, char *color);
 
 #endif
