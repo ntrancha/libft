@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/07 23:04:32 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/18 08:27:36 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/19 10:19:52 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include "../../includes/opt.h"
 #include "../../includes/stack.h"
 #include "../../includes/list.h"
+#include "../../includes/time.h"
 
 int         ft_main(void);
 
@@ -54,6 +55,7 @@ static void ft_sysinfo(void)
     str = ft_strsub(path, count, ft_strlen(path) - count - ft_strlen(str) - 1); 
     ASTR(str, "DOS_PROG");
     ASTR(path, "DIR_PROG");
+    ft_sysint_alloc(ft_get_timestamp(), "TIMESTAMP");
 }
 
 int         ft_start(int argc, char **argv)

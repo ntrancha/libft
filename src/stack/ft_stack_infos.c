@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/07 00:30:08 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/18 08:59:03 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/19 10:12:30 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,6 +99,8 @@ void            ft_stack_infos(void)
     ft_stack_show(stack);
     ft_putendl("================= CONVERT =================");
     ft_stack_convert();
+    ft_putendl("================== STACK ==================");
+    ft_stack_display();
     ft_putendl("================== INFOS ==================");
     ft_putstr("allocs                         : ");
     ft_putnbr_endl((int)stack->elements + (int)stack->free);
@@ -112,7 +114,5 @@ void            ft_stack_infos(void)
     ft_putnbr_endl((int)stack->stack_size);
     ft_putstr("stack free                     : ");
     ft_putnbr_endl((int)stack->stack_free);
-    ft_putendl("================== STACK ==================");
-    ft_stack_display();
-    ft_putendl("================== STACK ==================");
+    ft_putendl("===========================================");
 }
