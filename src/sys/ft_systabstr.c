@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/16 10:48:37 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/17 21:26:58 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/19 21:07:58 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,14 @@
 
 static void     ft_tabstrdelvoid(void **str)
 {
-    char        ***tmp;
+    char        **tab;
+    int         index;
 
-    tmp = (char ***)&str;
-    ft_tabstrdel((char ***)tmp);
+    tab = (char**)*str;
+    index = -1;
+    while (tab[++index])
+        ft_strdel(&(tab[index]));
+    ft_memdel((void*)&tab);
 }
 
 static void     ft_puttabstrvoid(void *str)
@@ -30,7 +34,10 @@ static void     ft_puttabstrvoid(void *str)
     index = -1;
     tmp = (char**)str;
     while (tmp[++index] && tmp[index][0])
-        ft_putendl(tmp[index]);
+        if (tmp[index] && tmp[index + 1])
+            ft_putendl(tmp[index]);
+        else
+            ft_putstr(tmp[index]);
 }
 
 static void     *ft_tabstrcpyvoid(void *src, void *dst)

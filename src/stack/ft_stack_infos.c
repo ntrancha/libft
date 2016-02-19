@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/07 00:30:08 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/19 14:11:08 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/19 19:44:28 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,17 +58,18 @@ static void     ft_stack_show(t_stacks *stack)
 
     type = stack->types;
     ft_putendl("\033[35m================ TYPES =================\033[0m");
-    ft_putendl("               \033[33mdel put cpy cmp len count \033[0m");
+    ft_putendl("           \033[33mdel put cpy cmp fus len count \033[0m");
     while (type)
     {
         if (type->type)
         {
             ft_putstr_color(type->type, C_GREEN);
-            ft_putspace(13 - ft_strlen(type->type));
+            ft_putspace(9 - ft_strlen(type->type));
             ft_stack_show_test(type->del);
             ft_stack_show_test(type->put);
             ft_stack_show_test(type->cpy);
             ft_stack_show_test(type->cmp);
+            ft_stack_show_test(type->fus);
             ft_stack_show_test(type->len);
             ft_stack_show_test(type->count);
             ft_putstr("\n");

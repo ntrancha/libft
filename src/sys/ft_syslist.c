@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/16 00:13:42 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/16 16:01:50 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/19 20:52:39 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,17 @@ static void ft_listdelvoid(void **list)
 
 static void ft_listputstrvoid(void *list)
 {
-    char    *str;
+    t_node  *node;
 
-    str = ft_listtostrd((t_list*)list, "\n");
-    ft_putendl(str);
-    ft_strdel(&str);
+    node = ((t_list*)list)->start;
+    ft_putendl((char*)node->content);
+    node = node->next;
+    while (node && node->next)
+    {
+        ft_putendl((char*)node->content);
+        node = node->next;
+    }
+    ft_putstr((char*)node->content);
 }
 
 static void *ft_listcpyvoid(void *list, void *name)
@@ -36,7 +42,7 @@ static void *ft_listcpyvoid(void *list, void *name)
 
     alloc = ft_alloc_get(list);
     new = ft_liststrcpy((t_list*)alloc->content);
-    return (ft_alloc((void*)new, ft_liststrlen(new), name, "liststr"));
+    return (ft_alloc((void*)new, ft_liststrlen(new), name, alloc->type));
 }
 
 static int  ft_listlenvoid(void *a)
@@ -54,4 +60,7 @@ void        ft_syslist(void)
     type->put = ft_listputstrvoid; 
     type->cpy = ft_listcpyvoid; 
     type->count = ft_listlenvoid; 
+    type = ft_vartype_get("ft_opt");
+    type->cpy = ft_listcpyvoid;
+    type->put = ft_listputstrvoid;
 }

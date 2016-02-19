@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/05 13:56:33 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/19 14:17:59 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/19 20:00:35 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ struct          s_type
     void        (*put)(void*);
     void        *(*cpy)(void*, void*);
     int         (*len)(void*);
+    void        *(*fus)(void*, void*, char*);
     int         (*count)(void*);
     int         (*cmp)(void*, void*);
     t_type      *next;
@@ -107,5 +108,6 @@ int     ft_alloc_cnvrt_xst(char *src, char *dst);
 t_cnvrt *ft_alloc_cnvrt_add(char *s, char *d, void (*c)(void*, char*));
 void    ft_alloc_cnvrt(char *src, char *type);
 void    ft_stack_free_debug(void);
+void    *ft_alloc_fusion(char *one, char *two, char *new);
 
 #endif

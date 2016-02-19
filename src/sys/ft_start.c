@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/07 23:04:32 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/19 14:36:02 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/19 20:04:40 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,7 @@ int         ft_start(int argc, char **argv)
     ft_sysint();
     ft_sysinfo();
     ft_sysconvert();
+    ft_sys_fusion();
     ret = ft_main();
     if (ft_alloc_get("DBG_PROG") != NULL)
         ft_stack_free_debug();

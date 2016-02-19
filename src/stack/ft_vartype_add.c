@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/07 00:42:29 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/18 07:25:17 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/19 19:43:41 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ static void ft_vartype_null(t_type *new, size_t n, void (*del)(void**))
     new->len = NULL;
     new->count = NULL;
     new->cmp = NULL;
+    new->fus = NULL;
     new->next = NULL;
     new->n_octet = n;
     new->del = del;

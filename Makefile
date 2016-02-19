@@ -52,6 +52,7 @@ FILE	=	src/mem/ft_memalloc.c                \
 			src/sys/ft_sysstr_convert.c          \
 			src/sys/ft_start.c                   \
 			src/sys/ft_systabstr.c               \
+			src/sys/ft_sys_fusion.c              \
 			src/sys/ft_sysint.c                  \
 			src/sys/ft_sysconvert.c              \
 			src/sys/ft_sys_option.c              \
@@ -196,6 +197,7 @@ FILE	=	src/mem/ft_memalloc.c                \
 			src/stack/ft_alloc_del.c             \
 			src/stack/ft_alloc_cnvrt_add.c       \
 			src/stack/ft_vartype_addput.c        \
+			src/stack/ft_alloc_fusion.c          \
 			src/stack/ft_vartype_get.c           \
 			src/stack/ft_alloc_cnvrt.c           \
 			src/stack/ft_calloc.c                \
@@ -268,6 +270,7 @@ FILE	=	src/mem/ft_memalloc.c                \
 			src/strings/ft_strdelth.c            \
 			src/strings/ft_strnew.c              \
 			src/strings/ft_strrchr.c             \
+			src/strings/ft_tabstrtostr.c         \
 			src/strings/ft_strisnum.c            \
 			src/strings/ft_strcchr.c             \
 			src/strings/ft_strcleanback.c        \

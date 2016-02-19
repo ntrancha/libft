@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/07 00:54:18 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/16 15:50:02 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/19 19:43:26 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ t_type          *ft_vartype_init(void)
     new->cpy = ft_cpyvoid;
     new->cmp = ft_cmpvoid;
     new->len = ft_strlenvoid;
+    new->fus = NULL;
     new->count = NULL;
     return (new);
 }

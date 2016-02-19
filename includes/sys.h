@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/08 15:35:44 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/19 14:39:48 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/19 14:57:39 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 # define    DBG_FILE        ft_debug(__FILE__, __func__, __LINE__)
 # define    DBG_PROG        ft_sysint_alloc(1, "DBG_PROG")
 
-int         ft_start(int argc, char **argv);
+int     ft_start(int argc, char **argv);
 void    ft_cache_set(void *content);
 void    ft_sys_option(int argc, char **argv);
 void    ft_syslist(void);
@@ -34,5 +34,6 @@ void    ft_sysint(void);
 void    *ft_sysint_alloc(int num, char *id);
 void    ft_sysstr_convert(void);
 void    ft_sysconvert(void);
+void    ft_sys_fusion(void);
 
 #endif
