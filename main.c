@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/07 23:13:16 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/20 00:23:18 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/20 00:53:30 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,9 @@ int         ft_main(void)
     DBG_PROG;
     ptr = &ft_strlen;
     ft_calloc(ptr, 8, "DUMP1", "mem");
-    ft_alloc_cnvrt("OPTIONS", "liststr");
     ptr2 = &ft_nbrlen;
     ft_calloc(ptr2, 8, "DUMP2", "mem");
-    ft_alloc_fusion("DUMP1", "DUMP2", "DUMP3");
+    ft_alloc_fusion("DUMP1", "DUMP2", "DUMP1 + DUMP2");
     ft_stack_infos();
     return 1;
 }
