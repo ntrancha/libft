@@ -21,5 +21,8 @@ int     *ft_pipe(void);
 void    ft_pipe_closein(int *tube);
 void    ft_pipe_closeout(int *tube);
 void    ft_pipe_close_free(int **tube);
+int     ft_pipe_dup(int old, int new);
+int     ft_fifo_del(char *pathname);
+int     ft_fifo_create(char *pathname);
 
 #endif

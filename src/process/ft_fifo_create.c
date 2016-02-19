@@ -1,21 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_pipe_close_free.c                               :+:      :+:    :+:   */
+/*   ft_fifo_create.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/02/19 00:14:47 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/19 09:41:17 by ntrancha         ###   ########.fr       */
+/*   Created: 2016/02/19 09:42:41 by ntrancha          #+#    #+#             */
+/*   Updated: 2016/02/19 09:44:56 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include "../../includes/mem.h"
+#include <sys/stat.h>
 
-void    ft_pipe_close_free(int **tube)
+int     ft_fifo_create(char *pathname)
 {
-    close(*tube[0]);
-    close(*tube[1]);
-    ft_memdel((void**)tube);
+    return (mkfifo(pathname, 0644));
 }

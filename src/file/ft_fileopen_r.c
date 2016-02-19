@@ -1,21 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_pipe_close_free.c                               :+:      :+:    :+:   */
+/*   ft_fileopen_r.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/02/19 00:14:47 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/19 09:41:17 by ntrancha         ###   ########.fr       */
+/*   Created: 2016/02/19 09:59:01 by ntrancha          #+#    #+#             */
+/*   Updated: 2016/02/19 10:06:16 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include "../../includes/mem.h"
+#include <fcntl.h>
 
-void    ft_pipe_close_free(int **tube)
+int         ft_fileopen_r(char *pathname)
 {
-    close(*tube[0]);
-    close(*tube[1]);
-    ft_memdel((void**)tube);
+    if (pathname)
+        return (open(pathname, O_RDONLY | O_CREAT, S_IRUSR | S_IWUSR));
+    return (-1);
 }

@@ -302,13 +302,17 @@ FILE	=	src/mem/ft_memalloc.c                \
 			src/test/ft_is_prime.c               \
 			src/test/ft_isdigit.c                \
 			src/process/ft_pipe_closein.c        \
+			src/process/ft_pipe_dup.c            \
 			src/process/ft_pipe.c                \
 			src/process/ft_pipe_closeout.c       \
+			src/process/ft_fifo_del.c            \
 			src/process/ft_fork_goto.c           \
 			src/process/ft_fork_go.c             \
 			src/process/ft_pipe_close_free.c     \
+			src/process/ft_fifo_create.c         \
 			src/process/ft_fork.c                \
 			src/file/ft_fileindos.c              \
+			src/file/ft_fileopen_w.c             \
 			src/file/ft_finpath.c                \
 			src/file/ft_getdirtab_f.c            \
 			src/file/ft_getdirtab.c              \
@@ -327,6 +331,7 @@ FILE	=	src/mem/ft_memalloc.c                \
 			src/file/ft_filetype.c               \
 			src/file/ft_fdos_displaycol.c        \
 			src/file/ft_readfile.c               \
+			src/file/ft_fileopen_r.c             \
 			src/file/ft_deldir.c                 \
 			src/file/ft_pathisdir.c              \
 			src/file/ft_filecopy.c               \
