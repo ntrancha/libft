@@ -1,28 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_vartype_addcpy.c                                :+:      :+:    :+:   */
+/*   ft_tabstrsize.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/02/07 00:57:49 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/20 13:35:15 by ntrancha         ###   ########.fr       */
+/*   Created: 2016/02/20 13:43:45 by ntrancha          #+#    #+#             */
+/*   Updated: 2016/02/20 13:46:34 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/stack.h"
+#include "../../includes/strings.h"
 
-t_type      *ft_vartype_addcpy(char *type, void *(*cpy)(void*, void*))
+int     ft_tabstrsize(char **tab)
 {
-    t_type  *node;
-    t_stacks  *stack;
+    int count;
+    int ret;
 
-    stack = ft_stack_init();
-    if (!type || !cpy || ft_vartype_get(type) != NULL)
-        return (NULL);
-    node = stack->types;
-    while (node && node->next)
-        node = node->next;
-    node->cpy = cpy;
-    return (stack->types);
+    count = 0;
+    ret = 0;
+    while (tab[++count])
+        ret += (ft_strlen(tab[count]) + 1) * sizeof(char);
+    return (ret + (sizeof(char*) * (count + 1)));
 }

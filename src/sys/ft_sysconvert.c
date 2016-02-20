@@ -6,13 +6,14 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/19 13:18:54 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/20 00:51:29 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/20 14:09:28 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/sys.h"
 #define SRC_CONTENT     ((t_alloc*)src)->content
 #define SRC_NAME        ((t_alloc*)src)->name
+#define SRC_TAB         ((t_alloc*)src)->content
 
 static void ft_sysliststr_to_tabstr(void *src, char *dst)
 {

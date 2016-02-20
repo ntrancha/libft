@@ -276,6 +276,7 @@ FILE	=	src/mem/ft_memalloc.c                \
 			src/strings/ft_strtoupper.c          \
 			src/strings/ft_strdelth.c            \
 			src/strings/ft_strnew.c              \
+			src/strings/ft_tabstrsize.c          \
 			src/strings/ft_strrchr.c             \
 			src/strings/ft_tabstrtostr.c         \
 			src/strings/ft_strisnum.c            \
