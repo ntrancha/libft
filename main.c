@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/07 23:13:16 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/20 14:11:30 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/20 19:48:36 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,26 @@ void        testons(char *str)
     ft_putendl(str);
 }
 
+int             ft_alloc_convert(char *src, char *dst, int deep)
+{
+    t_stacks    *stack;
+    t_cnvrt     *convert;
+    int         max;
+    int         ret;
+
+    stack = ft_stack_init();
+    convert = stack->convert;
+    max = 0;
+    while (convert && ++deep < 5)
+    {
+        if (ft_strcmp(convert->src, src) == 0)
+            max = ft_alloc_convert(convert->dst, dst, deep);
+        ret += (max > ret) ? max - ret : 0;
+        convert = convert->next;
+    }
+    return (ret);
+}
+
 int         ft_main(void)
 {
     size_t  (*ptr)(const char *);
@@ -33,10 +53,8 @@ int         ft_main(void)
     DBG_FILE;
     DBG_PROG;
 
+    ft_putnbr_endl(ft_alloc_convert("tabstr", "int", 0));
     ptr = &ft_strlen;
-    ft_alloc_cnvrt("OPTIONS", "liststr");
-    ft_alloc_cnvrt("OPTIONS", "tabstr");
-    ft_alloc_cnvrt("OPTIONS", "mem");
     ft_calloc(ptr, 8, "DUMP1", "mem");
     ptr2 = &ft_nbrlen;
     ft_calloc(ptr2, 8, "DUMP2", "mem");
