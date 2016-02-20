@@ -68,6 +68,7 @@ FILE	=	src/mem/ft_memalloc.c                \
 			src/count/ft_floatlen.c              \
 			src/count/ft_doublelendouble.c       \
 			src/count/ft_tabstrlen.c             \
+			src/count/ft_wstrlen.c               \
 			src/count/ft_floatlenfloat.c         \
 			src/screen/ft_screenfull.c           \
 			src/screen/ft_casedelend.c           \
