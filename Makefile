@@ -190,6 +190,8 @@ FILE	=	src/mem/ft_memalloc.c                \
 			src/stack/ft_stack_infos.c           \
 			src/stack/ft_vartype_add.c           \
 			src/stack/ft_alloc_erase.c           \
+			src/stack/ft_vartype_addcount.c      \
+			src/stack/ft_vartype_addlen.c        \
 			src/stack/ft_alloc_cmp.c             \
 			src/stack/ft_stack_clean.c           \
 			src/stack/ft_alloc_nget.c            \
@@ -198,11 +200,14 @@ FILE	=	src/mem/ft_memalloc.c                \
 			src/stack/ft_vartype_gettype.c       \
 			src/stack/ft_alloc_del.c             \
 			src/stack/ft_alloc_cnvrt_add.c       \
+			src/stack/ft_vartype_addfus.c        \
 			src/stack/ft_vartype_addput.c        \
 			src/stack/ft_alloc_fusion.c          \
 			src/stack/ft_vartype_get.c           \
+			src/stack/ft_calloc_erase.c          \
 			src/stack/ft_alloc_cnvrt.c           \
 			src/stack/ft_calloc.c                \
+			src/stack/ft_vartype_addcmp.c        \
 			src/stack/ft_alloc_put.c             \
 			src/stack/ft_alloc_get.c             \
 			src/stack/ft_alloc_vget.c            \

@@ -109,5 +109,10 @@ t_cnvrt *ft_alloc_cnvrt_add(char *s, char *d, void (*c)(void*, char*));
 void    ft_alloc_cnvrt(char *src, char *type);
 void    ft_stack_free_debug(void);
 void    *ft_alloc_fusion(char *one, char *two, char *new);
+void    *ft_calloc_erase(void *var, size_t len, char *id, char *type);
+t_type  *ft_vartype_addcount(char *type, int (*count)(void*));
+t_type  *ft_vartype_addlen(char *type, int (len)(void*));
+t_type  *ft_vartype_addfus(char *type, void *(*fus)(void*, void*, char*));
+t_type  *ft_vartype_addcmp(char *type, int (*cmp)(void*,void*));
 
 #endif
