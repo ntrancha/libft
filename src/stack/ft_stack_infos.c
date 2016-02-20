@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/07 00:30:08 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/19 19:44:28 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/20 01:18:42 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,26 +76,35 @@ static void     ft_stack_show(t_stacks *stack)
         }
         type = type->next;
     }
+    ft_putendl("\033[35m=============== CONVERT ================\033[0m");
 }
 
-static void     ft_stack_convert(void)
+static void     ft_stack_convert(t_stacks *stack, t_type *type, t_cnvrt *convert)
 {
-    t_stacks    *stack;
-    t_cnvrt     *convert;
+    int         test;
 
-    stack = ft_stack_init();
-    convert = stack->convert;
-    ft_putendl("\033[35m=============== CONVERT ================\033[0m");
-    while (convert)
+    while (type)
     {
-        ft_putstr_color(convert->src, C_GREEN);
-        ft_putspace(16 - ft_strlen(convert->src));
-        ft_putstr("=>");
-        ft_putspace(16 - ft_strlen(convert->dst));
-        ft_putstr(C_GREEN);
-        ft_putendl(convert->dst);
-        ft_putstr(C_NULL);
-        convert = convert->next;
+        ft_putstr_color(type->type, C_GREEN);
+        ft_putspace(11 - ft_strlen(type->type));
+        ft_putstr("=>   ");
+        convert = stack->convert;
+        test = 0;
+        while (convert)
+        {
+            if (ft_strcmp(convert->src, type->type) == 0)
+            {
+                if (test == 1)
+                    ft_putstr(", ");
+                ft_putstr_color(convert->dst, C_GREEN);
+                test = 1;
+            }
+            convert = convert->next;
+        }
+        if (test == 1)
+            ft_putstr(".");
+        ft_putendl("");
+        type = type->next;
     }
 }
 
@@ -105,7 +114,7 @@ void            ft_stack_infos(void)
 
     stack = ft_stack_init();
     ft_stack_show(stack);
-    ft_stack_convert();
+    ft_stack_convert(stack, stack->types, NULL);
     ft_stack_display();
     ft_putstr("allocs\033[32m");
     ft_putspace(33 - ft_nbrlen((int)stack->elements + (int)stack->free));
