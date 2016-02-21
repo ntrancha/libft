@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/15 01:40:52 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/15 19:43:16 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/21 21:22:36 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 #include "../../includes/put.h"
 #include "../../includes/convert.h"
 #include "../../includes/strings.h"
-
 
 long    ft_power_long(long nbr, long power)
 {
@@ -32,6 +31,6 @@ int     ft_random(void)
 
     if (!mem)
         mem = ft_get_timestamp();
-    mem = 16807 * mem % (ft_power_long(2,31) - 1);
+    mem = 16807 * mem % (ft_power_long(2, 31) - 1);
     return ((int)mem);
 }

@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/07 01:28:49 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/07 01:29:07 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/21 21:17:08 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ t_alloc         *ft_alloc_getvoid(void *var)
     t_alloc     *alloc;
 
     if (!(stack = ft_stack_init()))
-        return (NULL);    
+        return (NULL);
     alloc = stack->alloc;
     while (alloc)
     {
@@ -28,4 +28,3 @@ t_alloc         *ft_alloc_getvoid(void *var)
     }
     return (NULL);
 }
-

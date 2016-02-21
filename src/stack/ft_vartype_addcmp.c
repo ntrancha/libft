@@ -6,13 +6,13 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/20 13:21:04 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/20 13:22:14 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/21 21:19:19 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/stack.h"
 
-t_type      *ft_vartype_addcmp(char *type, int (*cmp)(void*,void*))
+t_type      *ft_vartype_addcmp(char *type, int (*cmp)(void*, void*))
 {
     t_type  *node;
     t_stacks  *stack;

@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/13 15:41:35 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/17 00:09:05 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/21 21:21:06 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void        *ft_alloc_create(void *var, size_t len, char *id, char *type)
     t_stacks    *stack;
 
     if (!(stack = ft_stack_init()) || !ft_vartype_get(type) || !len)
-        return (NULL);    
+        return (NULL);
     alloc = stack->alloc;
     while (alloc && alloc->next)
         alloc = alloc->next;

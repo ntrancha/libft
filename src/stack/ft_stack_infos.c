@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/07 00:30:08 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/20 01:18:42 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/21 21:18:33 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ static void     ft_stack_show(t_stacks *stack)
     ft_putendl("\033[35m=============== CONVERT ================\033[0m");
 }
 
-static void     ft_stack_convert(t_stacks *stack, t_type *type, t_cnvrt *convert)
+static void     ft_stack_convert(t_stacks *stack, t_type *type, t_cnvrt *conv)
 {
     int         test;
 
@@ -88,18 +88,18 @@ static void     ft_stack_convert(t_stacks *stack, t_type *type, t_cnvrt *convert
         ft_putstr_color(type->type, C_GREEN);
         ft_putspace(11 - ft_strlen(type->type));
         ft_putstr("=>   ");
-        convert = stack->convert;
+        conv = stack->convert;
         test = 0;
-        while (convert)
+        while (conv)
         {
-            if (ft_strcmp(convert->src, type->type) == 0)
+            if (ft_strcmp(conv->src, type->type) == 0)
             {
                 if (test == 1)
                     ft_putstr(", ");
-                ft_putstr_color(convert->dst, C_GREEN);
+                ft_putstr_color(conv->dst, C_GREEN);
                 test = 1;
             }
-            convert = convert->next;
+            conv = conv->next;
         }
         if (test == 1)
             ft_putstr(".");

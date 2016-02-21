@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/19 09:45:16 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/19 09:54:12 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/21 21:22:07 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 int         ft_fifo_del(char *pathname)
 {
-    t_file  *file;    
+    t_file  *file;
 
     file = ft_fileinfo(pathname);
     if (!file)

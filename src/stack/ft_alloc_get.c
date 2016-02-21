@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/07 01:29:12 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/07 16:55:53 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/21 21:19:35 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ t_alloc         *ft_alloc_get(char *id)
     t_alloc     *alloc;
 
     if (!(stack = ft_stack_init()))
-        return (NULL);    
+        return (NULL);
     alloc = stack->alloc;
     while (alloc)
     {

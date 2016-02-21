@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/19 19:26:24 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/19 19:31:24 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/21 21:21:41 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ char        *ft_tabstrtostr(char **tab)
         c_tab = -1;
         while (tab[index][++c_tab])
             ret[c_ret++] = tab[index][c_tab];
-        
     }
     ret[c_ret] = '\0';
     return (ret);

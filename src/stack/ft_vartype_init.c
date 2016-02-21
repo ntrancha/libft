@@ -6,13 +6,16 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/07 00:54:18 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/19 19:43:26 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/21 21:20:48 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/stack.h"
 #include "../../includes/put.h"
 #include "../../includes/mem.h"
+#define SIZE    alloc->size
+#define TYPE    alloc->type
+#define VAR     alloc->content
 
 static void     *ft_cpyvoid(void *src, void *dest)
 {
@@ -20,7 +23,7 @@ static void     *ft_cpyvoid(void *src, void *dest)
 
     if (!(alloc = ft_alloc_get(src)))
         return (NULL);
-    return (ft_alloc_create(ft_strdup(alloc->content), alloc->size, dest, alloc->type));
+    return (ft_alloc_create(ft_strdup(VAR), SIZE, dest, TYPE));
 }
 
 static void     ft_putvoid(void *str)

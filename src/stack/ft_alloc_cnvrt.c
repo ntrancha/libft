@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/18 08:30:21 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/18 08:39:07 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/21 21:19:00 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ static t_cnvrt  *ft_find_convert(t_stacks *stack, char *src, char *dst)
     }
     return (NULL);
 }
-
 
 void            ft_alloc_cnvrt(char *src, char *type)
 {
