@@ -27,8 +27,11 @@
 *.i*86
 *.x86_64
 *.hex
+42-*
 
 # Debug files
 *.dSYM/
+
+#Swap files
 *.swp
 *.swo

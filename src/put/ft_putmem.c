@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/17 11:37:39 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/19 13:27:49 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/21 18:39:20 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@
 
 static void         ft_putmem_char(char **str, int count, int len)
 {
+    if (count % 2 == 1)
+        ft_putchar(' ');
     while (count % 16 != 0)
     {
         if (count % 2 == 0)
@@ -27,7 +29,7 @@ static void         ft_putmem_char(char **str, int count, int len)
         count++;
     }
     ft_putstr(*str);
-    if (count + 8 <= len)
+    if (count + 1 <= len)
         ft_putendl("");
     ft_strdel(str);
     *str = ft_strdup("");
