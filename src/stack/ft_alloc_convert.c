@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/21 14:01:16 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/21 20:44:17 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/21 20:58:38 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,19 @@
 #include "../../includes/count.h"
 #include "../../includes/mem.h"
 
-char            *ft_alloc_convertion(char *src, char *dst, int deep, int max)
+static void     ft_alloc_cnvrtn(char **ret, char *tmp, int deep, int *max)
+{
+    if (deep == 0)
+        ft_strdupdel(tmp, ret);
+    if (tmp[0] < *max)
+    {
+        *ret = ft_strdupdel(&tmp[1], ret);
+        *max = tmp[0];
+    }
+    ft_memdel((void**)&tmp);
+}
+
+static char     *ft_alloc_convertion(char *src, char *dst, int deep, int max)
 {
     t_stacks    *stack;
     t_cnvrt     *conv;
@@ -36,26 +48,15 @@ char            *ft_alloc_convertion(char *src, char *dst, int deep, int max)
                 return (ret);
             }
             else
-            {
                 if ((tmp = ft_alloc_convertion(conv->dst, dst, deep + 1, 10)))
-                {
-                    if (deep == 0)
-                        ft_strdupdel(tmp, &ret);
-                    if (tmp[0] < max)
-                    {
-                        ret = ft_strdupdel(&tmp[1], &ret);
-                        max = tmp[0];
-                    }
-                    ft_memdel((void**)&tmp);
-                }
-            }
+                    ft_alloc_cnvrtn(&ret, tmp, deep, &max);
         }
         conv = conv->next;
     }
     return (ret);
 }
 
-void            ft_alloc_convert_find(char *src, char *dst, char *alloc, int index)
+static void     ft_alloc_conv_f(char *src, char *dst, char *alloc, int index)
 {
     char        *tmp2;
     char        **tab;
@@ -81,7 +82,7 @@ void            ft_alloc_convert_find(char *src, char *dst, char *alloc, int ind
     ft_tabstrdel(&tab);
 }
 
-char            *ft_alloc_convert(char *src, char *type_dst)
+static char     *ft_alloc_convert_n(char *src, char *type_dst)
 {
     t_stacks    *stack;
     t_alloc     *alloc;
@@ -106,6 +107,11 @@ char            *ft_alloc_convert(char *src, char *type_dst)
     if (test)
         ft_alloc_cnvrt(src, type_dst);
     else
-        ft_alloc_convert_find(src_type, type_dst, src, 0);
+        ft_alloc_conv_f(src_type, type_dst, src, 0);
     return (NULL);
+}
+
+void            ft_alloc_convert(char *src, char *type_dst)
+{
+    ft_alloc_convert_n(src, type_dst);
 }

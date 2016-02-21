@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/05 13:56:33 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/19 20:00:35 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/21 20:58:17 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,6 +114,6 @@ t_type  *ft_vartype_addcount(char *type, int (*count)(void*));
 t_type  *ft_vartype_addlen(char *type, int (len)(void*));
 t_type  *ft_vartype_addfus(char *type, void *(*fus)(void*, void*, char*));
 t_type  *ft_vartype_addcmp(char *type, int (*cmp)(void*,void*));
-char    *ft_alloc_convert(char *src, char *type_dst);
+void    ft_alloc_convert(char *src, char *type_dst);
 
 #endif
