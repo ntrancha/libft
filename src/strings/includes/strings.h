@@ -84,5 +84,6 @@ char    **ft_tabstrcpy(char **tab);
 char    *ft_tabstrtostr(char **tab);
 int     ft_tabstrsize(char **tab);
 char    *ft_strdupdel(char *dup, char **del);
+void    ft_tabstrsort(char ***tab, int sort);
 
 #endif

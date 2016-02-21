@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/05 13:56:33 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/21 21:06:41 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/21 21:07:09 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,21 +99,21 @@ void            *ft_alloc_pdel(void *content);
 t_stacks        *ft_stack_init(void);
 t_stacks        *ft_alloc_del(char *id);
 t_stacks        *ft_alloc_rename(char *id, char *new_name);
-size_t          ft_vartype_getsize(char *type);
-void            *ft_alloc_create(void *var, size_t len, char *id, char *type);
-void            ft_alloc_put(char *id);
-int             ft_alloc_cmp(char *a, char *b);
-void            *ft_alloc_erase(void *var, size_t len, char *id, char *type);
-int             ft_alloc_cnvrt_xst(char *src, char *dst);
-t_cnvrt         *ft_alloc_cnvrt_add(char *s, char *d, void (*c)(void*, char*));
-void            ft_alloc_cnvrt(char *src, char *type);
-void            ft_stack_free_debug(void);
-void            *ft_alloc_fusion(char *one, char *two, char *new);
-void            *ft_calloc_erase(void *var, size_t len, char *id, char *type);
-t_type          *ft_vartype_addcount(char *type, int (*count)(void*));
-t_type          *ft_vartype_addlen(char *type, int (len)(void*));
-t_type          *ft_vartype_addfus(char *type, void *(*fus)(void*, void*, char*));
-t_type          *ft_vartype_addcmp(char *type, int (*cmp)(void*,void*));
-void            ft_alloc_convert(char *src, char *type_dst);
+size_t  ft_vartype_getsize(char *type);
+void    *ft_alloc_create(void *var, size_t len, char *id, char *type);
+void    ft_alloc_put(char *id);
+int     ft_alloc_cmp(char *a, char *b);
+void    *ft_alloc_erase(void *var, size_t len, char *id, char *type);
+int     ft_alloc_cnvrt_xst(char *src, char *dst);
+t_cnvrt *ft_alloc_cnvrt_add(char *s, char *d, void (*c)(void*, char*));
+void    ft_alloc_cnvrt(char *src, char *type);
+void    ft_stack_free_debug(void);
+void    *ft_alloc_fusion(char *one, char *two, char *new);
+void    *ft_calloc_erase(void *var, size_t len, char *id, char *type);
+t_type  *ft_vartype_addcount(char *type, int (*count)(void*));
+t_type  *ft_vartype_addlen(char *type, int (len)(void*));
+t_type  *ft_vartype_addfus(char *type, void *(*fus)(void*, void*, char*));
+t_type  *ft_vartype_addcmp(char *type, int (*cmp)(void*, void*));
+void    ft_alloc_convert(char *src, char *type_dst);
 
 #endif
