@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/16 10:48:37 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/19 22:35:54 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/21 21:13:52 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,12 +63,12 @@ static int  ft_tablenvoid(void *a)
 
 void            ft_systabstr(void)
 {
-    t_type  *type; 
+    t_type  *type;
 
-    type = ft_vartype_add("tabstr", sizeof(char*), ft_tabstrdelvoid); 
+    type = ft_vartype_add("tabstr", sizeof(char*), ft_tabstrdelvoid);
     while (type && type->next)
         type = type->next;
-    type->put = ft_puttabstrvoid; 
-    type->cpy = ft_tabstrcpyvoid; 
-    type->count = ft_tablenvoid; 
+    type->put = ft_puttabstrvoid;
+    type->cpy = ft_tabstrcpyvoid;
+    type->count = ft_tablenvoid;
 }

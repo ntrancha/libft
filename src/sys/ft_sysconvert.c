@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/19 13:18:54 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/20 14:09:28 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/21 21:14:42 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ static void ft_sysliststr_to_tabstr(void *src, char *dst)
                 node = node->next;
             }
             tab[count] = '\0';
-            ft_alloc_erase((void*)tab, sizeof(char**), old, "tabstr"); 
+            ft_alloc_erase((void*)tab, sizeof(char**), old, "tabstr");
             ft_strdel(&old);
         }
 }
@@ -54,7 +54,7 @@ static void ft_systabstr_to_liststr(void *src, char *dst)
             count = -1;
             while (tab[++count] && dst)
                 ft_listadd(new, (void*)ft_strdup(tab[count]));
-            ft_alloc_erase((void*)new, sizeof(t_list), old, "liststr"); 
+            ft_alloc_erase((void*)new, sizeof(t_list), old, "liststr");
             ft_strdel(&old);
         }
 }

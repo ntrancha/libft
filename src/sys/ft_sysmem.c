@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/16 14:59:52 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/17 13:42:12 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/21 21:08:56 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include "../../includes/time.h"
 #include "../../includes/mem.h"
 
-static void *ft_memcpyvoid(void *src, void *dst)
+static void     *ft_memcpyvoid(void *src, void *dst)
 {
     t_alloc     *alloc;
     void        *mem;
@@ -54,14 +54,14 @@ static void     ft_putmemvoid(void *num)
     }
 }
 
-void        ft_sysmem(void)
+void            ft_sysmem(void)
 {
-    t_type  *type; 
+    t_type      *type;
 
-    type = ft_vartype_add("mem", 1, ft_memdel); 
+    type = ft_vartype_add("mem", 1, ft_memdel);
     while (type && type->next)
         type = type->next;
-    type->cpy = ft_memcpyvoid; 
-    type->cmp = ft_memcmpvoid; 
-    type->put = ft_putmemvoid; 
+    type->cpy = ft_memcpyvoid;
+    type->cmp = ft_memcmpvoid;
+    type->put = ft_putmemvoid;
 }

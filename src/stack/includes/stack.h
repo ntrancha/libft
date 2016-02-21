@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/05 13:56:33 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/21 20:58:17 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/21 21:07:09 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,10 @@
 # define    GET(variable)   ft_alloc_vget(#variable)
 # define    DEL(variable)   ft_alloc_del(#variable)
 # define    PDEL(variable) 	ft_alloc_pdel(variable)
-# define    XSTR(vr, nm) ft_alloc(#vr, ft_strlen(#vr) + 1, #nm, "str")
-# define    ASTR(vr, nm) ft_alloc(vr, ft_strlen(vr) + 1, nm, "str")
-# define    CSTR(vr, nm) ft_calloc(vr, ft_strlen(vr) + 1, nm, "str")
-# define    DSTR(vr, nm)      ft_alloc_erase(vr, ft_strlen(vr) + 1, nm, "str")
+# define    XSTR(vr, nm)    ft_alloc(#vr, ft_strlen(#vr) + 1, #nm, "str")
+# define    ASTR(vr, nm)    ft_alloc(vr, ft_strlen(vr) + 1, nm, "str")
+# define    CSTR(vr, nm)    ft_calloc(vr, ft_strlen(vr) + 1, nm, "str")
+# define    DSTR(vr, nm)    ft_alloc_erase(vr, ft_strlen(vr) + 1, nm, "str")
 
 typedef struct  s_alloc		t_alloc;
 typedef struct  s_type		t_type;
@@ -113,7 +113,7 @@ void    *ft_calloc_erase(void *var, size_t len, char *id, char *type);
 t_type  *ft_vartype_addcount(char *type, int (*count)(void*));
 t_type  *ft_vartype_addlen(char *type, int (len)(void*));
 t_type  *ft_vartype_addfus(char *type, void *(*fus)(void*, void*, char*));
-t_type  *ft_vartype_addcmp(char *type, int (*cmp)(void*,void*));
+t_type  *ft_vartype_addcmp(char *type, int (*cmp)(void*, void*));
 void    ft_alloc_convert(char *src, char *type_dst);
 
 #endif

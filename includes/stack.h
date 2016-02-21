@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/05 13:56:33 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/21 21:02:27 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/21 21:06:41 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,10 @@
 # define    GET(variable)   ft_alloc_vget(#variable)
 # define    DEL(variable)   ft_alloc_del(#variable)
 # define    PDEL(variable) 	ft_alloc_pdel(variable)
-# define    XSTR(vr, nm) ft_alloc(#vr, ft_strlen(#vr) + 1, #nm, "str")
-# define    ASTR(vr, nm) ft_alloc(vr, ft_strlen(vr) + 1, nm, "str")
-# define    CSTR(vr, nm) ft_calloc(vr, ft_strlen(vr) + 1, nm, "str")
-# define    DSTR(vr, nm)      ft_alloc_erase(vr, ft_strlen(vr) + 1, nm, "str")
+# define    XSTR(vr, nm)    ft_alloc(#vr, ft_strlen(#vr) + 1, #nm, "str")
+# define    ASTR(vr, nm)    ft_alloc(vr, ft_strlen(vr) + 1, nm, "str")
+# define    CSTR(vr, nm)    ft_calloc(vr, ft_strlen(vr) + 1, nm, "str")
+# define    DSTR(vr, nm)    ft_alloc_erase(vr, ft_strlen(vr) + 1, nm, "str")
 
 typedef struct  s_alloc		t_alloc;
 typedef struct  s_type		t_type;

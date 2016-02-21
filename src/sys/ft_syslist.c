@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/16 00:13:42 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/19 21:40:56 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/21 21:09:24 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,14 +63,14 @@ static int  ft_listlenvoid(void *a)
 
 void        ft_syslist(void)
 {
-    t_type  *type; 
+    t_type  *type;
 
-    type = ft_vartype_add("liststr", sizeof(t_list), ft_listdelvoid); 
+    type = ft_vartype_add("liststr", sizeof(t_list), ft_listdelvoid);
     while (type && type->next)
         type = type->next;
-    type->put = ft_listputstrvoid; 
-    type->cpy = ft_listcpyvoid; 
-    type->count = ft_listlenvoid; 
+    type->put = ft_listputstrvoid;
+    type->cpy = ft_listcpyvoid;
+    type->count = ft_listlenvoid;
     type = ft_vartype_get("ft_opt");
     if (type)
         type->cpy = ft_listcpyvoid;

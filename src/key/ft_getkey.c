@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/18 16:11:58 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/18 19:35:08 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/21 21:15:12 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,10 @@ char                *ft_getkey(void)
     char            *buffer;
 
     buffer = malloc((sizeof(char) * 4));
-    buffer[0] = '\0'; 
-    buffer[1] = '\0'; 
-    buffer[2] = '\0'; 
-    buffer[3] = '\0'; 
+    buffer[0] = '\0';
+    buffer[1] = '\0';
+    buffer[2] = '\0';
+    buffer[3] = '\0';
     if (ioctl(0, TCGETS, &t) < 0)
         return (NULL);
     t.c_lflag &= ~ICANON;

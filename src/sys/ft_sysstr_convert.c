@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/18 08:10:58 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/21 12:32:14 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/21 21:10:39 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,13 +28,13 @@ static void ft_sysstr_to_mem(void *src, char *dst)
     if (src && ft_strcmp(dst, "mem") == 0)
     {
         tmp = ft_memalloc(SRC_SIZE - 1);
-        ft_memcpy(tmp,(void*)SRC_CONTENT, SRC_SIZE - 1);
+        ft_memcpy(tmp, (void*)SRC_CONTENT, SRC_SIZE - 1);
         ft_alloc_erase(tmp, SRC_SIZE - 1, old, dst);
     }
     if (src && ft_strcmp(dst, "str") == 0)
     {
         tmp = ft_memalloc(SRC_SIZE + 1);
-        ft_memcpy(tmp,(void*)SRC_CONTENT, SRC_SIZE);
+        ft_memcpy(tmp, (void*)SRC_CONTENT, SRC_SIZE);
         tmp[SRC_SIZE] = '\0';
         ft_alloc_erase(tmp, SRC_SIZE + 1, old, dst);
     }
@@ -50,16 +50,16 @@ static void ft_sysint_to_mem(void *src, char *dst)
     if (src && ft_strcmp(dst, "mem") == 0)
     {
         tmp = ft_memalloc(SRC_SIZE);
-        ft_memcpy(tmp,(void*)SRC_CONTENT, SRC_SIZE);
+        ft_memcpy(tmp, (void*)SRC_CONTENT, SRC_SIZE);
         ft_alloc_erase(tmp, SRC_SIZE, old, dst);
     }
     if (src && ft_strcmp(dst, "int") == 0)
     {
         tmp = ft_memalloc(sizeof(int));
         if (sizeof(int) < SRC_SIZE)
-            ft_memcpy(tmp,(void*)SRC_CONTENT, sizeof(int));
+            ft_memcpy(tmp, (void*)SRC_CONTENT, sizeof(int));
         else
-            ft_memcpy(tmp,(void*)SRC_CONTENT, SRC_SIZE);
+            ft_memcpy(tmp, (void*)SRC_CONTENT, SRC_SIZE);
         ft_alloc_erase(tmp, sizeof(int), old, dst);
     }
     if (src && ft_strcmp(dst, "str") == 0)
@@ -121,7 +121,6 @@ void        ft_sysstr_convert(void)
     ft_alloc_cnvrt_add("mem", "int", ft_sysint_to_mem);
     ft_alloc_cnvrt_add("tabstr", "str", ft_sysint_to_mem);
     ft_alloc_cnvrt_add("liststr", "str", ft_sysliststr_to_str);
-    /*ft_alloc_cnvrt_add("ft_opt", "str", ft_sysliststr_to_str);*/
     ft_alloc_cnvrt_add("ft_opt", "liststr", ft_sysliststr_to_str);
     ft_alloc_cnvrt_add("liststr", "ft_opt", ft_sysliststr_to_str);
 }

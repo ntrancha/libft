@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/07 23:04:32 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/20 00:13:50 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/21 21:13:11 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,13 +49,14 @@ static void ft_sysinfo(void)
     while (path[++count] && test == 0)
         if (path[count] == '/' && path[count - 1 ] == '.')
             test = count;
-    str = ft_strsub(path, test + 1, ft_strlen(path) - test + 1); 
+    str = ft_strsub(path, test + 1, ft_strlen(path) - test + 1);
     ASTR(str, "NAM_PROG");
     count = ft_strlen(GET(PWD_PROG)) + 1;
-    str = ft_strsub(path, count, ft_strlen(path) - count - ft_strlen(str) - 1); 
+    str = ft_strsub(path, count, ft_strlen(path) - count - ft_strlen(str) - 1);
     ASTR(str, "DOS_PROG");
     ASTR(path, "DIR_PROG");
     ft_sysint_alloc(ft_get_timestamp(), "TIMESTAMP");
+    ft_syscache();
 }
 
 int         ft_start(int argc, char **argv)
@@ -67,11 +68,10 @@ int         ft_start(int argc, char **argv)
     if (argc > 1)
     {
         opt = ft_optget(argc, argv);
-        ft_vartype_add("ft_opt", ft_liststrsize(opt), ft_optdel_void); 
+        ft_vartype_add("ft_opt", ft_liststrsize(opt), ft_optdel_void);
         ft_alloc(opt, 1, "OPTIONS", "ft_opt");
     }
     ft_sys_option(argc, argv);
-    ft_syscache();
     ft_sysmem();
     ft_syslist();
     ft_systabstr();

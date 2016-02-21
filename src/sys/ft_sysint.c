@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/17 07:57:02 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/18 05:52:14 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/21 21:14:20 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,11 +56,11 @@ void            ft_sysint(void)
 {
     t_type  *type;
 
-    type = ft_vartype_add("int", sizeof(int), ft_memdel); 
+    type = ft_vartype_add("int", sizeof(int), ft_memdel);
     while (type && type->next)
         type = type->next;
-    type->put = ft_putintvoid; 
-    type->cpy = ft_intcpyvoid; 
-    type->len = ft_intlenvoid; 
-    type->cmp = ft_intcmpvoid; 
+    type->put = ft_putintvoid;
+    type->cpy = ft_intcpyvoid;
+    type->len = ft_intlenvoid;
+    type->cmp = ft_intcmpvoid;
 }

@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/07 01:26:39 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/13 20:50:23 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/21 21:16:13 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void            *ft_alloc_pdel(void *content)
     t_alloc     *alloc_next;
 
     if (!(stack = ft_stack_init()) || !stack->alloc)
-        return (NULL);    
+        return (NULL);
     alloc = stack->alloc;
     alloc_next = alloc->next;
     alloc_prev = NULL;
