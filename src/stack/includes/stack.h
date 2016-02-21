@@ -114,5 +114,6 @@ t_type  *ft_vartype_addcount(char *type, int (*count)(void*));
 t_type  *ft_vartype_addlen(char *type, int (len)(void*));
 t_type  *ft_vartype_addfus(char *type, void *(*fus)(void*, void*, char*));
 t_type  *ft_vartype_addcmp(char *type, int (*cmp)(void*,void*));
+char    *ft_alloc_convert(char *src, char *type_dst);
 
 #endif

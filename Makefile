@@ -193,6 +193,7 @@ FILE	=	src/mem/ft_memalloc.c                \
 			src/stack/ft_vartype_addcount.c      \
 			src/stack/ft_vartype_addlen.c        \
 			src/stack/ft_alloc_cmp.c             \
+			src/stack/ft_alloc_convert.c         \
 			src/stack/ft_stack_clean.c           \
 			src/stack/ft_alloc_nget.c            \
 			src/stack/ft_stack_free.c            \
