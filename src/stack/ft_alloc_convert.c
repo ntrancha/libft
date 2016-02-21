@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/21 14:01:16 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/21 20:58:38 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/21 21:27:05 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static void     ft_alloc_cnvrtn(char **ret, char *tmp, int deep, int *max)
     ft_memdel((void**)&tmp);
 }
 
-static char     *ft_alloc_convertion(char *src, char *dst, int deep, int max)
+static char     *ft_alloc_convon(char *src, char *dst, int deep, int max)
 {
     t_stacks    *stack;
     t_cnvrt     *conv;
@@ -48,7 +48,7 @@ static char     *ft_alloc_convertion(char *src, char *dst, int deep, int max)
                 return (ret);
             }
             else
-                if ((tmp = ft_alloc_convertion(conv->dst, dst, deep + 1, 10)))
+                if ((tmp = ft_alloc_convon(conv->dst, dst, deep + 1, 10)))
                     ft_alloc_cnvrtn(&ret, tmp, deep, &max);
         }
         conv = conv->next;
@@ -64,10 +64,10 @@ static void     ft_alloc_conv_f(char *src, char *dst, char *alloc, int index)
 
     tab = ft_memalloc(sizeof(char*) * 10);
     tab[index++] = ft_strdup(dst);
-    if ((tmp = ft_alloc_convertion(src, dst, 0, 10)))
+    if ((tmp = ft_alloc_convon(src, dst, 0, 10)))
         tab[index++] = ft_strdup(tmp);
     while (tmp)
-        if ((tmp2 = ft_alloc_convertion(src, tmp, 0, 10)) && ft_strlen(tmp2) > 0)
+        if ((tmp2 = ft_alloc_convon(src, tmp, 0, 10)) && ft_strlen(tmp2) > 0)
         {
             tmp = ft_strdupdel(tmp2, &tmp);
             ft_strdel(&tmp2);
@@ -100,7 +100,7 @@ static char     *ft_alloc_convert_n(char *src, char *type_dst)
     conv = stack->convert;
     test = 0;
     while (conv && !test)
-        if (ft_strcmp(src_type, conv->src) == 0 && ft_strcmp(conv->dst, type_dst) == 0)
+        if (!ft_strcmp(src_type, conv->src) && !ft_strcmp(conv->dst, type_dst))
             test = 1;
         else
             conv = conv->next;

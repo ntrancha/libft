@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/07 01:25:07 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/13 20:52:11 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/21 21:27:38 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ t_stacks        *ft_alloc_del(char *id)
     t_alloc     *alloc_next;
 
     if (!(stack = ft_stack_init()) || !stack->alloc)
-        return (NULL);    
+        return (NULL);
     alloc = stack->alloc;
     alloc_next = alloc->next;
     alloc_prev = NULL;
