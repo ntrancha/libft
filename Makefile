@@ -246,6 +246,7 @@ FILE	=	src/mem/ft_memalloc.c                \
 			src/strings/ft_strfusiondel.c        \
 			src/strings/ft_straddchar.c          \
 			src/strings/ft_tabstrdel.c           \
+			src/strings/ft_strdupdel.c           \
 			src/strings/ft_strrvs.c              \
 			src/strings/ft_strlen.c              \
 			src/strings/ft_strtolower.c          \

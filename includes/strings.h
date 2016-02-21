@@ -83,5 +83,6 @@ void    ft_strdelth(char **a, char **b, char **c);
 char    **ft_tabstrcpy(char **tab);
 char    *ft_tabstrtostr(char **tab);
 int     ft_tabstrsize(char **tab);
+char    *ft_strdupdel(char *dup, char **del);
 
 #endif

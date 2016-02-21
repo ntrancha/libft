@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/18 08:10:58 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/20 00:25:38 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/21 12:32:14 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,7 +121,7 @@ void        ft_sysstr_convert(void)
     ft_alloc_cnvrt_add("mem", "int", ft_sysint_to_mem);
     ft_alloc_cnvrt_add("tabstr", "str", ft_sysint_to_mem);
     ft_alloc_cnvrt_add("liststr", "str", ft_sysliststr_to_str);
-    ft_alloc_cnvrt_add("ft_opt", "str", ft_sysliststr_to_str);
+    /*ft_alloc_cnvrt_add("ft_opt", "str", ft_sysliststr_to_str);*/
     ft_alloc_cnvrt_add("ft_opt", "liststr", ft_sysliststr_to_str);
     ft_alloc_cnvrt_add("liststr", "ft_opt", ft_sysliststr_to_str);
 }
