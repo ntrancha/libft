@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/22 20:11:28 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/22 21:00:03 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/22 21:15:40 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ void            ft_stack_infos_func(void)
         while (funcs)
         {
             ft_putstr_color(types->type, C_GREEN);
-            ft_putspace(11 - ft_strlen(types->type));
+            ft_putspace(17 - ft_strlen(types->type));
             func_type_return(funcs->func_name[0]);
             if (funcs->func_name[1] == 42)
                 ft_putchar('*');
