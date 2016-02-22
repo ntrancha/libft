@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/05 13:56:33 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/22 00:22:36 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/22 16:55:23 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,8 @@ typedef struct  s_alloc		t_alloc;
 typedef struct  s_type		t_type;
 typedef struct  s_stacks	t_stacks;
 typedef struct  s_cnvrt     t_cnvrt;
-typedef struct  s_func      t_func;
+typedef struct  s_funcs     t_funcs;
+typedef union   u_func      t_func;
 
 struct          s_alloc
 {
@@ -52,10 +53,16 @@ struct          s_type
     t_type      *next;
 };
 
-struct          s_func
+struct          s_funcs
 {
     char        *name;
-    char        *func;
+    char        *func_name;
+    t_func      *func;
+    t_funcs     *next;
+};
+
+union           u_func
+{
     void        *(*f_voidp_a)(void*);
     void        *(*f_voidp_b)(void*, void*);
     void        *(*f_voidp_c)(void*, void*, void*);
@@ -65,7 +72,6 @@ struct          s_func
     int         (*f_int_a)(void*);
     int         (*f_int_b)(void*, void*);
     int         (*f_int_c)(void*, void*, void*);
-    t_func      *next;
 };
 
 struct          s_cnvrt

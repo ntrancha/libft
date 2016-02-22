@@ -251,6 +251,7 @@ FILE	=	src/mem/ft_memalloc.c                \
 			src/strings/ft_strrvs.c              \
 			src/strings/ft_strlen.c              \
 			src/strings/ft_strtolower.c          \
+			src/strings/ft_tabstrsort.c          \
 			src/strings/ft_strdelt.c             \
 			src/strings/ft_strdelf.c             \
 			src/strings/ft_strmapi.c             \
