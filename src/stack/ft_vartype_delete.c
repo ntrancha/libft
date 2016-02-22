@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/07 00:41:00 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/22 21:11:08 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/22 21:12:21 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static void ft_func_free(t_funcs *func)
         if (func->name)
             ft_strdel(&(func->name));
         if (func->func_name)
-            ft_strdel(&(func->name));
+            ft_strdel(&(func->func_name));
         if (func->func)
             ft_memdel((void**)&func->func);
         next = func->next;
