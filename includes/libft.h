@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/04 10:09:36 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/18 17:16:00 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/22 21:24:07 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@
 # include "macros.h"
 # include "sig.h"
 # include "sys.h"
+# include "sysfunc.h"
 # include "key.h"
 # include "process.h"
 # include "bits.h"

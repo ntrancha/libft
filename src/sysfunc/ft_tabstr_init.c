@@ -1,21 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sysfunc_init.c                                  :+:      :+:    :+:   */
+/*   ft_tabstr_init.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/02/22 20:21:02 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/22 21:27:42 by ntrancha         ###   ########.fr       */
+/*   Created: 2016/02/22 21:25:22 by ntrancha          #+#    #+#             */
+/*   Updated: 2016/02/22 21:27:35 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/sys.h"
 #include "../../includes/sysfunc.h"
-#include "../../includes/stack.h"
+#include "../../includes/sys.h"
 
-void            ft_sysfunc_init(void)
+void    ft_tabstr_init(void)
 {
-    if (ft_alloc_get("FUNC_TABSTR"))
-        ft_tabstr_init();
+    ft_sysfunc_add("tabstr", "sort", "vv*", ft_tabstrsort_void);
+    ft_sysfunc_add("tabstr", "unsort", "vv*", ft_tabstrunsort_void);
 }

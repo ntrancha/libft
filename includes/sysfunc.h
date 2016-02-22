@@ -1,21 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sysfunc_init.c                                  :+:      :+:    :+:   */
+/*   sysfunc.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/02/22 20:21:02 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/22 21:27:42 by ntrancha         ###   ########.fr       */
+/*   Created: 2016/02/22 21:23:18 by ntrancha          #+#    #+#             */
+/*   Updated: 2016/02/22 21:23:45 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/sys.h"
-#include "../../includes/sysfunc.h"
-#include "../../includes/stack.h"
+#ifndef SYSFUNC_H
+# define SYSFUNC_H
 
-void            ft_sysfunc_init(void)
-{
-    if (ft_alloc_get("FUNC_TABSTR"))
-        ft_tabstr_init();
-}
+void    ft_tabstrsort_void(void *ptr);
+void    ft_tabstrunsort_void(void *ptr);
+void    ft_tabstr_init(void);
+
+#endif
