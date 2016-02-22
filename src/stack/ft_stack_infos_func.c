@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/22 20:11:28 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/22 21:15:40 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/22 21:17:50 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@
 static void     func_type_return(char c)
 {
     if (c == 'v')
-        ft_putstr_color("void     ", C_GREEN);
+        ft_putstr_color("void    ", C_GREEN);
     else if (c == 'i')
-        ft_putstr_color("int      ", C_GREEN);
+        ft_putstr_color("int     ", C_GREEN);
 }
 
 static void     func_type_args(char *c)
@@ -63,8 +63,9 @@ void            ft_stack_infos_func(void)
         while (funcs)
         {
             ft_putstr_color(types->type, C_GREEN);
-            ft_putspace(17 - ft_strlen(types->type));
+            ft_putspace(16 - ft_strlen(types->type));
             func_type_return(funcs->func_name[0]);
+            ft_putspace(14);
             if (funcs->func_name[1] == 42)
                 ft_putchar('*');
             ft_putstr(funcs->name);

@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/07 00:30:08 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/22 20:17:06 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/22 21:18:18 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,8 +87,7 @@ static void     ft_stack_convert(t_stacks *stack, t_type *type, t_cnvrt *conv)
     while (type)
     {
         ft_putstr_color(type->type, C_GREEN);
-        ft_putspace(11 - ft_strlen(type->type));
-        ft_putstr("=>   ");
+        ft_putspace(16 - ft_strlen(type->type));
         conv = stack->convert;
         test = 0;
         while (conv)
