@@ -36,5 +36,7 @@ void    ft_sysstr_convert(void);
 void    ft_sysconvert(void);
 void    ft_sys_fusion(void);
 void    ft_syslen(void);
+void    *ft_sysfunc_add(char *add, char *name, char *func, void *fptr);
+void    ft_sysfunc_init(void);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/05 13:56:33 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/22 17:18:33 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/22 20:16:33 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ struct          s_type
     void        *(*fus)(void*, void*, char*);
     int         (*count)(void*);
     int         (*cmp)(void*, void*);
-    t_func      *func;
+    t_funcs     *func;
     t_type      *next;
 };
 
@@ -138,5 +138,6 @@ void            ft_alloc_put(char *id);
 void            ft_alloc_convert(char *src, char *type_dst);
 int             ft_alloc_cmp(char *a, char *b);
 int             ft_alloc_cnvrt_xst(char *src, char *dst);
+void            ft_stack_infos_func(void);
 
 #endif

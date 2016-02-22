@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/07 00:30:08 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/21 21:18:33 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/22 20:17:06 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,7 @@ static void     ft_stack_show(t_stacks *stack)
         }
         type = type->next;
     }
+    ft_stack_infos_func();
     ft_putendl("\033[35m=============== CONVERT ================\033[0m");
 }
 

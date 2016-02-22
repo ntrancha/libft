@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/07 23:04:32 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/21 21:13:11 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/22 20:31:53 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ static void ft_sysinfo(void)
     ASTR(path, "DIR_PROG");
     ft_sysint_alloc(ft_get_timestamp(), "TIMESTAMP");
     ft_syscache();
+    ft_sysfunc_init();
 }
 
 int         ft_start(int argc, char **argv)
