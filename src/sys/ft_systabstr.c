@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/16 10:48:37 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/21 21:13:52 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/23 19:46:20 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ static void     *ft_tabstrcpyvoid(void *src, void *dst)
     len = 0;
     while (new[len])
         len++;
-    return (ft_alloc_create((void*)new, len , dst, alloc->type));
+    return (ft_alloc_create((void*)new, len + 1 , dst, alloc->type));
 }
 
 static int  ft_tablenvoid(void *a)

@@ -139,5 +139,8 @@ void            ft_alloc_convert(char *src, char *type_dst);
 int             ft_alloc_cmp(char *a, char *b);
 int             ft_alloc_cnvrt_xst(char *src, char *dst);
 void            ft_stack_infos_func(void);
+int     ft_vartype_func(char *str);
+int     ft_alloc_len(char *a);
+int     ft_alloc_count(char *a);
 
 #endif
