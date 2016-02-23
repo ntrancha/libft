@@ -53,9 +53,14 @@ FILE	=	src/mem/ft_memalloc.c                \
 			src/sys/ft_start.c                   \
 			src/sys/ft_syslen.c                  \
 			src/sys/ft_systabstr.c               \
+			src/sys/ft_sysfunc_exist.c           \
+			src/sys/ft_sysfunc_init.c            \
 			src/sys/ft_sys_fusion.c              \
+			src/sys/ft_sysfunc_find.c            \
+			src/sys/ft_sysfunc_add.c             \
 			src/sys/ft_sysint.c                  \
 			src/sys/ft_sysconvert.c              \
+			src/sys/ft_sysfunc_get.c             \
 			src/sys/ft_sys_option.c              \
 			src/sys/ft_sysint_alloc.c            \
 			src/sys/ft_debug.c                   \
@@ -195,9 +200,11 @@ FILE	=	src/mem/ft_memalloc.c                \
 			src/stack/ft_alloc_cmp.c             \
 			src/stack/ft_alloc_convert.c         \
 			src/stack/ft_stack_clean.c           \
+			src/stack/ft_stack_infos_func.c      \
 			src/stack/ft_alloc_nget.c            \
 			src/stack/ft_stack_free.c            \
 			src/stack/ft_alloc_rename.c          \
+			src/stack/ft_vartype_func.c          \
 			src/stack/ft_vartype_gettype.c       \
 			src/stack/ft_alloc_del.c             \
 			src/stack/ft_alloc_cnvrt_add.c       \
@@ -206,6 +213,7 @@ FILE	=	src/mem/ft_memalloc.c                \
 			src/stack/ft_alloc_fusion.c          \
 			src/stack/ft_vartype_get.c           \
 			src/stack/ft_calloc_erase.c          \
+			src/stack/ft_alloc_len.c             \
 			src/stack/ft_alloc_cnvrt.c           \
 			src/stack/ft_calloc.c                \
 			src/stack/ft_vartype_addcmp.c        \
@@ -219,6 +227,7 @@ FILE	=	src/mem/ft_memalloc.c                \
 			src/stack/ft_vartype_addcpy.c        \
 			src/stack/ft_alloc.c                 \
 			src/stack/ft_malloc.c                \
+			src/stack/ft_alloc_count.c           \
 			src/stack/ft_stack_memmove.c         \
 			src/date/ft_date_convert.c           \
 			src/date/ft_date_mins.c              \
@@ -452,6 +461,9 @@ FILE	=	src/mem/ft_memalloc.c                \
 			src/convert/ft_fround.c              \
 			src/convert/ft_ftol.c                \
 			src/convert/ft_atod.c                \
+			src/sysfunc/ft_tabstrsort_void.c     \
+			src/sysfunc/ft_tabstr_init.c         \
+			src/sysfunc/ft_tabstrunsort_void.c   \
 
 ifeq ($(OS),Windows_NT)
 	OS = WIN32
