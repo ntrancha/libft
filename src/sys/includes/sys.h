@@ -6,13 +6,14 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/08 15:35:44 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/19 14:57:39 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/23 11:21:31 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SYS_H
 # define SYS_H
 # include "libft.h"
+# include "stack.h"
 
 # define    START           return (FUNCS(argc, argv));
 # define    FUNCS           ft_start
@@ -22,6 +23,8 @@
 # define    CACHE_SIZE      1000
 # define    DBG_FILE        ft_debug(__FILE__, __func__, __LINE__)
 # define    DBG_PROG        ft_sysint_alloc(1, "DBG_PROG")
+
+typedef struct  s_funcs     t_funcs;
 
 int     ft_start(int argc, char **argv);
 void    ft_cache_set(void *content);
@@ -38,5 +41,8 @@ void    ft_sys_fusion(void);
 void    ft_syslen(void);
 void    *ft_sysfunc_add(char *add, char *name, char *func, void *fptr);
 void    ft_sysfunc_init(void);
+int     ft_sysfunc_exist(t_funcs *funcs, char *name);
+t_funcs *ft_sysfunc_get(char *var_name);
+t_funcs *ft_sysfunc_find(t_funcs *funcs, char *name);
 
 #endif

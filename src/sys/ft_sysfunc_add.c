@@ -6,23 +6,14 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/22 19:28:45 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/22 20:08:35 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/23 11:12:54 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/sys.h"
 #include "../../includes/stack.h"
-
-static int      ft_sysfunc_exist(t_funcs *funcs, char *name)
-{
-    while (funcs)
-    {
-        if (ft_strcmp(name, funcs->name) == 0)
-            return (1);
-        funcs = funcs->next;
-    }
-    return (0);
-}
+#include "../../includes/strings.h"
+#include "../../includes/mem.h"
 
 static int      ft_sysfunc_union(char *func)
 {
