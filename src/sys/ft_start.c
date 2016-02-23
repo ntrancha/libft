@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/07 23:04:32 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/22 20:31:53 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/23 23:21:43 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ static void ft_sysinfo(void)
     ft_sysint_alloc(ft_getrow(), "ROW_PROG");
     str = ft_getpwd();
     ASTR(str, "PWD_PROG");
-    path = ft_strmjoin(str, "/", GET(STR_PROG));
+    path = ft_strmjoin(str, "/", VGET(STR_PROG));
     count = 0;
     test = 0;
     while (path[++count] && test == 0)
@@ -51,7 +51,7 @@ static void ft_sysinfo(void)
             test = count;
     str = ft_strsub(path, test + 1, ft_strlen(path) - test + 1);
     ASTR(str, "NAM_PROG");
-    count = ft_strlen(GET(PWD_PROG)) + 1;
+    count = ft_strlen(VGET(PWD_PROG)) + 1;
     str = ft_strsub(path, count, ft_strlen(path) - count - ft_strlen(str) - 1);
     ASTR(str, "DOS_PROG");
     ASTR(path, "DIR_PROG");

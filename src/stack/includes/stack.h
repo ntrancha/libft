@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/05 13:56:33 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/22 20:16:33 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/23 23:20:42 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 # define STACK_H
 # include "libft.h"
 
-# define    GET(variable)   ft_alloc_vget(#variable)
+# define    GET(variable)   ft_alloc_get(variable)
+# define    VGET(variable)  ft_alloc_vget(#variable)
 # define    DEL(variable)   ft_alloc_del(#variable)
 # define    PDEL(variable) 	ft_alloc_pdel(variable)
 # define    XSTR(vr, nm)    ft_alloc(#vr, ft_strlen(#vr) + 1, #nm, "str")
