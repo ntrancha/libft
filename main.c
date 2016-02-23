@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/07 23:13:16 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/23 23:28:05 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/23 23:30:27 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -272,7 +272,7 @@ int         ft_main(void)
     DBG_FILE;
     DBG_PROG;
 
-    /*ft_putendl(ft_alloc_convert("ft_opt", "int"));*/
+    ft_alloc_convert("ft_opt", "int");
     ft_syscmd("ret = NAM_PROG.len(); ret2 = DIR_PROG.len(coucou, coco)");
     ptr = &ft_strlen;
     ft_calloc(ptr, 8, "DUMP1", "mem");
