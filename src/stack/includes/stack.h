@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/05 13:56:33 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/23 23:20:42 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/24 19:49:39 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@
 typedef struct  s_alloc		t_alloc;
 typedef struct  s_type		t_type;
 typedef struct  s_stacks	t_stacks;
+typedef struct  s_pile  	t_pile;
 typedef struct  s_cnvrt     t_cnvrt;
 typedef struct  s_funcs     t_funcs;
 typedef union   u_func      t_func;
@@ -84,7 +85,14 @@ struct          s_cnvrt
 
 };
 
-struct  s_stacks
+struct          s_pile
+{
+    char        *instruction;
+    int         *line;
+    t_pile      *next;
+};
+
+struct          s_stacks
 {
     size_t      stack_size;
     size_t      stack_free;
@@ -92,6 +100,7 @@ struct  s_stacks
     size_t      sys;
     size_t      free;
     t_type      *types;
+    t_pile      *pile;
     t_cnvrt     *convert;
     t_alloc     *alloc;
 };
