@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/07 23:13:16 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/23 23:30:27 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/24 02:52:24 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -151,32 +151,72 @@ int         ft_syscmd_inception(char *var, char *func, char *options)
     return (1);
 }
 
-int         ft_syscmd_go(t_funcs *funcs, char *var, char **opt)
+int         ft_syscmd_go_void(t_funcs *funcs, char *var, char **opt)
+{
+    char    *opt1;
+    char    *opt2;
+    char    *opt3;
+    int     test;
+
+    test = (opt && opt[0] && opt[1]);
+    opt1 = (opt && opt[0]) ? ft_strcleanfront(opt[0], ' ') : NULL;
+    opt2 = (test) ? ft_strcleanfront(opt[1], ' ') : NULL;
+    opt3 = (test && opt[2]) ? ft_strcleanfront(opt[2], ' ') : NULL;
+    if (ft_strcmp(funcs->func_name, "v*v*") == 0)
+        funcs->func->f_voidp_a(GET(opt1));
+    else if (ft_strcmp(funcs->func_name, "v*v*v*") == 0)
+        funcs->func->f_voidp_b(GET(opt1), GET(opt2));
+    else if (ft_strcmp(funcs->func_name, "v*v*v*v*") == 0)
+       funcs->func->f_voidp_c(GET(opt1), GET(opt2), GET(opt3));
+    ft_strdelth(&opt1, &opt2, &opt3);
+    return (1);
+}
+
+int         ft_syscmd_go_int(t_funcs *funcs, char *var, char **opt)
 {
     char    *opt1;
     char    *opt2;
     char    *opt3;
     char    *opt4;
+    int     test;
 
-    opt1 = NULL;
-    opt2 = NULL;
-    opt3 = NULL;
-    opt4 = NULL;
-    if (opt && opt[0])
-        opt1 = ft_strcleanfront(opt[0], ' ');
-    if (opt && opt[0] && opt[1])
-        opt2 = ft_strcleanfront(opt[1], ' ');
-    if (opt && opt[0] && opt[1] && opt[2])
-        opt3 = ft_strcleanfront(opt[2], ' ');
-    if (opt && opt[0] && opt[1] && opt[2] && opt[3])
-        opt4 = ft_strcleanfront(opt[3], ' ');
-    if (ft_strcmp(funcs->func_name, "vv*") == 0)
-        funcs->func->f_void_a(GET(var));
-    if (ft_strcmp(funcs->func_name, "vv*v*") == 0)
-        funcs->func->f_void_b(GET(opt1), GET(opt2));
-    if (ft_strcmp(funcs->func_name, "vv*v*v*") == 0)
-        funcs->func->f_void_c(GET(opt1), GET(opt2), GET(opt3));
+    test = (opt && opt[0] && opt[1]);
+    opt1 = (opt && opt[0]) ? ft_strcleanfront(opt[0], ' ') : NULL;
+    opt2 = (test) ? ft_strcleanfront(opt[1], ' ') : NULL;
+    opt3 = (test && opt[2]) ? ft_strcleanfront(opt[2], ' ') : NULL;
+    opt4 = (test && opt[2] && opt[3]) ? ft_strcleanfront(opt[3], ' ') : NULL;
+    if (ft_strcmp(funcs->func_name, "iv*") == 0)
+        ft_sysint_alloc(funcs->func->f_int_a(GET(opt1)), opt2);
+    else if (ft_strcmp(funcs->func_name, "iv*v*") == 0)
+        ft_sysint_alloc(funcs->func->f_int_b(GET(opt1), GET(opt2)), opt3);
+    else if (ft_strcmp(funcs->func_name, "iv*v*v*") == 0)
+        ft_sysint_alloc(funcs->func->f_int_c(GET(opt1), GET(opt2), GET(opt3)), opt4);
     ft_strdelf(&opt1, &opt2, &opt3, &opt4);
+    return (1);
+}
+
+int         ft_syscmd_go(t_funcs *funcs, char *var, char **opt)
+{
+    char    *opt1;
+    char    *opt2;
+    char    *opt3;
+    int     test;
+
+    test = (opt && opt[0] && opt[1]);
+    opt1 = (opt && opt[0]) ? ft_strcleanfront(opt[0], ' ') : NULL;
+    opt2 = (test) ? ft_strcleanfront(opt[1], ' ') : NULL;
+    opt3 = (test && opt[2]) ? ft_strcleanfront(opt[2], ' ') : NULL;
+    if (funcs->func_name[0] == 'i')
+        ft_syscmd_go_int(funcs, var, opt);
+    else if (funcs->func_name[0] == 'v' && funcs->func_name[1] == '*')
+        ft_syscmd_go_void(funcs, var, opt);
+    else if (ft_strcmp(funcs->func_name, "vv*") == 0)
+        funcs->func->f_void_a(GET(var));
+    else if (ft_strcmp(funcs->func_name, "vv*v*") == 0)
+        funcs->func->f_void_b(GET(opt1), GET(opt2));
+    else if (ft_strcmp(funcs->func_name, "vv*v*v*") == 0)
+        funcs->func->f_void_c(GET(opt1), GET(opt2), GET(opt3));
+    ft_strdelth(&opt1, &opt2, &opt3);
     return (1);
 }
 
@@ -202,6 +242,46 @@ int         ft_syscmd_exec(char *var, char *func, char *options)
         ft_tabstrdel(&tab);
     return (1);
     
+}
+
+void        ft_syscmd_new_other(char *var, char *type, char *content)
+{
+    char    **tab;
+
+    tab = NULL;
+    if (ft_strcmp(type, "tabstr") == 0 || ft_strcmp(type, "liststr") == 0)
+    {
+        tab = ft_strsplit(content, content[0]);
+        ft_alloc(tab, sizeof(char*), var, "tabstr");
+        if (ft_strcmp(type, "liststr") == 0)
+            ft_alloc_convert(var, type); 
+    }
+}
+
+int         ft_syscmd_new(char *str)
+{
+    char    **tab;
+    char    **tab2;
+    char    *type;
+    char    *var;
+    char    *content;
+
+    tab = ft_strsplit(str, '=');
+    type = ft_strsub(tab[0], 4, ft_strlen(tab[0]) - 5);
+    tab2 = ft_strsplit(type, ' ');
+    ft_strdel(&type);
+    var = ft_strsub(tab2[1], 0, ft_strlen(tab2[1]));
+    type = ft_strsub(tab2[0], 0, ft_strlen(tab2[0]));
+    content = ft_strsub(tab[1], 1, ft_strlen(tab[1]) - 1);
+    if (ft_strcmp(type, "str") == 0)
+        ft_calloc(content, ft_strlen(content) + 1, var, type);
+    else if (ft_strcmp(type, "int") == 0)
+        ft_sysint_alloc(ft_atoi(content), var);
+    else
+        ft_syscmd_new_other(var, type, content);
+    ft_strdelth(&type, &var, &content);
+    ft_tabstrdel(&tab);
+    ft_tabstrdel(&tab2);
 }
 
 int         ft_syscmd_func(char *str)                   // Découpe la commande en
@@ -241,10 +321,8 @@ void        *ft_syscmd(char *str)
 
     ret = 0;
     tmp = ft_strcleanfront(str, ' ');
-    ft_putstr("COMMANDE  ");
-    ft_putendl(tmp);
     ft_strdoublon(&tmp, ';');
-    if (ft_strcchr(tmp, ";") == 1)
+    if (ft_strcchr(tmp, ";") != 0)
     {
         tab = ft_strsplit(tmp, ';');
         index = -1;
@@ -252,13 +330,12 @@ void        *ft_syscmd(char *str)
             ft_syscmd(tab[index]);                      // Excute les commandes multiple
         ft_tabstrdel(&tab);
     }
+    else if (ft_strcchr(tmp, "new") != 0 && ft_strcchr(tmp, "(") == 0)
+        ret = ft_syscmd_new(tmp);
+    else if (ft_strcchr(tmp, "=") == 0)
+        ret = ft_syscmd_func(tmp);                  // Traite la commande
     else
-    {
-        if (ft_strcchr(tmp, "=") == 0)
-            ret = ft_syscmd_func(tmp);                  // Traite la commande
-        else
-            ret = ft_syscmd_var(tmp);                   // Gere l'assigniation
-    }
+        ret = ft_syscmd_var(tmp);                   // Gere l'assigniation
     ft_strdel(&tmp);
     return (str);
 }
@@ -273,7 +350,10 @@ int         ft_main(void)
     DBG_PROG;
 
     ft_alloc_convert("ft_opt", "int");
-    ft_syscmd("ret = NAM_PROG.len(); ret2 = DIR_PROG.len(coucou, coco)");
+    ft_syscmd("new tabstr toto = |42|test|NK|a|z|b|z|s|f|e|a|;");
+    ft_syscmd("len = toto.len();");
+    ft_syscmd("count = toto.count();");
+    ft_syscmd("toto.sort();");
     ptr = &ft_strlen;
     ft_calloc(ptr, 8, "DUMP1", "mem");
     ptr2 = &ft_nbrlen;
