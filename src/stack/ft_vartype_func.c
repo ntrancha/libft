@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/23 19:27:12 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/23 19:43:58 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/24 10:01:54 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,7 @@ int         ft_vartype_func(char *str)
         return (6);
     if (ft_strcmp(str, "count") == 0)
         return (7);
+    if (ft_strcmp(str, "to") == 0 || ft_strcmp(str, "convert") == 0)
+        return (8);
     return (0);
 }
