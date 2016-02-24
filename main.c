@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/07 23:13:16 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/24 11:27:38 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/24 20:17:03 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -420,6 +420,58 @@ void        ft_syscmd_file(char *pathfile)
     ft_strnrpl(&file, "\n", "", -1);
     ft_syscmd(file);
     ft_strdel(&file);
+}
+
+t_pile          *ft_syscmd_newinstruction(char *str)
+{
+    t_pile      *new;
+    t_pile      *pile;
+    t_stacks    *stack;
+
+    if (!(stack = ft_stack_init()))
+        return (NULL);
+    pile = stack->pile;
+    while (pile && pile->next)
+        pile = pile->next;
+    if (!(new = ft_memalloc(sizeof(t_pile))))
+        return (NULL);
+    new->instruction = ft_strdup(str);
+    new->ret = 0;
+    if (!pile)
+    {
+        stack->pile = new;
+        new->line = 1;
+    }
+    else
+    {
+        pile->next = new;
+        new->line = pile->line + 1;
+    }
+    return (new);
+}
+
+void        ft_syscmd_addinstruction(char *str)
+{
+    char    **tab;
+    char    *tmp;
+    t_pile  *new;
+    int     index;
+
+    if (ft_strcchr(str, ";") != 0)
+    {
+        tab = ft_strsplit(str, ';');
+        index = -1;
+        while (tab[++index])
+        {
+            tmp = ft_strcleanfront(tab[index], ' ');
+            ft_strdoublon(&tmp, ';');
+            ft_syscmd_newinstruction(tmp);
+            ft_strdel(&tmp);
+        }
+        ft_tabstrdel(&tab);
+    }
+    else
+        ft_syscmd_newinstruction(tmp);
 }
 
 int         ft_main(void)
