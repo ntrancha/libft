@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/05 13:56:33 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/24 20:03:58 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/24 20:15:32 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,8 @@ struct          s_cnvrt
 struct          s_pile
 {
     char        *instruction;
-    int         *line;
+    int         line;
+    int         ret;
     t_pile      *next;
 };
 

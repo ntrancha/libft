@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/05 13:56:33 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/24 19:49:39 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/24 20:15:32 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,8 @@ struct          s_cnvrt
 struct          s_pile
 {
     char        *instruction;
-    int         *line;
+    int         line;
+    int         ret;
     t_pile      *next;
 };
 
@@ -100,9 +101,10 @@ struct          s_stacks
     size_t      sys;
     size_t      free;
     t_type      *types;
-    t_pile      *pile;
     t_cnvrt     *convert;
     t_alloc     *alloc;
+    t_pile      *pile;
+    int         offset;
 };
 
 t_type          *ft_vartype_init(void);
@@ -149,8 +151,8 @@ void            ft_alloc_convert(char *src, char *type_dst);
 int             ft_alloc_cmp(char *a, char *b);
 int             ft_alloc_cnvrt_xst(char *src, char *dst);
 void            ft_stack_infos_func(void);
-int     ft_vartype_func(char *str);
-int     ft_alloc_len(char *a);
-int     ft_alloc_count(char *a);
+int             ft_vartype_func(char *str);
+int             ft_alloc_len(char *a);
+int             ft_alloc_count(char *a);
 
 #endif
