@@ -1,27 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   extra.h                                            :+:      :+:    :+:   */
+/*   ft_exit.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/01/02 17:48:19 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/14 23:49:51 by ntrancha         ###   ########.fr       */
+/*   Created: 2016/02/24 19:56:51 by ntrancha          #+#    #+#             */
+/*   Updated: 2016/02/24 19:59:54 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef EXTRA_H
-# define EXTRA_H
-# include "libft.h"
-# define SYSTIMER   54000000
-
-int	ft_rgb(int red, int green, int blue);
-int ft_getcol(void);
-int ft_getrow(void);
-int ft_getpid(void);
-int ft_test(void);
-char    *ft_getpwd(void);
-void    ft_timer(int ms);
-void    ft_exit(void);
-
+#include <stdlib.h>
+#ifdef STACK_H
+# include "../../includes/stack.h"
 #endif
+
+void        ft_exit(void)
+{
+    #ifdef STACK_H
+    ft_stack_free();
+    #endif
+    exit(EXIT_FAILURE);
+}

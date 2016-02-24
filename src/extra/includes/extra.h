@@ -22,5 +22,6 @@ int ft_getpid(void);
 int ft_test(void);
 char    *ft_getpwd(void);
 void    ft_timer(int ms);
+void    ft_exit(void);
 
 #endif
