@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/07 23:13:16 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/24 10:52:05 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/24 11:27:38 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -314,6 +314,59 @@ int         ft_syscmd_func(char *str)                   // Découpe la commande 
     return (count);
 }
 
+int         ft_syscmd_echovar(char *echo)
+{
+    char    *var;
+    char    *cmd;
+    int     index;
+    int     end;
+    
+    index = 0;
+    end = 0;
+    while (echo[++index] && end >= 0)
+        if (echo[index] == '{')
+        {
+            end = index;
+            while (echo[end] && echo[end] != '}' && echo[end] != ';')
+                end++;
+            var = ft_strsub(echo, index + 1, end - index - 1);
+            cmd = ft_strjoin(var, ".put();");
+            ft_syscmd(cmd);
+            ft_strdelt(&var, &cmd);
+            return (end);
+        }
+    return (ft_strlen(echo));
+}
+
+void        ft_syscmd_echo(char *str)
+{
+    char    *echo;
+    char    *var;
+    char    *cmd;
+    int     index;
+    int     end;
+
+    echo = ft_strsub(str, 5, ft_strlen(str) - 5);
+    index = -1;
+    while (echo[++index])
+        if (echo[index] == '$' && echo[index + 1] && echo[index + 1] == '{')
+            index = ft_syscmd_echovar(echo);
+        else if (echo[index] == '$')
+        {
+            end = index;
+            while (echo[end] && echo[end] != ' ' && echo[end] != ';')
+                end++;
+            var = ft_strsub(echo, index + 1, end - index - 1);
+            cmd = ft_strjoin(var, ".put();");
+            ft_syscmd(cmd);
+            ft_strdelt(&var, &cmd);
+            index = end -1;
+        }
+        else
+            ft_putchar(echo[index]);
+    ft_strdel(&echo);
+}
+
 static void ft_syscmd_sys(char *str)
 {
     if (ft_strcmp(str, "#INFOS") == 0)
@@ -326,6 +379,8 @@ static void ft_syscmd_type(char *str)
 {
     if (ft_strncmp(str, "new", 3) == 0 && ft_strcchr(str, "(") == 0)
         ft_syscmd_new(str);
+    else if (ft_strncmp(str, "echo", 4) == 0)
+        ft_syscmd_echo(str);
     else if (str[0] == '#')
         ft_syscmd_sys(str);
     else if (ft_strcchr(str, "=") == 0)
