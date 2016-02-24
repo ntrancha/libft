@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/07 23:13:16 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/24 20:17:03 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/24 20:23:02 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -422,7 +422,7 @@ void        ft_syscmd_file(char *pathfile)
     ft_strdel(&file);
 }
 
-t_pile          *ft_syscmd_newinstruction(char *str)
+static t_pile   *ft_syscmd_newinstruction(char *str)
 {
     t_pile      *new;
     t_pile      *pile;
