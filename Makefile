@@ -177,6 +177,7 @@ FILE	=	src/mem/ft_memalloc.c                \
 			src/list/ft_liststrlenmax.c          \
 			src/extra/ft_getrow.c                \
 			src/extra/ft_getcol.c                \
+			src/extra/ft_exit.c                  \
 			src/extra/ft_getpid.c                \
 			src/extra/ft_timer.c                 \
 			src/extra/ft_test.c                  \

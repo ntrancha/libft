@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/07 23:13:16 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/24 20:23:02 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/24 20:37:26 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -412,15 +412,6 @@ void        *ft_syscmd(char *str)
     return (str);
 }
 
-void        ft_syscmd_file(char *pathfile)
-{
-    char    *file;
-
-    file = ft_get_file(pathfile);
-    ft_strnrpl(&file, "\n", "", -1);
-    ft_syscmd(file);
-    ft_strdel(&file);
-}
 
 static t_pile   *ft_syscmd_newinstruction(char *str)
 {
@@ -450,6 +441,39 @@ static t_pile   *ft_syscmd_newinstruction(char *str)
     return (new);
 }
 
+t_pile          *ft_syscmd_pile_offset(int offset)
+{
+    t_stacks    *stack;
+    t_pile      *pile;
+
+    stack = ft_stack_init();
+    pile = stack->pile;
+    while (pile)
+    {
+        if (offset == pile->line)
+            return (pile);
+        pile = pile->next;
+    }
+    return (NULL);
+}
+
+void            ft_syscmd_pile(void)
+{
+    t_stacks    *stack;
+    t_pile      *pile;
+
+    stack = ft_stack_init();
+    stack->offset++;
+    pile = ft_syscmd_pile_offset(stack->offset);
+    if (pile)
+    {
+        ft_syscmd(pile->instruction);
+        ft_syscmd_pile();
+    }
+    else
+        stack->offset--;
+}
+
 void        ft_syscmd_addinstruction(char *str)
 {
     char    **tab;
@@ -472,6 +496,17 @@ void        ft_syscmd_addinstruction(char *str)
     }
     else
         ft_syscmd_newinstruction(tmp);
+    ft_syscmd_pile();
+}
+
+void        ft_syscmd_file(char *pathfile)
+{
+    char    *file;
+
+    file = ft_get_file(pathfile);
+    ft_strnrpl(&file, "\n", "", -1);
+    ft_syscmd_addinstruction(file);
+    ft_strdel(&file);
 }
 
 int         ft_main(void)
