@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/07 23:13:16 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/24 02:52:24 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/24 10:52:05 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,8 @@ int         ft_syscmd_base(char *var, char *func, char *options)
         ft_sysint_alloc(ft_alloc_len(var), options);
     if (base == 7 && options && ft_strcchr(options, ",") == 0)
         ft_sysint_alloc(ft_alloc_count(var), options);
+    if (base == 8 && options && ft_strcchr(options, ",") == 0)
+        ft_alloc_convert(var, options);
     if (ft_strcchr(options, ",") != 0)
         ft_tabstrdel(&tab);
 }
@@ -312,14 +314,33 @@ int         ft_syscmd_func(char *str)                   // Découpe la commande 
     return (count);
 }
 
+static void ft_syscmd_sys(char *str)
+{
+    if (ft_strcmp(str, "#INFOS") == 0)
+        ft_stack_infos();
+    if (ft_strcmp(str, "#DBG_PROG") == 0)
+        DBG_PROG;
+}
+
+static void ft_syscmd_type(char *str)
+{
+    if (ft_strncmp(str, "new", 3) == 0 && ft_strcchr(str, "(") == 0)
+        ft_syscmd_new(str);
+    else if (str[0] == '#')
+        ft_syscmd_sys(str);
+    else if (ft_strcchr(str, "=") == 0)
+        ft_syscmd_func(str);                  // Traite la commande
+    else
+        ft_syscmd_var(str);                   // Gere l'assigniation
+
+}
+
 void        *ft_syscmd(char *str)
 {
     char    **tab;
     char    *tmp;
     int     index;
-    int     ret;
 
-    ret = 0;
     tmp = ft_strcleanfront(str, ' ');
     ft_strdoublon(&tmp, ';');
     if (ft_strcchr(tmp, ";") != 0)
@@ -330,36 +351,35 @@ void        *ft_syscmd(char *str)
             ft_syscmd(tab[index]);                      // Excute les commandes multiple
         ft_tabstrdel(&tab);
     }
-    else if (ft_strcchr(tmp, "new") != 0 && ft_strcchr(tmp, "(") == 0)
-        ret = ft_syscmd_new(tmp);
-    else if (ft_strcchr(tmp, "=") == 0)
-        ret = ft_syscmd_func(tmp);                  // Traite la commande
     else
-        ret = ft_syscmd_var(tmp);                   // Gere l'assigniation
+        ft_syscmd_type(tmp);
     ft_strdel(&tmp);
     return (str);
+}
+
+void        ft_syscmd_file(char *pathfile)
+{
+    char    *file;
+
+    file = ft_get_file(pathfile);
+    ft_strnrpl(&file, "\n", "", -1);
+    ft_syscmd(file);
+    ft_strdel(&file);
 }
 
 int         ft_main(void)
 {
     size_t  (*ptr)(const char *);
     size_t  (*ptr2)(int);
-    char    **tab;
 
-    DBG_FILE;
-    DBG_PROG;
 
-    ft_alloc_convert("ft_opt", "int");
-    ft_syscmd("new tabstr toto = |42|test|NK|a|z|b|z|s|f|e|a|;");
-    ft_syscmd("len = toto.len();");
-    ft_syscmd("count = toto.count();");
-    ft_syscmd("toto.sort();");
-    ptr = &ft_strlen;
-    ft_calloc(ptr, 8, "DUMP1", "mem");
-    ptr2 = &ft_nbrlen;
-    ft_calloc(ptr2, 8, "DUMP2", "mem");
-    ft_alloc_fusion("DUMP1", "DUMP2", "DUMP1 + DUMP2");
-    ft_stack_infos();
+    ft_syscmd_file("code.nk");
+    /*ptr = &ft_strlen;*/
+    /*ft_calloc(ptr, 8, "DUMP1", "mem");*/
+    /*ptr2 = &ft_nbrlen;*/
+    /*ft_calloc(ptr2, 8, "DUMP2", "mem");*/
+    /*ft_alloc_fusion("DUMP1", "DUMP2", "DUMP1 + DUMP2");*/
+    /*ft_stack_infos();*/
     /*testons("*æ*‰*€*ß*α*⠇*ฆ*☮*♒*♣*⌦*⌥*━*␥*▓*♫*♂");*/
     /*testons("*æ*‰*€*ß*α*⠇*ฆ");*/
     /*ft_putnbr_endl(ft_strlen("*æ*‰*€*ß*α*⠇*ฆ"));*/

@@ -1,0 +1,11 @@
+new tabstr toto = |42|test|NK|a|z|b|z|s|f|e|a|;
+len = toto.len();
+count = toto.count();
+toto.sort();
+toto.copy(tata);
+toto.to(liststr);
+toto.del();
+new str coco = toto le plus gros;
+int = coco.len();
+#INFOS;
+#DBG_PROG;
