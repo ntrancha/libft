@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/07 00:26:16 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/24 19:54:41 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/24 20:04:17 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ t_stacks            *ft_stack_init(void)
         alloc->stack_free = 0;
         alloc->elements = 0;
         alloc->free = 0;
+        alloc->offset = 0;
         alloc->sys = sizeof(t_stacks);
         alloc->alloc = NULL;
         alloc->pile = NULL;

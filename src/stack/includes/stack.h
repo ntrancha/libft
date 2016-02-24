@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/05 13:56:33 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/24 20:01:12 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/24 20:03:58 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,9 +100,10 @@ struct          s_stacks
     size_t      sys;
     size_t      free;
     t_type      *types;
-    t_pile      *pile;
     t_cnvrt     *convert;
     t_alloc     *alloc;
+    t_pile      *pile;
+    int         offset;
 };
 
 t_type          *ft_vartype_init(void);
