@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/07 23:13:16 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/24 20:37:26 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/25 01:58:50 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,24 @@ void        testons(char *str)
     ft_putendl(str);
 }
 
+int         ft_syscmd_assigne(char *str)
+{
+    char    **tab;
+    char    *var;
+    char    *content;
+
+    tab = ft_strsplit(str, '=');
+    var = ft_strcleanback(tab[0], ' ');
+    content = ft_strcleanfront(tab[1], ' ');
+    if (ft_strisnum(content) == 1)
+        ft_sysint_alloc(ft_atoi(content), var);
+    else
+        ft_calloc_erase((void*)content, ft_strlen(content) + 1, var, "str");
+    ft_strdelt(&var, &content);
+    ft_tabstrdel(&tab);
+    return (1);
+}
+
 int         ft_syscmd_var(char *str)
 {
     char    **tab;
@@ -49,6 +67,8 @@ int         ft_syscmd_var(char *str)
     char    *option;
     char    *var;
 
+    if (ft_strcchr(str, ")") == 0)
+        return (ft_syscmd_assigne(str));
     tab = ft_strsplit(str, '=');
     var = ft_strcleanback(tab[0], ' ');
     commande = ft_strcleanfront(tab[1], ' ');
@@ -375,19 +395,81 @@ static void ft_syscmd_sys(char *str)
         DBG_PROG;
 }
 
+static int  test_char(char c)
+{
+    if (c == ' ' || c == ')' || c == ';' || c == ',' || c == '}')
+        return (1);
+    return (0);
+}
+
+static char *ft_syscmd_getvarcontent(char *str)
+{
+    t_alloc *alloc;
+    char    *tmp;
+    int     start;
+    int     id;
+
+    start = (str[1] == '{') ? 2 : 1;
+    id = (str[1] == '{') ? 1 : 0;
+    tmp = ft_strsub(str, start, ft_strlen(str) - start - id);
+    alloc = ft_alloc_get(tmp);
+    ft_strdel(&tmp);
+    if (alloc && ft_strcmp(alloc->type, "str") == 0)
+        return ((char*)alloc->content);
+    return (NULL);
+}
+
+static int  ft_syscmd_getvar(char **str)
+{
+    char    *ret;
+    char    *tmp;
+    int     start;
+    int     id;
+
+    if (ft_strcchr(*str, "$") == 0)
+        return (0);
+    id = 0;
+    ret = ft_strdup(*str);
+    while (ret[id] && ret[id] != '$')
+        id++;
+    start = id++;
+    id += (ret[id] && ret[id] == '{') ? 1 : 0;
+    while(ret[id] && !test_char(ret[id]))
+        id++;
+    tmp = ft_strsub(ret, start, id - start + (ret[id] == '}'));
+    ft_strdel(&ret);
+    ret = ft_syscmd_getvarcontent(tmp);
+    if (ret)
+        ft_strnrpl(str, tmp, ret, -1);
+    ft_strdel(&tmp);
+    if (ret)
+        return (1);
+    return (0);
+}
+
 static void ft_syscmd_type(char *str)
 {
-    if (ft_strncmp(str, "new", 3) == 0 && ft_strcchr(str, "(") == 0)
-        ft_syscmd_new(str);
-    else if (ft_strncmp(str, "echo", 4) == 0)
-        ft_syscmd_echo(str);
-    else if (str[0] == '#')
-        ft_syscmd_sys(str);
-    else if (ft_strcchr(str, "=") == 0)
-        ft_syscmd_func(str);                  // Traite la commande
-    else
-        ft_syscmd_var(str);                   // Gere l'assigniation
+    char    *tmp;
+    char    *tmp2;
+    int     ret;
 
+    tmp2 = ft_strjoin(" ", str);
+    ret = 1;
+    while (ret == 1)
+        ret = ft_syscmd_getvar(&tmp2);
+    tmp = ft_strcleanfront(tmp2, ' ');
+    ft_strdel(&tmp2);
+    if (ft_strncmp(tmp, "new", 3) == 0 && ft_strcchr(tmp, "(") == 0)
+        ft_syscmd_new(tmp);
+    else if (ft_strncmp(tmp, "echo", 4) == 0)
+        ft_syscmd_echo(tmp);
+    else if (tmp[0] == '#')
+        ft_syscmd_sys(tmp);
+    else if (ft_strcchr(tmp, "=") == 0)
+        ft_syscmd_func(tmp);                  // Traite la commande
+    else
+        ft_syscmd_var(tmp);                   // Gere l'assigniation
+    ft_strdel(&tmp);
 }
 
 void        *ft_syscmd(char *str)
@@ -412,8 +494,9 @@ void        *ft_syscmd(char *str)
     return (str);
 }
 
+///////////////////////////////////////////////////////////////////////////////
 
-static t_pile   *ft_syscmd_newinstruction(char *str)
+static t_pile   *ft_syscmd_newinstruction(char *str)    // Créé une instruction pour la stack
 {
     t_pile      *new;
     t_pile      *pile;
@@ -441,7 +524,7 @@ static t_pile   *ft_syscmd_newinstruction(char *str)
     return (new);
 }
 
-t_pile          *ft_syscmd_pile_offset(int offset)
+t_pile          *ft_syscmd_pile_offset(int offset)  // récupere a l'offset l'instruction
 {
     t_stacks    *stack;
     t_pile      *pile;
@@ -457,7 +540,26 @@ t_pile          *ft_syscmd_pile_offset(int offset)
     return (NULL);
 }
 
-void            ft_syscmd_pile(void)
+static void     ft_pile_free(void)                  // Vide la stack
+{
+    t_stacks    *stack;
+    t_pile      *pile;
+    t_pile      *next;
+
+    stack = ft_stack_init();
+    pile = stack->pile;
+    while (pile)
+    {
+        next = pile->next;
+        ft_strdel(&(pile->instruction));
+        ft_memdel((void**)&pile);
+        pile = next;
+    }
+    stack->offset = 0;
+    stack->pile = NULL;
+}
+
+void            ft_syscmd_pile(void)                // Execute la stack
 {
     t_stacks    *stack;
     t_pile      *pile;
@@ -474,7 +576,7 @@ void            ft_syscmd_pile(void)
         stack->offset--;
 }
 
-void        ft_syscmd_addinstruction(char *str)
+void        ft_syscmd_addinstruction(char *str)     // PUSH INSTRUCTIONS SUR LA STACK
 {
     char    **tab;
     char    *tmp;
@@ -497,7 +599,10 @@ void        ft_syscmd_addinstruction(char *str)
     else
         ft_syscmd_newinstruction(tmp);
     ft_syscmd_pile();
+    ft_pile_free();
 }
+
+///////////////////////////////////////////////////////////////////////////////
 
 void        ft_syscmd_file(char *pathfile)
 {

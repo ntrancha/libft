@@ -1,12 +1,6 @@
-new tabstr toto = |42|test|NK|a|z|b|z|s|f|e|a|;
-len = toto.len();
-count = toto.count();
-toto.sort();
-toto.copy(tata);
-toto.to(liststr);
-toto.del();
-new str coco = toto la plus gros;
-int = coco.len();
-echo ${coco}se des $int;
+name_variable = test42;
+test42 = OK;
+${name_variable}.put();
+echo $test42;
 #INFOS;
 #DBG_PROG;
