@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/07 23:13:16 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/25 11:19:02 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/26 00:30:08 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -263,7 +263,6 @@ int         ft_syscmd_exec(char *var, char *func, char *options)
     if (tab)
         ft_tabstrdel(&tab);
     return (1);
-    
 }
 
 void        ft_syscmd_new_other(char *var, char *type, char *content)
