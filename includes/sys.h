@@ -44,5 +44,6 @@ void    ft_sysfunc_init(void);
 int     ft_sysfunc_exist(t_funcs *funcs, char *name);
 t_funcs *ft_sysfunc_get(char *var_name);
 t_funcs *ft_sysfunc_find(t_funcs *funcs, char *name);
+void    ft_sys_print(void);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/07 23:13:16 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/25 11:02:46 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/25 11:19:02 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -393,6 +393,8 @@ static void ft_syscmd_sys(char *str)
         ft_stack_infos();
     if (ft_strcmp(str, "#DBG_PROG") == 0)
         DBG_PROG;
+    if (ft_strcmp(str, "#STACK") == 0)
+        ft_sys_print();
 }
 
 static int  test_char(char c)
