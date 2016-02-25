@@ -284,6 +284,7 @@ FILE	=	src/mem/ft_memalloc.c                \
 			src/strings/ft_strlcat.c             \
 			src/strings/ft_strmmjoin.c           \
 			src/strings/ft_strclr.c              \
+			src/strings/ft_strclearfront.c       \
 			src/strings/ft_strralloc.c           \
 			src/strings/ft_strstr.c              \
 			src/strings/ft_strtoupper.c          \
@@ -303,6 +304,7 @@ FILE	=	src/mem/ft_memalloc.c                \
 			src/strings/ft_strequ.c              \
 			src/strings/ft_strf.c                \
 			src/strings/ft_strgetline.c          \
+			src/strings/ft_strclearback.c        \
 			src/bag/ft_bag_get.c                 \
 			src/bag/ft_bag_delnode.c             \
 			src/bag/ft_bag_addvar.c              \

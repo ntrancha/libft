@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/07 23:13:16 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/25 10:32:37 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/25 10:48:19 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -476,10 +476,10 @@ void        *ft_syscmd(char *str)
 {
     char    **tab;
     char    *tmp;
-    char    *tmp2;
     int     index;
 
     tmp = ft_strcleanfront(str, ' ');
+    ft_strclearfront(&tmp, '\t');
     ft_strdoublon(&tmp, ';');
     if (ft_strcchr(tmp, ";") != 0)
     {
@@ -491,13 +491,11 @@ void        *ft_syscmd(char *str)
     }
     else
     {
-        tmp2 = ft_strcleanfront(tmp, '\t');
-        ft_strdel(&tmp);
-        tmp = ft_strcleanback(tmp2, ' ');
-        ft_strdel(&tmp2);
-        tmp2 = ft_strcleanback(tmp, '\t');
-        ft_syscmd_type(tmp2);
-        ft_strdel(&tmp2);
+        ft_strclearback(&tmp, '\t');
+        ft_strclearback(&tmp, ' ');
+        ft_strclearfront(&tmp, '\t');
+        ft_strclearfront(&tmp, ' ');
+        ft_syscmd_type(tmp);
     }
     ft_strdel(&tmp);
     return (str);

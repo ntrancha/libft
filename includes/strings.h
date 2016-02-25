@@ -85,5 +85,7 @@ char    *ft_tabstrtostr(char **tab);
 int     ft_tabstrsize(char **tab);
 char    *ft_strdupdel(char *dup, char **del);
 void    ft_tabstrsort(char ***tab, int sort);
+void    ft_strclearback(char **str, char c);
+void    ft_strclearfront(char **str, char c);
 
 #endif
