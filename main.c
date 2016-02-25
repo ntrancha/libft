@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/07 23:13:16 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/25 10:48:19 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/25 11:02:46 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -472,6 +472,22 @@ static void ft_syscmd_type(char *str)
     ft_strdel(&tmp);
 }
 
+int         no_comment(char *str)
+{
+    int     len;
+
+    len = ft_strlen(str);
+    if (len > 0 && str[0] == '/' && str[1] == '/')
+        return (0);
+    if (len > 0 && str[0] == '<' && str[1] == '?')
+        return (0);
+    if (len > 0 && str[0] == '?' && str[1] == '>')
+        return (0);
+    if (len > 0 && str[0] == '#' && str[1] == '!')
+        return (0);
+    return (1);
+}
+
 void        *ft_syscmd(char *str)
 {
     char    **tab;
@@ -489,7 +505,7 @@ void        *ft_syscmd(char *str)
             ft_syscmd(tab[index]);                      // Excute les commandes multiple
         ft_tabstrdel(&tab);
     }
-    else
+    else if (no_comment(tmp))
     {
         ft_strclearback(&tmp, '\t');
         ft_strclearback(&tmp, ' ');
@@ -616,7 +632,7 @@ void        ft_syscmd_file(char *pathfile)
     char    *file;
 
     file = ft_get_file(pathfile);
-    ft_strnrpl(&file, "\n", "", -1);
+    ft_strnrpl(&file, "\n", ";", -1);
     ft_syscmd_addinstruction(file);
     ft_strdel(&file);
 }
@@ -627,7 +643,7 @@ int         ft_main(void)
     size_t  (*ptr2)(int);
 
 
-    ft_syscmd_file("code.nk");
+    ft_syscmd_file("code.php");
     /*ptr = &ft_strlen;*/
     /*ft_calloc(ptr, 8, "DUMP1", "mem");*/
     /*ptr2 = &ft_nbrlen;*/
