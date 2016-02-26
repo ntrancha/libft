@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/26 09:18:51 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/26 15:30:59 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/26 15:39:33 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,11 +50,11 @@ static int  ft_syscmd_go_int(t_funcs *funcs, char **opt)
     opt3 = (test && opt[2]) ? ft_strcleanfront(opt[2], ' ') : NULL;
     opt4 = (test && opt[2] && opt[3]) ? ft_strcleanfront(opt[3], ' ') : NULL;
     if (ft_strcmp(funcs->func_name, "iv*") == 0)
-        ft_sysint_alloc(funcs->func->f_int_a(GET(opt1)), opt2);
+        ft_sysint_alloc(F_INTA(GET(opt1)), opt2);
     else if (ft_strcmp(funcs->func_name, "iv*v*") == 0)
-        ft_sysint_alloc(funcs->func->f_int_b(GET(opt1), GET(opt2)), opt3);
+        ft_sysint_alloc(F_INTB(GET(opt1), GET(opt2)), opt3);
     else if (ft_strcmp(funcs->func_name, "iv*v*v*") == 0)
-        ft_sysint_alloc(funcs->func->f_int_c(GET(opt1), GET(opt2), GET(opt3)), opt4);
+        ft_sysint_alloc(F_INTC(GET(opt1), GET(opt2), GET(opt3)), opt4);
     ft_strdelf(&opt1, &opt2, &opt3, &opt4);
     return (1);
 }

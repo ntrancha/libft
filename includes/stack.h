@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/05 13:56:33 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/24 20:15:32 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/26 15:38:51 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,9 @@
 # define    VGET(variable)  ft_alloc_vget(#variable)
 # define    DEL(variable)   ft_alloc_del(#variable)
 # define    PDEL(variable) 	ft_alloc_pdel(variable)
+# define    F_INTA          funcs->func->f_int_a
+# define    F_INTB          funcs->func->f_int_B
+# define    F_INTC          funcs->func->f_int_C
 # define    XSTR(vr, nm)    ft_alloc(#vr, ft_strlen(#vr) + 1, #nm, "str")
 # define    ASTR(vr, nm)    ft_alloc(vr, ft_strlen(vr) + 1, nm, "str")
 # define    CSTR(vr, nm)    ft_calloc(vr, ft_strlen(vr) + 1, nm, "str")
