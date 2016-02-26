@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/26 09:17:28 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/26 09:27:55 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/26 15:32:18 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static void ft_syscmd_new_other(char *var, char *type, char *content)
         tab = ft_strsplit(content, content[0]);
         ft_alloc(tab, sizeof(char*), var, "tabstr");
         if (ft_strcmp(type, "liststr") == 0)
-            ft_alloc_convert(var, type); 
+            ft_alloc_convert(var, type);
     }
 }
 
