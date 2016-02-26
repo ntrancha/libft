@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/26 09:15:45 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/26 09:16:38 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/26 15:30:08 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,11 @@ int         ft_syscmd_func(char *str)
     count = index + 1;
     while (str[count] && str[count] != '.')
         count++;
-    var = ft_strsub(str, index, count - index); 
+    var = ft_strsub(str, index, count - index);
     index += ++count;
     while (str[index] && str[index] != '(')
         index++;
-    func = ft_strsub(str, count, index - count); 
+    func = ft_strsub(str, count, index - count);
     count = index++;
     while (str[count] && str[count] != ')')
         count++;

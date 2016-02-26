@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/25 11:16:27 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/26 15:27:26 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/26 15:28:15 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ static void     put_color(char *str)
     char        *tmp;
 
     tmp = ft_strdup(str);
-    //ft_strnrpl(&tmp, " = ", " \033[33m=\033[0m ", -1);
     ft_putstr(C_BLUE);
     ft_putendl(tmp);
     ft_putstr(C_NULL);
