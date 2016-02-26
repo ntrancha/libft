@@ -5,7 +5,6 @@
     test42 = "OK";
 
     ${name_variable}.put();
-    #STACK
 
     #INFOS;
 

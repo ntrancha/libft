@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/07 00:30:08 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/22 21:18:18 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/26 07:41:11 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,9 @@
 #include "../../includes/put.h"
 #include "../../includes/macros.h"
 
-static void     ft_stack_display(void)
+static void     ft_stack_display(t_alloc *alloc)
 {
-    t_stacks    *stack;
-    t_alloc     *alloc;
-
-    stack = ft_stack_init();
-    alloc = stack->alloc;
-    ft_putendl("\033[35m================ STACK =================\033[0m");
+    ft_putendl("\033[35m============== VARIABLES ===============\033[0m");
     while (alloc)
     {
         if (alloc->name)
@@ -37,10 +32,11 @@ static void     ft_stack_display(void)
         ft_putspace(22 - ft_strlen(alloc->type));
         ft_putstr(C_BLUE);
         ft_alloc_put(alloc->name);
-        ft_putstr(C_NULL);
-        ft_putendl("");
+        ft_putendl(C_NULL);
         alloc = alloc->next;
     }
+    ft_putendl("\033[35m================ STACK =================\033[0m");
+    ft_sys_print();
     ft_putendl("\033[35m================ INFOS =================\033[0m");
 }
 
@@ -50,34 +46,6 @@ static void     ft_stack_show_test(void *type)
         ft_putstr("  X ");
     else
         ft_putstr("    ");
-}
-
-static void     ft_stack_show(t_stacks *stack)
-{
-    t_type      *type;
-
-    type = stack->types;
-    ft_putendl("\033[35m================ TYPES =================\033[0m");
-    ft_putendl("           \033[33mdel put cpy cmp fus len count \033[0m");
-    while (type)
-    {
-        if (type->type)
-        {
-            ft_putstr_color(type->type, C_GREEN);
-            ft_putspace(9 - ft_strlen(type->type));
-            ft_stack_show_test(type->del);
-            ft_stack_show_test(type->put);
-            ft_stack_show_test(type->cpy);
-            ft_stack_show_test(type->cmp);
-            ft_stack_show_test(type->fus);
-            ft_stack_show_test(type->len);
-            ft_stack_show_test(type->count);
-            ft_putstr("\n");
-        }
-        type = type->next;
-    }
-    ft_stack_infos_func();
-    ft_putendl("\033[35m=============== CONVERT ================\033[0m");
 }
 
 static void     ft_stack_convert(t_stacks *stack, t_type *type, t_cnvrt *conv)
@@ -106,6 +74,36 @@ static void     ft_stack_convert(t_stacks *stack, t_type *type, t_cnvrt *conv)
         ft_putendl("");
         type = type->next;
     }
+    ft_stack_display(stack->alloc);
+}
+
+static void     ft_stack_show(t_stacks *stack)
+{
+    t_type      *type;
+
+    type = stack->types;
+    ft_putendl("\033[35m================ TYPES =================\033[0m");
+    ft_putendl("           \033[33mdel put cpy cmp fus len count \033[0m");
+    while (type)
+    {
+        if (type->type)
+        {
+            ft_putstr_color(type->type, C_GREEN);
+            ft_putspace(9 - ft_strlen(type->type));
+            ft_stack_show_test(type->del);
+            ft_stack_show_test(type->put);
+            ft_stack_show_test(type->cpy);
+            ft_stack_show_test(type->cmp);
+            ft_stack_show_test(type->fus);
+            ft_stack_show_test(type->len);
+            ft_stack_show_test(type->count);
+            ft_putstr("\n");
+        }
+        type = type->next;
+    }
+    ft_stack_infos_func();
+    ft_putendl("\033[35m=============== CONVERT ================\033[0m");
+    ft_stack_convert(stack, stack->types, stack->convert);
 }
 
 void            ft_stack_infos(void)
@@ -114,8 +112,6 @@ void            ft_stack_infos(void)
 
     stack = ft_stack_init();
     ft_stack_show(stack);
-    ft_stack_convert(stack, stack->types, NULL);
-    ft_stack_display();
     ft_putstr("allocs\033[32m");
     ft_putspace(33 - ft_nbrlen((int)stack->elements + (int)stack->free));
     ft_putnbr_endl((int)stack->elements + (int)stack->free);
