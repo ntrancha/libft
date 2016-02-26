@@ -45,5 +45,16 @@ int     ft_sysfunc_exist(t_funcs *funcs, char *name);
 t_funcs *ft_sysfunc_get(char *var_name);
 t_funcs *ft_sysfunc_find(t_funcs *funcs, char *name);
 void    ft_sys_print(void);
+int     ft_syscmd_func(char *str);
+int     ft_syscmd_exec(char *var, char *func, char *options);
+void    ft_syscmd_echo(char *str);
+void    ft_syscmd_addinstruction(char *str);
+void    *ft_syscmd(char *str);
+int     ft_syscmd_new(char *str);
+void    ft_syscmd_sys(char *str);
+int     ft_syscmd_base(char *var, char *func, char *options);
+int     ft_syscmd_inception(char *var, char *func, char *options);
+void    ft_syscmd_file(char *pathfile);
+int     ft_syscmd_var(char *str);
 
 #endif
