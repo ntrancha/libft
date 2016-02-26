@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/22 20:11:28 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/22 21:17:50 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/26 15:33:34 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ static void     func_type_args(char *c)
     {
         if (test && c[count] != '*')
             ft_putstr(", ");
-        else 
+        else
             test = 1;
         if (c[count] == 'v')
             ft_putstr_color("void", C_GREEN);
