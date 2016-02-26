@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/26 09:21:51 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/26 09:22:20 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/26 15:34:03 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int         ft_syscmd_inception(char *var, char *func, char *options)
             if (ft_strcchr(tab[index], "(") != 0)
             {
                 tmp = ft_itoa(index);
-                var_tmp = ft_strjoin("TMP_", tmp); 
+                var_tmp = ft_strjoin("TMP_", tmp);
                 commande = ft_strmjoin(var_tmp, " = ", tab[index]);
                 ft_syscmd(commande);
                 ft_strdelth(&tmp, &var_tmp, &commande);
