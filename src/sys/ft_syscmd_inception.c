@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/26 09:21:51 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/26 16:03:03 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/26 16:03:48 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ int         del_tmp(void)
     return (1);
 }
 
-int         inceptor(int index, char* func, char* var)
+void        inceptor(int index, char* func, char* var)
 {
     char    *commande;
     char    *var_tmp;
