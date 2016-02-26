@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/26 09:14:07 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/26 09:15:38 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/26 15:31:24 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static int  ft_syscmd_echovar(char *echo)
     char    *cmd;
     int     index;
     int     end;
-    
+
     index = 0;
     end = 0;
     while (echo[++index] && end >= 0)
