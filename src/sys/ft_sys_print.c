@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/25 11:16:27 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/25 16:38:05 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/26 15:27:26 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,9 @@ static void     put_color(char *str)
 
     tmp = ft_strdup(str);
     //ft_strnrpl(&tmp, " = ", " \033[33m=\033[0m ", -1);
+    ft_putstr(C_BLUE);
     ft_putendl(tmp);
+    ft_putstr(C_NULL);
     ft_strdel(&tmp);
 }
 
@@ -50,8 +52,10 @@ void            ft_sys_print(void)
     while (pile)
     {
         ft_putspace(size - ft_nbrlen(pile->line));
+        ft_putstr(C_YELLOW);
         ft_putnbr(pile->line);
         ft_putstr(": ");
+        ft_putstr(C_NULL);
         if (stack->offset == pile->line)
         {
             ft_putstr_color(pile->instruction, C_GREEN);
