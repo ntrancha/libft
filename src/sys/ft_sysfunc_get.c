@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/23 11:39:21 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/23 11:41:48 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/26 15:33:02 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,4 @@ t_funcs     *ft_sysfunc_get(char *var_name)
     if (!(type = ft_vartype_get(alloc->type)))
         return (NULL);
     return (type->func);
-    
 }
-
