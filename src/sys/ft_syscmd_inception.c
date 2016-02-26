@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/26 09:21:51 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/26 15:34:18 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/26 16:03:03 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,43 +14,61 @@
 #include "../../includes/sys.h"
 #include "../../includes/strings.h"
 
-int         ft_syscmd_inception(char *var, char *func, char *options)
+void        syscmd(char *options)
+{
+    char    *commande;
+    char    *var_tmp;
+
+    var_tmp = ft_strdup("TMP_0");
+    commande = ft_strmjoin(var_tmp, " = ", options);
+    ft_syscmd(commande);
+    ft_strdelt(&var_tmp, &commande);
+}
+
+int         inception(char *options)
 {
     char    **tab;
     char    *commande;
     char    *tmp;
     char    *var_tmp;
     int     index;
-    int     count;
-    int     test;
 
-    tab = NULL;
     index = 0;
-    if (ft_strcchr(options, ",") != 0)
+    tab = ft_strsplit(options, ',');
+    while (tab[index])
     {
-        tab = ft_strsplit(options, ',');
-        while (tab[index])
+        if (ft_strcchr(tab[index], "(") != 0)
         {
-            if (ft_strcchr(tab[index], "(") != 0)
-            {
-                tmp = ft_itoa(index);
-                var_tmp = ft_strjoin("TMP_", tmp);
-                commande = ft_strmjoin(var_tmp, " = ", tab[index]);
-                ft_syscmd(commande);
-                ft_strdelth(&tmp, &var_tmp, &commande);
-            }
-            index++;
+            tmp = ft_itoa(index);
+            var_tmp = ft_strjoin("TMP_", tmp);
+            commande = ft_strmjoin(var_tmp, " = ", tab[index]);
+            ft_syscmd(commande);
+            ft_strdelth(&tmp, &var_tmp, &commande);
         }
-        ft_tabstrdel(&tab);
+        index++;
     }
-    else
-    {
-        tmp = ft_itoa(index);
-        var_tmp = ft_strjoin("TMP_", tmp);
-        commande = ft_strmjoin(var_tmp, " = ", options);
-        ft_syscmd(commande);
-        ft_strdelth(&tmp, &var_tmp, &commande);
-    }
+    ft_tabstrdel(&tab);
+    return (index);
+}
+
+int         del_tmp(void)
+{
+    ft_syscmd("TMP_0.del()");
+    ft_syscmd("TMP_1.del()");
+    ft_syscmd("TMP_2.del()");
+    ft_syscmd("TMP_3.del()");
+    ft_syscmd("TMP_4.del()");
+    return (1);
+}
+
+int         inceptor(int index, char* func, char* var)
+{
+    char    *commande;
+    char    *var_tmp;
+    char    *tmp;
+    int     test;
+    int     count;
+
     count = -1;
     test = 0;
     commande = ft_strmmjoin(var, " = ", func, "(");
@@ -66,12 +84,18 @@ int         ft_syscmd_inception(char *var, char *func, char *options)
         ft_strdelt(&tmp, &var_tmp);
         test++;
     }
-    tmp = ft_strjoin(commande, ")");
-    ft_strdelt(&tmp, &commande);
-    ft_syscmd("TMP_0.del()");
-    ft_syscmd("TMP_1.del()");
-    ft_syscmd("TMP_2.del()");
-    ft_syscmd("TMP_3.del()");
-    ft_syscmd("TMP_4.del()");
-    return (1);
+    ft_strdel(&commande);
+}
+
+int         ft_syscmd_inception(char *var, char *func, char *options)
+{
+    int     index;
+
+    index = 0;
+    if (ft_strcchr(options, ",") != 0)
+        index = inception(options);
+    else
+        syscmd(options);
+    inceptor(index, func, var);
+    return (del_tmp());
 }
