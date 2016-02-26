@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/26 09:06:43 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/26 15:32:02 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/26 16:09:41 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,13 +31,6 @@ static char *ft_syscmd_getvarcontent(char *str)
     return (NULL);
 }
 
-static int  test_char(char c)
-{
-    if (c == ' ' || c == ')' || c == ';' || c == ',' || c == '}')
-        return (1);
-    return (0);
-}
-
 static int  ft_syscmd_getvar(char **str)
 {
     char    *ret;
@@ -53,7 +46,7 @@ static int  ft_syscmd_getvar(char **str)
         id++;
     start = id++;
     id += (ret[id] && ret[id] == '{') ? 1 : 0;
-    while (ret[id] && !test_char(ret[id]))
+    while (ret[id] && !(END_CMD(ret[id])))
         id++;
     tmp = ft_strsub(ret, start, id - start + (ret[id] == '}'));
     ft_strdel(&ret);

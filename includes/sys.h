@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/08 15:35:44 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/23 11:21:31 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/26 16:09:27 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@
 # define    CACHE_SIZE      1000
 # define    DBG_FILE        ft_debug(__FILE__, __func__, __LINE__)
 # define    DBG_PROG        ft_sysint_alloc(1, "DBG_PROG")
+# define    END_CMD(x)      (x == ' ' || x == ')' || x == ',' || x == '}')
 
 typedef struct  s_funcs     t_funcs;
 
