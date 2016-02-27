@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/26 09:12:42 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/26 09:13:32 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/27 10:47:25 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,4 +22,6 @@ void    ft_syscmd_sys(char *str)
         DBG_PROG;
     if (ft_strcmp(str, "#STACK") == 0)
         ft_sys_print();
+    if (ft_strcmp(str, "#EXIT") == 0)
+        ft_exit();
 }
