@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/31 22:49:14 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/08/19 07:22:39 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/28 00:57:34 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int			ft_catfile(const int fd)
 			while ((int)ft_strlen(line) != ret)
 					line[ft_strlen(line)] = '\a';
 			tmp = ft_ctos('\a');
-			ft_strnrpl(&line, tmp, "", -1);
+			ft_strreplace(&line, tmp, "", -1);
 			ft_strdel(&tmp);
 			ft_putstr(line);
 			ft_strdel(&line);

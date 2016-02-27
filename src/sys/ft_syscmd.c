@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/26 09:06:43 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/27 19:50:40 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/28 00:55:31 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ static int  ft_syscmd_getvar(char **str)
     ft_strdel(&ret);
     ret = ft_syscmd_getvarcontent(tmp);
     if (ret)
-        ft_strnrpl(str, tmp, ret, -1);
+        ft_strreplace(str, tmp, ret, -1);
     ft_strdel(&tmp);
     if (ret)
         return (1);

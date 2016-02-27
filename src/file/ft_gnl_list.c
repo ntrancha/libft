@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/30 17:50:48 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/15 23:55:53 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/28 00:57:23 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ static int			readfile(int const fd, t_list *list)
 		while ((int)ft_strlen(line) != ret)
 			line[ft_strlen(line)] = '\a';
 		tmp = ft_ctos('\a');
-		ft_strnrpl(&line, tmp, "", -1);
+		ft_strreplace(&line, tmp, "", -1);
 		ft_strdel(&tmp);
 		list = ft_listadd(list, line);
 	}

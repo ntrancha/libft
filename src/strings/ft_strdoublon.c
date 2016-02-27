@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/13 10:38:49 by ntrancha          #+#    #+#             */
-/*   Updated: 2015/08/18 22:51:15 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/28 00:56:47 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void		ft_strdoublon(char **str, char del)
 		swap[1] = del;
 		remplace[1] = '\0';
 		swap[2] = '\0';
-		ft_strnrpl(str, swap, remplace, -1);
+		ft_strreplace(str, swap, remplace, -1);
 		ft_strdel(&swap);
 		ft_strdel(&remplace);
 	}

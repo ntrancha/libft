@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/26 09:23:23 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/27 19:45:12 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/28 00:56:24 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ int         ft_syscmd_var(char **str)
     char    *var;
 
     if (ft_strcchr(*str, "\"") > 1 && ft_strcchr(*str, " = \"") == 1)
-        ft_strnrpl(str, "\"", "", -1);
+        ft_strreplace(str, "\"", "", -1);
     else
         copy(*str);
     if (ft_strcchr(*str, ")") == 0)

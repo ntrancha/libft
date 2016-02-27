@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/26 09:00:50 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/26 09:01:37 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/28 00:55:46 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void        ft_syscmd_file(char *pathfile)
     char    *file;
 
     file = ft_get_file(pathfile);
-    ft_strnrpl(&file, "\n", ";", -1);
+    ft_strreplace(&file, "\n", ";", -1);
     ft_syscmd_addinstruction(file);
     ft_strdel(&file);
 }
