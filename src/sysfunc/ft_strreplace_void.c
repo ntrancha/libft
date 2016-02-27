@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/27 20:12:20 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/27 20:42:26 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/27 23:57:40 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,5 @@ void     ft_strreplace_void(void *ptr, void *search, void *replace)
 
     alloc = (t_alloc*)ptr;
     if (alloc && alloc->type && ft_strcmp(alloc->type, "str") == 0)
-        ft_strnrpl(CNT, (char*)search, (char*)replace, -1);
+        ft_strreplace(CNT, (char*)search, (char*)replace, -1);
 }
