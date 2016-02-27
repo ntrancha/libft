@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/22 20:21:02 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/22 21:31:23 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/27 20:09:35 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,4 +17,5 @@
 void    ft_sysfunc_init(void)
 {
     ft_tabstr_init();
+    ft_str_init();
 }

@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/26 09:06:43 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/26 16:09:41 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/27 19:50:40 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ static void ft_syscmd_type(char *str)
     else if (ft_strcchr(tmp, "=") == 0)
         ft_syscmd_func(tmp);
     else
-        ft_syscmd_var(tmp);
+        ft_syscmd_var(&tmp);
     ft_strdel(&tmp);
 }
 
@@ -106,8 +106,8 @@ void        *ft_syscmd(char *str)
     char    *tmp;
     int     index;
 
-    tmp = ft_strcleanfront(str, ' ');
-    ft_strclearfront(&tmp, '\t');
+    tmp = ft_strdup(str);
+    ft_syscmd_clean(&tmp);
     ft_strdoublon(&tmp, ';');
     if (ft_strcchr(tmp, ";") != 0)
     {
@@ -118,13 +118,7 @@ void        *ft_syscmd(char *str)
         ft_tabstrdel(&tab);
     }
     else if (no_comment(tmp))
-    {
-        ft_strclearback(&tmp, '\t');
-        ft_strclearback(&tmp, ' ');
-        ft_strclearfront(&tmp, '\t');
-        ft_strclearfront(&tmp, ' ');
         ft_syscmd_type(tmp);
-    }
     ft_strdel(&tmp);
     return (str);
 }

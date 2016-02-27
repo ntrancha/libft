@@ -87,5 +87,7 @@ char    *ft_strdupdel(char *dup, char **del);
 void    ft_tabstrsort(char ***tab, int sort);
 void    ft_strclearback(char **str, char c);
 void    ft_strclearfront(char **str, char c);
+char    *ft_strremplace(char *str, char *old, char *new);
+void    ft_strreplace(char **str, char *old, char *new, int count);
 
 #endif

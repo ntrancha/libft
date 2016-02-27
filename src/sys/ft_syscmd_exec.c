@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/26 09:18:51 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/26 15:42:59 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/27 20:41:06 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,9 +77,9 @@ static int  ft_syscmd_go(t_funcs *funcs, char *var, char **opt)
     else if (ft_strcmp(funcs->func_name, "vv*") == 0)
         funcs->func->f_void_a(GET(var));
     else if (ft_strcmp(funcs->func_name, "vv*v*") == 0)
-        funcs->func->f_void_b(GET(opt1), GET(opt2));
+        funcs->func->f_void_b(GET(var), opt1);
     else if (ft_strcmp(funcs->func_name, "vv*v*v*") == 0)
-        funcs->func->f_void_c(GET(opt1), GET(opt2), GET(opt3));
+        funcs->func->f_void_c(GET(var), opt1, opt2);
     ft_strdelth(&opt1, &opt2, &opt3);
     return (1);
 }

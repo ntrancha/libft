@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/08 15:35:44 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/26 16:09:27 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/27 16:24:50 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ void    ft_syscmd_sys(char *str);
 int     ft_syscmd_base(char *var, char *func, char *options);
 int     ft_syscmd_inception(char *var, char *func, char *options);
 void    ft_syscmd_file(char *pathfile);
-int     ft_syscmd_var(char *str);
+int     ft_syscmd_var(char **str);
+void    ft_syscmd_clean(char **str);
 
 #endif

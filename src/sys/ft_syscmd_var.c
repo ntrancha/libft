@@ -6,13 +6,14 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/26 09:23:23 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/26 09:28:50 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/27 19:45:12 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/stack.h"
 #include "../../includes/strings.h"
 #include "../../includes/test.h"
+#include "../../includes/put.h"
 #include "../../includes/count.h"
 
 static int  ft_syscmd_assigne(char *str)
@@ -33,7 +34,15 @@ static int  ft_syscmd_assigne(char *str)
     return (1);
 }
 
-int         ft_syscmd_var(char *str)
+static int  copy(char *str)
+{
+   if (str)
+       return (1);
+   else
+       return (0);
+}
+
+int         ft_syscmd_var(char **str)
 {
     char    **tab;
     char    *tmp;
@@ -41,9 +50,13 @@ int         ft_syscmd_var(char *str)
     char    *option;
     char    *var;
 
-    if (ft_strcchr(str, ")") == 0)
-        return (ft_syscmd_assigne(str));
-    tab = ft_strsplit(str, '=');
+    if (ft_strcchr(*str, "\"") > 1 && ft_strcchr(*str, " = \"") == 1)
+        ft_strnrpl(str, "\"", "", -1);
+    else
+        copy(*str);
+    if (ft_strcchr(*str, ")") == 0)
+        return (ft_syscmd_assigne(*str));
+    tab = ft_strsplit(*str, '=');
     var = ft_strcleanback(tab[0], ' ');
     commande = ft_strcleanfront(tab[1], ' ');
     tmp = ft_strsub(commande, 0, ft_strlen(commande) - 1);

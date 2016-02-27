@@ -1,31 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_syscmd_sys.c                                    :+:      :+:    :+:   */
+/*   ft_strtolower_void.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/02/26 09:12:42 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/27 10:52:27 by ntrancha         ###   ########.fr       */
+/*   Created: 2016/02/27 19:55:12 by ntrancha          #+#    #+#             */
+/*   Updated: 2016/02/27 20:00:54 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/strings.h"
 #include "../../includes/stack.h"
-#include "../../includes/sys.h"
+#include "../../includes/strings.h"
 
-void    ft_syscmd_sys(char *str)
+void     ft_strtolower_void(void *ptr)
 {
-    if (ft_strcmp(str, "#INFOS") == 0)
-        ft_stack_infos();
-    if (ft_strcmp(str, "#DBG_PROG") == 0)
-        DBG_PROG;
-    if (ft_strcmp(str, "#STACK") == 0)
-        ft_sys_print();
-    if (ft_strcmp(str, "#EXIT") == 0)
-    {
-        ft_strdel(&str);
-        ft_stack_free();
-        ft_exit();
-    }
+    t_alloc     *alloc;
+
+    alloc = (t_alloc*)ptr;
+    if (ft_strcmp(alloc->type, "str") == 0)
+        ft_strtolower((char*)alloc->content);
 }

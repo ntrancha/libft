@@ -16,5 +16,9 @@
 void    ft_tabstrsort_void(void *ptr);
 void    ft_tabstrunsort_void(void *ptr);
 void    ft_tabstr_init(void);
+void    ft_strtoupper_void(void *ptr);
+void    ft_strtolower_void(void *ptr);
+void    ft_str_init(void);
+void    ft_strreplace_void(void *ptr, void *search, void *replace);
 
 #endif
