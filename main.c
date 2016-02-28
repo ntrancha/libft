@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/07 23:13:16 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/28 21:46:47 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/28 21:54:59 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 static int  type_ass(char *str)
 {
+    if (!str)
+        return (0);
     if (ft_strisnum(str) == 1)
         return (1);
     if (str[0] == '"' && str[ft_strlen(str) - 1] == '"')
@@ -39,19 +41,25 @@ static void new_tabstr(char *type, char *var_name, char *content)
     char    **tab;
 
     tmp = ft_strdup(content);
-    ft_strclearfront(&tmp, '[');
-    ft_strclearback(&tmp, ']');
-    tab = ft_strsplit(tmp, ',');
-    index = -1;
-    while (tab && tab[++index])
+    if (tmp && ft_strcchr(tmp, ",") != 0 && var_name && type )
     {
-        ft_syscmd_clean(&tab[index]);
-        ft_strunquote(&tab[index], '"');
+        ft_strclearfront(&tmp, '[');
+        ft_strclearback(&tmp, ']');
+        tab = ft_strsplit(tmp, ',');
+        index = -1;
+        if (tab)
+        {
+            while (tab && tab[++index])
+            {
+                ft_syscmd_clean(&tab[index]);
+                ft_strunquote(&tab[index], '"');
+            }
+            ft_alloc((void*)tab, sizeof(char*), var_name, "tabstr");
+            if (ft_strcmp(type, "liststr") == 0)
+                ft_alloc_cnvrt(var_name, type);
+        }
+        ft_strdel(&tmp);
     }
-    ft_alloc((void*)tab, sizeof(char*), var_name, "tabstr");
-    if (ft_strcmp(type, "liststr") == 0)
-        ft_alloc_cnvrt(var_name, type);
-    ft_strdel(&tmp);
 }
 
 static void funcadd(char *var, char *ass)
@@ -59,13 +67,23 @@ static void funcadd(char *var, char *ass)
     char    *one;
     char    *tmp;
 
-    one = ft_strsub(var, 0, ft_strlen(var) - 1);
-    if (one[ft_strlen(one) - 1] != '(')
-        tmp = ft_strmmjoin(one, ", ", ass, ")");
-    else
-        tmp = ft_strmjoin(one, ass, ")");
-    ft_syscmd(tmp);
-    ft_strdelt(&one, &tmp);
+    if (var && ass)
+    {
+        one = ft_strsub(var, 0, ft_strlen(var) - 1);
+        if (one)
+        {
+            if (one[ft_strlen(one) - 1] != '(')
+                tmp = ft_strmmjoin(one, ", ", ass, ")");
+            else
+                tmp = ft_strmjoin(one, ass, ")");
+            if (tmp)
+            {
+                ft_syscmd(tmp);
+                ft_strdel(&tmp);
+            }
+        }
+        ft_strdel(&one);
+    }
 }
 
 static void new_var(char *var, char *ass)
