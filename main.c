@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/07 23:13:16 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/28 21:15:36 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/28 21:46:47 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,24 @@ static void new_tabstr(char *type, char *var_name, char *content)
         ft_syscmd_clean(&tab[index]);
         ft_strunquote(&tab[index], '"');
     }
-    ft_alloc((void*)tab, sizeof(char*), var_name, type);
+    ft_alloc((void*)tab, sizeof(char*), var_name, "tabstr");
+    if (ft_strcmp(type, "liststr") == 0)
+        ft_alloc_cnvrt(var_name, type);
     ft_strdel(&tmp);
+}
+
+static void funcadd(char *var, char *ass)
+{
+    char    *one;
+    char    *tmp;
+
+    one = ft_strsub(var, 0, ft_strlen(var) - 1);
+    if (one[ft_strlen(one) - 1] != '(')
+        tmp = ft_strmmjoin(one, ", ", ass, ")");
+    else
+        tmp = ft_strmjoin(one, ass, ")");
+    ft_syscmd(tmp);
+    ft_strdelt(&one, &tmp);
 }
 
 static void new_var(char *var, char *ass)
@@ -73,6 +89,8 @@ static void new_var(char *var, char *ass)
         }
         else if (type_ass(ass) == 5 && ft_strcmp(tab[0], "tabstr") == 0)
             new_tabstr(tab[0], tab[1], ass);
+        else if (type_ass(ass) == 5 && ft_strcmp(tab[0], "liststr") == 0)
+            new_tabstr(tab[0], tab[1], ass);
         ft_tabstrdel(&tab);
     }
     ft_strdel(&tmp);
@@ -90,7 +108,11 @@ int         syscmd_var(char *str)
     ft_syscmd_clean(&var);
     ft_syscmd_clean(&ass);
     ft_tabstrdel(&tab);
-    if (ft_strncmp(var, "new ", 4) == 0 || ft_strncmp(var, "NEW ", 4) == 0)
+    if (type_ass(ass) == 4)
+        ft_alloc_copy(ass, var);
+    else if (type_ass(ass) == 3)
+        funcadd(ass, var);
+    else if (ft_strncmp(var, "new ", 4) == 0 || ft_strncmp(var, "NEW ", 4) == 0)
         new_var(var, ass);
     ft_strdelt(&var, &ass);
 }
@@ -98,7 +120,9 @@ int         syscmd_var(char *str)
 int         ft_main(void)
 {
     syscmd_var("new tabstr VAR_NAME = [\"1\", \"2\", \"3\", \"5\"]");
-    syscmd_var("iest = TIMESTAP");
+    syscmd_var("iest = NAM_PROG.len()");
+    syscmd_var("iest = test.func()");
+    syscmd_var("iest = test.func(\"aa\")");
     ft_syscmd_file("code.php");
     return 1;
 }
