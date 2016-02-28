@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/07 23:13:16 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/28 20:38:37 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/28 20:45:57 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ static void new_var(char *var, char *ass)
         tab = ft_strsplit(tmp, ' ');
         if (type_ass(ass) == 1 && ft_strcmp(tab[0], "int") == 0)
             ft_sysint_alloc(ft_atoi(ass), tab[1]);
-        if (type_ass(ass) == 2 && ft_strcmp(tab[0], "str") == 0)
+        else if (type_ass(ass) == 2 && ft_strcmp(tab[0], "str") == 0)
             ft_calloc((void*)ass, ft_strlen(ass) + 1, tab[1], "str");
         ft_putendl(tab[1]);
         ft_putendl(tab[0]);
@@ -72,9 +72,9 @@ int         syscmd_var(char *str)
 
 int         ft_main(void)
 {
-    syscmd_var("new TYPE VAR_NAME = \"==\"");
+    syscmd_var("new str VAR_NAME = \"==\"");
     syscmd_var("iest = TIMESTAP");
-    /*ft_syscmd_file("code.php");*/
+    ft_syscmd_file("code.php");
     return 1;
 }
 
