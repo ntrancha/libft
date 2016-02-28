@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/07 23:13:16 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/28 20:45:57 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/28 21:02:24 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ static int  type_ass(char *str)
 static void new_var(char *var, char *ass)
 {
     char    **tab;
+    char    *str;
     char    *tmp;
 
     tmp = ft_strsub(var, 4, ft_strlen(var) - 4);
@@ -45,7 +46,11 @@ static void new_var(char *var, char *ass)
         if (type_ass(ass) == 1 && ft_strcmp(tab[0], "int") == 0)
             ft_sysint_alloc(ft_atoi(ass), tab[1]);
         else if (type_ass(ass) == 2 && ft_strcmp(tab[0], "str") == 0)
-            ft_calloc((void*)ass, ft_strlen(ass) + 1, tab[1], "str");
+        {
+            str = ft_strdup(ass);
+            ft_strunquote(&str, '"');
+            ft_alloc((void*)str, ft_strlen(str) + 1, tab[1], "str");
+        }
         ft_putendl(tab[1]);
         ft_putendl(tab[0]);
         ft_tabstrdel(&tab);
