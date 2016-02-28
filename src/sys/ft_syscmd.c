@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/26 09:06:43 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/28 00:55:31 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/28 01:35:28 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ static int  ft_syscmd_getvar(char **str)
     return (0);
 }
 
-static void ft_syscmd_type(char *str)
+static void ft_syscmd__type(char *str)
 {
     char    *tmp;
     char    *tmp2;
@@ -118,7 +118,7 @@ void        *ft_syscmd(char *str)
         ft_tabstrdel(&tab);
     }
     else if (no_comment(tmp))
-        ft_syscmd_type(tmp);
+        ft_syscmd__type(tmp);
     ft_strdel(&tmp);
     return (str);
 }

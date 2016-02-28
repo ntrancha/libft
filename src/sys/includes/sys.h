@@ -58,5 +58,6 @@ int     ft_syscmd_inception(char *var, char *func, char *options);
 void    ft_syscmd_file(char *pathfile);
 int     ft_syscmd_var(char **str);
 void    ft_syscmd_clean(char **str);
+int     ft_syscmd_type(char *str);
 
 #endif
