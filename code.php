@@ -13,7 +13,7 @@
     test.tolower();
     test.replace(les, los);
     test.toupper();
-    test.replace(LAPINS, LAPINO);
+    test.replace(LAPINS, LAPINOS);
     #INFOS;
 
     #DBG_PROG;
