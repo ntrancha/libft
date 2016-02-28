@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/07 23:13:16 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/28 21:02:24 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/28 21:15:36 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,26 @@ static int  type_ass(char *str)
     return (0);
 }
 
+static void new_tabstr(char *type, char *var_name, char *content)
+{
+    char    *tmp;
+    int     index;
+    char    **tab;
+
+    tmp = ft_strdup(content);
+    ft_strclearfront(&tmp, '[');
+    ft_strclearback(&tmp, ']');
+    tab = ft_strsplit(tmp, ',');
+    index = -1;
+    while (tab && tab[++index])
+    {
+        ft_syscmd_clean(&tab[index]);
+        ft_strunquote(&tab[index], '"');
+    }
+    ft_alloc((void*)tab, sizeof(char*), var_name, type);
+    ft_strdel(&tmp);
+}
+
 static void new_var(char *var, char *ass)
 {
     char    **tab;
@@ -51,8 +71,8 @@ static void new_var(char *var, char *ass)
             ft_strunquote(&str, '"');
             ft_alloc((void*)str, ft_strlen(str) + 1, tab[1], "str");
         }
-        ft_putendl(tab[1]);
-        ft_putendl(tab[0]);
+        else if (type_ass(ass) == 5 && ft_strcmp(tab[0], "tabstr") == 0)
+            new_tabstr(tab[0], tab[1], ass);
         ft_tabstrdel(&tab);
     }
     ft_strdel(&tmp);
@@ -77,7 +97,7 @@ int         syscmd_var(char *str)
 
 int         ft_main(void)
 {
-    syscmd_var("new str VAR_NAME = \"==\"");
+    syscmd_var("new tabstr VAR_NAME = [\"1\", \"2\", \"3\", \"5\"]");
     syscmd_var("iest = TIMESTAP");
     ft_syscmd_file("code.php");
     return 1;
