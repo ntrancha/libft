@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/28 01:32:30 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/28 01:34:19 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/28 01:50:44 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static int  test_var(char *str)
     ret = 0;
     ft_syscmd_clean(&tmp);
     if (ft_strncmp(tmp, "new", 3) == 0)
-        ret = 10000;
+        ret = 30;
     if (ft_strcchr(tmp, "=") == 0)
         ret = 0;
     index = -1;
@@ -38,7 +38,7 @@ static int  test_var(char *str)
     }
     ft_strdel(&tmp);
     if (test < 0)
-        return (10000);
+        return (30);
     return (ret);
 }
 
@@ -51,9 +51,9 @@ static int  test_system(char *str)
     ret = 0;
     ft_syscmd_clean(&tmp);
     if (ft_strncmp(tmp, "echo", 4) == 0)
-        ret = 100;
+        ret = 11;
     if (ft_strncmp(tmp, "#", 1) == 0)
-        ret = 101;
+        ret = 12;
     ft_strdel(&tmp);
     return (ret);
 }
@@ -67,7 +67,7 @@ static int  test_function(char *str)
     ret = 0;
     ft_syscmd_clean(&tmp);
     if (ft_strcchr(tmp, "(") != 0 && ft_strcchr(tmp, ")") != 0)
-        ret = 1000;
+        ret = 20;
     ft_strdel(&tmp);
     return (ret);
 }
@@ -97,7 +97,17 @@ static int  test_condition(char *str)
 int         ft_syscmd_type(char *str)
 {
     int     type;
+    int     len;
 
+    len = ft_strlen(str);
+    if (len > 1 && str[0] == '/' && str[1] == '/')
+        return (42);
+    if (len > 1 && str[0] == '<' && str[1] == '?')
+        return (42);
+    if (len > 1 && str[0] == '?' && str[1] == '>')
+        return (42);
+    if (len > 1 && str[0] == '#' && str[1] == '!')
+        return (42);
     type = -1;
     if ((type = test_condition(str)) == 0)
         if ((type = test_system(str)) == 0)
