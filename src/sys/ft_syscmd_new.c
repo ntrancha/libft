@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/26 09:17:28 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/28 23:01:36 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/29 21:26:15 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,8 +103,9 @@ static void new_var(char *var, char *ass)
         tab = ft_strsplit(tmp, ' ');
         if (type_ass(ass) == 1 && ft_strcmp(tab[0], "int") == 0)
             ft_sysint_alloc(ft_atoi(ass), tab[1]);
-        else if (type_ass(ass) == 2 && ft_strcmp(tab[0], "str") == 0)
+        else if (type_ass(ass) == 2)
         {
+            if (!ft_strcmp(tab[0], "str") || !ft_strcmp(tab[0], "string"))
             str = ft_strdup(ass);
             ft_strunquote(&str, '"');
             ft_alloc((void*)str, ft_strlen(str) + 1, tab[1], "str");
