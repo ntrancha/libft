@@ -6,14 +6,14 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/26 09:06:43 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/29 02:56:27 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/29 20:50:12 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/stack.h"
 #include "../../includes/strings.h"
 #include "../../includes/sys.h"
-
+/*
 static char *ft_syscmd_getvarcontent(char *str)
 {
     t_alloc *alloc;
@@ -57,11 +57,23 @@ static int  ft_syscmd_getvar(char **str)
     if (ret)
         return (1);
     return (0);
-}
+}*/
 
 static void ft_syscmd__type(char *str)
 {
-    char    *tmp;
+    int     type;
+
+    type = ft_syscmd_type(str);
+    if (type == 20)
+        ft_syscmd_func(str);
+    else if (type == 30)
+        ft_syscmd_new(str);
+    else if (type == 11)
+        ft_syscmd_echo(str);
+    else if (type == 12)
+        ft_syscmd_sys(str);
+
+    /*char    *tmp;
     char    *tmp2;
     int     ret;
 
@@ -81,7 +93,7 @@ static void ft_syscmd__type(char *str)
         ft_syscmd_func(tmp);
     else
         ft_syscmd_var(&tmp);
-    ft_strdel(&tmp);
+    ft_strdel(&tmp);*/
 }
 
 static int  no_comment(char *str)
