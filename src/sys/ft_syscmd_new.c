@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/26 09:17:28 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/29 21:26:15 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/29 21:52:31 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,6 +124,7 @@ int         ft_syscmd_new(char *str)
     char    **tab;
     char    *var;
     char    *ass;
+    int     num;
 
     tab = ft_strsplit(str, '=');
     var = ft_strdup(tab[0]);

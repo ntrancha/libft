@@ -59,5 +59,6 @@ void    ft_syscmd_file(char *pathfile);
 int     ft_syscmd_var(char **str);
 void    ft_syscmd_clean(char **str);
 int     ft_syscmd_type(char *str);
+void    ft_syscmd_ret(int ret);
 
 #endif
