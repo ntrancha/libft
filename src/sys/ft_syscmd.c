@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/26 09:06:43 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/28 01:35:28 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/29 02:56:27 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,8 @@ static int  no_comment(char *str)
 
     len = ft_strlen(str);
     if (len > 0 && str[0] == '/' && str[1] == '/')
+        return (0);
+    if (len > 0 && str[0] == '/' && str[1] == '*')
         return (0);
     if (len > 0 && str[0] == '<' && str[1] == '?')
         return (0);

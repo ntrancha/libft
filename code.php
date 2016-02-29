@@ -1,13 +1,13 @@
 <?              /*CODE NK*/
 
-    new tabstr tableau = |23|12|42|32|;
+    new tabstr tableau = ["23","12","42","32"];
     new str name_variable = "test42";
+    new str test42 = "ok les lapins";
 
-    test42 = "COUCOU LES ENFANTS";
-    test = "COUCOU LES LAPINS";
-    test2 = 4;
 
     ${name_variable}.put();
+    test = test42;
+    test2 = test
     test2.convert(mem);
     LEN = test.len();
     test.tolower();

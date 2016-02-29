@@ -6,14 +6,13 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/26 09:23:23 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/28 00:56:24 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/02/28 23:02:43 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/stack.h"
 #include "../../includes/strings.h"
 #include "../../includes/test.h"
-#include "../../includes/put.h"
 #include "../../includes/count.h"
 
 static int  ft_syscmd_assigne(char *str)
@@ -36,10 +35,10 @@ static int  ft_syscmd_assigne(char *str)
 
 static int  copy(char *str)
 {
-   if (str)
-       return (1);
-   else
-       return (0);
+    if (str)
+        return (1);
+    else
+        return (0);
 }
 
 int         ft_syscmd_var(char **str)

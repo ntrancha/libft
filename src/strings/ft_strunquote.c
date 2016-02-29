@@ -1,23 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strunquote.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/02/07 23:13:16 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/28 22:58:57 by ntrancha         ###   ########.fr       */
+/*   Created: 2016/02/28 20:47:25 by ntrancha          #+#    #+#             */
+/*   Updated: 2016/02/28 21:00:14 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/libft.h"
+#include "../../includes/strings.h"
+#include "../../includes/put.h"
 
-
-
-int         ft_main(void)
+void        ft_strunquote(char **str, int c)
 {
-    ft_syscmd_file("code.php");
-    return 1;
-}
+    int     start;
+    char    *new;
 
-FT_MAIN
+    start = (str && *str && *str[0] == c) ? 1 : 0;
+    new = ft_strsub(*str, start, ft_strlen(*str) - (start * 2)); 
+    ft_strdel(str);
+    *str = new;
+}
