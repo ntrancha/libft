@@ -10,13 +10,13 @@
     }
     test2 = test;
     test2.convert(mem);
-    ${name_variable}.put();
+    //${name_variable}.put();
     LEN = test.len();
     test.tolower();
     test.replace(les, los);
     test.toupper();
     test.replace(LAPINS, LAPINOS);
-    #INFOS;
+    ##INFOS;
 
     #DBG_PROG;
 ?>
