@@ -4,7 +4,10 @@
     new string name_variable = "test42";
     new string test42 = "ok les lapins";
     new int coc = 42;
-    test = test42;
+    if (coc == 42)
+    {
+        test = test42;
+    }
     test2 = test;
     test2.convert(mem);
     ${name_variable}.put();
