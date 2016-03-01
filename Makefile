@@ -46,24 +46,40 @@ FILE	=	src/mem/ft_memalloc.c                \
 			src/tab/ft_tabmin.c                  \
 			src/tab/ft_tabclear.c                \
 			src/tab/ft_puttab.c                  \
+			src/sys/ft_syscmd_func.c             \
 			src/sys/ft_sysmem.c                  \
+			src/sys/ft_syscmd_exec.c             \
+			src/sys/ft_syscmd_ret.c              \
 			src/sys/ft_syslist.c                 \
 			src/sys/ft_cache_set.c               \
 			src/sys/ft_sysstr_convert.c          \
+			src/sys/ft_syscmd_echo.c             \
+			src/sys/ft_syscmd_type.c             \
+			src/sys/ft_syscmd_addinstruction.c   \
 			src/sys/ft_start.c                   \
+			src/sys/ft_syscmd.c                  \
 			src/sys/ft_syslen.c                  \
 			src/sys/ft_systabstr.c               \
+			src/sys/ft_syscmd_new.c              \
 			src/sys/ft_sysfunc_exist.c           \
 			src/sys/ft_sysfunc_init.c            \
 			src/sys/ft_sys_fusion.c              \
 			src/sys/ft_sysfunc_find.c            \
 			src/sys/ft_sysfunc_add.c             \
+			src/sys/ft_syscmd_sys.c              \
 			src/sys/ft_sysint.c                  \
 			src/sys/ft_sysconvert.c              \
+			src/sys/ft_syscmd_base.c             \
+			src/sys/ft_syscmd_clean.c            \
+			src/sys/ft_syscmd_inception.c        \
 			src/sys/ft_sysfunc_get.c             \
+			src/sys/ft_syscmd_condition.c        \
 			src/sys/ft_sys_option.c              \
 			src/sys/ft_sysint_alloc.c            \
+			src/sys/ft_sys_print.c               \
 			src/sys/ft_debug.c                   \
+			src/sys/ft_syscmd_file.c             \
+			src/sys/ft_syscmd_var.c              \
 			src/count/ft_longlen.c               \
 			src/count/ft_doublelen.c             \
 			src/count/ft_strlen.c                \
@@ -260,6 +276,7 @@ FILE	=	src/mem/ft_memalloc.c                \
 			src/strings/ft_strdupdel.c           \
 			src/strings/ft_strrvs.c              \
 			src/strings/ft_strlen.c              \
+			src/strings/ft_strremplace.c         \
 			src/strings/ft_strtolower.c          \
 			src/strings/ft_tabstrsort.c          \
 			src/strings/ft_strdelt.c             \
@@ -271,6 +288,7 @@ FILE	=	src/mem/ft_memalloc.c                \
 			src/strings/ft_strdoublon.c          \
 			src/strings/ft_match.c               \
 			src/strings/ft_strcleanfront.c       \
+			src/strings/ft_strreplace.c          \
 			src/strings/ft_strncmp.c             \
 			src/strings/ft_strfusion.c           \
 			src/strings/ft_strdup.c              \
@@ -302,6 +320,7 @@ FILE	=	src/mem/ft_memalloc.c                \
 			src/strings/ft_strnstr.c             \
 			src/strings/ft_strtrim.c             \
 			src/strings/ft_strequ.c              \
+			src/strings/ft_strunquote.c          \
 			src/strings/ft_strf.c                \
 			src/strings/ft_strgetline.c          \
 			src/strings/ft_strclearback.c        \
@@ -464,9 +483,13 @@ FILE	=	src/mem/ft_memalloc.c                \
 			src/convert/ft_fround.c              \
 			src/convert/ft_ftol.c                \
 			src/convert/ft_atod.c                \
+			src/sysfunc/ft_strreplace_void.c     \
 			src/sysfunc/ft_tabstrsort_void.c     \
+			src/sysfunc/ft_strtoupper_void.c     \
 			src/sysfunc/ft_tabstr_init.c         \
+			src/sysfunc/ft_strtolower_void.c     \
 			src/sysfunc/ft_tabstrunsort_void.c   \
+			src/sysfunc/ft_str_init.c            \
 
 ifeq ($(OS),Windows_NT)
 	OS = WIN32

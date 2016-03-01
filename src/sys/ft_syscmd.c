@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/26 09:06:43 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/29 21:14:24 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/03/01 12:04:00 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,8 @@ static void ft_syscmd__type(char *str)
         ft_syscmd_echo(str);
     else if (type == 12)
         ft_syscmd_sys(str);
+    else if (type > 0 && type < 4)
+        ft_putendl(str);
 }
 
 void        *ft_syscmd(char *str)

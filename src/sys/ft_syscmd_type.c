@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/28 01:32:30 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/02/28 01:50:44 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/03/01 11:43:32 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,14 +82,16 @@ static int  test_condition(char *str)
     ft_syscmd_clean(&tmp);
     if (ft_strncmp(tmp, "if", 2) == 0)
         ret = 1;
-    if (ft_strncmp(tmp, "while", 5) == 0)
+    else if (ft_strncmp(tmp, "while", 5) == 0)
         ret = 2;
-    if (ft_strncmp(tmp, "else", 4) == 0)
+    else if (ft_strncmp(tmp, "else if", 7) == 0)
         ret = 3;
-    if (ft_strncmp(tmp, "{", 1) == 0)
+    else if (ft_strncmp(tmp, "{", 1) == 0)
         ret = 4;
-    if (ft_strncmp(tmp, "}", 1) == 0)
+    else if (ft_strncmp(tmp, "}", 1) == 0)
         ret = 5;
+    else if (ft_strncmp(tmp, "else", 4) == 0)
+        ret = 6;
     ft_strdel(&tmp);
     return (ret);
 }
