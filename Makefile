@@ -66,6 +66,7 @@ FILE	=	src/mem/ft_memalloc.c                \
 			src/sys/ft_sysfunc_init.c            \
 			src/sys/ft_sys_fusion.c              \
 			src/sys/ft_sysfunc_find.c            \
+			src/sys/ft_syscmd_if.c               \
 			src/sys/ft_sysfunc_add.c             \
 			src/sys/ft_syscmd_sys.c              \
 			src/sys/ft_sysint.c                  \
