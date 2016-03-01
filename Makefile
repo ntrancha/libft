@@ -49,6 +49,7 @@ FILE	=	src/mem/ft_memalloc.c                \
 			src/sys/ft_syscmd_func.c             \
 			src/sys/ft_sysmem.c                  \
 			src/sys/ft_syscmd_exec.c             \
+			src/sys/ft_syscmd_offset.c           \
 			src/sys/ft_syscmd_ret.c              \
 			src/sys/ft_syslist.c                 \
 			src/sys/ft_cache_set.c               \

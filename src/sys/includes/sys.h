@@ -61,5 +61,6 @@ void    ft_syscmd_clean(char **str);
 int     ft_syscmd_type(char *str);
 void    ft_syscmd_ret(int ret);
 char    *ft_syscmd_condition(void);
+char    *ft_syscmd_offset(int offset);
 
 #endif
