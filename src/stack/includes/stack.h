@@ -157,5 +157,7 @@ void            ft_stack_infos_func(void);
 int             ft_vartype_func(char *str);
 int             ft_alloc_len(char *a);
 int             ft_alloc_count(char *a);
+int     ft_stack_offset(void);
+char    *ft_stack_instruction(int offset);
 
 #endif

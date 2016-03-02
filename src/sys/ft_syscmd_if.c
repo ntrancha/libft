@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/01 12:33:56 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/03/01 12:49:18 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/03/02 23:16:02 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,34 @@
 #include "../../includes/strings.h"
 #include "../../includes/put.h"
 
+static void     syscmd_if(int ret)
+{
+   int          offset;
+
+   offset = ft_stack_offset();
+   if (ret)
+       ft_putendl(ft_stack_instruction(offset + 1));
+}
+
 void            ft_syscmd_if(char *str)
 {
-    char        **tab;
-    char        *condition;
+    char        *inside;
+    char        *old;
+    char        *ret;
+    char        *tmp;
 
-    tab = ft_strsplit(str, '(');
-    if (tab && tab[1])
+    tmp = ft_strsub(str, 3, ft_strlen(str) - 3);
+    while (!ft_strisnum(tmp) && ft_strcchr(tmp, "(") != 0)
     {
-        condition = ft_strsub(tab[1], 0, ft_strlen(tab[1]) - 1);
-        //traiter la condition jusqu'a true/false
-
-        //avancer l'offset en fonction
-        ft_putendl(condition);
-        ft_strdel(&condition);
-        ft_tabstrdel(&tab);
+        if (ft_strcchr(tmp, "(") != 0 && ft_strcchr(tmp, ")") != 0)
+            inside = ft_strinside(tmp, '(', ')');
+        else
+            inside = ft_strdup(tmp);
+        old = ft_strmjoin("(", inside, ")");
+        ret = ft_itoa(ft_syscmd_resolve_all(inside));
+        ft_strreplace(&tmp, old, ret, -1);
+        ft_strdelth(&inside, &ret, &old);
     }
+    syscmd_if(ft_atoi(tmp));
+    ft_strdel(&tmp);
 }
