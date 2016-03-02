@@ -63,5 +63,10 @@ void    ft_syscmd_ret(int ret);
 char    *ft_syscmd_condition(void);
 char    *ft_syscmd_offset(int offset);
 void    ft_syscmd_if(char *str);
+int     ft_syscmd_op_int(int one, int two, char *operation);
+int     ft_syscmd_vartype(char *var);
+int     ft_syscmd_op_str(char *one, char *two, char *operation);
+int     ft_syscmd_resolve(char *one, char *two, char *operation);
+int     ft_syscmd_resolve_all(char *str);
 
 #endif
