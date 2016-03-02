@@ -16,7 +16,7 @@
     test.replace(les, los);
     test.toupper();
     test.replace(LAPINS, LAPINOS);
-    #INFOS;
+    ##INFOS;
 
     #DBG_PROG;
 ?>

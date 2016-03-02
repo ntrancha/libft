@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/07 23:13:16 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/03/02 22:45:40 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/03/02 22:48:48 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -149,7 +149,7 @@ int         ft_main(void)
     char    *str;
 
     ft_syscmd_file("code.php");
-    str = ft_strdup("LEN > 0 && LEN != 0 && LEN < 100 - 1");
+    str = ft_strdup("LEN > 12 - 1 && LEN != 11 && LEN < 15 - 1");
     ft_putnbr_endl(ft_syscmd_resolve_all(str));
     ft_strdel(&str);
     return 1;
