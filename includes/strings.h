@@ -90,5 +90,6 @@ void    ft_strclearfront(char **str, char c);
 char    *ft_strremplace(char *str, char *old, char *new);
 void    ft_strreplace(char **str, char *old, char *new, int count);
 void    ft_strunquote(char **str, int c);
+char    *ft_strinside(char *str, char start, char end);
 
 #endif
