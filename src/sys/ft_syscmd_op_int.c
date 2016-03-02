@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/02 22:01:27 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/03/02 22:40:20 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/03/02 22:50:47 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ static int  ft_syscmd_op_int_next(int one, int two, char *operation)
     if (ft_strcmp(operation, "+") == 0)
         return ((one + two));
     if (ft_strcmp(operation, "-") == 0)
-        return (0);
         return ((one - two));
     if (ft_strcmp(operation, "*") == 0)
         return ((one * two));
