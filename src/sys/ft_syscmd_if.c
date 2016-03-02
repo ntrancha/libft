@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/01 12:33:56 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/03/02 23:16:02 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/03/02 23:22:58 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,15 @@
 
 static void     syscmd_if(int ret)
 {
+    t_stacks    *stack;
    int          offset;
 
-   offset = ft_stack_offset();
-   if (ret)
-       ft_putendl(ft_stack_instruction(offset + 1));
+   stack = ft_stack_init();
+   offset = ft_stack_offset() + 1;
+   while (ft_strcchr(ft_stack_instruction(offset), "}") == 1)
+       offset++;
+   if (!ret)
+        stack->offset = offset;
 }
 
 void            ft_syscmd_if(char *str)
@@ -41,6 +45,7 @@ void            ft_syscmd_if(char *str)
         ret = ft_itoa(ft_syscmd_resolve_all(inside));
         ft_strreplace(&tmp, old, ret, -1);
         ft_strdelth(&inside, &ret, &old);
+        ft_putendl(tmp);
     }
     syscmd_if(ft_atoi(tmp));
     ft_strdel(&tmp);
