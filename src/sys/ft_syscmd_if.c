@@ -6,7 +6,7 @@
 /*   By: ntrancha <ntrancha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/01 12:33:56 by ntrancha          #+#    #+#             */
-/*   Updated: 2016/03/03 20:52:33 by ntrancha         ###   ########.fr       */
+/*   Updated: 2016/03/03 21:06:55 by ntrancha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ static void     syscmd_if(int ret)
 
    stack = ft_stack_init();
    offset = ft_stack_offset() + 1;
+   ft_stack_return(offset - 1, ret);
    while (ft_strcchr(ft_stack_instruction(offset), "}") == 0)
        offset++;
    if (!ret)
