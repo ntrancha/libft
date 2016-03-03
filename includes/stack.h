@@ -159,5 +159,6 @@ int             ft_alloc_len(char *a);
 int             ft_alloc_count(char *a);
 int     ft_stack_offset(void);
 char    *ft_stack_instruction(int offset);
+char    *ft_stack_return(int offset, int ret);
 
 #endif
