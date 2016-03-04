@@ -57,14 +57,17 @@ FILE	=	src/mem/ft_memalloc.c                \
 			src/sys/ft_syscmd_echo.c             \
 			src/sys/ft_syscmd_type.c             \
 			src/sys/ft_syscmd_addinstruction.c   \
+			src/sys/ft_syscmd_op_int.c           \
 			src/sys/ft_start.c                   \
 			src/sys/ft_syscmd.c                  \
 			src/sys/ft_syslen.c                  \
 			src/sys/ft_systabstr.c               \
 			src/sys/ft_syscmd_new.c              \
 			src/sys/ft_sysfunc_exist.c           \
+			src/sys/ft_syscmd_resolve.c          \
 			src/sys/ft_sysfunc_init.c            \
 			src/sys/ft_sys_fusion.c              \
+			src/sys/ft_syscmd_resolve_all.c      \
 			src/sys/ft_sysfunc_find.c            \
 			src/sys/ft_syscmd_if.c               \
 			src/sys/ft_sysfunc_add.c             \
@@ -73,6 +76,7 @@ FILE	=	src/mem/ft_memalloc.c                \
 			src/sys/ft_sysconvert.c              \
 			src/sys/ft_syscmd_base.c             \
 			src/sys/ft_syscmd_clean.c            \
+			src/sys/ft_syscmd_vartype.c          \
 			src/sys/ft_syscmd_inception.c        \
 			src/sys/ft_sysfunc_get.c             \
 			src/sys/ft_syscmd_condition.c        \
@@ -80,6 +84,7 @@ FILE	=	src/mem/ft_memalloc.c                \
 			src/sys/ft_sysint_alloc.c            \
 			src/sys/ft_sys_print.c               \
 			src/sys/ft_debug.c                   \
+			src/sys/ft_syscmd_op_str.c           \
 			src/sys/ft_syscmd_file.c             \
 			src/sys/ft_syscmd_var.c              \
 			src/count/ft_longlen.c               \
@@ -207,6 +212,7 @@ FILE	=	src/mem/ft_memalloc.c                \
 			src/stack/ft_alloc_copy.c            \
 			src/stack/ft_stack_size.c            \
 			src/stack/ft_stack_free_debug.c      \
+			src/stack/ft_stack_return.c          \
 			src/stack/ft_alloc_cnvrt_xst.c       \
 			src/stack/ft_alloc_getvoid.c         \
 			src/stack/ft_stack_init.c            \
@@ -224,6 +230,7 @@ FILE	=	src/mem/ft_memalloc.c                \
 			src/stack/ft_stack_free.c            \
 			src/stack/ft_alloc_rename.c          \
 			src/stack/ft_vartype_func.c          \
+			src/stack/ft_stack_offset.c          \
 			src/stack/ft_vartype_gettype.c       \
 			src/stack/ft_alloc_del.c             \
 			src/stack/ft_alloc_cnvrt_add.c       \
@@ -231,6 +238,7 @@ FILE	=	src/mem/ft_memalloc.c                \
 			src/stack/ft_vartype_addput.c        \
 			src/stack/ft_alloc_fusion.c          \
 			src/stack/ft_vartype_get.c           \
+			src/stack/ft_stack_instruction.c     \
 			src/stack/ft_calloc_erase.c          \
 			src/stack/ft_alloc_len.c             \
 			src/stack/ft_alloc_cnvrt.c           \
@@ -292,6 +300,7 @@ FILE	=	src/mem/ft_memalloc.c                \
 			src/strings/ft_strcleanfront.c       \
 			src/strings/ft_strreplace.c          \
 			src/strings/ft_strncmp.c             \
+			src/strings/ft_strinside.c           \
 			src/strings/ft_strfusion.c           \
 			src/strings/ft_strdup.c              \
 			src/strings/ft_strsplit.c            \
