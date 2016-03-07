@@ -18,7 +18,7 @@
     test.tolower();
     test.replace(les, los);
     test.toupper();
-    ##INFOS;
+    #INFOS;
 
     #DBG_PROG;
 ?>
