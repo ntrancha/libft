@@ -4,6 +4,7 @@
     new string name_variable = "test42";
     new string test42 = "ok les lapins";
     new int coc = 42;
+
     if (coc == 42)
     {
         test42.replace(lapins, LAPINOS);
